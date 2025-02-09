@@ -44,9 +44,9 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something. broke!');
 });
 
-const PORT = process.env.PORT || 4;
-app.listen(PORT, () => {
-  console.log(`Server rasunning.,../ on http://localhost:${PORT}`); 
-});
+// const PORT = process.env.PORT || 4;
+// app.listen(PORT, () => {
+//   console.log(`Server rasunning.,../ on http://localhost:${PORT}`); 
+// });
 
 module.exports = app;
