@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Subjects - <%= examName %> </title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <%- include('./partials/sidebar', { currentPage: 'subjects' }) %>
+        <main class="dashboard-main">
+          <%- include('./partials/sidebar') %>  
+            <div class="content-area"> 
+                <div class="content-header">
+                    <h1><%= examName %> Subjects</h1>
+                    <button class="add-button" onclick="openAddSubjectModal()">
+                        <i class="fas fa-plus"></i> Add Subject
+                    </button>
+                </div>
+
+                <div class="exam-container"> 
+                    <% subjects.forEach(subject => { %>
+                        <div class="exam-card">
+                            <a href="/dashboard/questionPapers/<%= examId %>/<%= subject.subjectId %>" class="text-decoration-none">
+                                <div class="exam-icon">
+                                    <i class="fas fa-book"></i> 
+                                </div>
+                                <h3 class="exam-title"><%= subject.subjectName %></h3>
+                                <p class="card-stats">
+                                    <i class="fas fa-question-circle"></i> 
+                                    <span><%= subject.questionCount %> Questions</span>
+                                </p>
+                            </a>
+                            <div class="admin-actions">
+                                <button class="action-button delete" onclick="event.preventDefault(); deleteSubject('<%= examId %>', '<%= subject.subjectId %>');">
+                                  Delete
+                                </button>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+
+                <!-- Add Subject Modal -->
+                <div id="addSubjectModal" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>Add New Subject</h2>
+                            <button class="close-button" onclick="closeAddSubjectModal()">×</button>
+                        </div>
+                        <form id="addSubjectForm" onsubmit="handleAddSubject(event)">
+                            <div class="form-group">
+                                <label for="subjectName">Subject Name</label>
+                                <input type="text" id="subjectName" name="subjectName" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="cancel-button" onclick="closeAddSubjectModal()">
+                                    Cancel
+                                </button>
+                                <button type="submit" class="submit-button">
+                                    Add Subject
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        function openAddSubjectModal() {
+            document.getElementById('addSubjectModal').style.display = 'flex';
+        }
+
+        function closeAddSubjectModal() {
+            document.getElementById('addSubjectModal').style.display = 'none';
+        }
+
+        async function handleAddSubject(event) {
+            event.preventDefault();
+            const subjectName = document.getElementById('subjectName').value;
+
+            try {
+                const response = await fetch('/api/subjects', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        examId: '<%= examId %>',
+                        subjectName
+                    })
+                });
+
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    const data = await response.json();
+                    alert(data.error || 'Failed to add subject');
+                }
+            } catch (error) {
+                alert('Failed to add subject');
+            }
+        }
+
+        async function deleteSubject(examId, subjectId) {
+            if (!confirm('Are you sure you want to delete this subject? This operation cannot be undone.')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/subjects/${examId}/${subjectId}`, { // Use backticks for template literal
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Subject deleted successfully, reload the page
+                    window.location.reload();
+                } else {
+                    const data = await response.json();
+                    alert(data.error || 'Failed to delete subject');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to delete subject: ' + error.message);
+            }
+        }
+        
+    </script>
+</body>
+</html>
+

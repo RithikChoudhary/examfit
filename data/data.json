@@ -1,0 +1,1823 @@
+{
+  "exams": [
+    {
+      "examId": "upsc",
+      "examName": "Union Public Service Commission",
+      "subjects": [
+        {
+          "subjectId": "english",
+          "subjectName": "English",
+          "questionPapers": [
+            {
+              "questionPaperId": "qp-1737918523934",
+              "questionPaperName": "ghjkl;",
+              "section": "Section I",
+              "questions": []
+            },
+            {
+              "questionPaperId": "qp-1737918535584",
+              "questionPaperName": "asd",
+              "section": "Section I",
+              "questions": [
+                {
+                  "questionId": "q1737918849791-913bvhkxd",
+                  "question": "What is the capital of France?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "London"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Paris"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Berlin"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Madrid"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Paris is the capital city of France"
+                },
+                {
+                  "questionId": "q1737918849791-3rt9vtng4",
+                  "question": "Who wrote \"Romeo and Juliet\"?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Charles Dickens"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Mark Twain"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "William Shakespeare"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Jane Austen"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "William Shakespeare wrote Romeo and Juliet in the late 16th century"
+                }
+              ]
+            },
+            {
+              "questionPaperId": "qp-1737955414634",
+              "questionPaperName": "PYQ-1",
+              "section": "PYQ",
+              "questions": [
+                {
+                  "questionId": "q1737955421954-ycg5tu8up",
+                  "question": "What is the capital of France?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "London"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Paris"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Berlin"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Madrid"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Paris is the capital city of France"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "subjectId": "history",
+          "subjectName": "History",
+          "questionPapers": [
+            {
+              "questionPaperId": "qp-1738000223309",
+              "questionPaperName": "PYQ-2024",
+              "section": "PYQ",
+              "questions": [
+                {
+                  "questionId": "q1738132208685-xe69l97n1",
+                  "question": "Sanghabhuti, an Indian Buddhist monk, who travelled to China at the end of the fourth century AD, was the author of a commentary on :",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Prajnaparamita Sutra"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "  Visuddhimagga"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Sarvastivada Vinaya"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Lalitavistara "
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Many Indian monks who travelled to China during these centuries belonged to Kashmir (Dutt [1962], 1988: 294–310). They included Sanghabhuti, author of a commentary on the Sarvastivada Vinaya, who was in China in 381–84 CE."
+                },
+                {
+                  "questionId": "q1738132208685-rdxyrba8f",
+                  "question": "With reference to ancient India, Gautama Buddha was generally known by which of the following epithets?\r\n\r\n1. Nayaputta\r\n\r\n2. Shakyamuni\r\n\r\n3. Tathagata\r\n\r\nSelect the correct answer using the code given below:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " 2 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " 1, 2 and 3"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above are epithets of Gautama Buddha"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Epithets (attributes) were not the sole property of a leader of a particular sect whether Brahmin or Sramana. However, the denotion of these word though broad in early days became limited in the course of time.\r\n\r\nEpithets of Lord Mahavira are: \r\n\r\nNayaputta\r\nVira\r\nMahavira\r\nArhat\r\nEpithets of Gautama Buddha are: \r\n\r\nShakyaMuni\r\nTathagata"
+                },
+                {
+                  "questionId": "q1738132208685-jb497d02s",
+                  "question": "Consider the following information:\r\n\r\n \tArchaeological Site\tState\tDescription\r\n1.\tChandraketugarh\tOdisha\tTrading Port town\r\n2.\tInamgaon\tMaharashtra\tChalcolithic site\r\n3.\tMangadu\tKerala\tMegalithic site\r\n4.\tSalihundam\tAndhra Pradesh\tRock-cut cave shrines\r\nIn which of the above rows is the given information correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " 1 and 2"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " 2 and 3"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " 3 and 4"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1 and 4"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Pair 1 is incorrectly matched: : Chandraketugarh is an urban centre of the ancient state of Gangaridai belonging to the trans-Bengal region at the interface of West Bengal and Bangladesh. The description has been found from various travelogues from India and abroad. The position of Chandraketugarh has been acknowledged on the basis of Maritime-Land route memoirs and textual historic evidences obtained from within India and also from the eastern and western parts of Asia. The antiquity of the area dates back to eras as early as 4th century BCE, a period much prior to the Mauryan era and shows evidence in the continuity of subsequent Sunga, Kushana, Gupta, Pala and Sena dynasties.\r\n\r\nPair 2 is correctly matched: Inamgaon is a chalcolithic site in Maharashtra. After the disintegration of the Indus civilization, in a phase known as the Early Jorwe (1400– 1000 BC), hundreds of agrarian villages flourished in the Deccan region of west-central India. Environmental degradation, combined with unsustainable agricultural practices, contributed to the abandonment of many communities around 1000 BC. Inamgaon was one of a handful of villages to persist into the Late Jorwe phase (1000–700 BC), wherein reliance on dry-plough agricultural production declined.\r\n\r\nunnamed 51\r\n\r\n \r\n\r\nPair 3 is correctly matched : Mangadu is a Megalithic Site in Kerala. The megalithic monuments at Mangadu consisted of 28 hard compact and unhewn laterite blocks within an area of 5 cents of land. The pottery at Mangadu can be classified into three categories namely the huge urns, the medium sized jars are hand made. The associated potteries are of wheel-made pottery and the fabric is black and red and red wares.\r\n\r\nPair 4 is incorrectly matched : Salihundam is a Buddhist Site in Andhra Pradesh as early as the 2nd century CE to the 12th century CE. Here, Buddhism flourished under the patronage of various dynasties, including the Satavahanas, Ikshvakus, and the Eastern Ganga dynasty. The archaeological excavations have revealed numerous stupas, chaityas, viharas and a congregation hall, indicating the importance of this site in the transmission of Buddhist knowledge and wisdom. Rock cut caves are not found in Salihundam.\r\n\r\n "
+                },
+                {
+                  "questionId": "q1738132208685-zzn0m3g3n",
+                  "question": "Who of the following rulers of medieval India gave permission to the Portuguese to build a fort at Bhatkal?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Krishnadevaraya"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Narasimha Saluva"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Muhammad Shah III"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Yusuf Adil Shah"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Emperor Krishnadevaraya allowed the Portuguese to build a fort Bhatkal in 1510. The town was named Bhatakala after the Jain grammarian Bhattakalanka Deva, who hailed from Haduvalli, 16 km away, capital of the Saluvas of Gerusoppa. "
+                },
+                {
+                  "questionId": "q1738132208685-jknwtq8fj",
+                  "question": "With reference to the Government of India Act, 1935, consider the following statements:\r\n\r\n1. It provided for the establishment of an All India Federation based on the union of the British Indian Provinces, and Princely States.\r\n\r\n2. Defence and Foreign Affairs were kept under the control of the federal legislature.\r\n\r\n Which of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " 1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2 "
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Government of India Act was passed by the British parliament in 1935 and came into effect in 1937. It was based on a report by a Joint Select Committee, led by Lord Linlithgow, set up the two houses of the British parliament.\r\n\r\nSome of the key features of the Act were:\\\r\n\r\nThe creation of a ‘Federation of India’ that consisted of two levels: a central executive and parliament, and below it, provinces and princely states. Hence, Statement 1 is correct.\r\nIt discarded the ‘dyarchy’ system at the provincial level and allowed for the emergence of popularly elected provincial legislatures. Dyarchy was introduced at the central level, key subjects like defence and foreign affairs were under the direct control of the Governor General. Hence, Statement 2 is incorrect.\r\nA federal court was established. \r\nThe franchise was expanded to 14% of the population from 3%.\r\nSeparate electorates were provided for Muslims, Sikhs and others, but not to Depressed Classes.\r\nGovernor enjoyed critical emergency powers."
+                },
+                {
+                  "questionId": "q1738132208685-kjtjeaomj",
+                  "question": "With reference to revenue collection by Cornwallis, consider the following statements:\r\n\r\n1. Under the Ryotwari Settlement of revenue collection, the peasants were exempted from revenue payment in case of bad harvests or natural calamities.\r\n\r\n2. Under the Permanent Settlement in Bengal, if the Zamindar failed to pay his revenues to the state, on or before the fixed date, he would be removed from his Zamindari.\r\n\r\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Statement 1 is incorrect: In Ryotwari system the government revenue was a fixed amount, irrespective of crop output, and was to be paid in cash. Thus during periods of bad crops or low prices the peasants were forced to borrow from moneylenders to pay the land revenue. Once in the clutches of moneylenders they were rarely able to free themselves from debt and the end result invariably was mortgage or sale of land.\r\n\r\nStatement 2 is correct: In Zamindari system the revenue was invariable, regardless of the harvest, and had to be paid punctually. According to the Sunset Law, if payment did not come in by sunset of the specified date, the zamindari was liable to be auctioned. "
+                }
+              ]
+            },
+            {
+              "questionPaperId": "qp-1738000228938",
+              "questionPaperName": "PYQ-2023",
+              "section": "PYQ",
+              "questions": [
+                {
+                  "questionId": "q1738132247544-5krebans5",
+                  "question": "With reference to Indian History, Alexander Rea, A. H. Longhurst, Robert Sewell, James Burgess and Walter Elliot were associated with",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "archaeological excavations"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "establishment of English Press in Colonial India"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " establishment of Churches in Princely States"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "construction of railways in Colonial India\r\n\r\n\r\n"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Alexander Rea (1858-1924) was an archaeologist who worked mainly in South British India and is known for unearthing a sarcophagus from the hillocks\r\nof Pallavaram in Tamil Nadu. He arrived in India in 1882 and became assistant of Burgess in the Archaeological Survey of India (A.S.I.), Madras Division. He went on to become Superintendent of the Archaeological Survey of Southern India (1902).\r\n\r\nAlbert Henry Longhurst (1876-1955) was an archaeologist and art historian who worked in India and Ceylon. He was in charge of the systematic digging of Nagarjunakonda (1927-1931).\r\n\r\nRobert Sewell (1845-1925) was a civil servant in the Madras Presidency in colonial India. He undertook archaeological work at the Amaravati stupa. The site had previously been surveyed by Colin Mackenzie and Walter Elliot (1803-1887). James Burgess (1832-1916) was the founder of the Indian Antiquary in 1872 and an important archaeologist of British India in the 19th century. From 1886-89 he was Director General of the Archaeological Survey of India."
+                },
+                {
+                  "questionId": "q1738132247544-ks0lvhfxz",
+                  "question": "Consider the following statements:\r\nStatement-I: 7th August is declared as the National Handloom Day.\r\nStatement-II: It was in 1905 that the Swadeshi Movement was launched on the same day.\r\nWhich one of the following is correct in respect of the above statements?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Statement-I is correct but Statement-II is incorrect"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Statement-I is incorrect but Statement-II is correct\r\n"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Statement-I is correct: The Government of India decided to designate the 7th of August every year as the National Handloom Day, and it was inaugurated\r\non 7 August 2015 by Prime Minister Narendra Modi in Chennai.\r\nStatement-II is the correct explanation for Statement-I: The Swadeshi Movement, which was launched on 7th August 1905 had encouraged indigenous industries (in particular handloom weavers). Hence, the Government of India decided to designate the 7th of August every year as the National Handloom Day.\r\nHence, both statement-I and statement-II are correct, and statement-II is the correct explanation for statement-I.\r\n\r\nOther Swadeshi/indigenous Enterprises in the Early Nationalist Phase:\r\n\r\nThe Swadeshi spirit also found expression in the establishment of Swadeshi textile mills, soap and match factories, tanneries, banks, insurance companies, shops, etc.\r\nThese enterprises were based more on patriotic zeal than on business acumen.\r\nV.O. Chidambaram Pillai’s venture into a national shipbuilding enterprise – Swadeshi Steam Navigation Company – at Tuticorin, however, gave a challenge to the British Indian Steam Navigation Company.\r\nThere had been a consciousness even in the 1890s that Indian products should be encouraged in the face of the onslaught of imported foreign goods. To this effect, several leaders had been organising melas (fairs) to exhibit Indian handicrafts and putting up stores for their sale so that their production could be encouraged:\r\nRabindranath’s Swadeshi Bhandar (1897)\r\nJogeshchandra Chaudhuri’s Indian Stores (1901)\r\nSarala Debi’s Lakshmi Bhandar (1903)\r\nThe Bengal Chemicals factory was established by Prafullachandra Ray in 1893."
+                },
+                {
+                  "questionId": "q1738132247544-eeahyrjkv",
+                  "question": "In which one of the following regions was Dhanyakataka, which flourished as a prominent Buddhist centre under the Mahasanghikas, located?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Andhra"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Gandhara"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Kalinga"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Magadha"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Amaravati in Andhra Pradesh holds historical significance as the site of ancient Dhanyakataka, a prominent town in the Deccan region and the capital of the later Satavahanas, as recorded in numerous inscriptions. This area also housed a significant Buddhist settlement. According to scriptures Dhanyakataka is the place where Buddha first revealed the Kalachakra. Kalachakra is a Buddhist tantric practice."
+                },
+                {
+                  "questionId": "q1738132247544-old7my1uq",
+                  "question": "With reference to ancient South India, Korkai, Poompuhar and Muchiri were well known as",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "capital cities"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "ports"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "centres of iron-and-steel making"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "\r\nshrines of Jain Tirthankaras\r\n"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Korkai: Korkai, situated in the Thoothukudi district of Tamil Nadu, emerged as a significant port city during ancient times, notably flourishing during the era of Tamil Sangam literature. It served as the primary port for the Pandya Kingdom during this period. Poompuhar: Alternatively known as Kaveripattinam, it stands out as an ancient port city with a vibrant maritime trading legacy. Positioned on the banks of the Kaveri River in the Nagapattinam district of Tamil Nadu, it served as the primary port for the esteemed Chola Kingdom. Muchiri: Muchiri, alternatively referred to as Muziris, stood as an ancient port city situated in what is now Kerala, close to the town of Kodungallur. It held substantial importance as a trading hub within the Indian Ocean trade network throughout the ancient and medieval eras. Tondi and Muchiri emerged as pivotal ports within the realm of the Chera kingdom. Hence, all the three sites mentioned were well known as Ports in ancient South India."
+                },
+                {
+                  "questionId": "q1738132247544-froec20zl",
+                  "question": "Consider the following dynasties:\r\n1. Hoysala\r\n\r\n2. Gahadavala\r\n\r\n3. Kakatiya\r\n\r\n4. Yadava\r\nHow many of the above dynasties established theirkingdoms in the early eighth century AD?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Hoysala Dynasty: Originating from the Indian subcontinent, the Hoysala Empire held sway over a significant portion of present-day Karnataka from the 10th to the 14th centuries. While the Hoysalas initially established their capital at Belur, it was later\r\nrelocated to Halebidu.\r\nGahadavala Dynasty: Following the dissolution of the Pratihara empire, several Rajput states emerged in northern India. Among these, the Gahadavalas of Kanauj (12th to 13th century), the Paramaras of Malwa, and the Chauhans of Ajmer were the most prominent.\r\n\r\nKakatiya Dynasty: The Kakatiya dynasty ruled the region comprising present day Telangana and Andhra Pradesh during the 12th and 14th centuries. Their\r\ncapital was Warangal in Telangana. The distinct style of Kakatiya-era architecture is seen in the Thousand Pillar Temple and Ramappa Temple near Warangal.\r\n\r\nYadava Dynasty: The Yadava dynasty ruled in the 12th–14th-century and comprised the Hindu kingdom of central India in what is now the Indian state of Maharashtra. Originally a feudatory of the Eastern Chalukyas of Kalyani, the dynasty became paramount in the Deccan under Bhillama (c. 1187– 91), who founded Devagiri (later Daulatabad) as his capital. Hence, none of the above dynasties established their kingdom in the early eighth century AD"
+                },
+                {
+                  "questionId": "q1738132247544-7pvp60ppt",
+                  "question": "“Souls are not only the property of animal and plant life, but also of rocks, running water and many other natural objects not looked on as living by other religious sects.” The above statement reflects one of the core beliefs of which one of the following religious sects of ancient India?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Buddhism"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Jainism"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Shaivism"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Vaishnavism"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The core principle of Jainism revolves around nonviolence, with no other religion placing as great an emphasis on this value. Jains hold the belief that souls\r\ninhabit plants, animals, and even certain non-living entities such as air and water, similar to humans. The doctrine of non-violence encompasses refraining from causing harm to humans, plants, animals, and the natural world."
+                },
+                {
+                  "questionId": "q1738132247544-r1c9v5a09",
+                  "question": "Who among the following rulers of medieval Gujarat surrendered Diu to the Portuguese?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Ahmad Shah"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Mahmud Begarha"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Bahadur Shah"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "\r\nMuhammad Shah\r\n\r\n"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Amidst increasing Portuguese threats to Gujarat’s trade and coastal regions, the Sultan of Gujarat sought Ottoman support, leading to a continuous exchange of embassies and letters between the two powers. The Ottomans ousted the Portuguese from the Red Sea and dispatched a fleet to aid Bahadur Shah of Gujarat. Rumi Khan, an Ottoman commander, successfully repelled Portuguese attacks on Daman and Diu in 1531. However, a larger threat emerged\r\nfrom the Mughals, leading Bahadur Shah to grant Bassein to the Portuguese. As part of the defensiveoffensive alliance against the Mughals, the Portuguese\r\nwere granted permission to construct a fort at Diu, thereby solidifying their presence in Gujarat.\r\n\r\nKrishna’s Explanation:\r\nThe Portuguese had already mounted a clear and strategic presence in Mumbai long before the arrival of the British in India. After its takeover of Goa in 1510, the maritime power set about consolidating its presence in north Konkan, attempting several incursions on the islands of Bombay and Mahim,\r\ngoverned at the time by the Sultans of Gujarat. In 1526, the Portuguese established a factory at Bassein. In 1528-29 they seized the fort of Mahim. With the\r\nlargest fleet at their command, the Portuguese under Goa’s Viceroy Nuno da Cunha had become a nagging maritime presence for Sultan Bahadur Shah of\r\nGujarat. Wary of the growing power of the Mughals, Bahadur Shah chose to strike up an alliance with the Portuguese. In 1534 he signed off the seven islands of Bombay and the strategic town of Bassein to the Portuguese in a treaty of peace and commerce, bringing to an end Islamic rule on the Islands. Also, as a part of the defensive-offensive alliance against the Mughals, the Portuguese were granted permission to construct a fort at Diu, thereby solidifying their presence in Gujarat."
+                },
+                {
+                  "questionId": "q1738132247544-mreqtm3fe",
+                  "question": "Who among the following rulers of Vijayanagara Empire constructed a large dam across Tungabhadra River and a  canal-cum-aqueduct several kilometres long from the river to the capital city?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Devaraya I"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Mallikarjuna"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Vira Vijaya"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Virupaksha"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Vijayanagar was founded in 1336 by Harihara and Bukka of the Sangama dynasty. Four dynasties – Sangama, Saluva, Tuluva and Aravidu – ruled Vijayanagar from A.D. 1336 to 1672. Deva Raya I (c.1406–1422 CE) of the Sangama dynasty was a very capable ruler noted for his military exploits and his support to irrigation works in his kingdom. He constructed a dam across the river Tungabhadra to bring canals into the city to relieve the shortage of water. He also built a dam on the river Haridra for irrigation purposes. Many foreign travelers also visited the Vijayanagar Empire and their accounts are also valuable.\r\n\r\nThe Moroccan traveler Ibn Battuta\r\nVenetian traveller Nicolo de Conti\r\nPersian traveller Abdur Razzak\r\nPortuguese traveler Domingo Paes.]"
+                }
+              ]
+            },
+            {
+              "questionPaperId": "qp-1738000234186",
+              "questionPaperName": "PYQ-2022",
+              "section": "PYQ",
+              "questions": [
+                {
+                  "questionId": "q1738132351837-2na8h27rg",
+                  "question": "According to Kautilya’s Arthashastra, which of the following are correct?\n\nA person could be a slave as a result of a judicial punishment.\nIf a female slave bore her master a son, she was legally free.\nIf a son born to a female slave was fathered by her master the son was entitled to the legal status of the master’s son.\nWhich of the statements given above are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " 2 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1 and 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "\"Statement 1 is incorrect: As per the Arthashastra, any person who has voluntarily enslaved himself shall, if he runs away, be a slave for life. Similarly, any person whose life has been mortgaged by others shall, if he runs away twice, be a slave for life.\n\nStatement 2 is correct: There was a variety of protection offered to the slaves, especially to the women slaves. As per the Arthashastra, when a child is begotten on a female slave by her master, both the child and its mother shall at once be recognized as free.\n\nStatement 3 is correct: According to the Arthshastra, if a son born to a female slave was fathered by her master, the son was entitled to the legal status of the master’s son.\""
+                },
+                {
+                  "questionId": "q1738132351837-w0j29m3wt",
+                  "question": "With reference to Indian history, consider the following texts:\n\nNettipakarana\nParishishta Parvan\nAvadanasataka\nTrishashtilakshana Mahapurana\nWhich of the above are Jaina texts?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1, 2 and 3"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 and 4 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1, 3 and 4"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " 2, 3 and 4"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "\"Buddhist Literature/Texts: The earliest Buddhist works were written in Pali, which was spoken in Magadha and South Bihar. The Buddhist works can be divided into the canonical and non-canonical texts. Canonical texts are believed to be the actual words of the Buddha. Canonical texts are books which lay down the basic tenets and principles of Buddhism such as the Tripitakas. Non-canonical texts or semi-canonical texts are commentaries and observations on canonical texts, quotes, definitions, historical information, grammars and other writings in Pali, Tibetian, Chinese and other East Asian\nJain Literature/Text: The sacred books of the Jainas are collectively known as the Siddhanta or Agama. Both the Shvetambara and Digambara schools accept and give prime importance to the Angas. Agamas is a term used for Jaina canonical It includes: 14 Purvas; 12 Angas; 12 Upangas; 10 Prakirnas; 6 Cheda Sutras; 4 Mala Sutras; Niryuktis; Kalpasutra; Acharang Sutras; Nandi Sutra; Anuyogadvara.\nStatement 1 is incorrect: The Netti Pakarana is a Buddhist scripture containing methods that were taught by the Buddha’s disciple Kaccana as approved by the Buddha and that it was recited at the First Buddhist Council.\nStatement 2 is correct: The Parishishta Parvan (12th century) by Hemachandra gives a history of the earliest Jaina teachers and also mentions certain details of political history.\nStatement 3 is incorrect: Avadana literature (Avadana means ‘Legends’) is a type of Buddhist literature correlating past lives’ virtuous deeds to subsequent lives’ events.\nStatement 4 is correct: Trishashthilkshana Mahapurana is a major Jain text composed largely by Acharya Jinasena during the rule of Rashtrakutas.\""
+                },
+                {
+                  "questionId": "q1738132351837-m1qdpgvyb",
+                  "question": "With reference to Indian history, consider the following pairs:\n\nHistorical person\tKnown as\n1. Aryadeva\tJaina scholar\n2. Dignaga\tBuddhist scholar\n3. Nathamuni\tVaishnava scholar\nHow many pairs given above are correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "None of the pairs"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only one pair"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only two pairs"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All three pairs"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "\"Pair 1 is incorrect: A ryadeva was a Mahayana Buddhist monk, a disciple of Nagarjuna and a Madhyamaka philosopher. After Nagarjuna, he is considered to be the next most important figure of the Indian Madhyamaka school. His writings are important sources of Madhyamaka in both East Asian Buddhism and in Tibetan Buddhism.  A ryadeva  is  also  known as Kanadeva, recognized as the 15th patriarch in Chan Buddhism and some Sinhalese sources also mention an elder (thera) called Deva which may also be the same person. He is known for his association with the Nalanda monastery in modern-day Bihar, India.\nPair 2 is correct: Dignāga, Buddhist logician and  author of the Pramāṇasamuccaya (“Compendium  of  the Means    of True Knowledge”), a work that laid the foundations of Buddhist logic. Dignāga gave a new definition of “perception”: knowledge that is free from all conceptual constructions, including name and class concepts. Dignāga’s tradition was further developed in the 7th century by Dharmakīrti.\nPair  3   correct:   Sri    Ranganathamuni, popularly known as Sriman Nathamuni (823 CE–951 CE), was a Vaishnava theologian who collected and compiled the Nalayira Divya Prabandham. Considered the first of Sri Vaishnava āchāryās, Nathamuni is also the author of Yogarahasya, and Nyāyatattva.\""
+                },
+                {
+                  "questionId": "q1738132351837-8ru5ipcvd",
+                  "question": "Consider the following pairs:\n\nNannuka –           Chandela\nJayashakti           Paramara\nNagabhata II      Gurjara-Pratihara\nBhoja                  Rashtrakuta\nHow many pairs given above are correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one pair"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two pairs"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three pairs"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four pairs"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "\"Sub-Theme: Regional Dynasty\n\nPair 1 is correct: In the first quarter of the 9th century CE, the Chandella dynasty was founded by Nannuka.\n\nPair 2 is incorrect: Vakpati’s son’s Jayashakti (Jeja) and Vijayashakti (Vija) consolidated the Chandella power.\n\nPair 3 is correct: Nagabhata II (reigned c. 793–833) was Vatsaraja’s successor, he reorganized Pratihara power, attacked Kannauj. Pair 4 is incorrect: Bhoja I/Mihir Bhoja (c.836−885 CE) Grandson of Nagabhatta II, who had a long reign of over 46 years and proved to be the most successful and popular ruler of Pratiharas.\""
+                },
+                {
+                  "questionId": "q1738132351837-ikbuy2fy2",
+                  "question": "With reference to Indian history, consider the following statements:\n\nThe first Mongol invasion of India happened during the reign of Jalalud- din Khalji.\nDuring the reign of Ala-ud-din Khalji, one Mongol assault marched up to Delhi and besieged the city.\nMuhammad-bin-Tughlaq temporarily lost portions of the north-west of his kingdom to Mongols.\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " 1 and 3"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "3 only"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "\"Sub-Theme: Delhi Sultanate and the Mongol Invasion\n\nStatement 1 is incorrect: The first Mongol invasion of India took place in the reign of Sultan Shams-ud-din Iltutmish.\n\nStatement 2 is correct: During the reign of  Ala-ud-din  Khalji,  one  of  the  Mongol invasions reached till the outskirts of Delhi city and besieged it. Alauddin established a huge permanent, standing army to satisfy his ambition of conquest and to protect the country from Mongol invasion. The Mongols attacked at the worst time possible for Alauddin Khilji– when he was busy laying siege to Chittor. Alauddin Khilji was forced to retreat to Siri for about two months. The Mongols attacked and pillaged not only the surrounding areas, but Delhi itself. Alauddin Khilji continued to hold the fortress at Siri; Targhi withdrew the siege after a few months and left the area.\n\nStatement 3 is incorrect: Muhammad-bin- Tughlaq defeated the Mongols and he had not lost any of the portions of his kingdom to them.\""
+                },
+                {
+                  "questionId": "q1738132351837-0u4slgnwp",
+                  "question": "With reference to Indian history, who of the following were known as “Kulah-Daran”?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Arab merchants"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Qalandars"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Persian calligraphists"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Sayyids"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "\"Sub-Theme: Sayyid Dynasty\n\nCorrect answer is Option (d):\n\nThe sayyids put on a pointed cap (kulah) and they were known as ‘Kulah Daran’ during the Delhi The Sayyids were claimed to descend from the Prophet through his daughter Fatima. They Commanded special respect in Muslim society. Even the Timur protected the life of Sayyids during his invasion in India. Although his policy was one of general slaughter.\""
+                },
+                {
+                  "questionId": "q1738132351837-v574yjpyx",
+                  "question": "In medieval India, the term “Fanam” referred to:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Clothing"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Coins"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Ornaments"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Weapons"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "\"Sub-Theme: Socio-Economic Condition of Vijaynagar Empire\n\nCorrect answer is Option (b):\n\nThe chief gold coin of the Vijayanagar Empire was the varaha or pagoda. The Perta was half a Varaha.\nFanam was one tenth a perta. Tar was a silver coin. Jittal was a copper coin.\""
+                },
+                {
+                  "questionId": "q1738132351837-8lanopagx",
+                  "question": "The world’s second tallest statue in sitting pose of Ramanuja was inaugurated by the Prime Minister of India at Hyderabad recently. Which one of the following statements correctly represents the teachings of Ramanuja?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "The best means of salvation was devotion."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Vedas are eternal, self-existent and wholly authoritative."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Logical arguments were essential means for the highest bliss."
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Salvation was to be obtained through meditation."
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "\"Sub-Theme: Shri Ramanujacharya\n\nCorrect answer is Option (a): Shri Ramanujacharya firmly believed that intense devotion to Vishnu was the best means to attain salvation. Sri Ramanujacharya was born in 1017 CE in Tamil Nadu.\n\nHe is the most respected Acharya in the philosophy of Sri Vaishnavism. Ramanuja was deeply influenced by the Alvars. He firmly believed that intense devotion to Vishnu was the best means to attain He is famous as the chief proponent of Vishishtadvaita subschool of Vedānta.\nHe was also referred to as Ilaya Perumal, which means the radiant He wrote nine works that came to be known as the Navratnas including three major commentaries, the Vedartha-Sangraha, the Sribhasya and the Bhagavad Gita-bhashya aimed at providing a philosophical foundation for devotional worship. Vishishtadvaita is a non-dualistic school of Vedanta philosophy in which Brahman alone exists, but is characterized by multiplicity.\""
+                },
+                {
+                  "questionId": "q1738132351837-ci57qev1v",
+                  "question": "With reference to Indian history, consider the following statements:\n\nThe Dutch established their factories/warehouses on the east coast on lands granted to them by Gajapati rulers.\nAlfonso de Albuquerque captured Goa from the Bijapur Sultanate.\nThe English East India Company established a factory at Madras on a plot of land leased from a representative of the Vijayanagara empire.\nWhich of the statements given above are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1 and 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "\"Sub-Theme: Various events during the advent of the Europeans\n\nStatement 1 is incorrect: There is a difference in timeline of the events. The end of Gajapati Dynasty was in 1542 and the United East India Company of the Netherlands, formed in March 1605 by the Charter of Dutch Parliament and founded their first factory in Masulipatnam in Andhra in 1605.\nStatement 2 is correct: Alfonso de Albuquerque considered as Founder of the Portuguese power in India: captured Goa from Bijapur; persecuted Muslims; captured Bhatkal from Sri Krishna Deva Rai (1510) of Vijayanagara.\nStatement 3 is correct: The English East India Company established a factory in Madras in 1639 on land leased from representatives of Vijayanagara Empire called the Nayakas\""
+                },
+                {
+                  "questionId": "q1738132351837-tmin3p0d0",
+                  "question": "Consider the following freedom fighters:\r\n\r\nBarindra Kumar Ghosh\r\nJogesh Chandra Chatterjee\r\nRash Behari Bose\r\nWho of the above was/were actively associated with the Ghadar Party?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1 and 3"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " 3 only"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": ""
+                },
+                {
+                  "questionId": "q1738132351837-wo9i1zb7t",
+                  "question": "With reference to the proposals of Cripps Mission, consider the following statements:\r\n\r\nThe Constituent Assembly would have members nominated by the Provincial Assemblies as well as the Princely States.\r\n2. Any Province, which is not prepared to accept the new Constitution would have the right to sign a separate agreement with Britain regarding its future status.\r\n\r\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": ""
+                }
+              ]
+            },
+            {
+              "questionPaperId": "qp-1738000240854",
+              "questionPaperName": "PYQ-2021",
+              "section": "PYQ",
+              "questions": [
+                {
+                  "questionId": "q1738132564507-5ktxdxn3k",
+                  "question": "In the first quarter of the seventeenth century, in which of the following was/were the factory/factories of the English East India Company located?\r\n\r\nBroach\r\nChicacole\r\nTrichinopoly\r\nSelect the correct answer using the code given below.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "1 and 2"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " 2 and 3"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Factories of English East India Company\r\n\r\nThe English East India Company had a factory at Broach (present-day Bharuch) in Gujarat, India during the seventeenth century. However, Chicacole (present-day Srikakulam) and Trichinopoly (present-day Tiruchirappalli) were not among the locations of the Company’s factories during this period. Establishment of Factories by English East India Company:\r\n\r\nWest Coast: The English India Company established their factories at Agra, Ahmadabad, Baroda and Broach by 1619, under the control of the president and council of the Surat factory which was established in the year 1612.\r\nSouth-eastern Coast: EIC established their factories at Masulipatam in 1611 and Armagaon near Pulicat in 1626.\r\nEastern India: In eastern India EIC established their factories at Hariharpur and Balasore(now Odisha) in 1633, at Hugli in 1651, followed by setting up factories at Patna, Dacca, Kasimbazar in Bengal and Bihar respectively.\r\nNOTE: This is a direct question asked from Spectrum Modern India (revised edition)"
+                },
+                {
+                  "questionId": "q1738132564507-ju5okmyxz",
+                  "question": "Consider the following statements:\r\n\r\nThe Montagu-Chelmsford Reforms of 1919 recommended granting voting rights to all the women above the age of 21.\r\nThe Government of India Act of 1935 gave women reserved seats in the legislature.\r\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2\r\n"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Sub-Theme: Administrative Reforms post 1857\r\n\r\nMontagu-Chelmsford Act, 1919:\r\n\r\nBy demarcating and separating the central and provincial subjects, it relaxed the central control over the provinces\r\nDivided the provincial subjects into two parts:\r\nTransferred and Reserved subjects: This dual scheme of governance was known as ‘dyarchy’.\r\nIntroduced bicameralism and direct elections in the country.\r\nIt required 3 out of 6 members in the Viceroy’s Executive Council to be Indian.\r\nRecommended the voting rights to women in limited numbers to be extended on the basis of property, tax or education\r\nExtended the principle of communal representation among the Sikhs, Indian Christians, Anglo-Indians and Europeans.\r\nGovernment of India Act of 1935 Features:\r\n\r\nAct divided the powers between the Centre and units in terms of three lists—Federal List (for Centre, with 59 items), Provincial List (for provinces, with 54 items) and the Concurrent List (for both, with 36 items). Residuary powers were given to the Viceroy.\r\nHowever, the federation never came into being as the princely states did not join it.\r\nIt abolished dyarchy in the provinces and introduced ‘provincial autonomy’ in its place. The provinces were allowed to act as autonomous units of administration in their defined spheres.\r\nMoreover, the Act introduced responsible governments in provinces, that is, the governor was required to act with the advice of ministers responsible to the provincial legislature. This came into effect in 1937 and was discontinued in 1939.\r\nIt provided for the adoption of dyarchy at the Centre.\r\nConsequently, the federal subjects were divided into reserved subjects and transferred subjects.\r\nHowever, this provision of the Act did not come into operation at all.\r\nIt introduced bicameralism in six out of eleven provinces. Thus, the legislatures of Bengal, Bombay, Madras, Bihar, Assam and the United Provinces were made bicameral consisting of a legislative council (upper house) and a legislative assembly (lower house).\r\nIt extended the principle of separate electorates for depressed classes (scheduled castes), women and labour (workers).\r\nIt abolished the Council of India, established by the Government of India Act of 1858. The secretary of state for India was provided with a team of advisors.\r\nExtended franchise: About 10 per cent of the total population got the voting right.\r\nIt provided for the establishment of a Reserve Bank of India to control the currency and credit of the country.\r\nIt provided for the establishment of not only a Federal Public Service Commission but also a Provincial Public Service Commission and Joint Public Service Commission for two or more provinces."
+                },
+                {
+                  "questionId": "q1738132564507-kp3sdwv00",
+                  "question": "With reference to 8th August 1942 in Indian history, which one of the following statements is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "The Quit India Resolution was adopted by the AICC."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "The Viceroy’s Executive Council was expanded to include more Indians."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "The Congress ministries resigned in seven provinces."
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Cripps proposed an Indian Union with full Dominion Status once the Second World War was over."
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Quit India Movement\r\n\r\nOption (a) is correct: Quit India Resolution was ratified in a Congress meeting at Gowalia Tank on 8th August 1942. Apart from QIM, other resolutions involved the Civil Disobedience Movement against British Rule. Mantra of “Do or Die” was adopted in this Session by Gandhiji. Option (b) is incorrect: More Indians were added to Viceroy’s executive council by the Government of India Act 1919. First time, an Indian was added in this council by the Government of India act 1909.\r\n\r\nOption (c) is incorrect: The Congress Ministries resigned from seven provinces in 1939 in protest because the then Viceroy Lord Linlithgow’s (1936-1944) action declared India to be belligerent in the WW-II without even consulting the Indian people.\r\n\r\nOption (d) is incorrect: Though Cripps proposed a dominion status to India and the failure of the cripps mission resulted in a nationwide Quit India Movement, this was not related to 8 August 1942."
+                },
+                {
+                  "questionId": "q1738132564507-15rvhae73",
+                  "question": "In the context of Colonial India, Shah Nawaz Khan, Prem Kumar Sehgal and Gurbaksh Singh Dhillon are remembered as:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " leaders of Swadeshi and Boycott Movement"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "members of the Interim Government in 1946"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "members of the Drafting Committee in the Constituent Assembly"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "officers of the Indian National Army\r\n\r\n"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Sub-Theme: Indian National Army/Netaji Subhash Chandra Bose/Red Fort Trial\r\n\r\nIndian National Army (INA) Trials/ Red Fort Trials:\r\n\r\nBetween November 1945 and May 1946, the INA officers were brought before a court martial at the Red Fort in Delhi. At the Red Fort in Delhi, about ten court-martials were held in public.\r\nBy holding open trials in the Red Fort, Claude Auchinleck, the commander-in-chief of the British-Indian army, hoped to sway public opinion against the INA.\r\nMajor General Shah Nawaz Khan, Colonel Prem Kumar Sahgal and Colonel Gurbaksh Singh Dhillon were three of the senior-most officers of INA and trusted colleagues of Netaji.\r\nAfter considerable demonstrations and unrest in India, they were forced to be released after the British court-martialed them at Red Fort in 1945 and sentenced them to death.\r\nCongress leader and the country’s first Prime Minister, Jawaharlal Nehru, also got on board the INA officers’ legal defence team, along with party colleague Bhulabhai Desai and barrister Tej Bahadur Sapru.\r\nNOTE: As we have already discussed, the trend of personality based questions continues !!"
+                },
+                {
+                  "questionId": "q1738132564507-531cwfk37",
+                  "question": "Who among the following was associated as Secretary with Hindu Female School which later came to be known as Bethune Female School?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Annie Besant"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Debendranath Tagore"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Ishwar Chandra Vidyasagar"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Sarojini Naidu"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Sub-Theme: Reforms in Education during the British Time\r\n\r\nIshwar Chandra Vidyasagar (1820-1891) was appointed as the secretary of Bethune School/College established in 1849. Bethune School began as Hindu Female School in 1849 was renamed Bethune School in 1856. In 1856, the Government took charge of the Hindu Female School, later renamed Bethune School.\r\n\r\nNOTE: Details of Annie Besant has already been covered in PYQs under Prominent Personalities in Modern History."
+                },
+                {
+                  "questionId": "q1738132564507-gtxd676f5",
+                  "question": "With reference to Madanapalle of Andhra Pradesh, which one of the following statements is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Pingali Venkayya designed the tricolour Indian National Flag here."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Pattabhi Sitaramaiah led the Quit India Movement of Andhra region from here."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Rabindranath Tagore translated the National Anthem from Bengali to English here."
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Madame Blavatsky and Colonel Olcott set up headquarters of Theosophical Society first here.\r\n \r\n"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Sub-Theme: Major events/Major places of Indian\r\n\r\nFreedom Struggle\r\n\r\nOption (a) is incorrect: The Indian tricolour was designed by Pingali Venkayya, who was a freedom fighter and was a follower of Mahatma Gandhi. Pingali Venkayya had designed the flag of India and presented it to Mahatma Gandhi in 1921 during the session of the All India Congress Committee in Vijayawada.\r\n\r\nOption (b) is incorrect: During the QIM in Andhra the Provincial Congress Committee had issued a circular popularly known as the ‘Kurnool Circular’ as the police seized the copy when they rode ‘Kurnool Congress Office. This was drafted by Kala Venkat Rao, on 29th July 1942 and was sent for the approval of the Congress Working Committee through Dr. Pattabhi Sitaramaiah, a member of the working committee.\r\n\r\nOption (c) is correct: Rabindranath Tagore translated the National Anthem from Bengali to English here.\r\n\r\nOption (d) is incorrect: The Theosophical Society was founded by Madame H. P. Blavatsky and Colonel Olcott in New York in 1875. In 1882, the headquarters of the Society were established in Adyar, near Madras (now Chennai) in India."
+                },
+                {
+                  "questionId": "q1738132564507-6rora6yv1",
+                  "question": "Who among the following is associated with ‘Song from Prison’, a translation of ancient Indian religious lyrics in English?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Bal Gangadhar Tilak"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Jawaharlal Nehru"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Mahatma gandhi"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Sarojini Naidu"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Sub-Theme: Important Personalities/Phases of Mahatma Gandhi\r\n\r\nQuit India Movement planned an all-out campaign to compel British withdrawal from India, after the failure of the Cripps Mission to reach a compromise. At the historic August meeting at Gowalia Tank in Bombay, Gandhi proclaimed his mantra—’do or die’. He was arrested on August 9, 1942. He undertook a 21-day fast in February 1943 to protest against the Government actions against Indians involved in the movement. Mahatma Gandhi wrote “Songs of Prison” during his imprisonment in Yerwada Jail, Poona. He translated hymns from the Upanishads and poems by Indian saint poets into English and that collection was published as Songs from the prison."
+                },
+                {
+                  "questionId": "q1738132564507-rc0lvbfx0",
+                  "question": "Consider the following pairs:\r\n\r\nHistorical place\tWell – known for\r\n1. Burzahom\tRock-cut shrines\r\n2. Chandra – ketugarh\tTerracotta art\r\n3. Ganeshwar\tCopper artefacts\r\nWhich of the pairs given above is/are correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " 1 and 2"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "2 and 3"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Sub-Theme: Significant features of historical places\r\n\r\nPair 1 is incorrect: Burzahom had a well- developed bone tool industry. Other finds at Burzahom include pits and coarse Rock-cut shrines were not a feature of the Burzahom site.\r\nPair 2 is correct: Chandraketugarh is located in the Ganges delta in West Bengal. It was famous for terracotta art. It is connected to Ganga by the Vidyadhari river which makes it ideal for a flourishing trade centre.\r\nPair 3 is correct: Ganeshwar is located in the northeastern part of Rajasthan. Hundreds of copper artefacts have been found at this site which suggests it must have been a copper working centre."
+                },
+                {
+                  "questionId": "q1738132564507-auqmwkz7u",
+                  "question": "Which one of the following ancient towns is well- known for its elaborate system of water harvesting and management by building a series of dams and channelizing water into connected reservoirs?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Dholavira"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Kalibangan"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Rakhigarhi"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Ropar"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Location of historical place and its significant/unique feature\r\n\r\nOption (a) is correct: Dholavira was discovered in 1968 by archaeologist Jagat Pati Joshi, one of the most remarkable and well-preserved urban settlements in South Asia. After Mohen- jo-Daro, Ganweriwala and Harappa in Pakistan and Rakhigarhi in Haryana of India, Dholavira is the fifth largest metropolis of Indus Valley Civilization (IVC). The City of Dholavira had an impressive and unique system of water harvesting and management systems. The Rann’s water levels may have been greater in protohistoric times than they are now, enabling boats to travel from the shore all the way up to the site. Manhar and Mandsar, two streams, border the Dholavira site. To direct their water into reservoirs, dams had to be constructed.\r\nOption (b) is incorrect: Kalibangan is located\r\non the bank of the Ghaggar river in Rajasthan. A fire altar, Camel’s bones and Wooden plough have been found here.\r\nOption (c) is incorrect: Rakhigarhi is the largest Harappan site in the Indian subcontinent. Planned townships having mud-brick as well as burnt-brick were found here.\r\nOption (d) is incorrect: At the Ropar site, a building made of stone and oil, a dog buried with humans and an oval pit burial have been found"
+                },
+                {
+                  "questionId": "q1738132564507-epd6kjoa3",
+                  "question": "From the decline of Guptas until the rise of Harshavardhana in the early seventh century, which of the following kingdoms were holding power in Northern India?\r\n\r\nThe Guptas of Magadha\r\nThe Paramaras of Malwa\r\nThe Pushyabhutis of Thanesar\r\nThe Maukharis of Kanauj\r\nThe Yadavas of Devagiri\r\nThe Maitrakas of Valabhi\r\nSelect the correct answer using the code given below:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1, 2 and 5"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "1, 3, 4 and 6"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " 2, 3 and 4"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "5 and 6"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Sub-Theme: Historical Timeline of post-Gupta\r\n\r\nThe correct answer is Option (b): Due to Hun invasions, the Gupta kingdom was weakened in its power and several independent kingdoms arose in north India such as Yashodharman of Malwa, the Maukharis of Kanauj, the Maitrakas in Saurashtra and others. During that time the Gupta empire was restricted to Magadha only. Pushyabhuti of Thanesar (Haryana) also carved an independent state around that time. During the 10th CE, Tomars of Delhi, Chauhans of Rajasthan, Solankis of Gujarat, Parmars of Malwa, Chandels of Bundelkhand started ruling north India. During the 14th CE, the Yadavas of Devagiri (Maharashtra) became an important ruling dynasty of Deccan. By eliminating options 2 and 5, we can get the correct answer.\r\n\r\nNOTE: If we try to apply knowledge of Physical geography here, we can try to attempt this otherwise difficult and complex question. Question is talking about “Northern India”. We all know Malwa (Malwa plateau) is located in central India (option 2) and Devagiri in Deccan (Devgiri Fort) (option 5). If we take calculable risk of elimination of both of these statements, we can reach the correct answer."
+                },
+                {
+                  "questionId": "q1738132564507-qhkjdq6j1",
+                  "question": "With reference to the history of ancient India, Bhavabhuti, Hastimalla and Kshemeshvara were famous:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Jain monks"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Playwrights"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Temple architects"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Philosophers"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Bhavabhuti was the court poet of King Yashovarman of Kannauj in 8th CE. His written plays include Mahavircharitra, Uttamcharitra, Malatimadhava. Bhavabhuti was an 8th-century scholar of India noted for his plays and poetry, written in Sanskrit. His plays are considered the equal of the works of Kalidasa. Bhavabhuti was born in Padmapura, Vidarbha, in Gondia district, on the Maharashtra and Madhya Pradesh border. He is described as an ‘Udumbara Brahmin’. Dayananidhi Paramahansa is known to be his guru. He composed his historical plays at ‘Kalpi’, a place on banks of river Yamuna.\r\nHastimalla was a Kannada poet and playwright during Hoysalas reign.\r\nKshemeshvara was an 11th-century Sanskrit poet from Kashmir in He is known for his poetic works and for his contributions to the development of Sanskrit poetry. One of the important works attributed to him is the Dasavatar Charita.\r\nPlaywrights write scripts for plays to be enacted on a stage.\r\nNOTE: It is always advisable to read about various personalities during historic times and their contribution to the various fields – Art, literature, religion, paintings, playwrights, philosophy songs among others. UPSC asked questions on similar themes in 2020 and 2012."
+                },
+                {
+                  "questionId": "q1738132564507-hj9lvekf6",
+                  "question": "Consider the following statements:\r\n\r\nIt was during the reign of Iltutmish that Chengiz Khan reached the Indus in pursuit of the fugitive Khwarezm prince.\r\nIt was during the reign of Muhammad bin Tughluq that Taimur occupied Multan and crossed the Indus.\r\nIt was during the reign of Deva Raya II of the Vijayanagara Empire that Vasco da Gama reached the coast of Kerala.\r\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "1 and 2"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "2 and 3"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Foreign invaders/Foreign Travellers Statement 1 is correct. In his pursuit of the fugitive Khwarezm prince, Changez Khan arrived in India during the reign of Iltutmish. By denying shelter to Prince Jalaluddhin of Central Asia, Iltutmish protected India from Changez Khan’s fury.\r\n\r\nStatement 2 is incorrect. The period of Muhammad bin Tughlaq was from 1325 to 1351. Taimur invaded India during the reign of Nasurud-din Muhammad Shah(1394-1412), the last Tughlaq ruler.\r\n\r\nStatement 3 is incorrect. The reign of Devaraya II lasted from 1422 to 1426. He died in 1446. Vasco da Gama came to India in 1498."
+                },
+                {
+                  "questionId": "q1738132564507-pwyw1i5mf",
+                  "question": "With reference to Indian history, which of the following statements is/are correct?\r\n\r\nThe Nizamat of Arcot emerged from Hyderabad.\r\nThe Mysore Kingdom emerged from the Vijayanagara Empire.\r\nRohilkhand Kingdom was formed out of the territories occupied by Ahmad Shah Durrani.\r\nSelect the correct answer using the code given below:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "2 and 3"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "3 only"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Statement 1 is incorrect: The kingdom of Arcot, also known as the kingdom of Carnatic,was the monarchy that ruled over the majority of the eastern part of the present-day Tamil Nadu region throughout the eighteenth century.\r\n\r\nStatement 2 is correct: Under the Vijayanagar Empire, there was a small feudal kingdom called Mysore. The ruling Wodeyar dynasty declared their independence following the fall of Vijayanagar in 1565, and Raja Wodeyar ascended the throne in 1578. The capital moved from Mysore to Srirangapatna in 1610.\r\n\r\nStatement 3 is incorrect: Ali Muhammad Khan established  Rohilakhand,  a  small kingdom, by taking advantage of the breakdown of authority in North India following Nadir Shah’s invasion."
+                },
+                {
+                  "questionId": "q1738132564507-c7jglpohd",
+                  "question": " According to Portuguese writer Nuniz, the women in Vijayanagara Empire were experts in which of the following areas?\r\n\r\nWrestling\r\nAstrology\r\nAccounting\r\nSoothsaying\r\nSelect the correct answer using the code given below.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1, 2 and 3 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "1, 3 and 4 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " 2 and 4 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2, 3 and 4"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Sub-Theme: Foreign Traveller/Vijaynagar Empire\r\n\r\nCorrect answer is Option (d): According to Fernao Nuniz: “he (the king of Vijaynagar) also has women who wrestle, do accounting and others who are astrologers and soothsayers.\r\n\r\nFernao Nuniz was a Portuguese traveler who visited the Vijayanagar empire during the reign of Achyuta Deva Raya. He has recorded that in Vijayanagara society, women typically held prominent positions, and there are numerous examples of them actively participating in the political, social, and literary life of the kingdom.\r\nIn addition to receiving training in wrestling, using swords and shields, music, and other fine arts, some of these women also had some exposure to literature."
+                },
+                {
+                  "questionId": "q1738132564507-fvdj4bhl1",
+                  "question": "With reference to medieval India, which one of the following is the correct sequence in ascending order in terms of size?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Paragana—Sarkar—Suba"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Sarkar—Paragana—Suba"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Suba—Sarkar—Paragana"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Paragana—Suba—Sarkar\r\n"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Mughal Administration\r\n\r\nCorrect answer is Option (a):\r\n\r\nThe correct order according to the size is:\r\nPargana >Sarkar> Suba.\r\n\r\nThe entire Suba was split into Sarkars (districts), with a military commander known as the chief Shiqdar in charge of each one. Each Sarkar was divided into smaller units called Parganas.\r\nEach Pargana had two Karkuns (clerks or writers), one Fotahdar (treasurer), one Shiqdar (military officer), one Amin or Munsif (civilian judge).\r\nIn order to organise his kingdom for better administration and taxation, Akbar adopted Sher Shah’s methods and principles."
+                }
+              ]
+            },
+            {
+              "questionPaperId": "qp-1738000247647",
+              "questionPaperName": "PYQ-2020",
+              "section": "PYQ",
+              "questions": [
+                {
+                  "questionId": "q1738132690804-ljhed7x41",
+                  "question": "Who among the following rulers advised his subjects through this inscription?\r\n\r\n“Whosoever praises his religious sect or blames other sects out of excessive devotion to his own sect, with the view of glorifying his own sect, he rather injures his own sect very severely.”",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Ashoka"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Samudragupta"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Harshavardhana"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Krishnadeva Raya"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Ashoka and his Dhamma\r\n\r\nThe Correct answer is Option (a): As per the Major rock Edicts 7 and 12, Ashoka insisted that all religions should co-exist and the ascetics of all religions were honoured. About Ashoka’s Dhamma: Ashoka’s dhamma did not involve worship of a god, or performance of a sacrifice. He felt that just as a father tries to teach his children, he had a duty to instruct his subjects. He was also inspired by the teachings of the Buddha. People in the empire followed different religions, and this sometimes led to conflict. Ashoka appointed representatives, referred to as the dhamma mahamatta, who travelled  around  instructing  people  about dhamma. Ashoka had his messages inscribed on pillars and rocks, and he ordered his officials to read his messages to people who were unable to do so for themselves.\r\n\r\nNOTE: This is a direct question from Class 6 NCERT Our Past 1, hence reading NCERT is very important both in terms of clearing concepts and gaining facts."
+                },
+                {
+                  "questionId": "q1738132690804-7gbedxftq",
+                  "question": "With reference to the history of India, the terms “kulyavapa” and “dronavapa” denote",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Measurement of land"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Coins of different monetary value"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Classification of urban land"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Religious rituals\r\n"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Administrative aspect of Gupta Age/ Terminologies based on ancient India\r\n\r\nThe correct answer is Option (a): During the Gupta period, different land measures were known in different regions such as Nivartana, Kulyavapa, Dronavapa. The term “Kulyavapa’’ and “Dronavapa’’ are mentioned in inscriptions in Bengal. The term ‘’vap” means ‘’to sow”. Kulyavapa means the area required to sow one kulya of grain and the Dronavyapa was the area required to sow one drona of grain. One kulya is equal to eight drona.\r\n\r\nNOTE: Careful reading of NCERTs along with side notes and boxes will help us to solve such terminology based questions."
+                },
+                {
+                  "questionId": "q1738132690804-awdxc7pum",
+                  "question": "With reference to the period of the Gupta dynasty in ancient India, the towns Ghantasala, Kadura and Chaul were well known as:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Ports handling foreign trade"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Capitals of powerful kingdoms"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Places of exquisite stone art and architecture"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Important Buddhist pilgrimage centres"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Trades and Commerce during Gupta Age\r\n\r\nThe correct answer is Option (a): In India Trade with foreign empires dates to Harappan culture. Important among them were Lothal, Lakhabawal, Kindarkhera, Kuntasi, Megham, Prabhasa, Todio, Amra. This tradition continued through the Mauryan and Gupta empires. India had commercial and cultural ties with nearly all of the Southeast Asian nations as well as Egypt, Rome, the Greeks, Arabs, and China. Chaul was one of the ports in Western India, with Kalyan, Broach and Cambay. In the south were Kadura, Ghantsala and Puhar (Kaveripattinam).\r\n\r\nNOTE: In 2017, UPSC asked about Kakatiya Kingdom’s foreign trade port – Motupalli. Careful reading of NCERTs along with side notes will help us to solve such terminology based questions."
+                },
+                {
+                  "questionId": "q1738132690804-q35i4xu6w",
+                  "question": "With reference to the scholars/literatures of ancient India, consider the following statements:\r\n\r\nPanini is associated with Pushyamitra\r\nAmarasimha is associated with Harshavardhana.\r\nKalidasa is associated with Chandra Gupta-II.\r\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Sub-Theme: Ancient Indian Literature\r\n\r\nThe Correct answer is Option (c): Panini was a contemporary of the Mahajanapada era (6th to 4th CE). He was a Sanskrit Grammarian known for writing Ashtadhyayi- a sutra style treatise on Sanskrit grammar.\r\n\r\nPushyamitra Shunga started the Shunga dynasty by assassinating Brihadratha, the last ruler of the Magadha Empire in 185 BCE. Pushyamitra Sunga was a Buddhist follower. Some historians have portrayed him as anti Buddhist, but there is no credible evidence for the claim. He also constructed a stone gateway at Sanchi and restored Buddhist stupas at Barhut. He also patronized the Sanskrit grammar scholar Patanjali.\r\n\r\nAmarasimha was a Sanskrit grammarian and poet who lived in ancient India. Amarasimha was one of the nine gems that adorned the throne of Vikramaditya, and according to the accounts of Hieun Tsang it is believed that he was the Chandragupta Vikramaditya (Chandragupta II) who flourished around 375 CE. Amarsimha is famous for his Sanskrit thesaurus- Amarakosha.\r\n\r\nKalidasa was a renowned Classical Sanskrit writer who is widely regarded as one of the greatest poets and dramatists in Indian history. He generally draws inspiration from the Vedas, the Ramayana, the Mahabharata, and the Puranas for his plays and poems. Kalidasa wrote three plays: Malavikagnimitram, Abhijnanasakuntalam, and Vikramorvasiyam.\r\n\r\nTwo epic poems of Kalidasa are Raghuvamsa and Kumarasambhava. Kalidasa and Amarsimha were among the nine jewels of Chandragupta-II aka Chandragupta Vikramaditya."
+                },
+                {
+                  "questionId": "q1738132690804-15gn7c0gt",
+                  "question": "Which of the following phrases defines the nature of the ‘Hundi’ generally referred to in the sources of the post-Harsha period?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "An advisory issued by the king to his subordinates"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "A diary to be maintained for daily accounts"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "A bill of exchange"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "An order from the feudal lord to his subordinates\r\n"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Sub-Theme: Medieval Terminology or keyword/ Economic History of Medieval India\r\n\r\nCorrect answer is Option (c): Hundis are used as a form of remittance instrument to transfer money from place to place, as a form of credit instrument or IOU to borrow money and as a bill of exchange in trade transactions.\r\n\r\nThe Hundis was a letter of credit payable after a period of time at a discount. The word “hundi” is derived from the Sanskrit word “hundika,” which was first used in 914 AD. The Lekhapaddhati and Kalhan’s Rajatrangini (12th century) refer to the use of hundika by kings and nobles to make payments but it may have been used by merchants as well.\r\nThe Reserve Bank of India describes the Hundi as “an unconditional order in writing made by a person directing another to pay a certain sum of money to a person named in the order.” The hundi was a piece of paper, usually written in Hindi or any other Indian language, promising the payment of a sum of money to the bearer at a particular place either immediately or afterwards.\r\nNOTE: Question highlights the importance of reading NCERTs for prelims with special emphasis on keywords and terminologies. The above question directly came from Our Past II (class 7th) NCERT (Page 84)"
+                },
+                {
+                  "questionId": "q1738132690804-goag7t59z",
+                  "question": "Consider the following events in the history of India:\r\n\r\nRise of Pratiharas under King Bhoja\r\nEstablishment of Pallava power under Mahendravarman-I\r\nEstablishment of Chola power by Purantaka\r\nPala dynasty founded by Gopala\r\nWhat is the correct chronological order of the above events, starting from the earliest time?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "2-1-4-3"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "3-1-4-2"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "2-4-1-3"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "3-4-1-2"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Sub-Theme: Chronology of Regional Dynasty of Medieval India\r\n\r\nCorrect chronology of given events are as follows: 2-4-1-3\r\nKing\tDynasty\tDuration\tFounder\r\nMahendravarman I\tPallavas\t660-630\r\nCE\r\n\r\nSimha Vishnu\r\nGopala\tPalas\t750 CE\tDharmapala\r\nKing Bhoja\tGurjara- pratiharas\t836-885\r\nCE\r\n\r\nNagabhata I\r\nParantaka I\tCholas\t907-953\r\nCE\r\n\r\nVijayalaya\r\n\r\nNagabhatta I founded the Gurjara Pratihara dynasty in the Malwa region around the 8th century AD. The Gurjara-Pratihara dynasty ruled a large area of Northern India from the mid-8th century to the 11th century. Mihir Bhoja (836–885 CE) was the greatest ruler of the Pratihara dynasty.\r\nThe Pallavas were a powerful dynasty that ruled a large part of southern India between the 6th and 9th centuries AD, with Kanchipuram (now in Tamil Nadu) as their capital. The Pallavas achieved their pinnacle with Mahendravarman I’s rule (c. 600–630), who reigned alongside Harsha and Pulakeshin II.\r\nThe Cholas rose to prominence in the 9th century and formed an empire that included most of South India; Tanjore served as their capital. The reign of the Chola king Parantaka, who succeeded his father Aditya I as king, lasted from 907-953 CE.\r\nThe Pala Empire, which started in the Bengal region and ruled throughout the post-classical period (8th and 9th century AD), was an imperial power. The empire was officially established when Gopala was chosen to rule as Gauda’s emperor in 750."
+                },
+                {
+                  "questionId": "q1738132690804-a6vlbge7c",
+                  "question": "With reference to the history of India, consider the following pairs:\r\n\r\nAurang – In-charge of treasury of the State\r\nBanian – Indian agent of the East India Company\r\nMirasidar – Designated revenue payer to the State\r\nWhich of the pairs given above is/are correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Sub-Theme: Important Keyword related to Colonial Revenue Policy\r\n\r\nPair 1 is incorrect: Aurang is a Persian term referring to a warehouse where goods are collected before being sold.\r\nPair 2 is correct: The word Bania (also Vania) is derived from the Sanskrit vanij, meaning ‘a merchant’. The banian acted as an agent for individual East India Company managers and performed a range of functions including, bookkeeping, interpreting, and brokerage, as well as managing his household and personal business activities. Banians served as middlemen for European merchants in Bengal during the British era.\r\nPair 3 is correct: Mirasdar in Urdu means hereditary landowner, co-proprietor and in Persian, miras is inheritance, estate. Under the Ryotwari settlement system in Southern India, the East India Company recognized mirasdars as the only proprietors of land, dismissing tenants’ rights completely. They were prohibited by law from selling their land but it can be leased to tenants for a nominal fee in return for its cultivation. They acted as a designated revenue payer of the state."
+                },
+                {
+                  "questionId": "q1738132690804-fqgg2hx3o",
+                  "question": "Which of the following statements correctly explain the impact of the Industrial Revolution on India during the first half of the nineteenth century?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "indian handicrafts were ruined."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Machines were introduced in the Indian textile industry in large numbers."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Railway lines were laid in many parts of the country."
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Heavy duties were imposed on the imports of British manufactures.\r\n"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Impact of Industrial Revolution on indigenous industry\r\n\r\nDeclining and deindustrialisation of the Indian traditional cottage and handicraft industry was a direct effect of the industrial revolution in England along with the colonisation of India. Industrial Revolution and its impact on India’s indigenous industry\r\n\r\nThe Industrial Revolution brought severe consequences to Indian society.\r\nThe fall and destruction of the urban and rural handicraft industry was one of the most significant effects of British Rule..\r\nThe Industrial Revolution in England also affected the textile industries in India in many ways, such as:\r\nEnglish textiles were now posing a serious threat to Indian textiles in the European and American markets.\r\nTextiles from India were subject to high taxes in Britain.\r\nThe African markets were successfully taken over by cheap, machine-made textiles from Britain.\r\nBy the 1830s, inexpensive British manufactured products had inundated the Indian marketplaces. The Indian textile industries suffered as a result of them being less expensive than Indian textiles.\r\nFollowing the Industrial Revolution, Britain began making textiles by a machine that were considerably more affordable and of higher quality than conventional Indian textile.\r\nThe start of the industrial revolution had a negative impact on the Indian handicraft in India.\r\nAdditionally, the decline of the kings, chieftains, and zamindars who served as the employers of these masters of handicrafts led to the steady expansion of British dominion in India through outright battles with the rulers, which resulted in the suffering of handicrafts in India.\r\nIndia became both a raw material supplier and a finished goods market. India, a country based on agriculture, became an economic colony.\r\nThe British items were inexpensive and only required a little amount of duty, while the Indian goods were subject to heavy import duties."
+                },
+                {
+                  "questionId": "q1738132690804-uew61bsdr",
+                  "question": "Indigo cultivation in India declined by the beginning of the 20th century because of",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "peasant resistance to the oppressive conduct of planters"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "its unprofitability in the world market because of new inventions"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "national leaders’ opposition to the cultivation of indigo"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Government control over the planters"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Sub-Theme: Peasant Movement\r\n\r\nIndigo cultivation in India declined by the beginning of the 20th century because of new inventions of improved versions of chemical colours that substitute indigo, thus the production of indigo became unprofitable in the world market. Thus, its unprofitability in the world market because of new inventions’ caused decline in the Indigo Cultivation.\r\nIndigo Revolt 1856-57:\r\n\r\nArea: Bengal\r\nLeaders: Bishnu Charan Biswas and Diagambar Biswas\r\nThe great worth of indigo as a commerce commodity led to its frequent usage as the nickname “blue ” It gives the materials a blue tint.\r\nReason: They started losing their land due to poor output and they started fall into debt trap\r\nIndia’s first peasant strike resulted in the compelled planting of indigo since the trade in it was profitable because blue dye was in high demand.\r\nDuring their strike, peasants refused to produce indigo or sign The strike expanded to other parts of Bengal, and other zamindars supported the uprisings. A commission was established in their favour.\r\nIntelligentsia helped to make it a powerful\r\nHarsh Chandra Mukherjee (editor Hindu patriot), Dinabandhu Mitra play: Neel Darpan."
+                },
+                {
+                  "questionId": "q1738132690804-nw1qdp0gy",
+                  "question": "With reference to the history of India, “Ulgulan” or the Great Tumult is the description of which of the following events?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "The Revolt of 1857"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "The Mappila Rebellion of 1921"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "The Indigo Revolt of 1859 – 60"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Birsa Munda’s Revolt of 1899-1900"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Sub-Theme: Tribal Movement\r\n\r\nMunda Rebellion:\r\n\r\nIt is one of the prominent 19th century tribal rebellions in the subcontinent. In the years 1899–1900, Birsa Munda served as the movement’s leader in the south of\r\nThe Ulgulan, also known as “the Great Tumult,” was an insurrection that aimed to establish Munda Raj or Munda authority in this area.\r\nReason of revolt:\r\n\r\nIn 1874, the British replaced the traditional Khuntkari system of Munda tribals with the zamindari system.\r\nThe introduction of the zamindari system created the classes of zamindars (landlords) and ryots (tenants).\r\nThis led to the monetisation of the economy, the tribals had to depend on cash for paying the rent and for meeting their daily needs.\r\nThis situation left them with no other option but to depend on the money-lenders, who used to lend money at an exorbitant rate.\r\nBirsa Munda:\r\nA tribal liberation warrior from the Munda tribe, Bisra Munda is revered as a folk\r\nHe was a spearhead behind the Ulgulan movement that arose in the Chotanagpur region of Bihar and Jharkhand belt in the 19th century under the British\r\nHe is often referred to as the ‘Dharti Abba’ or the Earth Father.\r\nBirsa Munda organised masses to stop paying debts/interest to moneylenders and taxes to the British. By this, he led a revolt to bring an end to Victorian rule and the establishment of Munda Rule in Jharkhand (Chotanagpur region).\r\n \r\n\r\nNOTE: If we go through Modern Ncert in detail, this question can be easily solved. It is advisable to remember keywords from Ncert such as Dikus, Ulgulan, Tebhaga, nij khamare dhan tolo etc. and corresponding movements."
+                },
+                {
+                  "questionId": "q1738132690804-zq5xqhvui",
+                  "question": "In the context of Indian history, the Rakhmabai case of 1884 revolved around:\r\n\r\nwomen’s right to gain education\r\nage of consent\r\nrestitution of conjugal rights\r\nSelect the correct answer using the code given below:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " 1 and 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Sub-Theme: Social Reformist/Social Reform Organization\r\n\r\nDr. Rakhmabai (1864–1955)\r\n\r\nRakhmabai was an Indian physician and a feminist.\r\nApart from being one of the first practising women doctors in colonial India, she was also involved in a landmark legal case involving her marriage as a child bride between 1884 and 1888.\r\nAt the young age of eleven, she was married to Dadaji Bhikaji, who was then nineteen. Bhikaji petitioned the court in 1885, 12 years after they had been married, asking for the “restitution of conjugal rights.”\r\nBehramji Malabari and Pandita Ramabai established the Rakhmabai Defense Committee to stand up for her.\r\nThe case lasted for 4 years until Dadji was compensated in 1888 out of court.\r\nThe case was instrumental in the development of the Age of Consent Act in stipulating minimum age of consent to be 12 years however no minimum age of marriage was introduced.\r\nStatement 1 is incorrect: Dr. Rakhmabai was an Indian physician and a feminist. At the young age of eleven, she was married to Dadaji Bhikaji, who was then nineteen. Bhikaji petitioned the court in 1885, 12 years after they had been married, asking for the “restitution of conjugal rights.”The Rakhmabai case did not involve the women’s right to gain education.\r\n\r\nStatement 2 is correct: The Rakhmabai case of 1884 was instrumental in the drafting of the Age of Consent Act in 1891. Hence, statement 2 is correct.\r\n\r\nStatement 3 is correct: Dr. Rakhmabai was married off at the young age of eleven with Dadaji Bhikaji, who was nineteen years old. In 1885, after 12 years of marriage, Bhikaji filed a petition in the court and sought “restitution of conjugal rights”. Hence, statement 3 is correct."
+                },
+                {
+                  "questionId": "q1738132690804-ofco63htq",
+                  "question": "The Gandhi-Irwin Pact included which of the following?\r\n\r\n1. Invitation to Congress to participate in the Round Table Conference\r\n\r\n2. Withdrawal of Ordinances promulgated in connection with the Civil Disobedience Movement\r\n\r\n3. Acceptance of Gandhi’s suggestion for enquiry into police excesses.\r\n\r\n4. Release of only those prisoners who were not charged with violence.\r\n\r\nSelect the correct answer using the code given below:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "1, 2 and 4 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " 2, 3 and 4 only"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Sub-Theme: Phases of Mahatma Gandhi/Gandhi- Irwin Pact\r\n\r\n(UPSC didn’t give any answer in official key) Possible ans (b)\r\n\r\nStatement 1 is correct: The Gandhi–Irwin Pact was a political agreement signed by Mahatma Gandhi and Lord Irwin, Viceroy of India, on 5 March 1931 before the Second Round Table Conference in London, where the Indian National Congress was invited to participate.\r\nStatement 2 is correct: Withdrawal of all ordinances issued by the Government of India imposing curbs on the activities of the Indian National Congress was agreed by the Viceroy. Statement 3 is incorrect: The demand for a public enquiry of excesses committed by police during the civil disobedience movement was rejected by the Viceroy.\r\nStatement 4 is correct: Release of all political prisoners, except those guilty of violence was also agreed.\r\nNOTE: if we read Ncert, statement 1 is general and common. Securing participation by the Indian National Congress in the Second Round Table Conference was an important agenda of pact inter-alia. We also know that viceroy rejected commutation of the death sentence of Bhagat Singh, Rajguru and Sukhdev to a life sentence, which was criticised by several leaders. This underlines that prisoners with violence charges were not released. This reasoning makes statement 4 correct. Option (b) i.e 1, 2 and 4 only is the only option with statement 1 and 4 in it !!"
+                },
+                {
+                  "questionId": "q1738132690804-5w0f763vz",
+                  "question": "Wellesley established the Fort William College at Calcutta because:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " he was asked by the Board of Directors at London to do so"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " he wanted to revive interest in oriental learning in India"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "he wanted to provide William Carey and his associates with employment"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " he wanted to train British civilians for administrative purpose in India"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Sub-Theme: Reforms in Education during the British Time\r\n\r\nFort William College (1800):\r\n\r\n•   Fort William College was founded on 10 July 1800 in Calcutta, British India.\r\n\r\nFort William College was set up by Lord Richard Wellesley in 1800\r\nIt was set up for the training of civil servants of the Company in languages and customs of Indians.\r\nThe court of directors of the British East India Company was not in support of a training college in Kolkata.\r\nThen it got closed in 1802 and a separate College was established in 1807 in England.\r\nNOTE: Question on Fort William College came in 2018. By simply reading solutions of that question, it was possible to attempt this question correctly, simply earning 2 marks !! This underscores the importance of solving and analysing PYQs."
+                },
+                {
+                  "questionId": "q1738132690804-sjvujt3fl",
+                  "question": "With reference to the book “Desher Katha” written by Sakharam Ganesh Deuskar during the freedom struggle, consider the following statement:\r\n\r\nIt warned against the Colonial States hypnotic conquest of the mind.\r\nIt inspired the performance of swadeshi street plays and folk songs.\r\nThe use of ‘desh’ by Deuskar was in the specific context of the region of Bengal.\r\nWhich of the statements given above are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " 2 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1 and 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Literary Work during Indian National Movement\r\n\r\nStatement 1 and 2 are correct: In overwhelming detail, the book “Desher Katha” summarised the work of M. G. Ranade and Naoroji in a popular idiom and warned in its concluding chapter against the colonial state’s “hypnotic conquest of the mind”. “Desher Katha” had an immense repercussion in Bengal, captured the mind of young Bengal and assisted more than anything else in the preparation of the Swadeshi Movement.\r\n\r\nStatement 3 is incorrect: Deuskar uses the word ‘desh’ in the context of the whole country."
+                },
+                {
+                  "questionId": "q1738132690804-ce3vmu7nn",
+                  "question": "The Vital-Vidhvansak, the first monthly journal to have the untouchable people as its target audience was published by:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Gopal Baba Walangkar"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Jyotiba Phule"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Mohandas Karamchand Gandhi"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Bhimrao Ramji Ambedkar"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Literary Work during Indian National Movement\r\n\r\nGopal Baba Walangkar (1840-1900):\r\n\r\nHe was also known as Gopal Krishna, born into a family of the untouchable Mahar caste in Maharashtra.\r\nGopal Baba Walangkar is an early example of a social activist working to untrammel the untouchable people of India from their historic socio-economic oppression and he is generally considered to be the pioneer of that movement.\r\nHe also developed a racial theory to explain the oppression and also published the first journal targeted at the untouchable people.\r\nThe first publication to have the untouchable people as its target readership was Walangkar’s Vital-Vidhvansak (Destroyer of Brahmanical or Ceremonial Pollution), which he started publishing in 1888.\r\nHe also wrote articles for Marathi-language newspapers such as Sudharak and Deenbandhu, as well as composed couplets in Marathi that were intended to inspire the people.\r\nIn 1889, he published Vital Viduvansan (Annihilation of Ceremonial Pollution), which protested the position of untouchables in society and raised consciousness regarding what those people should expect.\r\nHe addressed this pamphlet, which was crafted as a collection of 26 questions, to the elites of Maharashtrian society."
+                }
+              ]
+            },
+            {
+              "questionPaperId": "qp-1738667858320",
+              "questionPaperName": "PYQ-2019",
+              "section": "PYQ",
+              "questions": [
+                {
+                  "questionId": "q1738667873112-58fkykqys",
+                  "question": "Which one of the following groups of plants was domesticated in the ‘New World’ and introduced into the ‘Old World’?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Tobacco, cocoa and rubber"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Tobacco, cotton and rubber"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Cotton, coffee and sugarcane"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Rubber, coffee and wheat"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Columbian Exchange\r\n\r\nTobacco, cocoa, and rubber are the groups of plants that were domesticated in the ‘New World’ and introduced into the ‘Old World’ through the European explorers in the late medieval or early modern era.\r\n\r\nThe Columbian Exchange:\r\n\r\nThe Columbian exchange, also known as the Columbian interchange, named for Christopher Columbus, was the widespread transfer of plants, animals, culture, human populations, technology, diseases, and ideas between the Americas, West Africa, and the Old World in the 15th and 16th centuries.\r\nIt also relates to European colonization and trade following Christopher Columbus’s 1492 voyage. Invasive species, including communicable diseases, were a by-product of the Exchange.\r\nOld World to New World: Coffee, wheat, cotton, barley, rice, sugarcane and sugar beet, etc.\r\nNew World to Old World: avocado, cashew, cocoa bean, potato, maize, rubber, tobacco, etc.\r\nNOTE: Even if we don’t know the exact answer of this particular question, we can still attempt this question with our basic knowledge. For instance, Cotton and wheat has been a widely cultivated crop in India since ancient times. Even Harappans grew"
+                },
+                {
+                  "questionId": "q1738667873112-ysukmzmfy",
+                  "question": "Consider the following statements about ‘the Charter Act of 1813’:\r\n\r\nIt ended the trade monopoly of the East India Company in India except for trade in tea and trade with China.\r\nIt asserted the sovereignty of the British Crown over the Indian territories held by the company.\r\nThe revenues of India were now controlled by the British Parliament.\r\nWhich of the statements given above are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " 1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1 and 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " 1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Administrative Reforms before 1857\r\n\r\nCHARTER ACT OF 1813:\r\n\r\nCompany’s territories in India came under the Sovereignty of the British Government.\r\nTaxes could be levied against citizens by the local They could punish people for not paying taxes.\r\nIt ended the East India Company’s monopoly on trading with India.\r\nThe company’s rule was extended for another 20 years. The trade monopoly of their country was ended except for the trade in tea, opium, and with China.\r\nGiving missionaries permission to travel to India was one of the key components of this law.\r\nPITT’S INDIA ACT OF 1784:\r\n\r\nPitt’s India Act, 1784 extended the control of the British Government over the Company’s affairs and its administration in India.\r\nThe act was significant for two reasons:\r\n\r\nThe Company’s possessions in India were officially referred to as “British possessions in India” for the first time.\r\nThe Company’s activities and administration in India were placed under the total control of the British Government.\r\nStatement 1 is correct: The Charter Act 1813 ended the trade monopoly of the East India Company except for the trade in tea, opium, and with China.\r\nStatement 2 is correct: Company’s territories in India came under the Sovereignty of the British Government through this Act.\r\nStatement 3 is incorrect: The revenue of India was controlled by the British parliament through Pitt’s India Act 1784."
+                },
+                {
+                  "questionId": "q1738667873113-xc3whcndx",
+                  "question": "With reference to Swadeshi Movement consider the following statements:\r\n\r\nIt contributed to the revival of the indigenous artisan crafts and industries.\r\nThe National Council of Education was established as a part of the Swadeshi Movement.\r\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2\r\n"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Sub-Theme: Swadeshi Movement\r\n\r\nSwadeshi and Boycott Movements:\r\n\r\nThere were large-scale protests against the partition of Bengal. Later, the movement spread to other regions of the nation:\r\nThe Boycott Resolution was passed at the Calcutta Town Hall on August 7, 1905, formally launching the Swadeshi Movement.\r\nPartition came into force: October 16, 1905\r\nThere were also new means of protest like processions, public meetings, and boycotts of imported goods.\r\nImaginative use of Traditional Festivals, Melas: Tilak’s Ganapati and Shivaji festivals became a medium of swadeshi\r\nStatement 1 is correct: Importance to Self- Reliance (Atma Shakti): Emphasis was placed on honour, social and economic regeneration of the villages. Swadeshi enterprises: Swadeshi textile mills, banks, etc, were set up. At Tuticorin, V.O. Chidambaram Pillai founded the Swadeshi Steam Navigation Company.\r\nStatement 2 is correct: Swadeshi programme or National Education:\r\nBengal National College – Aurobindo Ghosh as its Principal – inspired by Tagore’s\r\nThe National Council of Education (1906) was set up to organise national education in the vernacular medium.\r\nThe Bengal Institute of Technology was established to provide technical training.\r\nCultural Impact: Rabindranath Tagore wrote Amar Sonar Bangla, Subramania Bharati wrote Swadesha Geetham.\r\nCorps of Volunteers or ‘Samitis’: they generated political consciousness among the masses.\r\nNOTE: Question on similar theme/topic i.e Surat Split/Partition of Bengal/Swadeshi Movement came in 2014 (on annulment of partition of Bengal), 2015 and 2016 (total 2 questions). Hereby, revising PYQ stands important."
+                },
+                {
+                  "questionId": "q1738667873113-827u8w5g1",
+                  "question": "With reference to the British colonial rule in India, consider the following statements:\r\n\r\nMahatma Gandhi was instrumental in the abolition of the system of ‘indentured labour’.\r\nIn Lord Chelmsford’s War Conference’, Mahatma Gandhi did not support the resolution on recruiting Indians for World War.\r\nConsequent upon the breaking of the Salt Law by the Indian people, the Indian National Congress was declared illegal by the colonial rulers.\r\nWhich of the statements given above are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "1 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "2 and 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Statement 1 is correct: During the early 1900s, Mahatma Gandhi was instrumental in getting the indentured labour system abolished in the British Empire. He also supported Manilal Doctor’s campaign to get a resolution passed in the INC meeting condemning the indentured labour system in all British territories.\r\n\r\nStatement 2 is incorrect: Lord Chelmsford, the then Viceroy of India, invited Gandhi to Delhi at a War Conference. In order to gain the trust of the empire, Gandhi agreed to move people to enlist in the army for WW-I.\r\n\r\nStatement 3 is correct: Indian National Congress was declared illegal upon breaking of salt law. But this did not deter the satyagrahis who continued the movement."
+                },
+                {
+                  "questionId": "q1738667873113-6hju6mdby",
+                  "question": "With reference to Indian National Movement, consider the following pairs:\r\n\r\nPerson\tPosition held\r\n1. Sir Tej Bahadur Sapru\tPresident, All India Liberal Federation\r\n2. K. C. Neogy\tMember, The Constituent Assembly\r\n3. P. C. Joshi\tGeneral Secretary, Communist Party of India\r\nWhich of the pairs given above is/are correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " 1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Sub-Theme: Important Personalities/ Important Organisations\r\n\r\nPair 1 is correct: All India Liberal Federation was founded by Surendra Nath Banarjea and some of its prominent leaders were Tej Bahadur Sapru, V. S. Srinivasa Sastri and R. Jayakar and Tej Bahadur Sapru were the presidents of Indian National Liberal Federation.\r\n\r\nPair 2 is correct: K.C. Neogy was a member of the Constituent Assembly of India, a member of the first Cabinet of independent India and the chairman of the first Finance Commission of India.\r\n\r\nPair 3 is correct: P.C. Joshi was one of the early leaders of the communist movement in India, he was the first general secretary of the Communist Party of India from 1935–47."
+                },
+                {
+                  "questionId": "q1738667873113-6aj9kv6ip",
+                  "question": "Consider the following pairs:\r\n\r\nMovement\tOrganization Leader\r\n1. All India Anti- Untouchability League\tMahatma Gandhi\r\n2. All India Kisan Sabha\tSwami Sahajanand Saraswati\r\n3. Self-Respect Movement\tE. V. Ramaswami Naicker\r\nWhich of the pairs given above is/are correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "2 and 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Sub-Theme: Important Organisations\r\n\r\nPair 1 is correct: On 30 September 1932, Mahatma Gandhi founded the All India Anti Untouchability League, to remove untouchability in society.\r\n\r\nPair 2 is correct: Sahajanand Saraswati was the first President of the All-India Kisan Sabha.\r\n\r\nPair 3 is correct: The Self-Respect Movement was started by E.V. Ramaswamy Naicker in Tamil Nadu in 1925 with the aim of destroying the contemporary Hindu social order in its totality and creating a new, rational society without caste, religion and god."
+                },
+                {
+                  "questionId": "q1738667873113-ymjfhrs6g",
+                  "question": "Which one of the following is not a Harappan site?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Chanhudaro"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Kot Diji"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Sohgaura"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Desalpur"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Sub-Theme: Location of Harappan site\r\n\r\nOption (c) is correct: Sohgaura is located in Gorakhpur, Uttar Pradesh. Here Ashokan inscriptions were found. The Sohgaura copper plate inscription is an Indian copper plate inscription written in Prakrit in the Brahmi script. It was found at Sohgaura, about 20 kilometres to the southeast of Gorakhpur, on the banks of the Rapti River.\r\n\r\nPicture1 5\r\n\r\nOption (a), (b), (d) are incorrect: Kot Diji, Desalpur and Chanhudaro are Harappan sites. Kotdiji means “Fort of the Daughter’’ and is located in Khairpur province, Pakistan. Here copper-bronze objects, bangles and arrowheads; etched carnelian and other beads and numerous terracotta human, bull, and bird effigy figurines were found. At Desalpur houses built next to walls have been found. Chanhudaro is located on the bank of the Indus River in Sindh, Pakistan. Bead makers’ shops have been found here.\r\n\r\nNOTE: Reference to question came from the news of Sohgaura copper plate inscription found in 2018-19."
+                },
+                {
+                  "questionId": "q1738667873113-ff91635ln",
+                  "question": "In which of the following relief sculpture inscriptions is ‘Ranyo Ashoka’ (King Ashoka) mentioned along with the stone portrait of Ashoka?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Kanganahalli"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Sanchi"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Shahbazgarhi"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Sohgaura"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Ashoka and sites (location) of his inscriptions\r\n\r\nThe correct answer is Option (a): Kanaganahalli is in Gulbarga, Karnataka. In this sculptural depiction, the emperor with his queen and attendants are carved on a slab, with “Ranyo Ashoka” (King Ashoka) mentioned along with the stone portrait of Ashoka.\r\n\r\nAbout Sannati and Kanaganahalli Buddhist Sites:\r\n\r\nAbout 3 kilometres from Sannati lies Kanganahalli, a significant Buddhist site where an old Mahastupa was erected.\r\nIt is located in India’s Karnataka on the left bank of the Bhima River in the Chitapur Taluk of the Kalaburagi District.\r\nThe remnants of a large stupa, as well as numerous brick buildings in the shape of a Chaitya-griha and memorial stupas, were uncovered during excavations conducted at Kanaganahalli from 1994 to 1998.\r\nDuring the excavations, numerous architectural components of the stupa were discovered, including four pictures of the Buddha, remains of sculptured veneering slabs, pieces of railings, pillars, and The sculptured panels show different Játaka, the legend of Lord Buddha’s life and portraits of numerous Satavahana kings."
+                },
+                {
+                  "questionId": "q1738667873113-fncb8sks0",
+                  "question": "With reference to forced labour (Vishti) in India during the Gupta period, which one of the following statements is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "It was considered a source of income for the State, a sort of tax paid by the people."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "It was totally absent in the Madhya Pradesh and Kathiawar regions of the Gupta Empire."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "The forced labourer was entitled to weekly"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "The eldest son of the labourer was sent as the forced labourer."
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Administrative aspect of Gupta Age\r\n\r\nThe correct answer is Option (a): During the Gupta period, forced labour (vishti) became a source of income for the state and was also looked upon as a form of taxation on the subjects. Vishti was forced labour in lieu of taxes hence no weekly wages were entitled. Anyone from the family can be sent as a forced labourer, not particularly the eldest son of the family."
+                },
+                {
+                  "questionId": "q1738667873113-3lb28emkb",
+                  "question": "Consider the following statements:\r\n\r\nIn the revenue administration of Delhi Sultanate, the in-charge of revenue collection was known as ‘Amil’.\r\nThe Iqta system of Sultans of Delhi was an ancient indigenous institution.\r\nThe office of ‘Mir Bakshi’ came into existence during the reign of Khalji Sultans of Delhi.\r\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Medieval Terminology or keyword/ Medieval Administration\r\n\r\nStatement 1 is correct: In the land revenue system of the Delhi Sultanate, the central government appointed amil to collect revenues in each subdivision called shiq.\r\n\r\nStatement 2 is incorrect: The Iqta system of land control was first introduced in the Delhi Sultanate by Iltutmish. The institution known by its Arabic name, iqta, had existed in the early Islamic world as a means of rewarding services to the state. In the administration of the Caliphate, it served as a means of funding operations and compensating civil and military leaders. It was not an ancient indigenous institution.\r\n\r\nStatement 3 is incorrect: The office of Mir Bakshi was established under the Mughal empire, who was head of the military department, nobility, information and intelligence agencies."
+                },
+                {
+                  "questionId": "q1738667873113-nbam6p3vo",
+                  "question": "Consider the following statements:\r\n\r\nSaint Nimbarka was a contemporary of Akbar.\r\nSaint Kabir was greatly influenced by Shaikh Ahmad Sirhindi.\r\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " 2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Sub-Theme: Bhakti and Sufi Movement\r\n\r\nStatement 1 is incorrect: Saint Nimbarka is believed  to  be  the  contemporary  of\r\n\r\nRamanuja(11th  century).  He  believed  in\r\n\r\ntotal devotion to Krishna and Rama. The Mughal emperor Akbar lived from 1542 -1605. Nimbarkacharya also known as Nimbarka, Nimbaditya or Niyamananda, was a Hindu philosopher, theologian and the chief proponent of the theology of Dvaitadvaita (dvaita–advaita) or dualistic–non-dualistic. He wrote Dashasloki and Vedanta. He was also a prominent astronomer\r\n\r\nStatement 2 is incorrect: Shaikh Ahmad Sirhindi (1564-1624 AD) was Islami Hanif, scholar of Naqsyabandi silsilah. Kabir (1440-1510 AD) was a follower of Nirguna bhakti of the 15th century."
+                },
+                {
+                  "questionId": "q1738667873113-0799k0pj1",
+                  "question": "With reference to Mughal India, what is/are the difference/differences between Jagirdar and Zamindar?\r\n\r\nJagirdars were holders of land assignments in lieu of judicial and police duties, whereas Zamindars were holders of revenue rights without obligation to perform any duty other than revenue collection.\r\nLand assignments to Jagirdars were hereditary and revenue rights or Zamindars were not hereditary.\r\nSelect the correct answer using the code given below.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Sub-Theme: Mughal Revenue System\r\n\r\nStatement 1 is incorrect: Zamindars were also expected to maintain law and order in their jurisdictions. The judicial and police functions were performed locally by zamindars.\r\n\r\nStatement 2 is incorrect: Jagirdar only has the right to claim and enjoy the revenue collected from the land. Jagirs were transferable and could be seized too.\r\n\r\nAdditional information:\r\n\r\nThe holder of land was termed Zamindar. They have hereditary rights over the land.\r\nThe primary responsibility of zamindars was to collect revenue and deposit it in the royal treasury.\r\nLaw and order were another duty imposed on zamindars in their jurisdictions. The local zamindars handled the police and judicial duties.\r\nThe Jagirdars were the King’s appointed officials who were given land by the King. The jagir system allocated a certain amount of land to each person, without any inheritance rights.\r\nJagirdar is only entitled to claim and enjoy the revenue collected from the land. Jagirs could be transferred and seized as well."
+                },
+                {
+                  "questionId": "q1738667873113-7g61i1pds",
+                  "question": "With reference to Mian Tansen, which one of the following statements is not correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Tansen was the title given to him by Emperor Akbar."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Tansen composed Dhrupada on Hindu gods and goddesses."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Tansen composed songs for his patrons."
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Tansen invented many ragas.\r\n"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Art and Culture during the Mughals\r\n\r\nCorrect answer is Option (a): Tansen was the title given to him by Raja Vikramjit of\r\n\r\nGwalior.\r\n\r\nRaja Ram Chandra of Bandavagarh employed Tansen as a court musician at his darbar (Rewa).\r\nAfter learning of Tansen’s extraordinary talent, Akbar wrote the king of Rewa a “firman” requesting Tansen and appointed him as one of the Navaratnas in his court.\r\nHe bestowed upon him the name “Mian.” According to Lalita Ramakrishna’s Musical Heritage of India, Tansen is also referred to as the “Sangit Samrat”.\r\nHe composed various dhrupads on Rama, Parvati, Shiva, and Ganesha. A compilation of 300 of his dhrupad that were in Gauhar Bani is called Kalpadruma. Tansen composed his favorite ragas — Multani, Bhairavi and Todi.\r\nHe created the ragas Darbari Kanhra for the night, Mian Ki Todi for the morning, Mian ki Sarang for the midday, and Mian ki Malhar for the season.\r\nHis descendants and disciples are called Seniyas. He composed songs for his patrons."
+                },
+                {
+                  "questionId": "q1738667873113-otvgpdlii",
+                  "question": "Who among the following Mughal Emperors shifted emphasis from illustrated manuscripts to albums and individual portraits?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Humayun"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Akbar"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Jahangir"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Shah Jahan"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Sub-Theme: Art and Culture during the Mughals\r\n\r\nCorrect answer is Option (c): Mughal Emperor Jahangir shifted emphasis from illustrated manuscripts  to  albums  and  individual portraits.\r\n\r\nThe Mughal school of painting achieved increased charm, elegance, and grandeur during his rule.\r\nThe portrait of Jahangir, who is pictured holding a picture of the Virgin Mary in his right hand, is the best representation of this time period.\r\nAyar-i-Danish and Anwar-i-sunavli are two further animal fable books with illustrations that date to Jahangir’s reign."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "examId": "cgl",
+      "examName": "Combined Graduate Level",
+      "subjects": [
+        {
+          "subjectId": "general-knowledge",
+          "subjectName": "General knowledge",
+          "questionPapers": []
+        }
+      ]
+    }
+  ]
+}

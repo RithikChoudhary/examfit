@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Subjects - <%= examData.examName %></title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <%- include('./sidebar', { currentPage: 'subjects', examData }) %>
+        
+        <main class="dashboard-main">
+            <div class="content-header">
+                <h1><%= examData.examName %> Subjects</h1>
+                <button class="add-button" onclick="openAddSubjectModal()">
+                    <i class="fas fa-plus"></i> Add Subject
+                </button>
+            </div>
+
+            <!-- Rest of your subjects page content -->
+        </main>
+        
+    </div>
+</body>
+</html> 

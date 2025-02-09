@@ -1,0 +1,297 @@
+/* General Reset 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+  
+/* Header Navigation */
+header nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 0;
+    background-color: #000;
+}
+  
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+  
+header nav a:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Main Section */
+main {
+    text-align: center;
+    padding: 20px;
+    background-color: #d3d3d3;
+    min-height: calc(100vh - 60px); /* Full height minus header */
+}
+
+main h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid black;
+    display: inline-block;
+    padding: 5px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+main h2 {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+/* Question Box Styling */
+.question-block {
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Question Text Styling */
+.question-block h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Option Styling */
+.question-block label {
+    display: block;
+    background-color: #f9f9f9;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.question-block label:hover {
+    background-color: #eee;
+    transform: translateX(5px);
+}
+
+/* Radio Button Styling */
+.question-block input[type="radio"] {
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Highlight Correct and Incorrect Answers */
+.question-block label.correct {
+    background-color: #90EE90;
+    color: #006400;
+    border-color: #006400;
+    font-weight: bold;
+}
+
+.question-block label.incorrect {
+    background-color: #FFB6C1;
+    color: #8B0000;
+    border-color: #8B0000;
+    font-weight: bold;
+}
+
+/* Disabled Options Styling */
+.question-block label input[disabled] {
+    cursor: not-allowed;
+}
+
+.question-block label.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Subject Cards Container */
+.subjects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Subject Card Styling */
+.subject-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: 150px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.subject-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    background-color: #555;
+}
+
+/* Submit Button Styling */
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Galaxy Canvas */
+#galaxyCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .question-block {
+        margin: 20px 10px;
+    }
+    
+    .subject-card {
+        width: calc(50% - 20px);
+    }
+    
+    main h1 {
+        font-size: 20px;
+    }
+} 
+/* Hero Section Styling */
+.hero-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.exam-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card-description {
+    font-size: 14px;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+/* Navigation Styling */
+.nav-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.nav-button:hover {
+    background-color: #555;
+}
+
+/* Subject Stats */
+.subject-stats {
+    font-size: 14px;
+    opacity: 0.8;
+    display: block;
+    margin-top: 5px;
+}
+
+/* Back Button */
+.back-button {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.card-stats {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.subjects-container .subject-card {
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.subjects-container .subject-card h2 {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+}

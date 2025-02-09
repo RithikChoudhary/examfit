@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ExamPrep Admin</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <%- include('./partials/sidebar', { currentPage: 'overview' }) %>
+        
+        <main class="dashboard-main">
+            <div class="dashboard-header">
+                <h1>Dashboard Overview</h1>
+            </div>
+
+            <div class="content-area"> <div class="exam-container"> 
+                <% data.exams.forEach(exam => { %>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <i class="fas fa-book-open fa-2x"></i> 
+                            <h3><%= exam.examName %></h3>
+                        </div>
+                        <div class="stat-body">
+                            <div class="stat-item">
+                                <span class="stat-label">
+                                    <%= exam.subExams ? 'Sub-Exams' : 'Subjects' %>
+                                </span>
+                                <span class="stat-value">
+                                    <%= exam.subExams ? exam.subExams.length : (exam.subjects ? exam.subjects.length : 0) %>
+                                </span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Total Questions</span>
+                                <span class="stat-value">
+                                    <% 
+                                    let totalQuestions = 0;
+                                    if (exam.subExams) {
+                                        exam.subExams.forEach(subExam => {
+                                            subExam.subjects.forEach(subject => {
+                                                totalQuestions += subject.questions ? subject.questions.length : 0;
+                                            });
+                                        });
+                                    } else if (exam.subjects) {
+                                        exam.subjects.forEach(subject => {
+                                            totalQuestions += subject.questions ? subject.questions.length : 0;
+                                        });
+                                    }
+                                    %>
+                                    <%= totalQuestions %>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="stat-footer">
+                            <% if (exam.subExams) { %>
+                                <a href="/dashboard/subjects/<%= exam.examId %>" class="view-details">
+                                    View Sub-Exams <i class="fas fa-arrow-right"></i>
+                                </a>
+                            <% } else { %>
+                                <a href="/dashboard/subjects/<%= exam.examId %>" class="view-details">
+                                    View Subjects <i class="fas fa-arrow-right"></i>
+                                </a>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div> </div> 
+        </main>
+    </div>
+</body>
+</html>
+

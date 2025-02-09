@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question Papers - <%= subjectName %> - <%= examName %></title>
+  <link rel="stylesheet" href="/css/questionPaper.css"> 
+  <link rel="stylesheet" href="/css/navbar.css"> 
+  <link rel="stylesheet" href="/css/dashboard-questionPaper.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <%- include('./partials/navbar', { subjects: subjects, exam: exam }) %>
+
+    <main class="subject-page">
+        <header class="exam-header">
+            <h1><%= subjectName %> Question Papers for <%= examName %></h1>
+            <p>Select a Question Paper to start practicing.</p>
+        </header>
+      
+        <div class="content-area">
+          <div class="question-paper-sections">
+            <% const sections = ["PYQ", "Section I", "Section II", "Section III"]; %>
+            <% sections.forEach(sectionName => { %>
+              <div class="section">
+                <h3><%= sectionName %></h3>
+                <ul class="question-paper-list">
+                  <% questionPapers.filter(paper => paper.section === sectionName).forEach(paper => { %>
+                    <li class="question-paper-item">
+                      <div class="paper-container">
+                        <a href="/<%= exam %>/<%= subject %>/<%= paper.questionPaperId %>/questions">
+                          <%= paper.questionPaperName %>
+                        </a>
+                      </div>
+                    </li>
+                  <% }); %>
+                </ul>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+    </main>
+  <script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script> 
+</body>
+</html>

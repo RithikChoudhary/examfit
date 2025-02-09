@@ -1,0 +1,45 @@
+<aside class="dashboard-sidebar">
+    <div class="sidebar-header">
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="brand">
+            <h1 class="brand-name">ExamPrep</h1>
+            <span class="brand-type">Admin Dashboard</span>
+        </div>
+    </div>
+    
+    <nav class="sidebar-nav">
+        <div class="nav-section main">
+            <a href="/dashboard" class="nav-link <%= currentPage === 'overview' ? 'active' : '' %>">
+                <i class="fas fa-th-large"></i>
+                <span>Dashboard</span>
+            </a>
+        </div>
+ 
+        <div class="nav-section">
+            <h3 class="section-title">Manage Exams</h3>
+            
+            <a href="/dashboard/subjects/upsc" 
+               class="nav-link <%= currentPage === 'subjects' && examData?.examId === 'upsc' ? 'active' : '' %>">
+                <i class="fas fa-book-reader"></i>
+                <span>UPSC</span>
+                <span class="link-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+            </a>
+ 
+            <a href="/dashboard/subjects/cgl"
+               class="nav-link <%= currentPage === 'subjects' && examData?.examId === 'cgl' ? 'active' : '' %>">
+                <i class="fas fa-pencil-ruler"></i>
+                <span>SSC CGL</span>
+                <span class="link-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+            </a>
+        </div>
+ 
+    </nav>
+ 
+    
+ </aside>

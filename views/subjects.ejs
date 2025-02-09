@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects - <%= examName %></title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    
+    <div class="hero-section">
+        <h1 class="hero-title"><%= examName %> Subjects</h1>
+        <p class="hero-subtitle">Select a subject to continue</p>
+        
+        <div class="subjects-container show-subjects">
+            <% subjects.forEach(subject => { %>
+                <a href="/<%= examId %>/<%= subject.subjectId %>/questionPapers" class="subject-card">
+                    <i class="fas fa-book-open subject-icon"></i>
+                    <span class="subject-name"><%= subject.subjectName %></span>
+                </a>
+            <% }); %>
+        </div>
+    </div>
+</body>
+</html>

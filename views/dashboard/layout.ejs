@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExamPrep Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <i class="fas fa-graduation-cap"></i>
+                <span>ExamPrep Admin</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/dashboard" class="<%= currentPage === 'overview' ? 'active' : '' %>">
+                    <i class="fas fa-home"></i>
+                    <span>Overview</span>
+                </a>
+                <div class="nav-section">
+                    <h3>Exams</h3>
+                    <a href="/dashboard/subjects/upsc" class="<%= currentPage === 'subjects' && exam === 'upsc' ? 'active' : '' %>">
+                        <i class="fas fa-book"></i>
+                        <span>UPSC</span>
+                    </a>
+                    <a href="/dashboard/subjects/cgl" class="<%= currentPage === 'subjects' && exam === 'cgl' ? 'active' : '' %>">
+                        <i class="fas fa-pencil-alt"></i>
+                        <span>CGL</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-title">
+                    <h1><%- title %></h1>
+                </div>
+                <div class="header-actions">
+                    <button id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="profile-button">
+                        <i class="fas fa-user"></i>
+                        <span>Admin</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <%- body %>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+/* /public/css/dashboard-questionPaper.css */
+
+/* Import base styles and variables */
+@import "dashboard.css"; 
+
+/* Question Papers List Container */
+.question-paper-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+}
+
+/* Individual Question Paper Item */
+.question-paper-item {
+    background: var(--white);
+    border: 2px solid var(--gray-100);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex; 
+    justify-content: space-between; /* Align items to the start and end */
+    align-items: center; /* Vertically align items */
+    box-shadow: 0 4px 6px var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.question-paper-item:hover {
+    transform: translateY(-5px); 
+    border-color: var(--blue-500); 
+    box-shadow: 0 8px 12px rgba(59, 130, 246, 0.2); 
+}
+
+/* Link to Question Paper */
+.question-paper-item a {
+    text-decoration: none;
+    color: var(--blue-500);
+    font-weight: 500;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.question-paper-item a:hover {
+    color: darken(var(--blue-500), 10%); /* Slightly darker blue on hover */
+}
+
+/* /public/css/dashboard-questionPaper.css */ 
+
+.question-paper-sections {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 1.5rem;
+}
+
+.section {
+    border: 1px solid var(--gray-100);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.section h3 {
+    color: var(--gray-700);
+    margin-bottom: 1rem;
+}
+.paper-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .question-paper-item {
+    background: var(--white);
+    border: 2px solid var(--gray-100);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .question-paper-item:hover {
+    transform: translateX(5px);
+    border-color: var(--blue-500);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+  }
+  
+  .question-paper-item a {
+    text-decoration: none;
+    color: var(--gray-700);
+    font-weight: 500;
+    flex-grow: 1;
+  }
+  
+  .delete-button {
+    background: none;
+    border: none;
+    color: #dc3545;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s ease;
+  }
+  
+  .delete-button:hover {
+    background: #fff5f5;
+    color: #c82333;
+  }
+  
+  .delete-button i {
+    font-size: 1rem;
+  }

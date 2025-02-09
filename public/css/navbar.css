@@ -1,0 +1,117 @@
+/* Navbar CSS */
+.main-header {
+    background: var(--white);
+    border-bottom: 2px solid var(--gray-100);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+ }
+ 
+ .nav-container {
+    width: 100%;
+    padding: 1rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+ }
+ 
+ .nav-brand {
+    display: flex;
+    align-items: center;
+ }
+ 
+ .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--gray-700);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+ }
+ 
+ .nav-logo:hover {
+    color: var(--blue-500);
+ }
+ 
+ .nav-logo i {
+    color: var(--blue-500);
+    font-size: 1.8rem;
+ }
+ 
+ .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+ }
+ 
+ .exam-links {
+    display: flex;
+    gap: 1.5rem;
+ }
+ 
+ .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--gray-600);
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    border: 2px solid transparent;
+ }
+ 
+ .nav-item:hover {
+    color: var(--blue-500);
+    background: var(--gray-50);
+    border-color: var(--gray-100);
+    transform: translateY(-2px);
+ }
+ 
+ .nav-item i {
+    color: var(--blue-500);
+ }
+ 
+ .nav-divider {
+    width: 2px;
+    height: 24px;
+    background: var(--gray-100);
+ }
+ 
+ @media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem;
+        flex-direction: column;
+    }
+ 
+    .nav-menu {
+        width: 100%;
+        flex-direction: column;
+        padding: 1rem 0;
+    }
+ 
+    .exam-links {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+ 
+    .nav-item {
+        width: 100%;
+        justify-content: center;
+    }
+ 
+    .nav-divider {
+        width: 80%;
+        height: 1px;
+        margin: 0.5rem 0;
+    }
+ }

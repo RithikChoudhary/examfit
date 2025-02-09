@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Question Papers</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/css/dashboard-questionPaper.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body class="dashboard-body">
+
+  <div class="dashboard-container">
+    <%- include('./partials/sidebar', { currentPage: 'questionPapers' , examId: examId }) %>
+      <main class="dashboard-main">
+        <%- include('./partials/sidebar') %>
+
+          <div class="content-area">
+            <h2>
+              <%= examName %> - <%= subjectName %>
+            </h2>
+
+            <button class="add-button" onclick="openAddQuestionPaperModal()" style="margin-bottom: 20px;">
+              <i class="fas fa-plus"></i> Add Question Paper
+            </button>
+
+            <div class="question-paper-sections">
+              <% const sections=["PYQ", "Section I" , "Section II" , "Section III" ]; %>
+                <% sections.forEach(sectionName=> { %>
+                  <div class="section">
+                    <h3>
+                      <%= sectionName %>
+                    </h3>
+                    <ul class="question-paper-list">
+                      <% questionPapers.forEach(paper=> { %>
+                        <% if (paper.section===sectionName) { %>
+                          <li class="question-paper-item">
+                            <div class="paper-container">
+                              <a href="/dashboard/questions/<%= examId %>/<%= subjectId %>/<%= paper.questionPaperId %>">
+                                <%= paper.questionPaperName %>
+                              </a>
+                              <button 
+                                class="delete-button"
+                                onclick="deleteQuestionPaper('<%= examId %>', '<%= subjectId %>', '<%= paper.questionPaperId %>')"
+                              >
+                                <i class="fas fa-trash"></i>
+                              </button>
+                            </div>
+                          </li>
+                          <% } %>
+                            <% }); %>
+                    </ul>
+                  </div>
+                  <% }); %>
+            </div>
+          </div>
+
+      </main>
+  </div>
+
+  <!-- Add Question Paper Modal -->
+  <div id="addQuestionPaperModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Question Paper</h2>
+        <button class="close-button" onclick="closeAddQuestionPaperModal()">×</button>
+      </div>
+      <form id="addQuestionPaperForm" onsubmit="handleAddQuestionPaper(event)">
+        <div class="form-group">
+          <label for="paperName">Question Paper Name</label>
+          <input type="text" id="paperName" name="paperName" required>
+        </div>
+        <div class="form-group">
+          <label for="paperSection">Section</label>
+          <select id="paperSection" name="paperSection">
+            <option value="PYQ">Previous Year</option>
+            <option value="Section I">Section I</option>
+            <option value="Section II">Section II</option>
+            <option value="Section III">Section III</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="cancel-button" onclick="closeAddQuestionPaperModal()">
+            Cancel
+          </button>
+          <button type="submit" class="submit-button">
+            Add Question Paper
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openAddQuestionPaperModal() {
+      document.getElementById('addQuestionPaperModal').style.display = 'flex';
+    }
+
+    function closeAddQuestionPaperModal() {
+      document.getElementById('addQuestionPaperModal').style.display = 'none';
+    }
+
+    async function handleAddQuestionPaper(event) {
+      event.preventDefault();
+
+      const paperName = document.getElementById('paperName').value;
+      const paperSection = document.getElementById('paperSection').value;
+
+      try {
+        const response = await fetch('/api/questionPapers', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            examId: '<%= examId %>',
+            subjectId: '<%= subjectId %>',
+            paperName: paperName,
+            paperSection: paperSection
+          })
+        });
+
+        if (response.ok) {
+          // Question paper added successfully, reload page
+          window.location.reload();
+        } else {
+          const data = await response.json();
+          alert(data.error || 'Failed to add question paper');
+        }
+      } catch (error) {
+        alert('Failed to add question paper');
+        console.error(error)
+      }
+    }
+    async function deleteQuestionPaper(examId, subjectId, questionPaperId) {
+  event.preventDefault(); // Add this line
+  if (!confirm('Are you sure you want to delete this question paper? This action cannot be undone.')) {
+    return;
+  }
+
+  try {
+    const response = await fetch(`/api/questionPapers/${examId}/${subjectId}/${questionPaperId}`, {
+      method: 'DELETE'
+    });
+
+    if (response.ok) {
+      window.location.reload();
+    } else {
+      const data = await response.json();
+      alert(data.error || 'Failed to delete question paper');
+    }
+  } catch (error) {
+    console.error('Error deleting question paper:', error);
+    alert('Failed to delete question paper');
+  }
+} 
+
+  
+  </script>
+
+</body>
+
+</html>
