@@ -29,7 +29,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Route handlers
 
-app.use('/dashboard', dashboardRouter);
+// app.use('/dashboard', dashboardRouter);
 app.use('/api', apiRouter);
  // This should probably be your main rout.e
 app.use('/', examHierarchyRoutes); 
