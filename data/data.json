@@ -3676,6 +3676,668 @@
                   "explanation": "Sustainable aviation fuel (SAF), hydrogen and electric all have a role to play in the decarbonization of aviation. SAF is vitally important as it can address decarbonization of fuel over its lifecycle, and this is now available to be used in all turbine engines including in mid and long-range aircraft. Therefore, understanding the feedstock landscape as well as the technology pathways is integral to maximising the production and supply of SAF. The production of SAF starts with one of five main families of raw materials: \r\n\r\nCorn grain\r\nOil seeds\r\nAlgae\r\nOther fats, oils, and greases\r\nAgricultural residues\r\nForestry residues\r\nWood mill waste\r\nMunicipal solid waste streams\r\nWet wastes (manures, wastewater treatment sludge)\r\nDedicated energy crops."
                 }
               ]
+            },
+            {
+              "questionPaperId": "qp-1739179114107",
+              "questionPaperName": "PYQ-2023",
+              "section": "Previous Year",
+              "questions": [
+                {
+                  "questionId": "q1739179126135-j9ndalxrn",
+                  "question": "Consider the following statements: \nStatement-I: India, despite having uranium deposits, depends on coal for most of its electricity production.\nStatement-II: Uranium, enriched to the extent of at least 60%, is required for the production of electricity.\nWhich one of the following is correct in respect of the above statements?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-1"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Statement-I is correct but Statement-II is incorrect"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Statement-I is incorrect Statement-II is correct"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Statement-I is correct: Although India has significant uranium deposits, its reliance on coal for electricity production is higher compared to uranium. It constitutes 55% of the nation’s energy requirements.\nStatement-II is not correct: For electricity generation, uranium enrichment to a level of 3 to 5 percent of the U235 isotope is necessary. Research reactors utilise uranium enriched to a minimum concentration of 20%. Uranium enriched to at least 90% is classified as weapons-grade uranium."
+                },
+                {
+                  "questionId": "q1739179126135-pbnyb4vf7",
+                  "question": "Consider the following statements:\r\nStatement-I: Marsupials are not naturally found in India.\r\nStatement-II: Marsupials can thrive only in montane grasslands with no predators.\r\nWhich one of the following is correct in respect of the above statements?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Statement-I is correct but Statement-II is incorrect"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Statement-I is incorrect but Statement-II is correct"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Statement-I is correct: Marsupials can be observed in regions spanning Australia, Papua New Guinea, and South America. They are not naturally found in India. Examples of marsupials include kangaroos, wallabies, wombats, opossums, bandicoots, and koalas.\r\nStatement-II is not correct: These creatures predominantly inhabit arid and semi-arid areas, and they are not restricted solely to montane grasslands"
+                },
+                {
+                  "questionId": "q1739179126135-8g8yj2w9t",
+                  "question": "Invasive Species Specialist Group’ (that develops the Global Invasive Species Database) belongs to which one of the following organisations?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " The International Union for Conservation of Nature"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " The United Nations Environment Programme"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " The United Nations World Commission for Environment and Development"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "The World Wide Fund for Nature"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Invasive Species Specialist Group (ISSG) is a global network of scientific and policy experts on invasive species, organised under the auspices of the Species Survival Commission (SSC) of the International Union for Conservation of Nature (IUCN). The ISSG fosters and enables the worldwide exchange of knowledge and information concerning invasive species. It also ensures the linkage between knowledge, practice, and policy to ensure that decisions are based on well-informed insights."
+                },
+                {
+                  "questionId": "q1739179126135-vi7lsfxm2",
+                  "question": "Consider the following fauna:\r\n1. Lion-tailed Macaque\r\n2. Malabar Civet\r\n3. Sambar Deer\r\nHow many of the above are generally nocturnal or most active after sunset?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Option 1 is not correct: Lion-tailed Macaque also referred to as the wanderoo, inhabits the upper canopy of tropical evergreen rainforests and monsoon forests across various elevations. This species is endemic to the Western Ghats. They are diurnal. Conservation Status in India:\r\n\r\nIUCN Red List: Endangered\r\nWildlife Protection Act, 1972: Schedule I\r\nCITES: Appendix I\r\nOption 2 is correct: Malabar Civet is endemic to the Western Ghats of India. It is listed as Critically Endangered on the IUCN Red List. The Malabar civet is considered nocturnal and so elusive that little is known about its biology and ecology apart from habitat use.\r\n\r\nOption 3 is correct: The sambar is a large deer native to the Indian subcontinent and Southeast Asia that has been listed as a vulnerable species on the IUCN Red List since 2008. Sambar are nocturnal or crepuscular animals and rest during the day under the cover of heavy forest. The males live alone for\r\nmuch of the year, and the females live in small herds of up to 16 individuals."
+                },
+                {
+                  "questionId": "q1739179126135-u2rsiy63e",
+                  "question": "Which of the following organisms perform waggle dance for others of their kin to indicate the direction and the distance to a source of their food?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Butterflies"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Dragonflies"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Honey Bees"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Wasps"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Honeybees reside in colonies managed by a single queen overseeing the entire hive. Worker honeybees, all of which are females, constitute the only bees\r\ntypically observed flying outside the hive by the general populace. Bees perform two distinct types of dances: The Round Dance and The Tail-wagging or Waggle Dance. The waggle dance of honeybees has long been recognized as a behaviour that communicates information about resource location from a foraging worker to her nest mates."
+                },
+                {
+                  "questionId": "q1739179126135-vyhovgac1",
+                  "question": "Consider the following statements:\r\n1. Some mushrooms have medicinal properties.\r\n2. Some mushrooms have psychoactive properties\r\n3. Some mushrooms have insecticidal properties.\r\n4. Some mushrooms have bioluminescent properties.\r\nHow many of the above statements are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " All four"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Statement 1 is correct: Mushrooms possess antibacterial properties, enhance the immune system, and aid in lowering cholesterol levels. Moreover, they serve as significant reservoirs of bioactive compounds. Consequently, certain mushroom extracts are utilised to support human health and are available in the form of dietary supplements.\r\n\r\nStatement 2 is correct: Psychoactive properties refer to substances that influence brain function, resulting in alterations in mood, awareness, cognition, emotions, or behaviour. Psilocybin is a hallucinogenic compound found in specific mushrooms commonly known as magic mushrooms.\r\n\r\nStatement 3 is correct: In recent times, there has been a growing discovery of insecticidal compounds within mushrooms.\r\n\r\nStatement 4 is correct: Bioluminescence refers to the generation and release of light by living organisms. Panellus stipticus stands out as one of the most luminous bioluminescent mushrooms found on our planet. The newly discovered species, designated as Roridomyces phyllostachydis found in Meghalaya, now joins the ranks of the 97 recognised types of bioluminescent fungi worldwide."
+                },
+                {
+                  "questionId": "q1739179126135-rgfc02rnl",
+                  "question": "Consider the following statements regarding the Indian squirrels:\r\n1. They build nests by making burrows in the ground.\r\n2. They store their food materials like nuts and seeds in the ground.\r\n3. They are omnivorous.\r\nHow many of the above statements are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Statement 1 is correct: Tree squirrels typically live in wooded areas since they prefer to live in trees. Flying squirrels make their homes in tree holes or nests\r\nthat are built into the crooks of branches. Ground squirrels live up to their names. They dig burrows, a system of tunnels underground, to live in. Some\r\nsquirrels also hibernate in burrows during the winter to keep warm.\r\n\r\nStatement 2 is correct: Nuts serve as the primary food source for these creatures year-round, especially during the winter months when they are preparing for hibernation. They store nuts by burying them underground, enabling retrieval during the winter season.\r\n\r\nStatement 3 is correct: Squirrels are omnivores. Their diet primarily consists of nuts and fruits, although they will also consume seeds, insects, small mammals, reptiles, eggs, and occasionally even bird chicks."
+                },
+                {
+                  "questionId": "q1739179126135-keu29n56k",
+                  "question": "Which one of the following makes a tool with a stick to scrape insects from a hole in a tree or a log of wood?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Fishing cat"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Orangutan"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Otter"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Sloth bear"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Orangutans have been known for making and using tools such as sticks for fishing out bugs from bark. Orangutan (genus Pongo) is any of three species of\r\nAsian great apes found in rainforests on the Southeast Asian islands of Sumatra and Borneo. The Bornean orangutan (Pongo pygmaeus) inhabits large portions of Borneo, whereas the Sumatran orangutan (P.abelii) and the Tapanuli orangutan (P. tapanuliensis) are limited to northern Sumatra. Orangutans possess cognitive abilities comparable to those of the gorilla and the chimpanzee, which are the only primates more closely related to humans."
+                },
+                {
+                  "questionId": "q1739179126135-qm1cz7bn9",
+                  "question": "Consider the following:\r\n1. Aerosols\r\n2. Foam agents\r\n3. Fire retardants\r\n4. Lubricants\r\nIn the making of how many of the above are hydrofluorocarbons used?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Hydrofluorocarbons (HFCs) are a climate “Super- Pollutant” – Greenhouse gases with hundreds to thousands of times the heat-trapping power of carbon dioxide (CO). HFCs are synthetic gases used in air conditioning systems, aerosol propellants, foam-blowing agents, solvents, lubricants, and flame retardants. These gases were first developed as alternatives to ozone-depleting chemicals, but after their rollout, it was learned that their release to the atmosphere during manufacturing processes and leakage during use, servicing, and retirement/ replacement of equipment poses a grave threat to our climate."
+                },
+                {
+                  "questionId": "q1739179126135-auo8qfpij",
+                  "question": "Consider the following:\r\n1. Aerosols\r\n2. Foam agents\r\n3. Fire retardants\r\n4. Lubricants\r\nIn the making of how many of the above are hydrofluorocarbons used?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Statement I is correct: Carbon markets are trading systems in which carbon credits are sold and bought. Companies or individuals can use carbon   markets to compensate for their greenhouse gas emissions by purchasing carbon credits from entities that remove or reduce greenhouse gas emissions. One tradable carbon credit equals one tonne of carbon dioxide or the equivalent amount of a different greenhouse gas reduced, sequestered or avoided.\r\nStatement II is not correct: Carbon markets are trading systems in which carbon credits are sold and bought. There is no transfer of resources from the\r\nprivate sector to the state."
+                },
+                {
+                  "questionId": "q1739179126135-e0yg83z5y",
+                  "question": "Consider the following infrastructure sectors:\r\n1. Affordable housing\r\n2. Mass rapid transport\r\n3. Health care\r\n4. Renewable energy\r\nOn how many of the above does the UNOPS Sustainable Investments in Infrastructure and Innovation (S3i) initiative focus for its investments?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The UNOPS  Sustainable Investments in Infrastructure and Innovation (S3i) initiative was introduced in 2015 as a pilot project to investigate inventive approaches to financing sustainable infrastructure endeavours in developing nations. The initiative sought to capitalise on UNOPS’ proficiency and track record in providing infrastructure solutions that align with the requirements and ambitions of individuals and communities. The S3i initiative provides initial funding for significant projects in affordable housing, renewable energy, and health infrastructure. It does not emphasise investments in mass rapid transport infrastructure. Hence only Statements 1, 3 and 4 are correct."
+                },
+                {
+                  "questionId": "q1739179126135-g6y2dricn",
+                  "question": "Consider the following statements regarding mercury pollution:\r\n1. Gold mining activity is a source of mercury pollution in the world.\r\n2. Coal-based thermal power plants cause mercury pollution.\r\n3. There is no known safe level of exposure to mercury.\r\nHow many of the above statements are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Statement 1 is correct: Mercury is used in Artisanal Small-Scale Gold Mining (ASGM). The majority of the mercury emissions associated with the ASGM sector come from the burning of mercury-gold amalgam, which is responsible for 38% of all anthropogenic mercury emissions to the atmosphere.\r\nStatement 2 is correct: Mercury is released into the atmosphere via the burning of coal and other fossil fuels. Because coal has far higher mercury content than other fossil fuels, coal-fired power stations frequently produce more mercury pollution than power plants that burn other fossil fuels.Statement 3 is correct: There is no known safe level of exposure to mercury due to its extreme toxicity. The ideal level of mercury in the body is zero because it has no physiological advantages for either children or adults."
+                },
+                {
+                  "questionId": "q1739179126135-llkm3uob6",
+                  "question": "Consider the following statements:\r\nStatement-I: According to the United Nations’ World Water Development Report, 2022’, India extracts more than a quarter of the world’s groundwater withdrawal each year.\r\nStatement-II: India needs to extract more than a quarter of the world’s groundwater each year to satisfy the drinking water and sanitation needs of almost 18% of the world’s population living in its Territory.\r\n\r\nWhich one of the following is correct in respect of the above statements?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Statement-I is correct but Statement-II is incorrect"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Statement-I is incorrect but Statement-II is correct"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Statement-I is correct: According to the United Nations’ World Water Development Report 2022, India extracts more than a quarter of the world’s groundwater withdrawal each year. This indicates that India has a significant reliance on groundwater resources for various purposes, including irrigation, drinking water, and industrial use.\r\nStatement-II is not correct: Approximately 89% of India’s groundwater is utilised for irrigation purposes. The primary portion of the total groundwater extracted in India serves irrigation needs rather than being allocated for drinking and sanitation purposes."
+                },
+                {
+                  "questionId": "q1739179126135-ltld0gonv",
+                  "question": "Consider the following statements:\r\n1. In India, the Biodiversity Management Committees are key to the realisation of the objectives of the Nagoya Protocol.\r\n2. The Biodiversity Management Committees have important functions in determining access and benefit sharing, including the power to levy collection fees on the access of biological resources within its jurisdiction.\r\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "As per the Biodiversity Act of 2002, Biodiversity Management Committees (BMCs) are constituted at the local level. The act implements India’s obligations\r\noutlined in the Convention on Biological Diversity (CBD) of 1992. BMCs play a crucial role in preparing peoples’ biodiversity registers (PBRs), containing comprehensive information on local biological resources and associated traditional knowledge. They also oversee access and benefit-sharing (ABS) and have the authority to impose collection fees on biological resource access within their jurisdiction. BMCs are essential for fulfilling the objectives of the Nagoya Protocol (2010), negotiated within the CBD, ensuring benefits from genetic resources andtraditional knowledge accrue to indigenous and local communities on agreed terms. Hence, both statement 1 and statement 2 are correct."
+                },
+                {
+                  "questionId": "q1739179126135-huuek7eup",
+                  "question": "Consider the following statements:\r\nOnce the Central Government notifies an area as a ‘Community Reserve’.\r\n1. The Chief Wildlife Warden of the State becomes the governing authority of such forest.\r\n2. Hunting is not allowed in such area.\r\n3. People of such areas are allowed to collect non-timber forest produce.\r\n4. People of such areas are allowed traditional agricultural practices.\r\nHow many of the above statements are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Community Reserves fall under protected areas, along with marine protected areas, national parks, wildlife sanctuaries and conservation reserves, according to the Wild Life (Protection) Act (WLPA), 1972. These protected area categories were first introduced in the Wild Life (Protection) Amendment Act of 2002.\r\n\r\nStatement 1 is correct: Under Section 33 of the Wildlife Protection Act (WLPA), upon the Centre’s notification of an area as a community reserve, the Chief Wildlife Warden of the state assumes authority over the forest. All decisions regarding the area necessitate the consent of this governing authority.\r\n\r\nStatement 2 is correct: Following the designation of a forest as a community reserve, hunting is strictly prohibited in these areas.\r\n\r\nStatement 3 is correct: In a Community Reserve, the collection of non-timber forest produce by the local communities is subject to the specific rules and regulations governing the Community Reserve. It may be regulated or restricted to ensure sustainable use and conservation of resources.\r\n\r\nStatement 4 is incorrect: After a forest has been made into a community reserve, people cannot use it for agricultural practices, leave alone jhum cultivation."
+                }
+              ]
+            },
+            {
+              "questionPaperId": "qp-1739179248042",
+              "questionPaperName": "PYQ-2022",
+              "section": "Previous Year",
+              "questions": [
+                {
+                  "questionId": "q1739179426376-c8j9a1bkh",
+                  "question": "Which of the following are nitrogen-fixing plants?\r\n\r\nAlfalfa\r\nAmaranth\r\nChickpea\r\nClover\r\nPurslane (Kulfa)\r\nSpinach\r\nSelect the correct answer using the code given below:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1, 3 and 4 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "1, 3, 5 and 6 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "2, 4, 5 and 6 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2, 4, 5 and 6"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Sub-Theme: Nitrogen fixation\r\n\r\nOption (a) is the correct answer: Alfalfa, Chickpea and Clover are nitrogen-fixing plants.\r\n\r\nNitrogen-fixation:\r\n\r\nNitrogen fixation is the process by which nitrogen is taken from its molecular form (N2) in the atmosphere and converted into nitrogen compounds useful for other biochemical processes. Fixation can occur through atmospheric (lightning), industrial, or biological processes.\r\nNitrogen-Fixing Plants: A N-fixing crop is a natural way to provide plant-adjusted N without any industrial harm to nature.\r\nNitrogen fixing plants are:\r\nClovers, vetches, and peas are nitrogen- fixing plants used by farmers worldwide and in the Southern Great Plains of US in particular.\r\nPeas or beans can be used as a summer nitrogen-fixing cover crop or harvested for food. Both ways, they enrich the soil with plant-suitable N. Southern peas prefer warm seasons and are sown when the soil temperature reaches 60F.\r\nBeans: fava (aka faba, broad), alfalfa, green (aka French), runner, field, sweet, peanuts (aka groundnuts), soybeans, cream, black-eyed, or purple-hulled beans, lupins, lentils, cowpeas"
+                },
+                {
+                  "questionId": "q1739179426377-202wndi7j",
+                  "question": "Among the following crops, which one is the most important anthropogenic source of both methane and nitrous oxide?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Cotton"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Rice"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Sugarcane"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Wheat"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Sub-Theme: Agriculture and Greenhouse gases\r\n\r\nOption (b) is the correct answer: Rice is one of the most important anthropogenic sources of both methane and nitrous oxide.\r\n\r\nAgriculture and Greenhouse gases:\r\n\r\nMethane (CH4) and nitrous oxide (N2O) are the two most important GHGs after carbon dioxide (CO2)\r\nThe most rapid increase in CH4 emission was found in natural wetlands and rice fields due to increased rice cultivation area and climate warming.\r\nN2O emission increased substantially in all the biome types and the largest increase occurred in upland crops due to increasing air temperature and nitrogen fertilizer use.\r\nRice paddies are considered one of the most important sources of CH4 and N2O emissions, which have attracted considerable attention due to their contribution to global warming."
+                },
+                {
+                  "questionId": "q1739179426377-vubb59m7r",
+                  "question": "System of rice Intensification” of cultivation, in which alternate wetting and drying of rice fields is practised, results in:\r\n\r\nReduced seed requirement\r\nReduced methane production\r\nReduced electricity consumption\r\nSelect the correct answer using the code given below",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1 and 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " 1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Sub-Theme: System of Rice Intensification\r\n\r\nOption (d) is the correct answer: All of the given results come from the System of Rice Intensification.\r\n\r\nSystem of Rice Intensification:\r\n\r\nThe System of Rice Intensification involves cultivating rice with as much organic manure as possible, starting with young seedlings planted singly at wider spacing in a square pattern; and with intermittent irrigation that keeps the soil moist but not inundated, and frequent inter cultivation with weed that actively aerates the soil.\r\nSRI is not a standardised, fixed technological method.\r\nIt is rather a set of ideas, a methodology for comprehensively managing and conserving resources by changing the way that land, seeds, water, nutrients, and human labour are used to increase productivity from a small but well-tended number of seed"
+                },
+                {
+                  "questionId": "q1739179426377-u3c3dyt97",
+                  "question": "In the context of WHO Air Quality Guidelines, consider the following statements:\r\n\r\n1. The 24-hour mean of PM2.5 should not exceed 15 ug/m3 and annual mean of 5 should not exceed 5 ug/m3.\r\n\r\n2. In a year, the highest levels of ozone pollution occur during the period of inclement weather.\r\n\r\n3. PM10 can penetrate the lung barrier and enter the bloodstream.\r\n\r\n4. Excessive ozone in the air can trigger asthma.\r\n\r\nWhich of the statements given above are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1, 3 and 4"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " 1 and 4 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "2, 3 and 4"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1 and 2 only"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Sub-Theme: Air quality\r\n\r\nStatement 1 is correct: The 24-hour ceiling mean of PM 2.5 used to be 25 micrograms but has now dropped to 15.\r\n\r\nStatement 2 is incorrect: Ozone at ground level is formed by the reaction with sunlight (photochemical reaction) of pollutants such as nitrogen oxides (NOx) from vehicle and industry emissions and volatile organic compounds (VOCs) emitted by vehicles, solvents and industry. As a result, the highest levels of ozone pollution occur during periods of sunny weather and not during inclement weather.\r\n\r\nStatement 3 is incorrect: PM is a common proxy indicator for air pollution. It affects more people than any other pollutant. While particles with a diameter of 10 microns or less, (≤ PM10) can penetrate and lodge deep inside the lungs, the even more health-damaging particles are those with a diameter of 2.5 microns or less, (≤ PM2.5). PM2.5 can penetrate the lung barrier and enter the blood system.\r\n\r\nStatement 4 is correct: Excessive ozone in the air can have a marked effect on human health. It causes breathing problems, triggers asthma, reduces lung function and causes lung diseases. Ozone triggers asthma because it is very irritating to the lungs and airways."
+                },
+                {
+                  "questionId": "q1739179426377-wj2kr2588",
+                  "question": "Consider the following:\r\n\r\nCarbon monoxide\r\nNitrogen oxide\r\nOzone\r\nSulphur dioxide\r\nExcess of which of the above in the environment is/ are cause(s) of acid rain?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1, 2 and 3"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 and 4 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "4 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 3 and 4"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Sub-Theme: Air Pollution\r\n\r\nOption (b) is the correct answer: Nitrous oxide and Sulphur dioxide cause Acid rain.\r\n\r\nNormal rain has a pH of about 5.6 when pH falls below this; it is called Acid rain (pH 4.2 to 4.4).\r\nAcid rain results when Sulfur Dioxide (SO2) & Nitrogen Oxides (NOx) react with water, oxygen & other chemicals to form Sulfuric & Nitric acids.\r\nNOx + SO2 + Moisture + other chemicals\r\n→ Acid Rain (HNO3 + H2SO4)\r\n\r\nEffects: Harms microorganisms in the soil; inhibit the activity of nitrogen fixation bacteria; soil acidification; ocean acidification; affects the growth of plants; food chain; kill aquatic animals; corrosion of metals & weathering of stone buildings & statues."
+                },
+                {
+                  "questionId": "q1739179426377-l064na613",
+                  "question": "Which one of the following has been constituted under the Environment (Protection) Act, 1986?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Central Water Commission"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Central Ground Water Board"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Central Ground Water Authority"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "National Water Development Agency"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Sub-Theme: Environment (Protection) Act, 1986/ Central Ground Water Authority Central Ground Water Authority:\r\n\r\nCentral Ground Water Authority has been constituted under Section 3 (3) of the Environment (Protection) Act, 1986 to regulate and control development and management of groundwater resources in the country.\r\nCentral Ground Water Authority takes care of regulation and control, management and development of groundwater in the country and issues necessary regulatory directions for the purpose.\r\nEnvironment (Protection) Act, 1986:\r\n\r\nEnacted aftermath of Bhopal Gas Tragedy (1984) for protecting, improving environment & reducing pollution.\r\nAuthorises the central government to control & reduce pollution from all sources.\r\nProvides procedures for setting standards of emission or discharge of environmental pollutants."
+                },
+                {
+                  "questionId": "q1739179426377-9tvmin7qv",
+                  "question": "With reference to Indian laws about wildlife protection, consider the following statements:\r\n\r\nWild animals are the sole property of the government.\r\nWhen a wild animal is declared protected, such animal is entitled for equal protection whether it is found in protected areas or outside.\r\nApprehension of a protected wild animal becoming a danger to human life is sufficient ground for its capture or killing.\r\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1 and 3"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "3 only"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Sub-Theme: Wildlife Protection Important Provisions of Wildlife (Protection) Act, 1972:\r\n\r\nStatement 1 is incorrect: As per the Wild Life (Protection) Act, 1972, every Wild Animal shall be the property of the State Government, and, where such animal is hunted in a sanctuary or National Park declared by the Central Government, such animal or any animal article, trophy, uncured trophy or meat [derived from such animal, or any vehicle, vessel, weapon, trap or tool used in such hunting] shall be the property of the Central Government.\r\n\r\nHunted animals are the sole property of the Government.\r\n\r\nStatement 2 is correct: The law governing the subject of wildlife, the Wildlife (Protection) Act, 1972, provides for equal protection for wild animals irrespective of where they are found. It does not discriminate between animals found in protected areas and outside.\r\n\r\nStatement 3 is incorrect: Mere apprehension or fear that a wild animal could endanger human life is not a ground for capture or killing. As per Wildlife (Protection) Act, 1972, only if the wild animal becomes a danger to human life or is deceased or disabled beyond recovery can it be allowed to be captured or killed by the competent authority, the Chief Wildlife Warden of the State."
+                },
+                {
+                  "questionId": "q1739179426377-l3yu4dio7",
+                  "question": "The “Miyawaki method” is well known for the:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Promotion of commercial farming in arid and semi-arid areas"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Development of gardens using genetically modified flora"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Creation of mini forests in urban areas"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Harvesting wind energy on coastal areas and on sea surfaces\r\n"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Sub-Theme: Miyawaki Method of Urban Afforestation\r\n\r\nOption (c) is the correct answer: Miyawaki method is a method of urban afforestation by turning backyards into mini-forests. It includes planting trees as close as possible in the same area which not only saves space, but the planted saplings also support each other in growth and block sunlight from reaching the ground, thereby preventing the growth of weeds. Thus the saplings become maintenance-free (self- sustainable) after the first three years. It helps to create a forest in just 20 to 30 years while through conventional methods it takes anywhere between 200 to 300 years.\r\n\r\nMiyawaki Process\r\n\r\nThe native trees of the region are identified and divided into four layers — shrub, sub- tree, tree, and canopy.\r\nThe quality of soil is analysed and biomass which would help enhance the perforation capacity, water retention capacity, and nutrients in it, is mixed with it.\r\nA mound is built with the soil and the seeds are planted at a very high density — three to five sapling per square meter.\r\nThe ground is covered with a thick layer of mulch."
+                },
+                {
+                  "questionId": "q1739179426377-p8jbpjhyi",
+                  "question": "Consider the following pairs:\r\n\r\nWetland/Lake – Location\r\n\r\nHokera Wetland – Punjab\r\nRenuka Wetland – Himachal Pradesh\r\nRudrasagar Lake – Tripura\r\nSasthamkotta Lake – Tamil Nadu\r\nHow many pairs given above are correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one pair"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two pairs"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three pairs"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four pairs"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Sub-Theme: Wetlands\r\n\r\nOption (b) is correct:\r\n\r\nWetlands\tLocation and Significance\r\nHokera Wetland\tJammu and kashmir.\r\nA perennial natural wetland that is part of the Jhelum basin.\r\n\r\n Renuka Wetland\t\r\nHimachal Pradesh\r\nA naturally occurring wetland that receives freshwater springs and underground karst formations from the lower Himalayas and the Giri river.\r\nLake Rudijala/ Rudrasagar Lake\t\r\nMelaghar, Tripura\r\nA lowland sedimentation reservoir in the northeastern highlands that receives water from three enduring streams that empty into the River Gomti.\r\n Sasthamkotta\t\r\nKollam district, Kerala\r\nBeing Kerala’s largest freshwater lake, it has long been a popular destination for travellers."
+                },
+                {
+                  "questionId": "q1739179426377-6gb6kxwjx",
+                  "question": "“If rainforests and tropical forests are lungs of the Earth, then surely wetlands function as its kidneys.” Which one of the following functions of wetlands best reflects the above statements?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "The water cycle in wetlands involves surface runoff, subsoil percolation and evaporation."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Algae form the nutrient base upon which fish, crustaceans, molluscs, birds, reptiles and mammals thrive."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Wetlands play a vital role in maintaining sedimentation balance and soil stabilisation."
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Aquatic plants absorb heavy metals and excess nutrients.\r\n"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Sub-Theme: Wetland Conservation\r\n\r\nOption (d) is the correct answer: Natural wetlands have often been referred to as “earth’s kidneys” because of their high and long-term capacity to filter pollutants from the water that flows through them. Hence, Aquatic plants absorb heavy metals and excess nutrients.\r\n\r\nFunctions of Kidney and Wetland\r\n\r\nKidneys in our body remove wastes and extra fluid from our body. Our kidneys also remove acid that is produced by the cells of your body and maintain a healthy balance of water, salts, and minerals—such as sodium, calcium, phosphorus, and potassium—in your blood.\r\nIn the same manner as sediment, excess nutrients and chemicals flow off of the land, wetlands filter the runoff before it reaches open water. Nutrients are stored and absorbed by plants or Sediment settles at the bottom after reaching an area with slow water flow."
+                },
+                {
+                  "questionId": "q1739179426377-llqknb99t",
+                  "question": "With reference to “Gucchi” sometimes mentioned in the news, consider the following statements:\r\n\r\nIt is a fungus.\r\nIt grows in some Himalayan Forest areas.\r\nIt is commercially cultivated in the Himalayan foothills of north-eastern India.\r\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "2 and 3"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Sub-Theme: Species and their habitat\r\n\r\nOption (c) is the correct answer: Guchhi Mushroom is a Species of Fungus cultivated in Himalayan Forests.\r\n\r\nStatement 1 is correct: Guchhi mushroom is a species of fungus in the family Morchellaceae of the Ascomycota.\r\n\r\nStatement 2 is correct: It is grown in the foothills of Himalayas mostly in the temperate forests of Himachal Pradesh, Uttaranchal, and Jammu and Kashmir.\r\n\r\nStatement 3 is incorrect: The mushrooms cannot be cultivated commercially and grow in conifer forests across temperate regions."
+                },
+                {
+                  "questionId": "q1739179426377-fb5nt7n0u",
+                  "question": "Which of the following is not a bird?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Golden Mahseer"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Indian Nightjar"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Spoonbill"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "White Ibis"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Golden Mahseer (freshwater fish)\r\n\r\nOption (a) is the correct answer: Golden Mahseer is also known as the tiger of Indian rivers. It is a species of the genus Tor. The Golden Mahseer, the longest-living freshwater fish, is native to mountain and sub-mountain regions found in the Himalayan Rivers (Indus, Ganga and Brahmaputra). The Pong Dam reservoir, around 250 km from state capital Shimla and 190 km from Chandigarh, supports an ample population of the golden Mahseer. Conservation Status: IUCN: Endangered."
+                }
+              ]
             }
           ],
           "questions": []
