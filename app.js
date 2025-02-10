@@ -17,12 +17,12 @@ const examRouter = require('./routes/exam');
 const app = express();
 
 // Create a LiveReload server
-const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(path.join(__dirname, 'public'));
-liveReloadServer.watch(path.join(__dirname, 'views'));
+// const liveReloadServer = livereload.createServer();
+// liveReloadServer.watch(path.join(__dirname, 'public'));
+// liveReloadServer.watch(path.join(__dirname, 'views'));
 
 // Set up middleware
-app.use(connectLivereload());
+// app.use(connectLivereload());
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));

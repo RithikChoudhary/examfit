@@ -5,43 +5,6 @@
       "examName": "Union Public Service Commission",
       "subjects": [
         {
-          "subjectId": "english",
-          "subjectName": "English",
-          "questionPapers": [
-            {
-              "questionPaperId": "qp-1737955414634",
-              "questionPaperName": "PYQ-1",
-              "section": "Previous Year",
-              "questions": [
-                {
-                  "questionId": "q1737955421954-ycg5tu8up",
-                  "question": "What is the capital of France?",
-                  "options": [
-                    {
-                      "optionId": "a",
-                      "text": "London"
-                    },
-                    {
-                      "optionId": "b",
-                      "text": "Paris"
-                    },
-                    {
-                      "optionId": "c",
-                      "text": "Berlin"
-                    },
-                    {
-                      "optionId": "d",
-                      "text": "Madrid"
-                    }
-                  ],
-                  "correctOption": "b",
-                  "explanation": "Paris is the capital city of France"
-                }
-              ]
-            }
-          ]
-        },
-        {
           "subjectId": "history",
           "subjectName": "History",
           "questionPapers": [
