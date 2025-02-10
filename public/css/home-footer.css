@@ -1,50 +1,47 @@
-/* home-footer.css */
+/* Recommended Modern Footer CSS */
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
-/* body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
-  } */
-  /* style.css */
 body {
-    /* ... your other body styles */
-    min-height: 100vh; /* Ensure body takes up full viewport height */
-  }
-  
-  .content-wrapper { 
-    padding-bottom: 70px; /* Allow content to take up available space */
-  }
-footer {
-    background-color: #222; /* Dark background color */
-    color: #fff;            /* White text color */
-    padding: 30px 0;       /* Top-bottom padding */
-    text-align: center;     /* Center all content */
-    width: 100%;            /* Full width */
-    position: relative;    /* For positioning */
-    clear: both;           /* Clear floats if any */ 
-    bottom: 0;        
-    margin-bottom: -70px;      /* Position at bottom */
-  }
-  
-  footer .container {
-    width: 90%;          /* Adjust container width as needed */
-    max-width: 1200px;  /* Limit the maximum container width */
-    margin: 0 auto;      /* Center the container */
-  }
-  
-  footer p {
-    margin-bottom: 10px; /* Space between copyright and links */
-    font-size: 0.9rem;  /* Slightly smaller font size */ 
-  }
-  
-  footer a {
-    color: #bbb;        /* Light gray link color */
-    text-decoration: none;
-    margin: 0 10px;    /* Spacing between links */
-    transition: color 0.3s ease; /* Smooth color transition on hover */
-  }
-  
-  footer a:hover {
-    color: #fff;       /* White link color on hover */
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
+.content-wrapper {
+  flex: 1 0 auto; /* Allow content to grow and take available space */
+  padding-bottom: 20px; /* Optional: add some padding at the bottom of content */
+}
+
+footer {
+  flex-shrink: 0; /* Prevent footer from shrinking */
+  background-color: #222;
+  color: #fff;
+  padding: 30px 0;
+  text-align: center;
+  width: 100%;
+}
+
+footer .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #bbb;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #fff;
+}
