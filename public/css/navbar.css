@@ -86,25 +86,30 @@
     background: var(--gray-100);
  }
  
- .pak {
+/* Keep all your existing CSS the same, just update the .pak img and media query part */
+
+.pak {
    display: flex;
    align-items: center;
 }
 
 .pak img {
-   width: 120px;  /* Adjust this value as needed */
-   height: 32px; /* Adjust this value as needed */
-   object-fit: contain; /* This ensures the image maintains its aspect ratio */
+   width: 120px;  
+   height: 32px; 
+   object-fit: contain;
 }
- @media (max-width: 768px) {
+
+@media (max-width: 768px) {
     .nav-container {
         padding: 1rem;
         flex-direction: column;
     }
+    
     .pak img {
-      width: 28px;
-      height: 28px;
-  }
+        width: 100px;  /* Increased from 28px */
+        height: 28px;
+    }
+
     .nav-menu {
         width: 100%;
         flex-direction: column;
@@ -127,4 +132,12 @@
         height: 1px;
         margin: 0.5rem 0;
     }
- }
+}
+
+/* Add a new media query for even smaller screens */
+@media (max-width: 480px) {
+    .pak img {
+        width: 90px;
+        height: 26px;
+    }
+}
