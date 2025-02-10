@@ -1,8 +1,6 @@
 // /Volumes/Macintosh HD/Users/burnt/Documents/workspace/DevOps/Terraform/eatpl/app.js
 const express = require('express');
 const path = require('path');
-const livereload = require('livereload');
-const connectLivereload = require('connect-livereload');
 
 // Import routes
 const indexRouter = require('./routes/index');
