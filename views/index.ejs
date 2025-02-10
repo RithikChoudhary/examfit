@@ -22,7 +22,9 @@
         <% exams.forEach((exam)=> { %>
           <div class="exam-column">
             <div class="exam-card" data-exam-id="<%= exam.examId %>">
-              <img src="/templates/<%= exam.examId %>.png" class="exam-icon" alt="<%= exam.examName %>">
+              <div class="exam-icon">
+                <img src="/templates/<%= exam.examId %>.png" alt="<%= exam.examName %>">
+              </div>
               <div class="exam-title">
                 <%= exam.examName %>
               </div>
