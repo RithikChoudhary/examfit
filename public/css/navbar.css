@@ -16,7 +16,7 @@
     align-items: center;
     background: var(--white);
  }
- 
+
  .nav-brand {
     display: flex;
     align-items: center;
@@ -86,12 +86,25 @@
     background: var(--gray-100);
  }
  
+ .pak {
+   display: flex;
+   align-items: center;
+}
+
+.pak img {
+   width: 120px;  /* Adjust this value as needed */
+   height: 32px; /* Adjust this value as needed */
+   object-fit: contain; /* This ensures the image maintains its aspect ratio */
+}
  @media (max-width: 768px) {
     .nav-container {
         padding: 1rem;
         flex-direction: column;
     }
- 
+    .pak img {
+      width: 28px;
+      height: 28px;
+  }
     .nav-menu {
         width: 100%;
         flex-direction: column;

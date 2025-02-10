@@ -5212,6 +5212,12 @@
             }
           ],
           "questions": []
+        },
+        {
+          "subjectId": "science-technology",
+          "subjectName": "Science  Technology",
+          "questionPapers": [],
+          "questions": []
         }
       ]
     },
