@@ -5218,6 +5218,12 @@
           "subjectName": "Science  Technology",
           "questionPapers": [],
           "questions": []
+        },
+        {
+          "subjectId": "mathematics",
+          "subjectName": "Mathematics",
+          "questionPapers": [],
+          "questions": []
         }
       ]
     },
