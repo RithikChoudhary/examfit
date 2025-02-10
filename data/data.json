@@ -100,19 +100,19 @@
                 },
                 {
                   "questionId": "q1738132208685-jb497d02s",
-                  "question": "Consider the following information:\r\n\r\n \tArchaeological Site\tState\tDescription\r\n1.\tChandraketugarh\tOdisha\tTrading Port town\r\n2.\tInamgaon\tMaharashtra\tChalcolithic site\r\n3.\tMangadu\tKerala\tMegalithic site\r\n4.\tSalihundam\tAndhra Pradesh\tRock-cut cave shrines\r\nIn which of the above rows is the given information correctly matched?",
+                  "question": "Consider the following information:\n\n \tArchaeological Site\tState\tDescription\n1.\tChandraketugarh\tOdisha\tTrading Port town\n2.\tInamgaon\tMaharashtra\tChalcolithic site\n3.\tMangadu\tKerala\tMegalithic site\n4.\tSalihundam\tAndhra Pradesh\tRock-cut cave shrines\nIn which of the above rows is the given information correctly matched?",
                   "options": [
                     {
                       "optionId": "a",
-                      "text": " 1 and 2"
+                      "text": "1 and 2"
                     },
                     {
                       "optionId": "b",
-                      "text": " 2 and 3"
+                      "text": "2 and 3"
                     },
                     {
                       "optionId": "c",
-                      "text": " 3 and 4"
+                      "text": "3 and 4"
                     },
                     {
                       "optionId": "d",
@@ -120,7 +120,7 @@
                     }
                   ],
                   "correctOption": "b",
-                  "explanation": "Pair 1 is incorrectly matched: : Chandraketugarh is an urban centre of the ancient state of Gangaridai belonging to the trans-Bengal region at the interface of West Bengal and Bangladesh. The description has been found from various travelogues from India and abroad. The position of Chandraketugarh has been acknowledged on the basis of Maritime-Land route memoirs and textual historic evidences obtained from within India and also from the eastern and western parts of Asia. The antiquity of the area dates back to eras as early as 4th century BCE, a period much prior to the Mauryan era and shows evidence in the continuity of subsequent Sunga, Kushana, Gupta, Pala and Sena dynasties.\r\n\r\nPair 2 is correctly matched: Inamgaon is a chalcolithic site in Maharashtra. After the disintegration of the Indus civilization, in a phase known as the Early Jorwe (1400– 1000 BC), hundreds of agrarian villages flourished in the Deccan region of west-central India. Environmental degradation, combined with unsustainable agricultural practices, contributed to the abandonment of many communities around 1000 BC. Inamgaon was one of a handful of villages to persist into the Late Jorwe phase (1000–700 BC), wherein reliance on dry-plough agricultural production declined.\r\n\r\nunnamed 51\r\n\r\n \r\n\r\nPair 3 is correctly matched : Mangadu is a Megalithic Site in Kerala. The megalithic monuments at Mangadu consisted of 28 hard compact and unhewn laterite blocks within an area of 5 cents of land. The pottery at Mangadu can be classified into three categories namely the huge urns, the medium sized jars are hand made. The associated potteries are of wheel-made pottery and the fabric is black and red and red wares.\r\n\r\nPair 4 is incorrectly matched : Salihundam is a Buddhist Site in Andhra Pradesh as early as the 2nd century CE to the 12th century CE. Here, Buddhism flourished under the patronage of various dynasties, including the Satavahanas, Ikshvakus, and the Eastern Ganga dynasty. The archaeological excavations have revealed numerous stupas, chaityas, viharas and a congregation hall, indicating the importance of this site in the transmission of Buddhist knowledge and wisdom. Rock cut caves are not found in Salihundam.\r\n\r\n "
+                  "explanation": "Pair 1 is incorrectly matched: : Chandraketugarh is an urban centre of the ancient state of Gangaridai belonging to the trans-Bengal region at the interface of West Bengal and Bangladesh. The description has been found from various travelogues from India and abroad. The position of Chandraketugarh has been acknowledged on the basis of Maritime-Land route memoirs and textual historic evidences obtained from within India and also from the eastern and western parts of Asia. The antiquity of the area dates back to eras as early as 4th century BCE, a period much prior to the Mauryan era and shows evidence in the continuity of subsequent Sunga, Kushana, Gupta, Pala and Sena dynasties.\n\nPair 2 is correctly matched: Inamgaon is a chalcolithic site in Maharashtra. After the disintegration of the Indus civilization, in a phase known as the Early Jorwe (1400– 1000 BC), hundreds of agrarian villages flourished in the Deccan region of west-central India. Environmental degradation, combined with unsustainable agricultural practices, contributed to the abandonment of many communities around 1000 BC. Inamgaon was one of a handful of villages to persist into the Late Jorwe phase (1000–700 BC), wherein reliance on dry-plough agricultural production declined.\n\nunnamed 51\n\n \n\nPair 3 is correctly matched : Mangadu is a Megalithic Site in Kerala. The megalithic monuments at Mangadu consisted of 28 hard compact and unhewn laterite blocks within an area of 5 cents of land. The pottery at Mangadu can be classified into three categories namely the huge urns, the medium sized jars are hand made. The associated potteries are of wheel-made pottery and the fabric is black and red and red wares.\n\nPair 4 is incorrectly matched : Salihundam is a Buddhist Site in Andhra Pradesh as early as the 2nd century CE to the 12th century CE. Here, Buddhism flourished under the patronage of various dynasties, including the Satavahanas, Ikshvakus, and the Eastern Ganga dynasty. The archaeological excavations have revealed numerous stupas, chaityas, viharas and a congregation hall, indicating the importance of this site in the transmission of Buddhist knowledge and wisdom. Rock cut caves are not found in Salihundam.\n\n "
                 },
                 {
                   "questionId": "q1738132208685-zzn0m3g3n",
@@ -1780,7 +1780,7 @@
                 },
                 {
                   "questionId": "q1739172543488-ah0xex3yw",
-                  "question": "Consider the following statements:\r\n\r\n1. The Red Sea receives very little precipitation in any form.\r\n\r\n2. No water enters the Red Sea from rivers.\r\n\r\nWhich of the statements given above is/are correct?",
+                  "question": "Consider the following statements:\n\n1. The Red Sea receives very little precipitation in any form.\n2. No water enters the Red Sea from rivers.\n\nWhich of the statements given above is/are correct?",
                   "options": [
                     {
                       "optionId": "a",
@@ -1800,11 +1800,11 @@
                     }
                   ],
                   "correctOption": "c",
-                  "explanation": "Red Sea is a narrow strip of water extending southeastward from Suez, Egypt, for about 1,200 miles (1,930 km) to the Bab el-Mandeb Strait, which connects with the Gulf of Aden and thence with the Arabian Sea.\r\n\r\nClimate:\r\n\r\nThe Red Sea region receives very little precipitation in any form, although prehistoric artifacts indicate that there were periods with greater amounts of rainfall. Hence, statement 1 is correct.\r\n\r\nHydrology:\r\n\r\nNo water enters the Red Sea from rivers, and rainfall is scant, but the evaporation loss – in excess of 80 inches per year – is made up by an inflow through the eastern channel of the Bab el-Mandeb Strait from the Gulf of Aden. Hence, statement 2 is correct."
+                  "explanation": "Red Sea is a narrow strip of water extending southeastward from Suez, Egypt, for about 1,200 miles (1,930 km) to the Bab el-Mandeb Strait, which connects with the Gulf of Aden and thence with the Arabian Sea.\n\nClimate:\n\nThe Red Sea region receives very little precipitation in any form, although prehistoric artifacts indicate that there were periods with greater amounts of rainfall. Hence, statement 1 is correct.\n\nHydrology:\n\nNo water enters the Red Sea from rivers, and rainfall is scant, but the evaporation loss – in excess of 80 inches per year – is made up by an inflow through the eastern channel of the Bab el-Mandeb Strait from the Gulf of Aden. Hence, statement 2 is correct."
                 },
                 {
                   "questionId": "q1739172543488-e4jx63b84",
-                  "question": "Consider the following statements:\r\n\r\nStatement-I: The atmosphere is heated more by incoming solar radiation than by terrestrial radiation.\r\n\r\nStatement-II: Carbon dioxide and other greenhouse gases in the atmosphere are good absorbers of long wave radiation.\r\n\r\nWhich one of the following is correct in respect of the above statements?",
+                  "question": "Consider the following statements:\nStatement-I: The atmosphere is heated more by incoming solar radiation than by terrestrial radiation.\nStatement-II: Carbon dioxide and other greenhouse gases in the atmosphere are good absorbers of long wave radiation.\nWhich one of the following is correct in respect of the above statements?",
                   "options": [
                     {
                       "optionId": "a",
@@ -1824,11 +1824,11 @@
                     }
                   ],
                   "correctOption": "d",
-                  "explanation": "Statement-I is incorrect: Insolation reaches the earth’s surface in short waves and heat is radiated from the earth in long waves. The atmosphere is transparent to short waves and opaque to long waves. Hence, energy leaving the earth’s surface i.e. terrestrial radiation, heats up the atmosphere more than the incoming solar radiation i.e. insolation.\r\n\r\nStatement-II is correct: The long-wave radiation is absorbed by atmospheric gases, particularly by carbon dioxide and other greenhouse gases. Thus, the atmosphere is indirectly heated by the Earth’s radiation.\r\n\r\nHence, statement-I is incorrect, but statement-II is correct."
+                  "explanation": "Statement-I is incorrect: Insolation reaches the earth’s surface in short waves and heat is radiated from the earth in long waves. The atmosphere is transparent to short waves and opaque to long waves. Hence, energy leaving the earth’s surface i.e. terrestrial radiation, heats up the atmosphere more than the incoming solar radiation i.e. insolation.\n\nStatement-II is correct: The long-wave radiation is absorbed by atmospheric gases, particularly by carbon dioxide and other greenhouse gases. Thus, the atmosphere is indirectly heated by the Earth’s radiation.\n\nHence, statement-I is incorrect, but statement-II is correct."
                 },
                 {
                   "questionId": "q1739172543488-qnum5m2ss",
-                  "question": "Consider the following statements:\r\n\r\nStatement-I: Thickness of the troposphere at the equator is much greater as compared to poles.\r\n\r\nStatement-II: At the equator, heat is transported to great heights by strong convectional currents.\r\n\r\nWhich one of the following is correct in respect of the above statements?",
+                  "question": "Consider the following statements:\nStatement-I: Thickness of the troposphere at the equator is much greater as compared to poles.\nStatement-II: At the equator, heat is transported to great heights by strong convectional currents.\n\nWhich one of the following is correct in respect of the above statements?",
                   "options": [
                     {
                       "optionId": "a",
@@ -1848,11 +1848,11 @@
                     }
                   ],
                   "correctOption": "a",
-                  "explanation": "The troposphere is the lowermost layer of the atmosphere. Its average height is 13 km and extends roughly to a height of 8 km near the poles and about 18 km at the equator. Hence, statement 1 is correct.\r\n\r\nThe thickness of the troposphere is greatest at the equator because heat is transported to great heights by strong convectional currents. This layer contains dust particles and water vapour. Hence, statement 2 is correct.\r\n\r\nChanges in climate and weather take place in the troposphere. This includes changes in atmospheric concentration of various gases, temperature and humidity, etc.\r\n\r\nHence, both Statement-I and Statement-II are correct and Statement-II explains Statement-I."
+                  "explanation": "The troposphere is the lowermost layer of the atmosphere. Its average height is 13 km and extends roughly to a height of 8 km near the poles and about 18 km at the equator. Hence, statement 1 is correct.\n\nThe thickness of the troposphere is greatest at the equator because heat is transported to great heights by strong convectional currents. This layer contains dust particles and water vapour. Hence, statement 2 is correct.\n\nChanges in climate and weather take place in the troposphere. This includes changes in atmospheric concentration of various gases, temperature and humidity, etc.\n\nHence, both Statement-I and Statement-II are correct and Statement-II explains Statement-I."
                 },
                 {
                   "questionId": "q1739172543488-vozhut4uz",
-                  "question": "Consider the following:\r\n\r\n1. Pyroclastic debris\r\n\r\n 2.  Ash and dust\r\n\r\n 3.  Nitrogen compounds\r\n\r\n 4 . Sulphur compounds  \r\n\r\nHow many of the above are products of volcanic eruptions?",
+                  "question": "Consider the following:\n\n1. Pyroclastic debris\n2.  Ash and dust\n3.  Nitrogen compounds\n4 . Sulphur compounds  \n\nHow many of the above are products of volcanic eruptions?",
                   "options": [
                     {
                       "optionId": "a",
@@ -1872,7 +1872,7 @@
                     }
                   ],
                   "correctOption": "d",
-                  "explanation": "A volcano is a place where gases, ashes and/or molten rock material – lava – escape to the ground. A volcano is called an active volcano if the materials mentioned are being released or have been released in the recent past.\r\n\r\nStatement 1 is correct: The mantle contains a weaker zone called the asthenosphere. From this, the molten rock materials find their way to the surface. The material in the upper mantle portion is called magma. Once it starts moving towards the crust or reaches the surface, it is called lava. The material that reaches the ground includes: \r\n\r\nlava flows \r\npyroclastic debris\r\nvolcanic bombs\r\nash and dust \r\ngases such as- \r\nnitrogen compounds\r\nsulphur compounds \r\nminor amounts of chlorine, hydrogen and argon etc."
+                  "explanation": "A volcano is a place where gases, ashes and/or molten rock material – lava – escape to the ground. A volcano is called an active volcano if the materials mentioned are being released or have been released in the recent past.\n\nStatement 1 is correct: The mantle contains a weaker zone called the asthenosphere. From this, the molten rock materials find their way to the surface. The material in the upper mantle portion is called magma. Once it starts moving towards the crust or reaches the surface, it is called lava. The material that reaches the ground includes: \n\nlava flows \npyroclastic debris\nvolcanic bombs\nash and dust \ngases such as- \nnitrogen compounds\nsulphur compounds \nminor amounts of chlorine, hydrogen and argon etc."
                 },
                 {
                   "questionId": "q1739172543488-jx5kg5ql1",
@@ -3177,12 +3177,12 @@
               ]
             },
             {
-              "questionPaperId": "qp-1739172349035",
+              "questionPaperId": "qp-1739177532127",
               "questionPaperName": "PYQ-2019",
               "section": "Previous Year",
               "questions": [
                 {
-                  "questionId": "q1739172700449-b4ubiy9yt",
+                  "questionId": "q1739177541286-f270p3xc4",
                   "question": "On 21st June, the Sun:",
                   "options": [
                     {
@@ -3206,7 +3206,7 @@
                   "explanation": "Sub-Theme: Motion of Earth\r\n\r\nOption (a) is correct: Areas near the poles receive less heat as the rays of the sun are slanting.The North Pole is inclined towards the sun and the places beyond the Arctic Circle experience continuous daylight for about six months.\r\n\r\nSummer Solstice (21st June):\r\n\r\nThe Northern Hemisphere is tilted towards the sun and the rays of the sun fall directly on the Tropic of Cancer hence the areas receive more heat."
                 },
                 {
-                  "questionId": "q1739172700449-3a4vfnsu8",
+                  "questionId": "q1739177541286-1drqwso1m",
                   "question": "Why are dewdrops not formed on a cloudy night?",
                   "options": [
                     {
@@ -3230,7 +3230,7 @@
                   "explanation": "Sub-Theme: Dew Formation/Water in Atmosphere\r\n\r\nOption (b) is correct: The dew drops are not formed on a cloudy night because the Clouds reflect back the Earth’s radiation.\r\n\r\nCloud cover prevents radiation from earth surfaces from escaping during cloudy nights. It maintains a high air temperature. Additionally, the moisture won’t condense and turn into dew drops on the grass and leaves. Dew is formed when the air temperature touches the dew point.\r\nDew point is the temperature at which air becomes saturated with water vapor, causing condensation to form. It is the temperature at which the air would need to be cooled in order for the relative humidity to reach 100%."
                 },
                 {
-                  "questionId": "q1739172700449-yrlpn2ebw",
+                  "questionId": "q1739177541286-e3jqi3lej",
                   "question": "With reference to the management of minor minerals in India, consider the following statements:\r\n\r\nSand is a ‘minor mineral’ according to the prevailing law in the country.\r\nState Governments have the power to grant mining leases of minor minerals, but the powers regarding the formation of rules related to the grant of minor minerals lie with the Central government.\r\nThe State Government has the power to frame rules to prevent illegal mining of minor minerals.\r\nWhich of the statements given above is/are correct?",
                   "options": [
                     {
@@ -3254,7 +3254,7 @@
                   "explanation": "Sub-Theme: Minor Minerals in india\r\n\r\nStatement 1 is correct: Sand is a ‘minor mineral’ according to the prevailing law in the country.\r\n\r\nStatement 2 is incorrect: Any mineral which by the notification of the Central Government may declare to be a minor mineral.\r\n\r\nStatement 3 is correct: The State Government may, by notification in the Official Gazette, make rules for regulating the grant of quarry leases, mining leases or other mineral concessions in respect of minor minerals and for purposes connected there with."
                 },
                 {
-                  "questionId": "q1739172700449-xw0yylh8e",
+                  "questionId": "q1739177541286-p7grfxag1",
                   "question": "With reference to the cultivation of Kharif crops in which in the last five years, consider the following statements:\r\n\r\nArea under rice cultivation is the highest.\r\nArea under cultivation of jowar is more than that of oilseeds.\r\nArea of cotton cultivation is more than that of\r\nArea under sugarcane cultivation has steadily\r\nWhich of the statements given above is/are correct?",
                   "options": [
                     {
@@ -3278,7 +3278,7 @@
                   "explanation": "Sub-Theme: Major Crops\r\n\r\nStatement 1 is correct: The area under rice cultivation in India, in 2013-14 was 44.13 million hectares while in 2015-16, it became 43.39 million hectares and is highest amongst all.\r\n\r\nStatement 2 is incorrect: The annual area under Jowar ranges between 17 and 18 million hectares while the oilseed area is 28 million hectares (2013-14), 26.1 million hectares (2015-16) i.e area under the cultivation of Jowar is less than that of oilseeds.\r\n\r\nStatement 3 is correct: The area under sugarcane cultivation is 4.99 million hectares (2013-14), 5.066 million hectares (2014-15), 4.953 million hectares (2015-16). The area under cotton cultivation is 11.96 million hectares (2013-14), 12.81 million hectares (2014-15), and 11.87 million hectares (2015-16). Hence the area under cotton cultivation is more than sugar cultivation.\r\n\r\nStatement 4 is incorrect: The area under sugarcane cultivation has not steadily decreased."
                 },
                 {
-                  "questionId": "q1739172700449-5cgiy687p",
+                  "questionId": "q1739177541286-lnyqk202m",
                   "question": "What is common to the places known as Aliyar, Isapur and Kangsabati?",
                   "options": [
                     {
@@ -3302,8 +3302,8 @@
                   "explanation": "Sub-Theme: Current Affairs\r\n\r\nAliyar, Isapur and Kangsabati are the names which have water reservoirs common to the people.\r\n\r\nAbout Water Reservoirs:\r\n\r\nIn Tamil Nadu’s Coimbatore district, the Aliyar reservoir is a body of water near Pollachi town.\r\nIn the Maharashtra district of Hingoli, there is an earth-fill dam called the Isapur Dam on the Penganga River.\r\nAs a part of the Indian Second Five-Year Plan, the Kangsabati Reservoir Project was launched in 1956 to provide water to the districts of Midnapur, Bankura, and It involves irrigation of land using water from the Kangsabati River, as well as the Shilabati and the Bhoirobbanki rivers."
                 },
                 {
-                  "questionId": "q1739172700449-krycrd51z",
-                  "question": "Consider the following pairs:\r\n\r\nFamous Place\r\n\r\nRiver\r\n\r\n1. Pandharpur\tChandrabhaga\r\n2. Tiruchirappalli\tCauvery\r\n3. Hampi\tMalaprabha\r\nWhich of the pairs given above are correctly matched?",
+                  "questionId": "q1739177541286-y76gmcci8",
+                  "question": "Consider the following pairs:\n\nFamous Place\n\nRiver\n\n1. Pandharpur\tChandrabhaga\n2. Tiruchirappalli\tCauvery\n3. Hampi\tMalaprabha\nWhich of the pairs given above are correctly matched?",
                   "options": [
                     {
                       "optionId": "a",
@@ -3323,11 +3323,11 @@
                     }
                   ],
                   "correctOption": "a",
-                  "explanation": "Sub-Theme: Famous places of India\r\n\r\nPair 1 is correct: Pandharpur city is on the banks of Chandrabhaga River in Maharashtra. The famous Lord Vitthal-Rukmini Mandir is located in this city.\r\n\r\nPair 2 is correct: Tiruchirappalli is an Indian city of Tamil Nadu on the banks of river Cauvery. The famous Sri Ranganathaswamy Temple is located in Tiruchirappalli.\r\n\r\nPair 3 is incorrect: Hampi was the capital of the Vijayanagara kingdom and is located on the bank of the Tungabhadra River in present state of Karnataka. Many famous temples like Virupaksha Temple, Nandi Statue etc are located in Hampi. Pattadakal or Pattadakal is situated on the banks of the river Malaprabha and is located in Karnataka."
+                  "explanation": "Sub-Theme: Famous places of India\n\nPair 1 is correct: Pandharpur city is on the banks of Chandrabhaga River in Maharashtra. The famous Lord Vitthal-Rukmini Mandir is located in this city.\n\nPair 2 is correct: Tiruchirappalli is an Indian city of Tamil Nadu on the banks of river Cauvery. The famous Sri Ranganathaswamy Temple is located in Tiruchirappalli.\n\nPair 3 is incorrect: Hampi was the capital of the Vijayanagara kingdom and is located on the bank of the Tungabhadra River in present state of Karnataka. Many famous temples like Virupaksha Temple, Nandi Statue etc are located in Hampi. Pattadakal or Pattadakal is situated on the banks of the river Malaprabha and is located in Karnataka."
                 },
                 {
-                  "questionId": "q1739172700449-mme81hbnd",
-                  "question": "Consider the following pairs:\r\n\r\nSea\r\n\r\nBordering Country\r\n\r\n1. Adriatic Sea\tAlbania\r\n2. Black Sea\tCroatia\r\n3. Caspian Sea\tKazakhstan\r\n4. Mediterranean Sea\tMorocco\r\n5. Red Sea\tairyS\r\nWhich of the pairs given above are correctly matched?",
+                  "questionId": "q1739177541286-1ejmrby43",
+                  "question": "Consider the following pairs:\n\nSea\n\nBordering Country\n\n1. Adriatic Sea\tAlbania\n2. Black Sea\tCroatia\n3. Caspian Sea\tKazakhstan\n4. Mediterranean Sea\tMorocco\n5. Red Sea\tairyS\nWhich of the pairs given above are correctly matched?",
                   "options": [
                     {
                       "optionId": "a",
@@ -3347,7 +3347,7 @@
                     }
                   ],
                   "correctOption": "b",
-                  "explanation": "Sub-Theme: World Map\r\n\r\nPair 1 is correct: The Adriatic Sea is a body of water separating the Italian Peninsula from the Balkan peninsula. The countries with coasts on the Adriatic sea: Albania, Bosnia and Herzegovina, Croatia, Italy, Montenegro and Slovenia. Mnemonic: ISC-MBA (Italia, Slovenia, Croatia, Montenegro, Bosnia, Albania).Pair 2 is incorrect: Black Sea is a large inland sea situated at the southeastern extremity of Europe. It is bordered by Ukraine to the north, Russia to the northeast, Georgia to the east, Turkey to the south, and Bulgaria and Romania to the west. Black Sea is not bordered by Croatia. Mnemonic: Tea & BURGeR (Turkey, Bulgaria, Ukraine, Russia, Georgia, Romania).Pair 3 is correct: Caspian Sea is the world’s largest inland body of water, variously classed as the world’s largest lake or a full-fledged sea. It is an endorheic basin (a basin without outflows) located between Europe and Asia. It is bounded by Kazakhstan to the northeast, Russia to the northwest, Azerbaijan to the west, Iran to the south, and Turkmenistan to the southeast. Mnemonic: TARIK (Turkmenistan, Azerbaijan, Russia, Iran, Kazakhstan).Pair 4 is correct: The Mediterranean Sea is an intercontinental sea that stretches from the Atlantic Ocean on the west to Asia on the east and separates Europe from Africa. The countries surrounding the Mediterranean in clockwise order: Spain, France, Monaco, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia, Algeria, and Morocco.\r\n"
+                  "explanation": "Sub-Theme: World Map\n\nPair 1 is correct: The Adriatic Sea is a body of water separating the Italian Peninsula from the Balkan peninsula. The countries with coasts on the Adriatic sea: Albania, Bosnia and Herzegovina, Croatia, Italy, Montenegro and Slovenia. Mnemonic: ISC-MBA (Italia, Slovenia, Croatia, Montenegro, Bosnia, Albania).Pair 2 is incorrect: Black Sea is a large inland sea situated at the southeastern extremity of Europe. It is bordered by Ukraine to the north, Russia to the northeast, Georgia to the east, Turkey to the south, and Bulgaria and Romania to the west. Black Sea is not bordered by Croatia. Mnemonic: Tea & BURGeR (Turkey, Bulgaria, Ukraine, Russia, Georgia, Romania).Pair 3 is correct: Caspian Sea is the world’s largest inland body of water, variously classed as the world’s largest lake or a full-fledged sea. It is an endorheic basin (a basin without outflows) located between Europe and Asia. It is bounded by Kazakhstan to the northeast, Russia to the northwest, Azerbaijan to the west, Iran to the south, and Turkmenistan to the southeast. Mnemonic: TARIK (Turkmenistan, Azerbaijan, Russia, Iran, Kazakhstan).Pair 4 is correct: The Mediterranean Sea is an intercontinental sea that stretches from the Atlantic Ocean on the west to Asia on the east and separates Europe from Africa. The countries surrounding the Mediterranean in clockwise order: Spain, France, Monaco, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia, Algeria, and Morocco.\n"
                 }
               ]
             }
@@ -3368,32 +3368,7 @@
               "questionPaperId": "qp-1739133039897",
               "questionPaperName": "asf",
               "section": "Previous Year",
-              "questions": [
-                {
-                  "questionId": "q1739133653667-crfive51c",
-                  "question": "asfe\nSdgR\nG\nSFDBG\nrfb",
-                  "options": [
-                    {
-                      "optionId": "a",
-                      "text": "sdgrg"
-                    },
-                    {
-                      "optionId": "b",
-                      "text": "rgewr"
-                    },
-                    {
-                      "optionId": "c",
-                      "text": "grgs"
-                    },
-                    {
-                      "optionId": "d",
-                      "text": "dgsdf"
-                    }
-                  ],
-                  "correctOption": "a",
-                  "explanation": "sdfsd"
-                }
-              ]
+              "questions": []
             },
             {
               "questionPaperId": "qp-1739133214572",

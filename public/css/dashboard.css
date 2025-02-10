@@ -63,6 +63,17 @@
     padding-top: var(--header-height);
   }
   
+  .question-content pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
   .dashboard-header {
     height: var(--header-height);
     background: var(--white);

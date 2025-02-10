@@ -8,40 +8,63 @@
     <link rel="stylesheet" href="/css/questions.css">
     <script src="/js/quiz.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <style>
+        .question-header h3 {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 1rem;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+        .question-block label {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+        }
+        .question-block label input {
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+        .question-block label span {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            flex-grow: 1;
+        }
+    </style>
 </head>
 <body>
     <%- include('partials/navbar', { subjects: subjects, exam: exam }) %>
 
-  <main>
-      <h1><%= subject.charAt(0).toUpperCase() + subject.slice(1) %> Questions</h1>
-      <% if (questions.length === 0) { %>
-        <p>No questions available for this subject.</p>
-    <% } else { %>
-        <% questions.forEach((q, index) => { %>
-            <div class="question-block">
-                  <div class="question-header">
-                      <div class="question-number">#<%= index + 1 %></div>
-                      <h3><%= q.question %></h3>
-                  </div>
-                  <% q.options.forEach(option => { %>
-                      <label>
-                          <input 
-                              type="radio" 
-                              name="question-<%= q.questionId %>" 
-                              value="<%= option.optionId %>"
-                              onclick="checkAnswer(event, '<%= q.correctOption %>', `<%= q.explanation %>`)"
-                          >
-                          <%= option.text %>
-                      </label>
-                  <% }) %>
-                  <div class="explanation" style="display: none;"></div>
-              </div>
-          <% }) %>
-          <button onclick="calculateResults()" class="submit-button">
-              Submit Quiz
-          </button>
-      <% } %>
-  </main>
+    <main>
+        <h1><%= subject.charAt(0).toUpperCase() + subject.slice(1) %> Questions</h1>
+        <% if (questions.length === 0) { %>
+            <p>No questions available for this subject.</p>
+        <% } else { %>
+            <% questions.forEach((q, index) => { %>
+                <div class="question-block">
+                    <div class="question-header">
+                        <div class="question-number">#<%= index + 1 %></div>
+                        <h3><%- q.question.replace(/\n/g, '<br>') %></h3>
+                    </div>
+                    <% q.options.forEach(option => { %>
+                        <label>
+                            <input 
+                                type="radio" 
+                                name="question-<%= q.questionId %>" 
+                                value="<%= option.optionId %>"
+                                onclick="checkAnswer(event, '<%= q.correctOption %>', `<%= q.explanation %>`)"
+                            >
+                            <span><%- option.text.replace(/\n/g, '<br>') %></span>
+                        </label>
+                    <% }) %>
+                    <div class="explanation" style="display: none;"></div>
+                </div>
+            <% }) %>
+            <button onclick="calculateResults()" class="submit-button">
+                Submit Quiz
+            </button>
+        <% } %>
+    </main>
 </body>
 </html>

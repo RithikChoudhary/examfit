@@ -139,23 +139,79 @@ router.get('/questionPapers/:examId/:subjectId', async (req, res) => {
 // });
 // dashboard.js
 // dashboard.js - Add this route
+// Improved question formatting function
+const formatQuestion = (question) => {
+  // First, trim any leading/trailing whitespace
+  let formattedQuestion = question.trim();
+
+  // Replace multiple consecutive newlines with a single newline
+  formattedQuestion = formattedQuestion.replace(/\n{2,}/g, '\n');
+
+  // If the question contains numbered lines, ensure proper formatting
+  if (/^\d+\./.test(formattedQuestion)) {
+    // Split the question into lines
+    const lines = formattedQuestion.split('\n');
+    
+    // Process lines to ensure proper numbering and spacing
+    const processedLines = lines.map((line, index) => {
+      // Check if the line starts with a number
+      if (/^\d+\./.test(line.trim())) {
+        // Ensure single space after the number and period
+        return line.replace(/^(\d+\.)(\S)/, '$1 $2');
+      }
+      return line;
+    });
+
+    // Join the lines back together
+    formattedQuestion = processedLines.join('\n');
+  }
+
+  return formattedQuestion;
+};
+
+
 router.get('/questions/:examId/:subjectId/:questionPaperId', async (req, res) => {
   try {
     const { examId, subjectId, questionPaperId } = req.params;
     const data = await getQuestions();
-    const examData = data.exams.find(e => e.examId === examId);
-    const subjectData = examData.subjects.find(s => s.subjectId === subjectId);
-    const questionPaper = subjectData.questionPapers.find(qp => qp.questionPaperId === questionPaperId);
 
+    // Find the exam, subject, and question paper
+    const examData = data.exams.find(e => e.examId === examId);
+    if (!examData) {
+      return res.status(404).send('Exam not found');
+    }
+
+    const subjectData = examData.subjects.find(s => s.subjectId === subjectId);
+    if (!subjectData) {
+      return res.status(404).send('Subject not found');
+    }
+
+    const questionPaper = subjectData.questionPapers.find(qp => qp.questionPaperId === questionPaperId);
+    if (!questionPaper) {
+      return res.status(404).send('Question paper not found');
+    }
+
+    // Format questions
+    const formattedQuestions = questionPaper.questions.map(question => {
+      return {
+        ...question,
+        question: formatQuestion(question.question),
+        explanation: formatQuestion(question.explanation || '')
+      };
+    });
+
+    // Render the template
     res.render('dashboard/questions', {
       examData,
       subjectData,
-      questions: questionPaper.questions || [],
+      questions: questionPaper.questions,
       currentPage: 'questions',
       paperId: questionPaperId,
       sections: ["PYQ", "Section I", "Section II", "Section III"]
     });
+
   } catch (error) {
+    console.error('Error loading questions:', error);
     res.status(500).send('Error loading questions: ' + error.message);
   }
 });

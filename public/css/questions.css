@@ -64,7 +64,17 @@
     padding-bottom: 1.5rem;
     border-bottom: 2px solid var(--gray-100);
  }
- 
+ .question-content pre {
+   white-space: pre-wrap;
+   word-wrap: break-word;
+   font-family: inherit;
+   font-size: inherit;
+   line-height: inherit;
+   background: none;
+   border: none;
+   padding: 0;
+   margin: 0;
+}
  .question-number {
     font-size: 1.25rem;
     font-weight: 600;
@@ -168,7 +178,21 @@
     margin: 2rem auto;
     display: block;
  }
- 
+ .explanation {
+   white-space: pre-wrap;
+   word-wrap: break-word;
+   margin-top: 10px;
+   font-size: 0.9rem;
+   line-height: 1.5;
+   background-color: #f4f4f4;
+   padding: 10px;
+   border-radius: 5px;
+}
+
+.explanation strong {
+   display: block;
+   margin-bottom: 5px;
+}
  .submit-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
