@@ -82,6 +82,12 @@ body {
   border-color: var(--blue-500);
   box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
 }
+.exam-card img.exam-icon {
+  width: 100px;  /* Adjust size as needed */
+  height: 100px; /* Adjust size as needed */
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
 
 .exam-icon {
   font-size: 3rem;
@@ -90,6 +96,9 @@ body {
   padding: 1rem;
   border-radius: 12px;
   transition: 0.3s ease;
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
 }
 
 .exam-card:hover .exam-icon {
