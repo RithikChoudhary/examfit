@@ -76,7 +76,7 @@
                 },
                 {
                   "questionId": "q1738132208685-rdxyrba8f",
-                  "question": "With reference to ancient India, Gautama Buddha was generally known by which of the following epithets?\r\n\r\n1. Nayaputta\r\n\r\n2. Shakyamuni\r\n\r\n3. Tathagata\r\n\r\nSelect the correct answer using the code given below:",
+                  "question": "With reference to ancient India, Gautama Buddha was generally known by which of the following epithets?\n\n1. Nayaputta\n\n2. Shakyamuni\n\n3. Tathagata\n\nSelect the correct answer using the code given below:",
                   "options": [
                     {
                       "optionId": "a",
@@ -96,7 +96,7 @@
                     }
                   ],
                   "correctOption": "b",
-                  "explanation": "Epithets (attributes) were not the sole property of a leader of a particular sect whether Brahmin or Sramana. However, the denotion of these word though broad in early days became limited in the course of time.\r\n\r\nEpithets of Lord Mahavira are: \r\n\r\nNayaputta\r\nVira\r\nMahavira\r\nArhat\r\nEpithets of Gautama Buddha are: \r\n\r\nShakyaMuni\r\nTathagata"
+                  "explanation": "Epithets (attributes) were not the sole property of a leader of a particular sect whether Brahmin or Sramana. However, the denotion of these word though broad in early days became limited in the course of time.\n\nEpithets of Lord Mahavira are: \n\nNayaputta\nVira\nMahavira\nArhat\nEpithets of Gautama Buddha are: \n\nShakyaMuni\nTathagata"
                 },
                 {
                   "questionId": "q1738132208685-jb497d02s",
@@ -148,7 +148,7 @@
                 },
                 {
                   "questionId": "q1738132208685-jknwtq8fj",
-                  "question": "With reference to the Government of India Act, 1935, consider the following statements:\r\n\r\n1. It provided for the establishment of an All India Federation based on the union of the British Indian Provinces, and Princely States.\r\n\r\n2. Defence and Foreign Affairs were kept under the control of the federal legislature.\r\n\r\n Which of the statements given above is/are correct?",
+                  "question": "With reference to the Government of India Act, 1935, consider the following statements:\n\n1. It provided for the establishment of an All India Federation based on the union of the British Indian Provinces, and Princely States.\n\n2. Defence and Foreign Affairs were kept under the control of the federal legislature.\n\n Which of the statements given above is/are correct?",
                   "options": [
                     {
                       "optionId": "a",
@@ -168,11 +168,11 @@
                     }
                   ],
                   "correctOption": "a",
-                  "explanation": "The Government of India Act was passed by the British parliament in 1935 and came into effect in 1937. It was based on a report by a Joint Select Committee, led by Lord Linlithgow, set up the two houses of the British parliament.\r\n\r\nSome of the key features of the Act were:\\\r\n\r\nThe creation of a ‘Federation of India’ that consisted of two levels: a central executive and parliament, and below it, provinces and princely states. Hence, Statement 1 is correct.\r\nIt discarded the ‘dyarchy’ system at the provincial level and allowed for the emergence of popularly elected provincial legislatures. Dyarchy was introduced at the central level, key subjects like defence and foreign affairs were under the direct control of the Governor General. Hence, Statement 2 is incorrect.\r\nA federal court was established. \r\nThe franchise was expanded to 14% of the population from 3%.\r\nSeparate electorates were provided for Muslims, Sikhs and others, but not to Depressed Classes.\r\nGovernor enjoyed critical emergency powers."
+                  "explanation": "The Government of India Act was passed by the British parliament in 1935 and came into effect in 1937. It was based on a report by a Joint Select Committee, led by Lord Linlithgow, set up the two houses of the British parliament.\n\nSome of the key features of the Act were:\\\n\nThe creation of a ‘Federation of India’ that consisted of two levels: a central executive and parliament, and below it, provinces and princely states. Hence, Statement 1 is correct.\nIt discarded the ‘dyarchy’ system at the provincial level and allowed for the emergence of popularly elected provincial legislatures. Dyarchy was introduced at the central level, key subjects like defence and foreign affairs were under the direct control of the Governor General. Hence, Statement 2 is incorrect.\nA federal court was established. \nThe franchise was expanded to 14% of the population from 3%.\nSeparate electorates were provided for Muslims, Sikhs and others, but not to Depressed Classes.\nGovernor enjoyed critical emergency powers."
                 },
                 {
                   "questionId": "q1738132208685-kjtjeaomj",
-                  "question": "With reference to revenue collection by Cornwallis, consider the following statements:\r\n\r\n1. Under the Ryotwari Settlement of revenue collection, the peasants were exempted from revenue payment in case of bad harvests or natural calamities.\r\n\r\n2. Under the Permanent Settlement in Bengal, if the Zamindar failed to pay his revenues to the state, on or before the fixed date, he would be removed from his Zamindari.\r\n\r\nWhich of the statements given above is/are correct?",
+                  "question": "With reference to revenue collection by Cornwallis, consider the following statements:\n\n1. Under the Ryotwari Settlement of revenue collection, the peasants were exempted from revenue payment in case of bad harvests or natural calamities.\n\n2. Under the Permanent Settlement in Bengal, if the Zamindar failed to pay his revenues to the state, on or before the fixed date, he would be removed from his Zamindari.\n\nWhich of the statements given above is/are correct?",
                   "options": [
                     {
                       "optionId": "a",
@@ -192,7 +192,7 @@
                     }
                   ],
                   "correctOption": "b",
-                  "explanation": "Statement 1 is incorrect: In Ryotwari system the government revenue was a fixed amount, irrespective of crop output, and was to be paid in cash. Thus during periods of bad crops or low prices the peasants were forced to borrow from moneylenders to pay the land revenue. Once in the clutches of moneylenders they were rarely able to free themselves from debt and the end result invariably was mortgage or sale of land.\r\n\r\nStatement 2 is correct: In Zamindari system the revenue was invariable, regardless of the harvest, and had to be paid punctually. According to the Sunset Law, if payment did not come in by sunset of the specified date, the zamindari was liable to be auctioned. "
+                  "explanation": "Statement 1 is incorrect: In Ryotwari system the government revenue was a fixed amount, irrespective of crop output, and was to be paid in cash. Thus during periods of bad crops or low prices the peasants were forced to borrow from moneylenders to pay the land revenue. Once in the clutches of moneylenders they were rarely able to free themselves from debt and the end result invariably was mortgage or sale of land.\n\nStatement 2 is correct: In Zamindari system the revenue was invariable, regardless of the harvest, and had to be paid punctually. According to the Sunset Law, if payment did not come in by sunset of the specified date, the zamindari was liable to be auctioned. "
                 }
               ]
             },
@@ -3348,6 +3348,332 @@
                   ],
                   "correctOption": "b",
                   "explanation": "Sub-Theme: World Map\n\nPair 1 is correct: The Adriatic Sea is a body of water separating the Italian Peninsula from the Balkan peninsula. The countries with coasts on the Adriatic sea: Albania, Bosnia and Herzegovina, Croatia, Italy, Montenegro and Slovenia. Mnemonic: ISC-MBA (Italia, Slovenia, Croatia, Montenegro, Bosnia, Albania).Pair 2 is incorrect: Black Sea is a large inland sea situated at the southeastern extremity of Europe. It is bordered by Ukraine to the north, Russia to the northeast, Georgia to the east, Turkey to the south, and Bulgaria and Romania to the west. Black Sea is not bordered by Croatia. Mnemonic: Tea & BURGeR (Turkey, Bulgaria, Ukraine, Russia, Georgia, Romania).Pair 3 is correct: Caspian Sea is the world’s largest inland body of water, variously classed as the world’s largest lake or a full-fledged sea. It is an endorheic basin (a basin without outflows) located between Europe and Asia. It is bounded by Kazakhstan to the northeast, Russia to the northwest, Azerbaijan to the west, Iran to the south, and Turkmenistan to the southeast. Mnemonic: TARIK (Turkmenistan, Azerbaijan, Russia, Iran, Kazakhstan).Pair 4 is correct: The Mediterranean Sea is an intercontinental sea that stretches from the Atlantic Ocean on the west to Asia on the east and separates Europe from Africa. The countries surrounding the Mediterranean in clockwise order: Spain, France, Monaco, Italy, Slovenia, Croatia, Bosnia and Herzegovina, Montenegro, Albania, Greece, Turkey, Syria, Lebanon, Israel, Egypt, Libya, Tunisia, Algeria, and Morocco.\n"
+                }
+              ]
+            }
+          ],
+          "questions": []
+        },
+        {
+          "subjectId": "economy",
+          "subjectName": "Economy",
+          "questionPapers": [
+            {
+              "questionPaperId": "qp-1739178360725",
+              "questionPaperName": "PYQ-2024",
+              "section": "Previous Year",
+              "questions": [
+                {
+                  "questionId": "q1739178368977-pn4z2sqa7",
+                  "question": "According to the Environmental Protection Agency (EPA), which one of the following is the largest source of sulphur dioxide emissions?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Locomotives using fossil fuels"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Ships using fossil fuels"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Extraction of metals from ores\r\n"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Power plants using fossil fuels\r\n"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Emissions that lead to high concentrations of SO2 generally also lead to the formation of other SOx. The largest sources of SO2 emissions are from fossil fuel combustion at power plants and other industrial facilities. EPA’s national ambient air quality standards for SO2 are designed to protect against exposure to the entire group of sulfur oxides (SOx).  SO2 is the component of greatest concern and is used as the indicator for the larger group of gaseous sulfur oxides (SOx).  Other gaseous SOx (such as SO3) are found in the atmosphere at concentrations much lower than SO2."
+                },
+                {
+                  "questionId": "q1739178368977-vjay0kjff",
+                  "question": "Consider the following statements:\r\nStatement I: India does not import apples from the United States of America.\r\nStatement II: In India, the law prohibits the import of Genetically Modified food without the approval of the competent authority.\r\nWhich one of the following is correct in respect of the above statements?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Both Statement-I and Statement-II are correct and Statement-II explains Statement-I."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Both Statement-I and Statement-II are correct, but Statement-II does not explain Statement-I."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Statement-I is correct, but Statement-II is incorrect."
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Statement-I is incorrect, but Statement-II is correct."
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Statement-I is Incorrect:  Apples are one of the major imports from the USA. After India removed “retaliatory import duty” on US apples in September, imports of American apples have surged 40 times in three months, while traders are hopeful of regaining market share. In 2017-18, the import of US apples was a record of over 7 million boxes, which dropped to 50,000 boxes in the 2022–23.\r\n\r\nStatement-II is correct: In India, the Food Safety and Standards Act, 2006, prohibits import, manufacture, use or sale of GM food without FSSAI’s approval."
+                },
+                {
+                  "questionId": "q1739178368977-mfhlabex0",
+                  "question": "The organisms “Cicada, Froghopper, and Pond skater” are :",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Birds"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Fish"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "  Insects"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Reptiles"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Cicada, Froghopper, and Pond Skater” comes under the category of Insects."
+                },
+                {
+                  "questionId": "q1739178368977-nhgrervyu",
+                  "question": "Consider the following statements:\r\n\r\nStatement-I: Many chewing gums found in the market are a source of environmental pollution.\r\n\r\nStatement-II: Many chewing gums contain plastic as gum base.\r\n\r\nWhich one of the following is correct in respect of the above statements?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "  Both Statement-I and Statement-II are correct and Statement-II explains Statement-I"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Both Statement-I and Statement-II are correct, but Statement-II does not explain Statement-I"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Statement-I is correct, but Statement-II is incorrect"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Statement-I is incorrect, but Statement-II is correct"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Chewing gum is known for its stress-relieving qualities as well as its ability to keep our mouths fresh. Soon, ‘chewing gum’ will be included as part of the drug delivery mechanism. Unfortunately, it has had some negative consequences. Modern chewing gum is made of non-biodegradable hydrophobic polymers together with artificial sweeteners and flavours. So, chewing this sort of synthetic material over a long time could produce some adverse effects. Each year, chewing gum generates more than 105 tonnes of “plastic” garbage. Thus, the discarded non-biodegradable residue of the gum produces plastic pollution. Every year, enormous sums of money are spent to clean up the abandoned gum from the streets. Again, it has a high potential to trap bacteria inside. Therefore, this widespread habit causes an additional nuisance in this pandemic situation.  Hence,  Both Statement-I and Statement-II are correct and Statement-II explains Statement-I"
+                },
+                {
+                  "questionId": "q1739178368977-xlwewvoo7",
+                  "question": "Consider the following pairs:\r\nS.no\tCountry\tAnimal found in its natural habitat\r\n1.\tBrazil\tIndri\r\n2.\tIndonesia\tElk\r\n3.\tMadagascar\tBonobo\r\nHow many of the pairs given above are correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " None"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Pair 1 is incorrectly matched: The Indri is endemic to the island country of Madagascar, specifically inhabiting the eastern rainforests. The unique geographical features and climate of Madagascar have facilitated the evolution of numerous species found nowhere else on Earth, including the Indri.\r\n\r\nPair 2 is incorrectly matched: Elk is the largest and most advanced subspecies of red deer, found in North America and in the high mountains of Central Asia. It is a member of the deer family. Recent genetic studies suggest that the “red deer” may have three species:\r\n\r\nEuropean red deer.\r\nTibetan–West Chinese red deer.\r\nElk.\r\nPair 3 is incorrectly matched: Bonobos and chimpanzees look very similar and both share 98.7% of their DNA with humans—making the two species our closest living relatives. Bonobos are usually a bit smaller, leaner, and darker than chimpanzees. They are found only in the Democratic Republic of Congo. Their discontinuous range extends from the Lualaba River in the east to the Kasai/Sankuru Rivers in the south and as far as the Congo River in the west and around Lake Tumba/Lake Mai-Ndombe."
+                },
+                {
+                  "questionId": "q1739178368977-hyma0uhng",
+                  "question": "Consider the following statements :\n\n1. Lions do not have a particular breeding season.\n\n2. Unlike most other big cats, cheetahs do not roar.\n\n3. Unlike male lions, male leopards do not proclaim their territory by scent marking.\n\nWhich of the statements given above are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " 2 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " 1 and 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Statement 1 is correct: Both Males and Females of the Lions are polygamous and breed throughout the year, but females are usually restricted to one or two adult males of their pride. In captivity, lions often breed every year, but in the wild, they usually breed no more than once in two years. Females are receptive to mating for three or four days within a widely variable reproductive cycle.\n\nStatement 2 is correctly matched: There are four big cats that can roar: lion, tiger, leopard and jaguar – all of which belong to the genus Panthera. In these species, the epihyal bone, part of the voice box, is replaced by a ligament. This can be stretched, creating a larger sound-producing passage and thus a wider range of pitch. The bones of the cheetah’s voice box form a fixed structure, with divided vocal cords that vibrate with both in and out breaths. This structure is the same for all the ‘small’ cats. While this design enables these cats to purr continuously, it limits the range of other sounds and prevents them from being able to roar.\n\nStatement 3 is incorrect: Leopards are known for their solitary nature and impressive hunting abilities. They are skilled predators that primarily hunt at night, using their incredible agility and stealth to catch a variety of prey. Their diet includes bugs, fish, antelope, monkeys, rodents, and more. Leopards are considered opportunistic hunters, adapting and targeting different species based on availability and their specific habitat. To avoid competition and conflicts, leopards establish their own territories, marking them with scent and claw marks on trees. Male leopards will fiercely defend their territories if they overlap with other males."
+                },
+                {
+                  "questionId": "q1739178368977-pe8tlvcpn",
+                  "question": "Consider the following:\r\n\r\n1. Battery storage\r\n\r\n2. Biomass generators\r\n\r\n3. Fuel cells\r\n\r\n4. Rooftop solar photovoltaic units\r\n\r\nHow many of the above are considered “Distributed Energy Resources”?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Distributed energy resources, or DER, are small-scale energy systems that power a nearby location. DER can be connected to electric grids or isolated, with energy flowing only to specific sites or functions. DER include both energy generation technologies and energy storage systems. When energy generation occurs through distributed energy resources, it is referred to as distributed generation. Examples of distributed energy resources that can be installed include:\r\n\r\nRoof top solar photovoltaic units\r\nWind generating units\r\nBattery storage\r\nBatteries in electric vehicles used to export power back to the grid\r\nCombined heat and power units, or tri-generation units that also utilise waste heat to provide cooling\r\nBiomass generators, which are fuelled with waste gas or industrial and agricultural by-products.\r\nOpen and closed cycle gas turbines\r\nReciprocating engines (diesel, oil)\r\nHydro and mini-hydro schemes\r\nFuel cells."
+                },
+                {
+                  "questionId": "q1739178368977-2m0zeumvb",
+                  "question": "Which one of the following shows a unique relationship with an insect that has coevolved with it and that is the only insect that can pollinate this tree?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Fig"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Mahua"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Sandalwood"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Silk cotton"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The banyan fig tree Ficus microcarpa is famous for its aerial roots, which sprout from branches and eventually reach the soil. Aerial roots are roots above the ground that are found in diverse plant species like mangroves, banyan figs and orchids. The tree also has a unique relationship with a wasp that has coevolved with it and is the only insect that can pollinate it. Figs are known to sustain at least 1,200 bird and mammal species.  Fig trees were among the earliest domesticated crops and appear as sacred symbols in Hinduism, Buddhism and other spiritual traditions."
+                },
+                {
+                  "questionId": "q1739178368977-qwy5cxvsl",
+                  "question": "Consider the following:\r\n\r\n1. Butterflies\r\n\r\n2. Fish\r\n\r\n3. Frogs\r\n\r\nHow many of the above have poisonous species among them?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " None"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Butterflies: Hybrid Heliconius butterflies are Poisonous in nature. In nature, these butterflies are rare. Heliconius melpomene and Heliconius cydno are both highly poisonous, having evolved to produce their own cyanide, and predators have learned exactly what both of these toxic insects look like. \r\n\r\nFish: “Venomous” fish are those that can inject their toxic venom into victims, whereas “poisonous” fish are those that cause toxic symptoms only if they are eaten. For example: Lionfish, red-bellied piranha etc. \r\n\r\nFrogs: Frogs are amphibians which can survive both on land and water. Some of them can be poisonous also. Poison dart frogs are small, brightly colored amphibians that live on tropical rainforest floors across Central and South America. Poison dart frogs are named for the toxins they secrete from their skin, which have traditionally been used to tips of hunters’ weapons. For example, the Emberá and Noanamá Indigenous people in western Colombia have used the skin of golden poison frogs (Phyllobates terribilis) to tip blowgun darts for hundreds of years."
+                },
+                {
+                  "questionId": "q1739178368977-x2yyj4tzv",
+                  "question": "With reference to perfluoroalkyl and polyfluoroalkyl substances (PFAS) that are used in making many consumer products, consider the following statements:\r\n\r\n1. PFAS are found to be widespread in drinking water, food and food packaging materials.\r\n\r\n2. PFAS are not easily degraded in the environment.\r\n\r\n3. Persistent exposure to PFAS can lead to bioaccumulation in animal bodies.\r\n\r\n Which of the statements given above are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "  1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " 2 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1 and 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Per- and polyfluoroalkyl substances (PFAS) are a large, complex group of synthetic chemicals that have been used in consumer products around the world since about the 1950s. \r\n\r\nPeople are most likely exposed to these chemicals by consuming PFAS-contaminated water or food, using products made with PFAS, or breathing air containing PFAS. Although PFOS use has been phased out, it can still be found in drinking water, groundwater, soil, and air. Hence, Statement 1 is correct.\r\nPFAS molecules have a chain of linked carbon and fluorine atoms. Because the carbon-fluorine bond is one of the strongest, these chemicals do not degrade easily in the environment. Hence, Statement 2 is correct.\r\nPeople may encounter different PFAS chemicals in various ways. Over time, people may take in more of the chemicals than they excrete, a process that leads to bioaccumulation in bodies. Hence, Statement 3 is correct."
+                },
+                {
+                  "questionId": "q1739178368977-wa7ldiqnt",
+                  "question": "Consider the following:\r\n\r\n1. Carabid beetles\r\n\r\n2. Centipedes\r\n\r\n3. Flies\r\n\r\n4. Termites\r\n\r\n5. Wasps\r\n\r\nParasitoid species are found in how many of the above kind of organisms?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only four"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Many animals are predators, parasites or parasitoids, using other animals as food. They use a great diversity of hunting strategies and behaviours to capture or feed on their prey. Invertebrate predators, parasites and parasitoids play an important role in keeping many animal populations under control.\r\n\r\nParasitoid is an insect whose larvae feed and develop within or on the bodies of other arthropods. Each parasitoid larva develops on a single individual and eventually kills that host. Most parasitoids are wasps, but some flies and a small number of beetles (carabid bettles), moths, lacewings, and even one caddisfly species have evolved to be parasitoids. Parasitoids alone number about 68,000 named species, and most have yet to be named and described. Realistic estimates of the total number of described and undescribed parasitoid species are about 800,000.\r\nPredator: They are organisms that captures and eats another (the prey). This act is called predation. The predatory invertebrates include scorpions, centipedes, predatory mites, predatory snails and slugs, nematodes and planarian worms\r\nDetritivores: Termites are detritivores that eat dead and decaying organic matter like logs of wood in a forest. They form an important link in the cycling of nutrients in the forests by breaking down wood and organic residues on the ground"
+                },
+                {
+                  "questionId": "q1739178368977-lqvwvsvha",
+                  "question": "Consider the following statements:\r\n\r\nStatement-I: The Indian Flying Fox is placed under the “vermin” category in the Wild Life (Protection) Act, 1972.\r\n\r\nStatement-II: The Indian Flying Fox feeds on the blood of other animals.\r\n\r\nWhich one of the following is correct in respect of the above statements?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Both Statement-I and Statement-II are correct and Statement-II explains Statement-I"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Both Statement-I and Statement-II are correct, but Statement-II does not explain Statement-I"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Statement -I is correct, but Statement-II is incorrect"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Statement-I is incorrect, but Statement-II is correct\r\n"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Statement 1 is correct: The Indian Flying Fox is placed under the “vermin” category in the Wild Life (Protection) Act, 1972 due to its destructive tendencies towards fruit farms.\r\n\r\nStatement 2 is incorrect: Bats are the only flying mammals in the world, and the Indian Flying Fox is one of the largest. The species, Pteropus giganteus , also called the Great Indian Fruit Bat, it eats fruits, feeding on the juice, and helps in seed dispersion and pollination, making them an integral part of the ecosystem."
+                },
+                {
+                  "questionId": "q1739178368977-nh8ohe1dw",
+                  "question": "Consider the following materials:\r\n\r\n1. Agricultural residues\r\n\r\n2. Corn grain\r\n\r\n3. Wastewater treatment sludge\r\n\r\n4. Wood mill waste\r\n\r\nWhich of the above can be used as feedstock for producing Sustainable Aviation Fuel?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 and 4 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1, 2, 3 and 4"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 3 and 4 only"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Sustainable aviation fuel (SAF), hydrogen and electric all have a role to play in the decarbonization of aviation. SAF is vitally important as it can address decarbonization of fuel over its lifecycle, and this is now available to be used in all turbine engines including in mid and long-range aircraft. Therefore, understanding the feedstock landscape as well as the technology pathways is integral to maximising the production and supply of SAF. The production of SAF starts with one of five main families of raw materials: \r\n\r\nCorn grain\r\nOil seeds\r\nAlgae\r\nOther fats, oils, and greases\r\nAgricultural residues\r\nForestry residues\r\nWood mill waste\r\nMunicipal solid waste streams\r\nWet wastes (manures, wastewater treatment sludge)\r\nDedicated energy crops."
                 }
               ]
             }

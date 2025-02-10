@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+    <style>
     .question-content h3 {
-        white-space: pre-wrap;
+        white-space: pre-line;
         word-wrap: break-word;
         margin-bottom: 10px;
         font-size: 1rem;
@@ -31,7 +32,9 @@
     }
     .options-list .option-text {
         flex-grow: 1;
+        white-space: pre-line;
     }
+
     </style>
 </head>
 
@@ -68,7 +71,7 @@
                                         <% question.options.forEach(option => { %>
                                             <div class="option <%= option.optionId === question.correctOption ? 'correct' : '' %>">
                                                 <span class="option-label"><%= option.optionId.toUpperCase() %>)</span>
-                                                <span class="option-text"><%- option.text.replace(/\n/g, '<br>') %></span>
+                                                <span class="option-text"><%= option.text %></span>
                                             </div>
                                         <% }); %>
                                     <% } %>

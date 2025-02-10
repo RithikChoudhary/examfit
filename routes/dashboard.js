@@ -102,44 +102,6 @@ router.get('/questionPapers/:examId/:subjectId', async (req, res) => {
   }
 });
 
-// dashboard.js 
-// In dashboard.js
-// router.get('/questions/:examId/:subjectId/:questionPaperId', async (req, res) => {
-//   try {
-//     const { examId, subjectId, questionPaperId } = req.params;
-//     const data = await getQuestions();
-
-//     const examData = data.exams.find(e => e.examId === examId);
-//     if (!examData) return res.status(404).send('Exam not found');
-
-//     const subjectData = examData.subjects.find(s => s.subjectId === subjectId);
-//     if (!subjectData) return res.status(404).send('Subject not found');
-
-//     const questionPaper = subjectData.questionPapers.find(qp => qp.questionPaperId === questionPaperId);
-//     if (!questionPaper) return res.status(404).send('Question Paper not found');
-
-//     res.render('dashboard/questions', { 
-//       examData,
-//       subjectData,
-//       questionPaper,
-//       questions: questionPaper.questions || [],
-//       currentPage: 'questions',
-//       examId,
-//       subjectId,
-//       questionPaperId, 
-//       paperId: questionPaperId,
-//       examName: examData.examName,
-//       subjectName: subjectData.subjectName,
-//       questionPaperName: questionPaper.questionPaperName
-//     });
-
-//   } catch (error) {
-//     res.status(500).send('Error loading questions: ' + error.message);
-//   }
-// });
-// dashboard.js
-// dashboard.js - Add this route
-// Improved question formatting function
 const formatQuestion = (question) => {
   // First, trim any leading/trailing whitespace
   let formattedQuestion = question.trim();
