@@ -26,47 +26,6 @@ router.get('/:exam', async (req, res) => {
 });
 
 // Route for displaying question papers for a subject within an exam
-// router.get('/:exam/:subject/questionPapers', async (req, res) => { 
-//   try {
-//     const data = await getQuestions();
-//     const { exam: examId, subject: subjectId } = req.params;
-
-//     const examData = data.exams.find(e => e.examId === examId);
-//     if (!examData) {
-//       return res.status(404).send('Exam not found');
-//     }
-
-//     // Define subjectData before using it
-//     const subjectData = examData.subjects.find(s => s.subjectId === subjectId);
-//     if (!subjectData) {
-//       return res.status(404).send('Subject not found');
-//     }
-
-//     // Now you can access subjectData.questionPapers
-//     const groupedPapers = {}; 
-//     subjectData.questionPapers.forEach(paper => { 
-//       if (!groupedPapers[paper.section]) {
-//         groupedPapers[paper.section] = [];
-//       }
-//       groupedPapers[paper.section].push(paper);
-//     });
-
-//     res.render('questionPapers', { 
-//       exam: examId,
-//       examName: examData.examName,
-//       subject: subjectId,
-//       subjectName: subjectData.subjectName,
-//       questionPapers: subjectData.questionPapers, 
-//       subjects: examData.subjects,
-//       groupedPapers: groupedPapers 
-//     });
-
-//   } catch (error) {
-//     console.error('Error:', error);
-//     res.status(500).send('Error loading question papers');
-//   }
-// });
-// Route for displaying question papers for a subject within an exam
 router.get('/:exam/:subject/questionPapers', async (req, res) => { 
   try {
     const data = await getQuestions();
