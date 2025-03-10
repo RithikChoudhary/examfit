@@ -1705,6 +1705,2420 @@
                   "explanation": "Sub-Theme: Art and Culture during the Mughals\r\n\r\nCorrect answer is Option (c): Mughal Emperor Jahangir shifted emphasis from illustrated manuscripts  to  albums  and  individual portraits.\r\n\r\nThe Mughal school of painting achieved increased charm, elegance, and grandeur during his rule.\r\nThe portrait of Jahangir, who is pictured holding a picture of the Virgin Mary in his right hand, is the best representation of this time period.\r\nAyar-i-Danish and Anwar-i-sunavli are two further animal fable books with illustrations that date to Jahangir’s reign."
                 }
               ]
+            },
+            {
+              "questionPaperId": "qp-1741604594864",
+              "questionPaperName": "1. Ancient History",
+              "section": "Section I",
+              "questions": [
+                {
+                  "questionId": "q1741604808128-nc5c53v7c",
+                  "question": "Which among the following is the major dynasty that arose in Deccan and Central India following the decline of the Mauryan empire but before the rise of the Gupta empire?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Kushanas"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Palas"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Satavahanas"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Pratiharas"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The Satavahanas ruled a large part of India from the 1st century BCE to the 3rd century CE, following the Mauryan Empire and preceding the Gupta Empire."
+                },
+                {
+                  "questionId": "q1741604808128-9pu6wunml",
+                  "question": "With respect to the administration system of the Satavahanas, consider the following pairs: Term - Description: 1. Ahara - Districts 2. Khila - Villages 3. Marudam - Provinces",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "\"Ahara\" referred to districts, while \"Khila\" referred to uncultivable land during the Gupta period, and \"Marudam\" referred to ecozones in Sangam literature, not Satavahana provinces."
+                },
+                {
+                  "questionId": "q1741604808128-xm2tf1yg0",
+                  "question": "Arrange the following Satavahana Kings chronologically: 1. Vashishtaputra Pulamayi 2. Simuka 3. Gautamiputra Satakarni 4. Hala",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1-2-3-4"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2-3-1-4"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "2-3-4-1"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1-2-4-3"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Simuka, the founder, ruled first, followed by Gautamiputra Satakarni, then Vashishtaputra Pulamayi, and finally Hala."
+                },
+                {
+                  "questionId": "q1741604808128-xiy7vxzxf",
+                  "question": "Consider the following statements regarding the Satavahana Dynasty: 1. Shaka Kshatrapas were involved in continuous conflict with the Satavahanas over the suzerainty over the Deccan. 2. Satavahanas patronized the Amaravati School of Art.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Both statements are correct: the Shakas were in conflict with the Satavahanas, and the Satavahanas patronized Amaravati art."
+                },
+                {
+                  "questionId": "q1741604808128-mbgh5tozl",
+                  "question": "This inscription provides intricate details about the reign of Gautamiputra Satakarni, described as the destroyer of the Shakas, Pahlavas, and the Yavanas, as the uprooter of the Kshaharatas and as the restorer of the glory of the Satavahanas.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Nashik inscription"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Hathigumpha inscription"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Allahabad pillar inscription"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Aihole inscription"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The description matches the Nashik inscription, which eulogized Gautamiputra Satakarni’s victories and was written by his mother, Gautami Balashri."
+                },
+                {
+                  "questionId": "q1741604808128-192p6izgl",
+                  "question": "With reference to the Satavahana dynasty, consider the following statements: 1. Satavahana kings abolished the varna system in their kingdom. 2. The official language of the Satavahanas was Sanskrit. 3. The Satavahanas assumed the title of Uttarapathapati.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "All statements are incorrect: Satavahanas upheld the varna system, used Prakrit as their official language, and assumed the title Dakshinapathapati, not Uttarapathapati."
+                },
+                {
+                  "questionId": "q1741604808128-vw2rgtu58",
+                  "question": "Which of the following is not correct with respect to the Satavahana dynasty?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "They performed Vedic sacrifices that were discarded by Ashoka."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "They are considered the same as the Andhras mentioned in the Puranas."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "The material culture of the Deccan under the Satavahanas was solely northern ingredients."
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "The rulers promoted Buddhism."
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The material culture of the Satavahanas was a fusion of local elements and northern ingredients, not solely northern."
+                },
+                {
+                  "questionId": "q1741604808128-k8cxxyr71",
+                  "question": "With reference to Satavahana Kings, consider the following statements: 1. Yajna Sri Satakarni is described as khatiya-dapamanamada. 2. Vashishthiputra Pulumayi mostly issued gold coins.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Both statements are incorrect: Yajna Sri Satakarni was not described as khatiya-dapamanamada; it was Gautamiputra Satkarni. Vashishthiputra Pulumayi issued lead, copper, and bronze coins, not gold."
+                },
+                {
+                  "questionId": "q1741604808128-qwhx8tqnx",
+                  "question": "About Satavahana’s family structure, consider the following statements: 1. The Satavahana kings were named after their mother. 2. Satavahanas show traces of a complete matriarchal social structure.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Statement-I is correct but Statement-II is incorrect."
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Statement-I is incorrect but Statement-II is correct."
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The Satavahana kings were named after their mother, but their family structure was patriarchal, not matriarchal."
+                },
+                {
+                  "questionId": "q1741604808128-mnh7bjtc6",
+                  "question": "Consider the following statements regarding the Satavahana administration: 1. The Satavahanas retained some administrative structures of Ashokan times and their district was called ahara which was under the officials Amatyas and Mahamatras. 2. Unlike Mauryas, military and feudal traits in the administration were absent in the times of the Satavahanas. 3. The Satavahanas started the practice of granting tax-free villages to Brahmanas and Buddhist monks. 4. The Satavahana kingdom had three grades of feudatories, including Raja, Mahabhoja, and Senapati.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Statements 1, 3, and 4 are correct. Statement 2 is incorrect because there were military and feudal traits in Satavahana administration."
+                },
+                {
+                  "questionId": "q1741604808128-229grk242",
+                  "question": "Consider the following statements about crafts and commerce in ancient India: 1. The age of the Shakas, Kushans, Satavahanas (200 BC-AD 250) and the first Tamil states was the most flourishing period in the history of crafts and commerce in ancient India. 2. No excavation indicates that craftsmen inhabited the villages, as they were mostly associated with towns in those times.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The period of Shakas, Kushans, Satavahanas, and the Tamil states was a flourishing time for crafts and commerce. However, excavations have shown that some craftsmen lived in villages, not just towns."
+                },
+                {
+                  "questionId": "q1741604808128-xktj0nc4d",
+                  "question": "With reference to Post Mauryan crafts and craftsmen, consider the following statements: 1. Uraiyur was a great centre for manufacturing a special type of cloth called shataka. 2. Artisans of this period were organised into guilds which were called shrenis.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Uraiyur was known for dyeing and textile-related activities, but Mathura was the centre for manufacturing shataka. The guilds, called shrenis, were correctly mentioned."
+                },
+                {
+                  "questionId": "q1741604808128-mboduunav",
+                  "question": "Consider the following statements about the money economy in the Post-Mauryan period: 1. The Indo-Greeks were the first to issue gold coins in India, which increased in number under the Kushans. 2. The Kushans were the first to use the image of Goddess Lakshmi on their coins. 3. Many cities and tribes issued coins roughly between 200 BC and AD 300.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The Indo-Greeks issued gold coins first, and the Kushans used the image of Goddess Lakshmi. Many cities and tribes issued coins during this period, confirming all statements as correct."
+                },
+                {
+                  "questionId": "q1741604808128-a9y4t3ksi",
+                  "question": "Consider the following statements about the crafts and trade in the Post-Mauryan age: 1. Indian glass objects have been found in Afghanistan and Rome. 2. Great advances and specialisations in mining and metallurgy were achieved during this period. 3. Coin-minting was an important craft in the period, and craftsmen used it to make fake Roman coins. 4. Indian iron and steel, including cutlery, were exported to the Abyssinian ports.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Indian glass was not found in Afghanistan and Rome, but ivories and Roman glass were found in these regions. Mining, metallurgy, and iron exports to Abyssinia were significant achievements during this period. Coin minting, including fake Roman coins, was also common."
+                },
+                {
+                  "questionId": "q1741604808128-so31ndhdl",
+                  "question": "With reference to Trade routes in ancient India, consider the following statements: 1. Understanding monsoon enabled sailors to sail in much less time from the eastern coast of the Arabian Sea to the western coast ports of Arikamedu and Tamralipti. 2. Uttarapatha was the most frequently used route, connecting Taxila to Ujjain and then to Broach on the western coast.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The understanding of monsoon did help sailors, but the statement about the monsoon route is not entirely accurate. The Uttarapatha was indeed the most frequently used route."
+                },
+                {
+                  "questionId": "q1741604808128-v7mbwh4d7",
+                  "question": "Consider the following articles: 1. Muslin 2. Lead 3. Pearls 4. Wine-amphorae 5. Jewels 6. Precious stones 7. Iron Cutlery Which of the above is/are exported from ancient India to the Roman empire?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1, 3, 4 and 6"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "1, 2, 3, 6 and 7"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1, 3, 5, 6 and 7"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2, 3, 5, 6 and 7"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Muslin, pearls, jewels, precious stones, and iron cutlery were exported from India, while lead and wine-amphorae were imported to India."
+                },
+                {
+                  "questionId": "q1741604808128-oqlwz1cbm",
+                  "question": "Consider the following statements: 1. The establishment of the Safavid rule in Iran and the neighbouring areas led to the diversion of silk to the Roman Empire through western Indian ports. 2. Roman goods appear in substantial quantities in north India under the Kushana rule. 3. Arretine pottery was regularly found in south, central and western India and Afghanistan during 200 BC–AD 250.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "The statements about Safavid rule, Roman goods in Kushana India, and Arretine pottery in central and western India are not correct."
+                },
+                {
+                  "questionId": "q1741604808128-z7apcmvkq",
+                  "question": "Consider the following statements about the spread of civilization in Orissa during the 1st century BC: 1. Kalinga, or coastal Orissa south of the Mahanadi, rose to importance under Ashoka, though a strong state had been founded in that area in the 1st century BC. 2. The greater part of Orissa, particularly north Orissa, neither experienced state formation nor much commercial activity.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Both statements are correct. Kalinga became important under Ashoka, and north Orissa lacked state formation and commercial activity due to geographical and political factors."
+                },
+                {
+                  "questionId": "q1741604808128-nwzc4cr9i",
+                  "question": "With reference to the cultural and economic development of Orissa during or before the 4th century, consider the following statements: 1. Elements of advanced culture were strictly confined to the coastal belt known as Kalinga and did not spread to any other parts of Orissa. 2. An economic system developed, in which barter was the only method used for large transactions. 3. They had trade connections with the Roman Empire.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Statement 1 is incorrect as advanced culture spread to other parts of Orissa. Statement 2 is incorrect because metal money was used. Statement 3 is correct with evidence of trade links with the Roman Empire."
+                },
+                {
+                  "questionId": "q1741604808128-uz646nlto",
+                  "question": "Consider the following statements about the spread of civilization in Orissa: 1. The Matharas made endowments called agraharas, which consisted of seashells and fish, and were meant to support the recreational activities of the local fishermen. 2. The spread of Sanskrit writing is witnessed in this area.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Statement 1 is incorrect as agraharas consisted of land and income, not seashells or fish. Statement 2 is correct as Sanskrit writing spread in coastal Orissa from about AD 350 onwards."
+                },
+                {
+                  "questionId": "q1741604808128-au5e50l7u",
+                  "question": "With reference to the civilization in Bengal regions during the 5th century, consider the following statements: 1. The region situated between the Ganges and the Brahmaputra remained an unsettled and entirely Sanskrit-illiterate region. 2. Land was used for both agricultural and religious purposes. 3. Gold coins called dinara were prevalent among this region.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Statement 1 is incorrect as the region became settled and Sanskrit-educated. Statements 2 and 3 are correct as land was used for both agricultural and religious purposes, and gold coins were used in land transactions."
+                },
+                {
+                  "questionId": "q1741604808128-ghhhhrfkw",
+                  "question": "Consider the following statements regarding Bengali civilization during the middle of the 4th century: 1. People in this area knew Prakrit and professed Buddhism. 2. Sama Haradeva, ruler of Samatata during the 4th century, issued a large number of silver coins in this region.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Statement 1 is correct as people knew Prakrit and professed Buddhism. Statement 2 is incorrect as Sama Haradeva issued gold coins in the 6th century, not silver coins in the 4th century."
+                },
+                {
+                  "questionId": "q1741604808128-te4av5n76",
+                  "question": "Consider the following statements about the fiscal and administrative units of Bengal region during the 7th century: 1. A fiscal and administrative unit called Dandabhukti was formed in the border areas between Bengal and Orissa. 2. Danda means punishment, and Bhukti means enjoyment.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Both statements are correct. Dandabhukti was a fiscal unit created to pacify the border areas, and despite its name, it had no punitive functions and focused on agricultural development."
+                },
+                {
+                  "questionId": "q1741604808128-upbkktq6p",
+                  "question": "Consider the following statements about the spread of civilization in Eastern India during the 7th century: 1. There were no well-maintained military camps in eastern India during this time. 2. Land was owned by individual families, but its sale and purchase were subject to the overall control of the local communities. 3. The king was entitled to taxes and also enjoyed rights over waste and fallow land.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Statement 1 is incorrect as there were well-maintained military camps. Statements 2 and 3 are correct as land was owned by families but regulated by the community, and the king had rights over taxes and fallow land."
+                },
+                {
+                  "questionId": "q1741604808128-z2g75bv1b",
+                  "question": "With reference to civilization in Assam during the 6th-7th century, consider the following statements: 1. The Kamarupa kings adopted the title varman, which means armor and symbolizes a warrior. 2. In the 7th century, Bhaskaravarman emerged as the head of a state which controlled a substantial part of the Brahmaputra basin and some areas beyond it.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Both statements are correct as the Kamarupa kings adopted the title \"varman\" and Bhaskaravarman controlled a significant part of the Brahmaputra basin."
+                },
+                {
+                  "questionId": "q1741604808128-ul2dusojt",
+                  "question": "Which ancient ruler assumed the title 'Sakalottarapathanatha'?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Shashanka"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Harshavardhana"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Chandragupta II"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Chandradeva"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The title \"Sakalottarapathanatha\" was used for Harshavardhana, who was a prominent king of the Vardhana dynasty."
+                },
+                {
+                  "questionId": "q1741604808128-b5kih13a3",
+                  "question": "Which of the following plays was not written by Harshavardhana?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Nagananda"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Priyadarshika"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Mrichchhakatika"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Ratnavali"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "'Mrichchakatika' was written by Sudraka, not Harshavardhana. Harsha wrote Nagananda, Priyadarshika, and Ratnavali."
+                },
+                {
+                  "questionId": "q1741604808128-1u4ndtugu",
+                  "question": "Consider the following statements related to Harshavardhana: 1. He forbade the killing of animals for food and implemented harsh penalties for those who violated the law. 2. He organized a gathering at Kannauj in order to pay tribute to the Chinese Buddhist monk Hieun Tsang and disseminate the teachings of Hinayana Buddhism. 3. In his early life, Harsha was a Vaishnaivite and later became an ardent Mahayana Buddhist.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Statement 1 is correct. Statements 2 and 3 are incorrect as Harsha supported Mahayana Buddhism, not Hinayana, and was initially a Shaivite, not a Vaishnavite."
+                },
+                {
+                  "questionId": "q1741604808128-qm0zz4vov",
+                  "question": "With reference to ancient India, the term ‘Mahasamdhivigrahika’ refers to:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Officers in charge of food and fodder for the army"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Counsellor"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Chief military officer"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Foreign minister"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Mahasamdhivigrahika was the foreign minister during Harsha’s reign, managing diplomacy and foreign relations."
+                },
+                {
+                  "questionId": "q1741604808128-sf3kdzfcx",
+                  "question": "Which of the following ruler's signature can be found on the Banskhera inscription?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Pulakeshin II"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Mahendravarman"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Vijayaditya III"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Harshavardhana"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "The Banskhera inscription features the signature of Harshavardhana, with references to the construction of a Shiva temple."
+                },
+                {
+                  "questionId": "q1741604808128-m0vfqzdfm",
+                  "question": "With reference to the rule of Pushyabhuti dynasty, consider the statements regarding the position of women: 1. The practice of dowry was not seen during this rule. 2. The practice of sati was banned by the king. 3. Remarriages of widows were not permitted. How many of the above statement(s) is/are not correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " None of the above"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The status of women during the Pushyabhuti dynasty worsened. Remarriages of widows were restricted, especially among higher castes. Dowry was already a custom, though not as prevalent, and Sati was practiced, but not as widespread or institutionalized as later."
+                },
+                {
+                  "questionId": "q1741604808128-2cf8uxb95",
+                  "question": "Who among the following was not a contemporary of King Harshavardhana of the Pushyabhuti dynasty?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Fa Hien"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Hieun Tsang"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Pulakeshin II"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Shashanka"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Fa-Hien was a Chinese Buddhist monk who visited India during the reign of Chandragupta II in the early 5th century, not during Harsha's time. The other options were contemporaries of Harsha."
+                },
+                {
+                  "questionId": "q1741604808128-yq82s8jy6",
+                  "question": "The title of ‘Asthana Kavi’ in the court of King Harshavardhana belonged to who among the following poets?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Bhanudatta"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Nandi Thimmana"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Banabhatta"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Rajashekhara"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Banabhatta, renowned for composing ‘Harshacharita,’ was titled ‘Asthana Kavi’ in Harsha's court due to his eloquent writing and insightful historical accounts."
+                },
+                {
+                  "questionId": "q1741604808128-eps6wsayu",
+                  "question": "Consider the following statements regarding Gupta Period: 1. The Allahabad pillar refers to the achievements of Chandragupta II. 2. The Mehrauli iron pillar inscription gives the source for the reign of Samudragupta. Which of the statement(s) given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " 1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " 2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "The Allahabad pillar inscription actually refers to the reign of Samudragupta, not Chandragupta II. The Mehrauli iron pillar, with inscriptions of Chandragupta II, does not relate to Samudragupta's reign."
+                },
+                {
+                  "questionId": "q1741604808128-8lrbiecu6",
+                  "question": "Consider the following pairs: King - Title: 1. Chandragupta II - Kaviraja 2. Samudragupta - Mahendraditya 3. Kumaragupta - Vikramaditya How many of the above pair(s) is/are not correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " None of the above"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "All pairs are incorrectly matched. Chandragupta II is associated with Vikramaditya, Samudragupta with Kaviraja, and Kumaragupta with Mahendraditya."
+                },
+                {
+                  "questionId": "q1741604808128-aluxljutj",
+                  "question": "How many of the following is/are the reason for the fall of the Gupta Empire? 1. Huns invasion 2. Rise of feudatories 3. Failure to maintain large army Select the correct answer using the codes given below:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " None of the above"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The fall of the Gupta Empire was due to the Huna invasion, rise of feudatories, and inability to maintain a large army. The empire lost control over various regions, and economic challenges arose."
+                },
+                {
+                  "questionId": "q1741604808128-yu8bg2xco",
+                  "question": "Which Gupta ruler assumed the title ‘Sakari’?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Kumaragupta"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Chandragupta I"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Chandragupta II"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Skandagupta"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Chandragupta II assumed the title 'Sakari' after his victory over the Saka satraps, meaning 'destroyer of Sakas'."
+                },
+                {
+                  "questionId": "q1741604808128-yevskf5dm",
+                  "question": "Chinese traveller Fa-hsien visited India during the reign of:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Chandragupta I"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Chandragupta II"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Samudragupta"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Kumaragupta"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Fa-hsien visited India during the reign of Chandragupta II and spent six years in the Gupta Empire."
+                },
+                {
+                  "questionId": "q1741604808128-iezp0jk8e",
+                  "question": "Which of the following source materials help to reconstruct the history of the Gupta period: 1. Puranas 2. Mudrarakshasa 3. Devichandraguptam 4. Allahabad pillar",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " All four"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Puranas, Mudrarakshasa, Devichandraguptam, and the Allahabad pillar inscription all provide valuable information for reconstructing the Gupta period."
+                },
+                {
+                  "questionId": "q1741604808128-azyrmziwn",
+                  "question": "Who laid the foundation of Nalanda University?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Samudragupta"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Chandragupta I"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Chandragupta II"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Kumaragupta"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Kumaragupta laid the foundation of Nalanda University, a renowned center of learning during the Gupta period."
+                },
+                {
+                  "questionId": "q1741604808128-5rag6hq5u",
+                  "question": "Consider the following statements about Samudragupta’s military campaigns: 1. Samudragupta did not destroy and annex South Indian kingdoms. Instead, he defeated the rulers but gave them back their kingdoms. 2. He only insisted on them to acknowledge his suzerainty.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for Statement-I."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Statement-I is correct but Statement-II is incorrect."
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Statement-I is incorrect but Statement-II is correct."
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Samudragupta defeated the South Indian rulers but gave back their kingdoms, insisting on their acknowledgment of his suzerainty."
+                },
+                {
+                  "questionId": "q1741604808128-mykssbaz0",
+                  "question": "With reference to Gupta dynasty, consider the following statements: 1. The political authority was concentrated in the hands of the king in the Gupta administration. 2. They followed the practice of primogeniture in succession. 3. Several offices of administrative posts were combined in the hands of the same person.",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " None of the above"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Gupta administration was decentralized, and the practice of primogeniture was not followed. However, several administrative offices were combined in the hands of the same person."
+                },
+                {
+                  "questionId": "q1741604808128-gscvlr98q",
+                  "question": "With reference to ancient India, the term ‘Dinaras’ refers to:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Irrigation system"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Land measurement"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Spies of kings"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Coins issued by Guptas"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "The term \"Dinaras\" refers to the gold coins issued by the Gupta rulers."
+                },
+                {
+                  "questionId": "q1741604808128-dnu7h5nr4",
+                  "question": "In which of the following language 'Prayaga Prashasti’ was composed by Harishena, the court poet of Samudragupta?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Sanskrit"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Pali"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Prakrit"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Greek"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Prayaga Prashasti, also known as the Allahabad Pillar Inscription, was composed in Sanskrit by Harishena, the court poet of Samudragupta."
+                },
+                {
+                  "questionId": "q1741604808128-4wlkzc8go",
+                  "question": "With reference to administration of Guptas, which one of the following is the correct sequence in descending order in terms of size?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Bhukti-Vishayas-Vithis"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Vithis-Bhukti-Vishayas"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Vithis-Vishayas-Bhukti"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Vishayas-Vithis-Bhukti"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The kingdom was divided into Bhuktis (provinces), Vishayas (districts), and Vithis (sub-districts)."
+                },
+                {
+                  "questionId": "q1741604808128-7n0kouwng",
+                  "question": "With reference to the ancient Indian history ‘Uparikara’ and ‘Udranga’ were related to:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Type of taxes collected by ruler"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Coins used for trade"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Hired agricultural labourers"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " The palace guards"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Uparikara and Udranga were agricultural taxes collected during the Gupta period."
+                },
+                {
+                  "questionId": "q1741604808128-rptgwj18i",
+                  "question": "With reference to the Bhagavatism which emerged in post-Mauryan times, consider the following statements: 1. Bhagavatism was centred around the worship of Bhagvat or Vishnu and his incarnations. 2. Bhagavatism was marked by bhakti and Vedic rituals and sacrifices. 3. The Gupta rulers gave patronage to Bhagavatism and many of them proclaimed themselves as Bhagavatas. How many of the statement(s) given above is/are not correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " None of the above"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Statement 1 and 3 are correct, while Statement 2 is incorrect because Bhagavatism focused on bhakti and non-violence, not Vedic rituals."
+                },
+                {
+                  "questionId": "q1741604808128-sfyo00duc",
+                  "question": "Consider the following statements: 1. Untouchability was forbidden during the Gupta era due to the exploitative nature of the caste institution. 2. The status of women improved during the Gupta period. Which of the statement(s) given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " 1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " 2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Both statements are incorrect: Untouchability intensified during the Gupta period, and the status of women worsened."
+                },
+                {
+                  "questionId": "q1741604808128-lwsapgbb6",
+                  "question": "Consider the following: 1. Raghuvamsa 2. Kumarasambhava 3. Abhijnanasakuntalam 4. Ritusamhara 5. Malavikagnimitram Which of the above-mentioned works are epics of Kalidasa?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " 1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " 1, 3 and 4 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " 1 and 4 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " All of the above"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Kalidasa wrote two major epics: Raghuvamsa and Kumarasambhava. The other works are plays or minor poems."
+                },
+                {
+                  "questionId": "q1741604808128-26b6qr8sl",
+                  "question": "With reference to ancient Indian history, consider the following statements: Art and Architecture during Gupta age Location 1. Sultanganj Buddha Madhya Pradesh 2. Dashavatara temple Bihar 3. Nalanda university Uttar Pradesh How many of the pair(s) given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": " Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": " Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": " All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " None of the above"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "The Sultanganj Buddha is from Bihar, Dashavatara temple is in Deogarh, Uttar Pradesh, and Nalanda university is in Bihar."
+                }
+              ]
+            },
+            {
+              "questionPaperId": "qp-1741605008603",
+              "questionPaperName": "2. Ancient History",
+              "section": "Section I",
+              "questions": [
+                {
+                  "questionId": "q1741605026294-q5z7381tj",
+                  "question": "With reference to life in the Gupta age, consider the following statements:\r\n1. Civil and criminal laws were clearly defined and demarcated for the first time.\r\n2. The most important officers in the Gupta empire were the Kumaramatyas.\r\n3. Hieun Tsang visited India during the Gupta period.\r\nWhich of the statements given above are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1 and 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Statement 1 is correct\r\n• The judicial system was far more developed under the Guptas (late 3rd century to mid 6th century)\r\nthan in earlier times.\r\n• It was at this period, the civil and criminal laws were clearly defined and demarcated for the first\r\ntime.\r\n• Theft and adultery came under criminal laws.\r\n• Disputes regarding various types of properties came under civil law.\r\nStatement 2 is correct\r\n• The Gupta bureaucracy was not as elaborate as that of the Mauryas.\r\n• The most important officers in the Gupta empire were the Kumaramatyas.\r\n• The Kumaramatyas were the high officers and the personal staff of the emperor and were appointed\r\nby the king in the home provinces and possibly paid in cash.\r\n• A link between the central and the provincial administration under the Guptas is furnished by them.\r\nStatement 3 is not correct\r\n• Chinese scholar Hieun Tsang visited during the period of Harshavardhana.\r\n• Chinese traveller Fa-Hien, visited India during the Gupta period.\r\n• He visited many Buddhist sites in what are now Xinjiang, Pakistan, India, Nepal, Bangladesh and Sri Lanka\r\nbetween 399-412 CE.\r\n• He informed us that Magadha was full of cities and its rich people supported Buddhism and gave charities.\r\n• His writing gives an idea of the economic life of people during the Gupta period."
+                },
+                {
+                  "questionId": "q1741605026294-9cz2lwvjv",
+                  "question": "The terms ‘Aprahata’ and ‘Vasti’ in the Gupta period referred to:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Administrative officials"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Religious rituals"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Different types of land"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Trade guilds"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "During the Gupta period, the land was classified as detailed below:\r\n Kshetra - Cultivable land\r\n Khila - Waste land\r\n Aprahata - Jungle or forest land\r\n Vasti - Habitable land\r\n Gapata Saraha - Pastoral land\r\n• The Paharpur Copper Plate Inscription indicates that the king was the sole proprietor of the land.\r\n• Even when he made land grants, he reserved his prerogatives over it.\r\n• The location and boundaries of individual plots were marked out and measured by the record keepers\r\nand influential men in the locality.\r\n• As stated in Paharpur plates, an officer called Ustapala maintained records of all the land transactions in\r\nthe district and the village accountant preserved records of land in the village."
+                },
+                {
+                  "questionId": "q1741605026294-5dtfhdg38",
+                  "question": "The Gupta rulers were great patrons of art and literature. How many of the following scholars adorned their court?\r\n1. Aryabhatta\r\n2. Amarasimha\r\n3. Dandin\r\n4. Bhasa\r\n5. Bharavi\r\nSelect the correct answer using the code given below:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only four"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All five"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Option 1 and 2 are correct\r\n• Aryabhatta, a renowned mathematician and astronomer, belonged to the Gupta period.\r\n• The Gupta period is unparalleled for its achievements in the field of mathematics and astronomy.\r\n• Aryabhatta wrote Aryabhatiya and Suryasiddhanta.\r\n• In Aryabhatiya, he described the place value of the first nine numbers and the use of zero.\r\n• He calculated the value of Pi and invented algebra.\r\n• In Suryasiddhanta, he proved that the earth revolves around the Sun and rotates on its axis.\r\n• In this way, he discovered the cause of the solar and lunar eclipses and the methods for calculating timings of their occurrence.\r\n• He said that the heavenly bodies, like the moon, were spherical and they are shown by reflecting the light.\r\n• Amarasimha, the Sanskrit grammarian and poet, also flourished during the reign of the Gupta dynasty.\r\n• Chandragupta-II was known for his deep interest in art and culture and nine gems or Navratna adorned\r\nhis court. Amarasimha was one among the navratnas.\r\nOptions 3, 4 and 5 are not correct\r\n• Dandin, who flourished during the late 6th and early 7th centuries, was an Indian Sanskrit writer of prose\r\nromances and expounder on poetics.\r\n• Dandin adorned the court of the Pallava king Narasimhavarman II.\r\n• He wrote Dashakumaracharita and Avantisundarikatha in Sanskrit.\r\n• Bhasa was a Sanskrit dramatist who predates the Gupta period.\r\n• Estimates of his floruit range from the 4th century BCE to the 4th century CE; the thirteen plays attributed\r\nto him are commonly dated closer to the first or second century CE.\r\n• Bhasa’s influence is seen in the works of the great 5th century dramatist and Gupta contemporary Kalidasa, who consciously imitated and improved upon some of Bhasa’s literary motifs.\r\n• Bharavi, who flourished during 6th century AD, was a Sanskrit poet who was the author of Kiratarjuniya,\r\none of the classical Sanskrit epics classified as a Mahakavya.\r\n• Bharavi hailed from southern India and flourished during the reigns of king Durvinita of the Western\r\nGanga dynasty and king Simhavishnu of the Pallava dynasty."
+                },
+                {
+                  "questionId": "q1741605026294-a8cogr2xr",
+                  "question": ") Consider the following pairs:\r\n Book Author\r\n1. Mudrarakshasa Sudraka\r\n2. Amarakosha Vishakhadatta\r\n3. Meghaduta Kalidasa\r\n4. Kiratarjuniya Bharavi\r\nHow many pair(s) given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Pair 1 is not correct\r\n• Vishakhadatta's Mudrarakshasa is a classical Sanskrit play that vividly dramatizes the political intrigue\r\nand machinations surrounding the establishment of the Mauryan empire in ancient India.\r\n• Written between the 4th and 8th centuries CE, the play centers on the astute strategies employed by\r\nChanakya (Kautilya) to secure Chandragupta Maurya's ascendancy to power.\r\n• Bhasa was an important poet in the early phase of the Gupta period and he wrote 13 plays.\r\n• He wrote in Sanskrit, but his dramas also contain a substantial amount of Prakrit.\r\n• He was the author of a drama called Daridracharudatta, which was later re-fashioned as Mrichchhakatika or the Little Clay Cart by Shudraka.\r\n• The play deals with the love affair of a poor Brahmana trader with a beautiful courtesan and is considered\r\none of the best works of ancient drama.\r\nPair 2 is not correct\r\n• The Gupta period also saw the development of Sanskrit grammar, based on the works of Panini and\r\nPatanjali.\r\n• This period is particularly memorable for the compilation of Amarakosha by Amarasimha, who was a\r\nluminary in the court of Chandragupta II.\r\n• Most of his work was destroyed with the exception of the AmaraKosha.\r\n• The Amarakosha is a vocabulary of Sanskrit roots, in three books, and hence sometimes called Trikanda\r\nor the Tripartite.\r\nPair 3 is correct\r\n• Kalidasa, the greatest poet of the Gupta period, lived in the 4th century AD and was a contemporary of\r\nChandragupta II.\r\n• Ritusamhara was his first production, although his earliest drama was Malvikagnimitram.\r\n• Meghaduta is a pioneer of Dutakavya in Sanskrit literature.\r\n Meghaduta refers to a cloud messenger. It is a poem woven around a Yaksha, a subject of Lord\r\nKubera.\r\n It tells the story of a yaksa (or nature spirit) who was banished by his master to a far away place for\r\na year and begged a cloud to deliver a message of love to his wife.\r\nPair 4 is correct\r\n• Bharavi is well-known for Kiratarjuniya, composed around 550 CE.\r\n• Kirat is Shiva, who speaks to Arjuna as a mountain dwelling hunter.\r\n• This epic style kavya is considered one the greatest works in Sanskrit, celebrated for the complexity of\r\nthe language."
+                },
+                {
+                  "questionId": "q1741605026294-a5ysknra0",
+                  "question": "Which of the following statement(s) is/are correct about the plays of the Gupta\r\nperiod?\r\n1. They are all comedies and there are no tragedies in these plays.\r\n2. The Shudras in these plays spoke Sanskrit language like the higher classes.\r\nSelect the correct answer using the code given below:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2 \r\n"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Statement 1 is correct\r\n• The Gupta period was bright in the history of classical literature.\r\n• During the Gupta period, more emphasis was placed on verse than prose.\r\n• Sanskrit was the official language of the Gupta period.\r\n• Although much Brahmanical religious literature was produced during the period, it is also remarkable for\r\nthe rise of secular literature consisting of a fair degree of court poetry.\r\n• The Gupta rule between 300 and 600 CE is termed the golden age of India for the development of\r\nscience and emphasis on Indian art and literature.\r\n• This era witnessed the compilation of an extensive range of both religious and secular texts.\r\n• Major epics, such as the Ramayana and the Mahabharata, were finalized during the fourth century, embodying good prevailing over evil themes.\r\n• The plays produced in India during the Gupta period have two common features.\r\n• First, they are all comedies; no tragedies are found and they end with a positive note.\r\nStatement 2 is not correct\r\n• Secondly, the characters of the higher and the lower classes do not speak the same language.\r\n• In a Sanskrit drama, the characters of higher castes, such as kings, ministers, etc., speak the Sanskrit language.\r\n• In contrast, the characters of the lower caste, like Shudras and women (including queens), speak in Prakrit."
+                },
+                {
+                  "questionId": "q1741605026294-cguik8ms2",
+                  "question": "With reference to ancient Indian history, the term ‘niyoga’ denoted:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Consequences one had to face in the next life because of their past life actions.\r\n"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "A practice in Jainism involving self-reflection, repentance, and seeking forgiveness for past transgressions."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Predetermined course of events and fate in a person's life."
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "A practice where a younger brother or close relative marries the widow of the deceased elder brothe"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Niyoga, an ancient Indian practice, allowed a widow to marry a close relative, usually a younger brother\r\nor kinsman, after her husband's death.\r\n• It was practised by the Brahmanas and Kshatriyas in Vedic times, but was not allowed to them by the\r\nlaw-books of Gupta and earlier times.\r\n• This custom aimed to ensure the continuation of the family line and fulfill the obligation of producing an\r\nheir.\r\n• Niyoga held cultural and familial importance, emphasizing the significance of lineage and responsibilities\r\nwithin the society of that era.\r\n• Karma: Consequences one had to face in the next life because of their past life actions.\r\n• Pratikramana: A practice in Jainism involving self reflection, repentance, and seeking forgiveness for past\r\ntransgressions.\r\n• Niyati: Predetermined course of events and fate in a person's life"
+                },
+                {
+                  "questionId": "q1741605026294-ltk0dmj0k",
+                  "question": "Consider the following statements regarding Gupta Empire:\r\n1. The Gupta ruler entered into matrimonial alliance with the Vakataka dynasty of the Deccan.\r\n2. In general, women did not have the autonomy to independently access land resources.\r\n3. Some of the Brahmanas were exempted from paying land revenue.\r\nHow many of the statement(s) given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Statement 1 is correct\r\n• Prabhavati Gupta was the daughter of one of the most important rulers in early Indian history, Chandragupta II (375-415 CE).\r\n• She was married into another important ruling family, that of the Vakatakas, who were powerful in the\r\nDeccan.\r\n• The Vakataka dynasty rose to prominence in the 3rd century CE under the leadership of its first known\r\nruler, Vindhyashakti.\r\n• They were the most important successors of the Satavahanas in the Deccan and coexistent with the Guptas in northern India.\r\n• The Vakataka dynasty, although relatively short-lived, played a significant role in the cultural and architectural history of India.\r\n• Their patronage of cave temples and their support for both Hinduism and Buddhism left a lasting legacy\r\nin the Deccan region.\r\n• The exquisite cave paintings and sculptures in the Ajanta, Ellora, and Elephanta caves are a testament\r\nto their contributions to Indian art and culture.\r\nStatement 2 is correct\r\n• Sanskrit legal texts, for instance, typically did not grant women independent access to resources like\r\nland.\r\n• However, it's worth noting that exceptions existed, as seen in the case of Queen Prabhavati, who had\r\naccess to and could grant land, which was somewhat unusual for her time.\r\nStatement 3 is correct\r\n• There were regional variations in the sizes of land donated ranging from small plots to vast stretches of\r\nuncultivated land and the rights given to the recipients of the grant.\r\n• An agrahara was land granted to a Brahmana, who was usually exempted from paying land revenue\r\nand other dues to the king, and was often given the right to collect these dues from the local people."
+                },
+                {
+                  "questionId": "q1741605026294-rf2nmuvqa",
+                  "question": "With reference to the Gupta period, which one of the following statements is\r\ncorrect?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "The Guptas issued the largest number of gold coins but coins made of silver were very rare."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "During this period, the position of Shudras improved, and there was a decline in Brahmanical supremacy"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Widow re-marriage was not allowed to members of the higher social orders but the Shudras could\r\npractice levirate and widow remarriage."
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Buddhism continued to receive high royal patronage during the Gupta period"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Statement (a) is not correct\r\n• In ancient India, the Guptas issued the largest number of gold coins, which were called dinaras in their\r\ninscriptions.\r\n• After conquering Gujarat, the Guptas also issued numerous silver coins for local exchanges, emphasizing the prominence of silver during the Western Kshatrapas rule.\r\n• In contrast, Gupta copper coins were relatively scarce in number compared to those of the Kushanas.\r\nStatement (b) is not correct\r\n• Large-scale land grants to the brahmanas suggest that the brahmana supremacy increased in Gupta\r\ntimes.\r\n• The brahmanas accumulated wealth on account of the numerous land grants made to them and therefore\r\nclaimed many privileges, which are listed in the Narada Smriti, the lawbook of Narada, a work of about\r\nthe fifth century.\r\n• The position of Shudras improved during this period.\r\n• They were now permitted to listen to recitations of the Ramayana, the Mahabharata, and the Puranas.\r\n• The Shudras could also worship a new god called Krishna and were also permitted to perform certain\r\ndomestic rites which naturally meant fees for the priests.\r\nStatement (c) is correct\r\n• In ancient Vedic times, the practice of Niyoga (levirate) allowed younger brothers or kinsmen to marry\r\nthe widow of an elder brother after his demise.\r\n• However, during the Gupta period and earlier, this practice was prohibited by the prevailing law-books\r\nfor Brahmins and Kshatriyas.\r\n• Likewise, widow remarriage was restricted for higher caste members, but Shudras were allowed to\r\nengage in both levirate and widow remarriage.\r\nStatement (d) is not correct\r\n• Buddhism ceased to receive royal patronage during the Gupta period.\r\n• Fa-Hien gives the impression that this religion was flourishing, but in reality, it was not as important\r\nduring the Gupta period as it had been in the days of Ashoka and Kanishka.\r\n• However, some stupas and viharas were constructed, and Nalanda became a center of Buddhist education.\r\n"
+                },
+                {
+                  "questionId": "q1741605026294-zciyey38x",
+                  "question": "Which of the following statements is not correct about Chalukya King Pulakeshin-II?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "He is known to us from the eulogy written on him by the court poet Ravikirti in the Aihole inscription.\r\n"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "He defeated Harsha’s army on the Narmada and checked his advance towards the Deccan."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "He killed the Pallava king Narasimhavarman, who occupied the Chalukya capital at Vatapi.\r\n"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "He conquered the Kadamba capital at Banavasi and forced the Gangas of Mysore to recognize his\r\nauthority. "
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "There are many important events during the reign of “Pulakeshin-II” (AD 609–42), the most famous\r\nChalukya king.\r\nStatement (a) is correct\r\n• He is known to us from the eulogy written on him by the court poet Ravikirti in the Aihole inscription\r\nand this inscription is an example of the poetic excellence achieved in Sanskrit, and despite its exaggeration is a valuable source for the life of Pulakeshin.\r\nStatement (d) is correct\r\n• He subjugated the Kadamba capital at Banavasi and compelled the Gangas of Mysore to\r\nacknowledge his suzerainty.\r\nStatement (b) is correct\r\n• He also defeated Harsha’s army on the Narmada and checked his advance towards the Deccan.\r\nStatement (c) is not correct\r\n• In his conflict with the Pallavas, he almost reached the Pallava capital, but the Pallavas purchased peace\r\nby ceding their northern provinces to Pulakeshin-II.\r\n• Around AD 610 Pulakeshin-II also conquered the entire area between Krishna and the Godavari, which\r\ncame to be known as the province of Vengi. Here, a branch of the main dynasty was set up and is known\r\nas the eastern Chalukyas of Vengi.\r\n• Pulakeshin’s second invasion of Pallava territory ended in failure.\r\n• The Pallava king “Narasimhavarman”(AD 630–68) occupied the Chalukya capital at Vatapi in about AD\r\n642, when Pulakesin-II was probably killed in a battle against the Pallavas.\r\n• Narasimhavarman assumed the title of Vatapikonda or the conqueror of Vatapi."
+                },
+                {
+                  "questionId": "q1741605026294-6rqzwj39w",
+                  "question": "Consider the following dynasties:\r\n1. Pallavas of Kanchi\r\n2. Cheras\r\n3. Chalukyas of Badami\r\n4. Pandyas of Madurai\r\n5. Satavahanas\r\nHow many of the above dynasties established their kingdoms in the period between 300 and 750 CE?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only four"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All five"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The period from c. 300−750 CE marks the second historical phase in the region south of the Vindhyas.\r\n• The three major kingdoms of this era were the Pallavas of Kanchi, the Chalukyas of Badami, the\r\nPandyas of Madurai.\r\n• Trade, towns and coinage declined in this phase. However, there was more expansion of the agrarian\r\neconomy.\r\n• There was more emphasis on Brahmanism and more instances of Vedic sacrifices by kings.\r\n• The culture of Megaliths paved the way for temple construction.\r\n• Sanskrit became the official language of the peninsula and most charters were prepared.\r\nOption 1 is correct\r\n• On the ruins of the Satavahanas, in the eastern part of the peninsula (especially in the Krishna−Guntur\r\nregion), arose the Ikshvakus.\r\n• The Ikshvakus were supplanted by the Pallavas.\r\n• The term Pallava means ‘creeper’, which is a Sanskrit version of the word tondi and in Tamil they are\r\nsynonymous to robber.\r\n• So, the Pallavas were probably a pastoral local tribe who established their authority in the land of\r\ncreepers called Tondaimandalam (the land between the north Penner and north Vellar rivers), mostly\r\ncomprising southern Andhra Pradesh and northern Tamil Nadu with their capital at Kanchi.\r\n• Kanchi (modern Kanchipuram), under them, became an important temple town and a centre of trade\r\nand commerce.\r\n• Some inscriptions refer to early kings of this dynasty, such as Shivaskandavarman, who probably ruled\r\nin the early 4th century CE.\r\n• But in the last quarter of the 6th century, Simhavishnu was the ruler who played a crucial role in the\r\nPallavas’ rise to power.\r\nOption 3 is correct\r\n• The Vakatakas were followed by the Chalukyas of Badami, who played a prominent role in the history\r\nof Deccan and south India for about two hundred years from the beginning of the 6th century CE.\r\n• The Chalukyas were a maritime power, and they set up their kingdom in western Deccan with the capital\r\nat Vatapi (modern Badami in Karnataka).\r\n• Along with the Chalukyas of Badami (who are primarily called the Western Chalukyas), there were two\r\nother branches of the lineage who ruled independently — the Eastern Chalukyas of Vengi and the\r\nChalukyas of Lata.\r\n• The Western Chalukyas, in order to acquire legitimacy and respectability, claimed Brahmanical origin as\r\nHaritiputras of the Manavya gotra.\r\nOption 4 correct\r\n• The Pandyas were involved in internecine wars with the other contemporary powers such as the Pallavas.\r\n• They were in control of Madurai and Tirunelveli district of Tamil Nadu.\r\n• There is not enough information about the Pandyas of the early medieval times.\r\nOptions 2 and 5 are not correct\r\n• The first historical Phase in southern India belongs to c. 200 BCE−300 CE\r\n• The major kingdoms were the Satavahanas, the Cholas, the Cheras, and the Pandyas.\r\n• This period was marked by the appearance of numerous crafts, internal and external trade, widespread\r\nuse of coins and a good number of towns.\r\n• This period offered patronage to Buddhism as is evident in extensive Buddhist monuments in both\r\nAndhra and Maharashtra.\r\n• The Cave inscriptions also point to the existence of Jainism and Buddhism in the southern districts of\r\nTamil Nadu.\r\n• The epigraphs were mostly written in Prakrit."
+                },
+                {
+                  "questionId": "q1741605026294-7d8qwumdg",
+                  "question": "With reference to South India in the period between 300−750 CE, consider the\r\nfollowing statements\r\n1. Narasimhavarman founded the port city of Mahabalipuram or Mamallapuram in the seventh century.\r\n2. Pattadakal has ten temples built in the seventh and eighth centuries, the most celebrated of which\r\nare the Kailasanatha temple and the Shore temple.\r\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2 \r\n"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Statement 1 is correct\r\n• The Pallava kings constructed a number of stone temples in the seventh and eighth centuries.\r\n• The most famous of them are the seven ratha temples at Mahabalipuram, at a distance of 65 km from\r\nChennai.\r\n• These were built in the seventh century by Narasimhavarman, who founded the port city of Mahabalipuram or Mamallapuram.\r\n• This city is also famous for the Shore Temple, which was a structural construction erected independently.\r\n• In addition, the Pallavas constructed several such structural temples at their capital Kanchi.\r\nStatement 2 is not correct\r\n• The Chalukyas of Badami erected numerous temples at Aihole, which has as many as seventy, from\r\nabout AD 610.\r\n• The work was continued in the adjacent towns of Badami and Pattadakal.\r\n• Pattadakal has ten temples built in the seventh and eighth centuries, the most celebrated of which\r\nare the Papanatha temple and the Virupaksha temple.\r\n• The first of these, although 30 m long, has a low and stunted tower in the northern style; the second was\r\nconstructed in purely southern style.\r\n• After the eighth century, land grants to temples became a common practice in south India, and usually\r\nthey were recorded on the walls of the temples.\r\n• Most temples were managed by the brahmanas.\r\n• By early medieval times, such temples came to own three-fifths of the arable land, and became centres\r\nof religious rituals and caste based ideology in south India.\r\n• However, the earlier temples seem to have been constructed and maintained out of the taxes directly\r\ncollected by the king from the common people.\r\n• Some temples in Karnataka under the Chalukyas were erected by Jaina traders.\r\n• Kailasanath temple is one of the largest Indian megalith temples located in the Ellora, Maharashtra.\r\n• It is said to be constructed by Rashtrakuta king Krishna I.\r\n• Shore Temple at Mamallapuram is a structural temple, built with blocks of granite.\r\n• It was built during the reign of Narasimhavarman II of the Pallava dynasty"
+                },
+                {
+                  "questionId": "q1741605026294-v2tls89a7",
+                  "question": "Who assumed the title of ‘Vatapikonda, or the Conqueror of Vatapi’ among the\r\nfollowing kings?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Simhavarman"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Pulakeshin-II"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Pulakeshin-I"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Narasimhavarman"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Narsimhavarman is the Pallava King who ruled South India between 630-668 A.D.\r\n• He got the title of 'Vatapikonda' after defeating the Chalukya King and acquired Badami.\r\n• 'Vatapikonda' means the conqueror of Vatapi.\r\n• Chalukyan Emperor “Pulakeshin II” had previously raided various northern Pallava provinces and forts.\r\nHowever, he was unable to capture the Pallava capital of Kanchipuram, this led to a long conflict between\r\nthe Chalukyas and the Pallavas.\r\n• He avenged his father's defeat at the hands of the Chalukya monarch, Pulakeshin II in the year 642 CE.\r\n• Narasimhavarman-I was also known as Mamallan (great wrestler), and Mamallapuram (Mahabalipuram)\r\nwas named in his honour.\r\n• It was during his reign, in 640 CE, that the Chinese traveller Hiuen Tsang visited Kanchipuram"
+                },
+                {
+                  "questionId": "q1741605026294-xrraj05xo",
+                  "question": "Consider the following statements:\r\n1. The Pallavas, the Kadambas, the Chalukyas of Badami, and their other contemporaries rejected the\r\nVedic sacrifices.\r\n2. The worship of Brahma, Vishnu, and Shiva, especially of the last two, has become popular since the\r\nseventh century in southern India.\r\nWhich of the statements given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only "
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2 \r\n"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Statement 1 is not correct\r\n• The Pallavas, the Kadambas, the Chalukyas of Badami, and their other contemporaries were great\r\nchampions of Vedic sacrifices.\r\n• They performed ashvamedha and vajapeya sacrifices, which legitimized their position, enhanced their\r\nprestige, and enormously increased the income of the priestly class.\r\n• The brahmanas therefore emerged as an important class at the expense of the peasantry, from whom\r\nthey collected their dues directly.\r\n• They also received as gifts a substantial proportion of the taxes collected by the king from his subjects.\r\nStatement 2 is correct\r\n• Besides the performance of Vedic sacrifices, the worship of Brahma, Vishnu, and Shiva, especially of\r\nthe last two, was becoming popular.\r\n• From the seventh century onwards, the Alvar saints, who were great devotees of Vishnu, popularized\r\nthe worship of this god.\r\n• The Nayanars rendered a similar service to the cult of Shiva.\r\n• From the seventh century onwards, the cult of bhakti began to dominate the religious life of south\r\nIndians, and the Alvars and Nayanars played a great part in propagating it."
+                },
+                {
+                  "questionId": "q1741605026294-hvlx1mtqd",
+                  "question": "With reference to the western Ganga dynasty, consider the following statements:\r\n1. Western Gangas is an important contemporary dynasty of the Pallavas.\r\n2. They established their kingdom in southern Kerala around the fourth century.\r\n3. Their earliest capital was located at Kolar which, given its gold mines, may have helped the rise of this\r\ndynasty.\r\nHow many of the above statement(s) is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above "
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Statement 1 is correct\r\n• Western Gangas were an important contemporary dynasty of the Pallavas.\r\n• They are called the Western Gangas or Gangas of Mysore in order to differentiate them from the Eastern Gangas who ruled in Kalinga from the fifth century onwards.\r\n• For most of their reign, the Western Gangas were feudatories of the Pallavas.\r\nStatement 2 is not correct\r\n• They established their kingdom in southern Karnataka around the fourth century.\r\n• The kingdom was situated between that of the Pallavas in the east and of the Kadambas in the west.\r\nStatement 3 is correct\r\n• Their earliest capital was located at Kolar which, given its gold mines, may have helped the rise of this\r\ndynasty.\r\n• The Western Gangas made land grants mostly to the Jainas."
+                },
+                {
+                  "questionId": "q1741605026294-t17j29olx",
+                  "question": ") With reference to the dynasties of southern India from 600-750 CE, consider the\r\nfollowing pairs:\r\n Dynasty Location\r\n1. Western Chalukyas\r\nMadurai\r\n2. Pandyas Badami\r\n3. Western Gangas\r\nMysore\r\n4. Kadambas Banavasi\r\nHow many of the pair(s) given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four\r\n"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Pair 1 is not correct\r\n• In northern Maharashtra and Vidarbha (Berar), the Satavahanas were succeeded by the Vakatakas.\r\n• The Vakatakas were followed by the Chalukyas of Badami, who played a prominent role in the history\r\nof Deccan and south India for about two hundred years from the beginning of the 6th century CE.\r\n• The Chalukyas were a maritime power and they set up their kingdom in western Deccan with the capital\r\nat Vatapi (modern Badami in Karnataka).\r\n• Along with the Chalukyas of Badami (who are primarily called the Western Chalukyas), there were two\r\nother branches of the lineage who ruled independently, the Eastern Chalukyas of Vengi and the Chalukyas of Lata.\r\n• The Western Chalukyas, in order to acquire egitimacy and respectability, claimed Brahmanical origin\r\nas Haritiputras of the Manavya gotra.\r\n• The founder, Pulakesin I (543-66 CE) converted the hill near Badami into a strong fortress and launched\r\nhis expansionist activities.\r\nPair 2 is not correct\r\n• By the beginning of the seventh century, the Pallavas of Kanchi, the Chalukyas of Badami, and the\r\nPandyas of Madurai emerged as the rulers of the three major states.\r\n• The Pandyas were involved in internecine wars with the other contemporary powers such as the Pallavas.\r\n• They were in control of Madurai and Tirunelveli district of Tamil Nadu.\r\n• There is not enough information about the Pandyas of the early medieval times.\r\nPair 3 is correct\r\n• Western Gangas were an important contemporary dynasty of the Pallavas.\r\n• They are called the Western Gangas or Gangas of Mysore in order to differentiate them from the Eastern Gangas who ruled in Kalinga from the fifth century onwards.\r\n• For most of their reign, the Western Gangas were feudatories of the Pallavas.\r\n• They established their kingdom in southern Karnataka around the fourth century.\r\n• The kingdom was situated between that of the Pallavas in the east and of the Kadambas in the west.\r\n• Their earliest capital was located at Kolar which, given its gold mines, may have helped the rise of this\r\ndynasty.\r\nPair 4 is correct\r\n• Since the 4th century CE, the Kadambas had ruled over northern Karnataka and Konkan.\r\n• They had their capital at Vaijayanti or Banavasi in north Kanara district in Karnataka.\r\n• They were contemporaries of the Pallavas and claimed to be Brahmanas.\r\n• They also generously gifted a lot to the Brahmanas.\r\n• The Kadamba dynasty was founded by Mayurasharman, who defeated the Pallavas with the help of\r\nforest tribes."
+                },
+                {
+                  "questionId": "q1741605026294-p9aa4pgie",
+                  "question": "With reference to the Kalabhra Revolt of 6th century, Consider the following\r\nstatements ;                                                                                                                                                                                                                                                                                                                                                  1. The Kalabhra revolt was a powerful peasant protest directed against the landed brahmanas.\r\n2. The Kalabhras were patrons of Buddhism.\r\n3. By the last quarter of the 6th century, the Kalabhras had imprisoned the Chola, the Pandya, and the\r\nChera kings.\r\nHow many of the above statement(s) is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Statement 1 is correct\r\n• Although the period between AD 300 and 750 was extremely important for state formation and agrarian expansion in the peninsula, very little is known about what happened at the tip of the peninsula after\r\nthe eclipse of the Cholas, the Cheras, and the Pandyas.\r\n• The only important event is a revolt led by the Kalabhras in the sixth century.\r\n• The Kalabhras seem to have been a tribal people who captured power, particularly at the cost of the\r\nCholas, and ruled for seventy five years.\r\n• Their rule also affected the Pallavas as well as their neighbouring contemporaries.\r\n• The Kalabhras are called evil rulers, who overthrew innumerable kings and established their hold on the\r\nTamil land.\r\n• The Kalabhra revolt was a powerful peasant protest directed against the landed brahmanas.\r\n• The repeated teaching that those who attack land grants are condemned to hell for sixty thousand years\r\nfailed to change their minds.\r\n• They put an end to the brahmadeya rights granted to the brahmanas in numerous villages.\r\nStatement 2 is correct\r\n• It appears that the Kalabhras were of Buddhist persuasion as they patronized Buddhist monasteries.\r\n• The Kalabhras’ revolt was so widespread that it could be quelled only through the joint efforts of the\r\nPandyas, the Pallavas, and the Chalukyas of Badami.\r\nStatement 3 is correct\r\n• By the last quarter of the sixth century, according to a tradition, the Kalabhras had imprisoned the\r\nChola, the Pandya, and the Chera kings, which underlines how formidable their revolt was.\r\n• The confederacy of the kings formed against the Kalabhras, who had revoked the land grants made\r\nto the brahmanas, shows that the revolt was directed against the existing social and political order in\r\nsouth India.\r\n \r\n"
+                },
+                {
+                  "questionId": "q1741605026294-ovvu3ld0d",
+                  "question": "Consider the following pairs:\r\n Emblem Kingdom\r\n1. Fish Pandyas\r\n2. Varaha Cholas\r\n3. Bow Cheras\r\nHow many of the above pair(s) is/are correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The emblems of ancient Indian kingdoms are significant symbols that reflect the identity, culture, and\r\nheritage of these dynasties.\r\n• The Pandya, Chola, and Chera dynasties, among the prominent rulers in South Indian history, each had\r\nunique emblems that were used in coins, inscriptions, and various forms of art and architecture.\r\n• These symbols not only served as markers of the dynasty's sovereignty and influence but also played a\r\ncrucial role in their historical narratives.\r\nPair 1 is correct\r\n• The Pandya dynasty, one of the ancient Tamil dynasties in southern India, is known to have used the fish\r\nas their emblem.\r\n• This symbol is often depicted as two fish.\r\n• The fish symbol appears on various Pandya coins, inscriptions, and seals. Historical texts and records,\r\nincluding Tamil literature like the Sangam texts, also refer to the fish as a symbol of the Pandya kings.\r\nPair 2 is not correct\r\n• The Chola dynasty, another prominent Tamil dynasty, is not associated with the varaha (boar) symbol.\r\n• Instead, the Cholas are known for their emblem of the tiger.\r\n• Numerous Chola coins, inscriptions, and temple murals feature the tiger symbol prominently.\r\n• The Chola emblem can be seen on the coins issued during the reign of Rajaraja Chola I and Rajendra\r\nChola I, which feature the tiger, sometimes accompanied by a fish and a bow, indicating their conquests\r\nover the Pandya and Chera territories.\r\n• The varaha or boar symbol is most closely associated with the Western Chalukya dynasty, reflecting\r\ntheir cultural and religious ethos during their rule in southern and central India.\r\nPair 3 is correct\r\n• The Chera dynasty, another ancient Tamil dynasty, is historically associated with the bow as their emblem.\r\n• The Cheras ruled parts of present-day Kerala and Tamil Nadu."
+                },
+                {
+                  "questionId": "q1741605026294-oyayte8wd",
+                  "question": "With reference to the Guptas, consider the following statements:\r\n1. Coins were struck in the joint names of Chandragupta II, his queen and the Lichchhavi nation, acknowledging their marital alliance.\r\n2. Charles Wilkins called Samudragupta as the ‘Napoleon’ of India.\r\n3. The Buddhist philosopher Vasubandhu was a contemporary of Guptas.\r\nHow many of the above statement(s) is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two "
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Statement 1 is not correct\r\n• Chandragupta I (not Chandragupta II) married a Lichchhavi princess named Kumaradevi.\r\n• This alliance was significant for the Gupta empire, and there were coins that commemorate this marital\r\nalliance.\r\n• These coins feature the names of Chandragupta I and Kumaradevi, highlighting the importance of this\r\nunion and the Lichchhavi lineage.\r\n• Infact, Samudragupta was referred to as Lichchhavi-dauhitra (grandson of Lichchhavis) in the famous\r\nAllahabad Prashasti.\r\nStatement 2 is not correct\r\n• It was Vincent Arthur Smith who called Samudragupta the ‘Napoleon of India’ due to his extensive\r\nmilitary conquests.\r\n• Charles Wilkins is known for translating the Bhagavad Gita into English.\r\nStatement 3 is correct\r\n• Vasubandhu, a significant Buddhist philosopher, is believed to have been a contemporary of the\r\nGupta period.\r\n• Vasubandhu was one of the ministers of of Samudragupta. Though Samudragupta was a Hindu by practice, he extended his patronage to other religions also"
+                },
+                {
+                  "questionId": "q1741605026294-hy3r4l92h",
+                  "question": "Consider the following statements regarding Sangam literature:\r\n1. All three Sangams received patronage from Pandyan kingdoms.\r\n2. The poets of Sangam were exclusively men from various social classes.\r\nWhich of the statement(s) given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2 \r\n"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Sangam Age is a significant phase in the history of ancient South India, spanning roughly from the\r\n3rd century BCE to the 3rd century CE.\r\n• It is also referred to as the period of Tamil Literature.\r\nStatement 1 is correct\r\n• The three Sangams were patronized by Pandya rulers and were known as the Talai Sangam, Idai Sangam, and Kadai Sangam, meaning the beginning, middle, and end Sangams, respectively.\r\n• The Sangam literature can roughly be divided into two groups, narrative and didactic.\r\n• The narrative texts are called Melkannakku or Eighteen Major Works. They comprise eighteen major\r\nworks consisting of eight anthologies and ten idylls.\r\n• The didactic works are called Kilkanakku or Eighteen Minor Works.\r\n• Sangam literature is a rich source of information as it describes various activities related to agriculture.\r\n• It includes detailed accounts of secondary production activities, such as making sugar from sugarcane,\r\nand primary agrarian activities, such as cultivating ragi and sugarcane, harvesting grain, and drying grain.\r\nStatement 2 is not correct\r\n• The poets included both men and women from all social classes, and they were richly rewarded for their\r\ncompositions.\r\n• Women Poets:\r\n Avvaiyar: One of the most celebrated women poets of the Sangam age. She is known for her wisdom,\r\nmoral teachings, and simple yet profound poetry.\r\n Aiyai: Another notable woman poet whose works often explore themes of love and separation.\r\n• Royalty and Nobility:\r\n Neduncheliyan: A Pandya king known for his patronage of arts and literature, he is often mentioned\r\nin the poems for his valour and generosity.\r\n Koluthungo Chera: A Chera king who was also a poet. His works often praised the valour of his\r\ndynasty and their victories.\r\n• Warriors and Chieftains:\r\n❖ Pisiranthaiyar: A poet and warrior who is known for his friendship with the Pandya king Nedunchezhiyan. His poems reflect loyalty and valour.\r\n❖ Purananuru Poets: Several poets of the Purananuru collection were warriors and chieftains, contributing to the themes of war and heroism.\r\n• Farmers and Agriculturists:\r\n❖ Velliveethiyar: A poetess believed to be from a farming community, her poems in the Sangam corpus\r\nreflect the agrarian lifestyle and the beauty of rural landscapes.\r\n❖ Poet of Neithal Thinai: Several anonymous poets who composed under the Neithal thinai (the\r\ncoastal landscape) theme were from fishing and farming communities, depicting their livelihoods\r\nand environment.\r\n• Religious Figures and Philosophers:\r\n❖ Kapilar: In addition to his connection with the merchant class, Kapilar was also considered a philosopher-poet with deep insights into human life and nature.\r\n❖ Sekkizhar: Though belonging to a slightly later period, he was often associated with the tail end of\r\nthe Sangam tradition, known for his contributions to Tamil religious literature.\r\n• Commoners:\r\n❖ Mamangam Kanniyar: A poet from a humble background, known for her poignant verses on the\r\nthemes of love and separation.\r\n❖ Mudukanniyar: Another poet from the common class whose works capture everyday life and emotions.\r\n"
+                },
+                {
+                  "questionId": "q1741605026294-oxs8m74vu",
+                  "question": "Which of the following was considered as the “Odyssey of Tamil poetry”?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Silappadikaram"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Manimekalai"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Gitagovinda"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Nitisara"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Option (b) is correct\r\n• Manimekalai is one of the five great epics of Tamil literature, written by the Chithalai Chathanar.\r\n• It is considered a sequel to the epic Silappadikaram and continues the story of Kovalan and Madhavi’s\r\ndaughter, Manimekalai. Therefore, it is called the Odyssey of Tamil poetry.\r\n• Central to Manimekalai is the concept of karma, which influences the characters' destinies and actions.\r\n• The cycle of birth and rebirth is a recurring theme.\r\n• Manimekalai’s decision to renounce her life as a courtesan and embrace Buddhism highlights the theme\r\nof renunciation of worldly desires for spiritual enlightenment.\r\nOption (a) is not correct\r\n• Silappadikaram is written by Ilango Adigal, a Jain monk and the brother of Chera king Senguttuvan.\r\n• Central to Silappadikaram is the theme of justice.\r\n• Kovalan’s wrongful execution by the Pandya king, based on a false accusation of theft, highlights the\r\nmiscarriage of justice.\r\n• Kannagi’s quest for justice for her husband’s death and her ultimate confrontation with the Pandya king\r\nemphasizes the moral responsibility of rulers to ensure justice.\r\nOption (c) is not correct\r\n• The Gita Govinda, a piece of devotional literature composed on the theme of love between Radha\r\nand Krishna, by Jayadeva.\r\n• The text weaves together themes of divine love, separation and union, Bhakti, nature, and spiritual allegory.\r\nOption (d) is not correct\r\n• Nitisara, attributed to Kamandaka, is a seminal text on statecraft and political science in ancient\r\nIndia.\r\n• It is a comprehensive guide for rulers on governance, diplomacy, military strategy, and ethical conduct."
+                },
+                {
+                  "questionId": "q1741605026294-msm1zxb3u",
+                  "question": "Consider the following statements regarding the Sangam literature:\r\n1. Tolkappiyam is a treatise on grammar and poetics.\r\n2. Tolkappiyam is the only surviving work from the first Sangam.\r\n3. Silappadikaram, authored by Sittalai Sattanar, offers valuable insights into Sangam polity and society.\r\nHow many of the above statement(s) is/are not correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Statement 1 is correct\r\n• Tolkappiyam is an ancient Tamil text on grammar and poetics.\r\n• It is considered one of the oldest extant works of Tamil literature, dealing with linguistic aspects (phonology, morphology, and syntax) and literary conventions.\r\nStatement 2 is not correct\r\n• While Tolkappiyam is one of the oldest and most significant texts, the claim that it is the only surviving\r\nwork from the first Sangam is not accurate.\r\n• The first Sangam (Muchchangam) is said to have been held at Thenmadurai, but none of its works have\r\nsurvived.\r\n• The second Sangam (Idaichangam) was held at Kapadapuram, and only fragments of the works exist.\r\n• Only Tolkappiyam (a Tamil grammar) by Tolkappiyar survives from the second Sangam.\r\nStatements 3 is not correct\r\n• Silappadikaram was written by Ilango Adigal, not Sittalai Sattanar.\r\n• However, the text does indeed provide valuable information about Sangam polity, society, culture, and\r\nvalues.\r\n• It is one of the five great epics of Tamil literature and narrates the story of Kannagi and her husband\r\nKovalan.\r\n• It offers rich descriptions of the cities of Puhar (Kaveripattinam), Madurai, and Vanji, giving insights into\r\nurban life, trade, and governance of the time"
+                },
+                {
+                  "questionId": "q1741605026294-ph8q37kjg",
+                  "question": "Consider the following statements with respect to Sangam Age:\r\n1. Narrative texts called Kilkanakku consist of works on heroic poetry.\r\n2. Didactic texts called Melkannaku consist of famous works on ethics.\r\nWhich of the statement(s) given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2 \r\n"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Sangam literature can be divided into two groups: narrative and didactic.\r\n• Poems within the Sangam age were based on two broader themes of ‘akam’ (love) and ‘puram’ (mostly\r\nbased on love but also included public poetry such as poems on good and bad, community and\r\nkingdom).\r\n• A remarkable feature of Sangam literature is its vivid portrayal of the contemporary society and culture\r\nof Tamilakam and its peaceful and harmonious interactions with the northern (Aryan) culture.\r\nStatement 1 is not correct\r\n• The narrative works are called Melkannakku (18 major works consisting of eight anthologies and ten\r\nidylls).\r\n• They are considered heroic works of poetry in which heroes are glorified and perpetual wars and cattle\r\nraids are frequently mentioned.\r\nStatement 2 is incorrect\r\n• The didactic works are called Kilkanakku (18 Minor works).\r\n• The texts prescribe a code of conduct not only for the king and his court but also for various social\r\ngroups and occupations.\r\n• Few Tamil didactic works are:\r\n Tiruvalluvar’s Thirukkural was a famous work on ethics, philosophy, polity and love. It is considered\r\nas the fifth Veda of Tamil Nadu.\r\n Silappadikaram by Ilango Adigal is considered the brightest gem of early Tamil Literature which\r\ndeals with the love story of Kovalan, who prefers a courtesan, Madhavi of Kaveripattinam to his\r\nnoble wedded wife, Kannagi.\r\n Manimekalai by Satanar, is a sequel to Silappadikaram and is considered ‘The Odyssey of Tamil\r\npoetry,’ which deals with the adventures of the daughter born to Kovalan and Madhavi, and her\r\nsubsequent conversion to Buddhism."
+                },
+                {
+                  "questionId": "q1741605026294-l7xyz9i21",
+                  "question": "Consider the following personalities of Gupta Empire:\r\n1. Charaka\r\n2. Panini\r\n3. Amarasimha\r\n4. Shanku\r\n5. Varahamihira\r\n6. Dhanvantri\r\n7. Kahapanaka\r\n8. Vetala Bhatta\r\nHow many of the above personalities were part of Navaratnas of Chandragupta II?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only four"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only five"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only six"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Only seven\r\n"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Option 1 is not correct\r\n• Charaka, an eminent ancient Indian physician, is celebrated as one of the principal contributors to\r\nAyurveda, the traditional system of medicine in India.\r\n• He lived in the court of the Kushan ruler, Kanishka.\r\n• Charaka was believed to have lived in the 1st-2nd century CE.\r\n• His contributions are primarily recorded in the ‘Charaka Samhita,’ one of the foundational texts of Ayurveda.\r\n• The ‘Charaka Samhita’ is a comprehensive text on ancient Indian medicine, focusing on internal medicine\r\n(Kaya Chikitsa).\r\n• He introduced concepts such as ‘Tridosha’ (Vata, Pitta, and Kapha) which are central to Ayurvedic medicine.\r\nOption 2 is not correct\r\n• Panini, the ancient Sanskrit grammarian, is not definitively known to have lived in any particular court.\r\n• There is no historical evidence explicitly placing him in the court of any specific king or ruler.\r\n• Panini was estimated to have lived around the 5th century BCE, and his work, ‘Ashtadhyayi,’ is a foundational text in the study of Sanskrit grammar.\r\n• Unlike other historical figures whose associations with royal courts are well-documented, Panini's life\r\ndetails remain largely obscured, and his work is celebrated more for its academic and linguistic significance rather than any direct association with royal patronage.\r\nOption 3 is correct\r\n• Amarasimha, one of the most renowned scholars in ancient India, is often associated with the legendary\r\nnavaratnas or nine gems in the court of King Vikramaditya or Chandragupta II.\r\n• Amarasimha is believed to have flourished around the 4th to 5th century CE.\r\n• Amarasimha is most famous for his work ‘Amarakosha’ which is a lexicon of Sanskrit words.\r\nOption 4 is correct\r\n• Shanku: An architect who wrote the Shilpashastra.\r\nOption 5 is correct\r\n• Varahamihira, one of the most illustrious scholars of ancient India, is renowned for his significant contributions to astronomy, astrology, and other scientific disciplines.\r\n• He was one of the nine gems (navaratnas) in the court of King Vikramaditya.\r\n• Major Works:\r\n❖ Brihat Samhita\r\n❖ Pancha Siddhantika\r\n❖ Brihat Jataka\r\nOption 6 is correct\r\n• Dhanvantri, physician who is considered as the father of Ayurveda belonged to Chandragupta II’s\r\ncourt.\r\n• His famous books are ‘Roga Nidan’ and ‘Vaidya Chintamani.’\r\nOption 7 is correct\r\n• Kahapanaka is one of the navaratnas of the Guptan empire.\r\n• He was an astrologer who wrote the Jyothisyashastra.\r\nOption 8 is correct\r\n• Vetala Bhatta is a magician who wrote ‘Mantrashastra.’\r\n• He belonged to Chandragupta II’s court."
+                },
+                {
+                  "questionId": "q1741605026294-o7kx4ky65",
+                  "question": "With reference to Sangam Councils, consider the following pairs:\r\n Sangam Council Place\r\n1. First Sangam Kapadapuram\r\n2. Second Sangam Madurai\r\n3. Third Sangam Thenmadurai\r\nHow many of the above pair(s) is/are not correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The Sangam councils, or assemblies, were significant gatherings of Tamil poets and scholars in ancient\r\nsouth India, where literary works were composed and reviewed.\r\nPair 1 is not correct\r\n• The first Sangam (Mudal Sangam) is traditionally believed to have taken place around 3000 BCE, although exact dates are debated and mostly based on legends.\r\n• The first Sangam was said to be patronised by the Pandya kings, who were known for their support of\r\narts and literature.\r\n• The ruler at the time was likely a legendary Pandya king named Maindan or Kaysina Valudi.\r\n• According to tradition, the first sangam took place in Thenmadurai (Southern Madurai), which is believed to have been submerged under the sea.\r\n• The first Sangam is believed to have produced a vast body of literature, though none of its works have\r\nsurvived to the present day.\r\n• The Sangam poets composed classical Tamil literature, including poetry, grammar, and other scholarly\r\nworks.\r\n• Agastya, a revered sage in Tamil tradition, is often associated with the first Sangam as its presiding\r\nfigure.\r\nPair 2 is not correct\r\n• The second Sangam, like the first Sangam, is an important part of Tamil literary history and tradition.\r\n• The second Sangam (Idai Sangam) is traditionally believed to have taken place around 3000-1500 BCE,\r\nthough these dates are based on legends and lack concrete archaeological evidence.\r\n• It was held in the city of Kapadapuram, which was a prominent cultural and scholarly centre in ancient\r\nTamil Nadu.\r\n• The second Sangam was also patronised by the Pandya kings.\r\n• The ruler during this period is said to be a Pandya king named Vendan, though historical details are\r\nlargely mythical.\r\n• The second Sangam is credited with producing a significant body of Tamil literature, although much of it\r\nhas not survived to the present day.\r\n• Some works from this period, such as the ‘Tolkappiyam,’ an ancient Tamil grammar text attributed to\r\nthe scholar Tolkappiyar, were believed to be linked to the second Sangam.\r\nPair 3 is not correct\r\n• The third Sangam (Muthal Sangam) is the most well-documented of the three Sangam assemblies in\r\nancient Tamil history.\r\n• The third Sangam is believed to have taken place from around 300 BCE to 300 CE.\r\n• It was held in Madurai, which became the centre of Tamil literary and cultural activities.\r\n• The third Sangam was patronised by the Pandya kings, particularly by King Nedunjeliyan.\r\n• Unlike the mythical earlier Sangams, the third Sangam's location in Madurai is historically attested and\r\nremains a significant cultural center in Tamil Nadu today.\r\n• The third Sangam produced a wealth of classical Tamil literature, much of which has survived to the present day.\r\n• Notable works include the ‘Ettuthokai’ (Eight Anthologies) and ‘Pattuppattu’ (Ten Idylls), which are\r\ncollections of poems on various themes like love, war, and ethics.\r\n• Some of the most renowned poets and scholars of the third Sangam include Thiruvalluvar, who authored\r\nthe ‘Thirukkural,’ and Avvaiyar, a famous poetess known for her moral and ethical poems.\r\n• Other notable figures include Kapilar, Paranar, and Nakkeerar, who made significant contributions to\r\nTamil literature."
+                },
+                {
+                  "questionId": "q1741605026294-11nnhqd0c",
+                  "question": "The best account of Indo-Roman trade of Sangam age is given in which book?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Tholkappiyam"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Periplus of Erythrean Sea\r\n"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Mrichchakatikam\r\n"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Indica "
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Option (b) is correct\r\n• The Periplus of the Erythraean Sea is a Greek travelogue written in the 1st century CE.\r\n• It provides a detailed account of navigation and trading opportunities from Roman-Egyptian ports along\r\nthe coast of the Red Sea, and along the Indian coast.\r\n• This text is considered one of the best accounts of Indo-Roman trade during the Sangam age.\r\n• It mentions various Indian ports, goods traded (such as spices, textiles, and precious stones), and the\r\ntrade routes used by Roman merchants.\r\n• Roman writer Pliny, complains in his account ‘Natural History’ that Rome was drained of gold on account\r\nof her trade with India.\r\n• Major items of export to the Roman empire were Indian products such as spices, perfumes, jewels, ivory\r\nand fine textiles.\r\n• Against this import, Romans exported gold and silver to India. It is confirmed by the recovery of a large\r\nnumber of Roman gold coins in south India.\r\n• Other items of export from the Roman empire include- wine, tin, lead, coral and slave girls.\r\nOption (a) is not correct\r\n• Tholkappiyam is an ancient Tamil text on grammar and poetics, believed to be one of the oldest works\r\nin Tamil literature.\r\n• While it provides valuable insights into the culture and society of the Sangam age, it does not focus\r\nspecifically on Indo-Roman trade.\r\nOption (c) is not correct\r\n• Mrichchakatikam, also known as ‘The Little Clay Cart,’ is an ancient Indian play.\r\n• It is a work of fiction and focuses on romantic and social themes.\r\n• This text does not provide historical information on Indo-Roman trade.\r\nOption (d) is not correct\r\n• Indica is a work by Megasthenes, who was an ambassador to the Mauryan court.\r\n• It describes the geography, people, and society of India during the Mauryan period.\r\n• While it offers valuable information about ancient India, it does not specifically address Indo-Roman trade\r\nduring the Sangam age."
+                },
+                {
+                  "questionId": "q1741605026294-vg4bjk7ay",
+                  "question": "With reference to ancient Indian history, consider the following pairs:\r\n Port Coast\r\n1. Muziris Coromandel coast\r\n2. Korkai Western coast\r\n3. Puhar Eastern coast\r\nHow many of the pair(s) given above is/are correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Pair 1 is not correct\r\n• Muziris (Kodungallur): Situated on the Malabar Coast of Kerala, Muziris was a prominent port kingdom\r\nunder the Chera dynasty.\r\n• It was renowned for its:\r\n❖ Pepper trade\r\n❖ Trade with Roman Empire\r\n❖ Exports like spices, ivory, and textiles\r\nPair 2 is not correct\r\n• Korkai (Yadukudi): Located on the banks of the Tamraparani river in Tamil Nadu, Korkai was an important port of the Pandya kingdom.\r\n• It was famous for:\r\n❖ Pearl fishery\r\n❖ Trade with Southeast Asia and Sri Lanka\r\nPair 3 is correct\r\n• Puhar (modern Kaveripattanam): Located at the mouth of the Kaveri River in Tamil Nadu.\r\n• Puhar was the primary port of the Chola kingdom during the Sangam period.\r\n• It served as a major hub for trade with:\r\n❖ Southeast Asia (Indonesia, Malay Peninsula), Sri Lanka, West Asia (Roman Empire, Arabia), East Africa.\r\n• Other significant ports of commercial activity were Tondi, Arikkamedu and Marakkanam"
+                },
+                {
+                  "questionId": "q1741605026294-g2nt6g3xj",
+                  "question": "With reference to early Tamil Literature, the term ‘Virarkal’ refers to:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "An assembly or college of poets"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "War booty as an important source of livelihood"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Stones raised in honour of heroic warriors"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Rich merchants and royal patrons of the literature"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "• Traces of early megalithic life appear in the Sangam texts.\r\n• The earliest megalithic people seem to be primarily pastoralists, hunters and fishermen although they\r\nalso produced rice.\r\n• Hoes, sickles and other iron objects such as wedges, flat celts, arrowheads, long swords and lances, spikes\r\nand spearheads occur at many sites.\r\n• The Sanagm texts suggest war booty was an important source of livelihood.\r\n• They also state that when a hero dies, he is reduced to a piece of stone. This reminds of the circles of\r\nstone which were raised on the graves of the megalithic people.\r\n• It may have led to the later practice of raising hero stones called virarkal in honour of the heroes who\r\ndied fighting for the kine (a group of cows) and other objects.\r\n• A hero stone (also known as Natukal) is a memorial commemorating the honorable death of a hero in\r\nbattle.\r\n• They often carry inscriptions and a variety of ornaments, including bas relief panels, frieze, and figures in\r\ncarved stone"
+                },
+                {
+                  "questionId": "q1741605026294-2tqq2c5uy",
+                  "question": "With reference to ancient history of India, consider the following pairs:\r\n Book Author\r\n1. Panchasiddhantika Varahamihira\r\n2. Ganitasarasangraha Aryabhatta\r\n3. Ashtangahridaya Dhanvantiri\r\nHow many of the pair(s) given above is/are correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Pair 1 is correct\r\n• The Pancasiddhantika, or “Treatise on the Five Astronomical Canons,” is Varahamihira’s most important work.\r\n• It was written around 575 CE. The work is a summary of five preceding works on mathematical astronomy\r\nby five writers, including Surya Siddhanta, Romaka Siddhanta, Paulisa Siddhanta, Vasishtha Siddhanta, and Pitamaha Siddhanta.\r\n• It is a compilation of Hellenistic and Vedanga Jyotisha astronomy (having Greek, Egyptian and Roman\r\nelements).\r\n• He is considered one of the \"Nine Jewels\" (Navaratnas) of the court of King Chandragupta II.\r\nPair 2 is not correct\r\n• Ganitasarasangraha is written by Mahavira, famous 9th century mathematician of Karnataka who\r\nlived in the court of the Rashtrakuta king Amoghvarsha, which deals with various mathematical problems.\r\n• Aryabhatta wrote two astronomical texts:\r\n❖ Aryabhatiya (a text which deals with astronomy and mathematics) and\r\n❖ Aryabhata-siddhanta (which has not survived and is known only through references in later works).\r\n• For instance, the 7th century commentator, Bhaskara 1, who wrote a commentary on Aryabhatiya, calls\r\nthe Aryabhatiya the Ashmaka- tantra and Ashmakiya, and the followers of Aryabhatta as Ashmakiyas.\r\nPair 3 is not correct\r\n• Ashtangahridaya (meaning 'Heart of Medicine') is written by Vagbhata, a disciple of Charaka and\r\ndistinguished physician of Ayurvedic system of medicine from c. 600 CE.\r\n• He also wrote the Ashtangasamgraha (meaning \"Tome on Medicine'). "
+                },
+                {
+                  "questionId": "q1741605026294-a3ih6mcg0",
+                  "question": "In the context of the scientific and technological development during the Gupta\r\nperiod, consider the following pairs:\r\n Scientists Contribution\r\n1. Varahamihira Astronomical text covering topics like\r\nastrology and celestial mechanics\r\n2. Sushruta Development of complex surgical\r\nprocedures\r\n3. Bhaskaracharya Author of Lilavati\r\nHow many of the pair(s) given above is/are correctly matched?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": " None of the above"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Pair 1 is correct\r\n• Varahamihira's Brihat Samhita is a well-known astronomical text.\r\n• Varahamihira, also known as Varaha or Mihira, was a prominent scholar and polymath who flourished\r\nduring the 6th century CE (c. 505-587 CE) in India.\r\n• He is considered one of the \"Nine Jewels\" (Navaratnas) of the court of King Chandragupta II.\r\n• Varahamihira's contributions spanned various fields, but his most significant achievements lie in astronomy, mathematics, and astrology.\r\n• Pancha-Siddhantika (Five Treatises): This is considered Varahamihira's magnum opus. It's a comprehensive treatise on astronomy that incorporates and analyzes knowledge from various astronomical\r\ntraditions, including Greek, Roman, Egyptian, and Indian.\r\n• Brihat Samhita (Great Compilation): This vast work encompasses diverse topics like planetary motions,\r\neclipses, meteorology, timekeeping, and even aspects of architecture and construction.\r\nPair 2 is correct\r\n• Sushruta, is considered the \"Father of Indian Surgery.\" While the exact dates of his life remain uncertain, estimates place him somewhere between 6th century BCE and 2nd century CE.\r\n• His legacy is primarily tied to the foundational medical text, the Sushruta Samhita, a cornerstone of\r\nAyurveda, the traditional Indian medical system.\r\n• It contains six sections, mainly focusing on the treatment of wounds, extraction of splinters and arrows,\r\nsuturing, embryology, anatomy, poisons, removal of cataracts, removal of stones in the bladder, etc.\r\n• The text also refers to plastic surgery, with detailed references to rhinoplasty wherein a flap of skin is\r\ngrafted to repair a severed nose and the repair of torn ear lobes.\r\n• It also mentions the study of human anatomy by dissecting corpses.\r\nPair 3 is correct\r\n• Bhaskara II, also known as Bhaskaracharya, was a renowned mathematician and astronomer from India.\r\n• Lilavati is one of his most famous works, it is the first volume of Bhaskara II's main work, the Siddhanta\r\nShiromani.\r\n• He made significant contributions to various areas of mathematics, including: Arithmetic, Algebra, Geometry, Trigonometry and Calculus (early ideas)"
+                },
+                {
+                  "questionId": "q1741605026294-ffx4gaptp",
+                  "question": "Consider the following statements about Aryabhatta, an Indian mathematician\r\nand astronomer:\r\n1. Aryabhatta proposed a geocentric model of the solar system, placing the Earth at the center.\r\n2. He is credited with accurately calculating the value of Pi (π).\r\nWhich of the statement(s) given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2 \r\n"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Statement 1 is not correct\r\n• Aryabhatta lived during the Gupta period (c. 476-550 CE).\r\n• Aryabhatta actually proposed a heliocentric model, where the Sun is at the center and the Earth rotates on its axis. This concept was revolutionary for its time.\r\n• He was first to discover that the earth rotates on its axis and also worked out the correct equation for\r\ncalculating the orbit of a planet and gave extremely estimate of the length of a year to 365.2586805 days.\r\n• First astronomer to give a scientific explanation of eclipses as he established that they are not caused\r\nby some demons but by the moon coming between the earth and the sun.\r\n• He also worked out how to ascertain which part of the moon would be obscured during an eclipse.\r\nStatement 2 is correct\r\n• Aryabhatta's calculations of Pi (π) were remarkably accurate for his time, laying the foundation for\r\nfuture advancements in mathematics.\r\n• He described the various properties of a circle and gave a very accurate value of pi (p), correct to 4\r\ndecimal places at 3.1416.\r\n• He found out the sine functions and used them in astronomy and laid foundations of trigonometry.\r\n• He also made tables for the trigonometric ratio sine, for angles from 0 to 90 degrees"
+                },
+                {
+                  "questionId": "q1741605026294-pfxz6o2r4",
+                  "question": "Which one of the following is not a Megalithic site: ",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Adichallanur"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Brahmagiri"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Navdatoli"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Navdatoli"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Navdatoli is an important Chalcolithic settlement dating back to the 2nd millennium BCE, located on\r\nthe Narmada River in Madhya Pradesh.\r\n• The Chalcolithic period (Copper-Stone Age) precedes the Megalithic period.\r\n• The Neolithic phase of south India, which was highlighted by the use of polished stone axe and blade\r\ntools, was succeeded by the Megalithic phase (around 1200 BCE–300 BCE).\r\n• They are known for their large stone structures (megaliths) used for burials and possibly other purposes."
+                },
+                {
+                  "questionId": "q1741605026294-fz87yj888",
+                  "question": "With reference Ancient Indian history, the terms ‘Akam’ and ‘Puram’ refers to:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Religious philosophies"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Trade and agriculture practices"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Poems in the Tamil language."
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Social classes"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Akam and puram are literary classifications that categorize poems based on their subject matter.\r\n• Akam and puram are the two fundamental classifications for poems found in Sangam literature, the\r\nearliest surviving collection of Tamil poetry.\r\n• Sangam literature is estimated to have flourished between 3rd century BCE and 3rd century CE.\r\n• It primarily consists of akam (80%) and puram (20%) poems.\r\n• Akam (Inner): This category refers to poems that deal with emotions, love, and domestic life.\r\n• Themes within akam poetry explore love in all its stages, from longing and separation to union and\r\njealousy. It delves into the inner world of the individual and their intimate experiences.\r\n• Akam utilizes rich imagery and metaphors drawn from nature to depict emotions.\r\n• Puram (Outer): This category encompasses poems that focus on war, heroism, kingship, and public\r\nlife.\r\n• It celebrates the valor of warriors, the virtues of kings, and the ethics of warfare. \r\n"
+                },
+                {
+                  "questionId": "q1741605026294-9tf9wsc57",
+                  "question": "Consider the following statements about Megalithic culture:\r\n1. Statement-I: Black and Red Ware pottery is the sole defining characteristic of the Megalithic culture\r\nin South India.\r\n2. Statement-II: This type of pottery has been found in association with various Megalithic burial sites\r\nacross the Deccan plateau.\r\nWhich one of the following is correct in respect of the above statements?\r\n",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Both Statement-I and Statement-II are correct and Statement-II is the correct explanation for Statement-I."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Both Statement-I and Statement-II are correct and Statement-II is not the correct explanation for\r\nStatement-"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Statement-I is correct but Statement-II is incorrect"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Statement-I is incorrect but Statement-II is correct."
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Statement-I is incorrect but Statement-II is correct\r\n• The Megalithic culture of South India remains an intriguing chapter in Indian history.\r\n• While Black and Red Ware pottery is a prominent feature of the Megalithic culture, it's just one facet\r\nof this fascinating civilization.\r\n• BRW pottery serves as a significant piece of evidence for identifying Megalithic settlements.\r\n• However, relying solely on this pottery wouldn't be sufficient for definitive identification. The presence\r\nof megalithic structures, burial practices, and a broader range of associated artifacts provide a more comprehensive picture of the Megalithic culture.\r\n• Distinguishing Features:\r\no Monumental Architecture: Megaliths (structures made of large stones) are the hallmark of this culture.\r\nThese include:\r\n Dolmens: Chamber tombs with a capstone supported by vertical slabs.\r\n Menhirs: Upright standing stones, possibly serving as commemorative markers.\r\n Cairns: Heaps of stones, often marking communal burial sites.\r\n• Urns: Earthenware vessels for cremated remains.\r\n• Material Culture: Beyond BRW pottery, other artifacts shed light on their lives:\r\n• Microliths: Small stone tools used for hunting, scraping, and other activities.\r\n• Metal tools: Evidence suggests use of copper and iron tools later in the period.\r\n• Terracotta figurines: Depictions of human and animal figures offer insights into their beliefs and artistic\r\nexpression.\r\n• Geographical Distribution: Primarily concentrated in the Deccan Plateau (covering parts of Andhra Pradesh, Karnataka, Tamil Nadu, Telangana, and Maharashtra), Megalithic sites are also found in Kerala and\r\nparts of eastern and central India."
+                },
+                {
+                  "questionId": "q1741605026294-p3v5pltie",
+                  "question": "Which one of the following kingdoms, according to Megathenes, was celebrated\r\nfor pearls?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Chola kingdom"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Chera kingdom"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Pandya kingdom"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Pallava kingdom"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The southern end of the Indian peninsula situated south of the Krishna River was divided into three\r\nkingdoms: Chola, Pandya, and Chera or Kerala.\r\n• Pandya kingdom:\r\n❖ The Pandyas are first mentioned by Megasthenes, who says that their kingdom was celebrated for\r\npearls.\r\n❖ Megasthenes also speaks of it being ruled by a woman, which suggests some matriarchal influence\r\nin Pandya society.\r\n❖ The Pandya territory occupied the southernmost and the south-eastern portion of the Indian peninsula, and it roughly included the modern districts of Tirunelveli, Ramnad, and Madurai in Tamil Nadu\r\nwith its capital at Madurai.\r\n❖ The literature compiled in the Tamil academies in the early centuries of the Christian era, called Sangam literature, refers to the Pandya rulers. But it does not provide any coherent account.\r\n❖ The Pandya kings profited from trade with the Roman empire and sent ambassadors to the Roman\r\nemperor Augustus.\r\n• Chola kingdom:\r\n The Cholas, one of the three major dynasties alongside the Cheras and Pandyas, expanded their\r\ninfluence through trade, diplomacy, and military prowess.\r\n Under the rule of great monarchs like Karikala Chola, the empire reached its zenith, establishing\r\nmaritime trade routes and fostering a vibrant cultural exchange.\r\n The Chola Empire's patronage of arts and literature during the Sangam Age further enriched Tamil\r\nculture, leaving an indelible mark on the history of the Indian subcontinent.\r\n• Chera Kingdom:\r\n The Chera Kingdom, one of the prominent dynasties of ancient South India, flourished during the\r\nSangam Age, approximately from the 3rd century BCE to the 3rd century CE.\r\n Situated in the modern-day Kerala region, the Chera dynasty played a crucial role in shaping the\r\npolitical and cultural landscape of southern India.\r\n They are Known for their maritime trade connections with foreign lands, particularly the Roman Empire\r\n The Cheras established a prosperous economy based on trade in spices, precious stones, and other\r\ncommodities.\r\n Their capital, Vanji (present-day Karur), served as a hub for commercial activities and cultural exchange."
+                },
+                {
+                  "questionId": "q1741605026294-fdkt3n0ot",
+                  "question": "Consider the following statements regarding Chola empire:\r\n1. The Chola kingdom was situated to the north-west of the territory of the Cheras.\r\n2. Their chief centre of political power lay at Korkai, a place famous for cotton trade.\r\n3. King Karikala founded Puhar and constructed 160 km of embankment along the Kaveri River.\r\nWhich of the statement(s) given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1 and 2 only"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Statement 1 is not correct\r\n• During the Sangam period, the Chola kingdom, known as Cholamandalam, was positioned north-east\r\nof the pandya and chera territory, lying between the Pennar and Velar rivers.\r\n• Flourishing between 300 BCE and 300 CE, this early Chola era was characterized by its contribution to the\r\ncultural and literary landscape of ancient South India.\r\n• The Cholas during this time were patrons of Tamil literature and poetry, nurturing the growth of Sangam\r\nliterature.\r\n• Their territory, with its strategic location, facilitated trade and cultural exchanges with neighboring regions, contributing to the kingdom's prosperity.\r\n• Though less centralized than their imperial successors, the Sangam Cholas played a significant role in\r\nshaping the political and cultural dynamics of their time.\r\nStatement 2 is not correct\r\n• In the early Chola period, the primary center of political authority was situated at Uraiyur, renowned for\r\nits vibrant cotton trade.\r\n• Flourishing between the 3rd century BCE and the 3rd century CE, Uraiyur served as a pivotal hub for\r\neconomic activity and governance.\r\n• As the heart of the Chola kingdom, it facilitated trade networks and cultural exchanges, contributing to\r\nthe region's prosperity.\r\n• Korkai was an important Pandya port famous for pearls.\r\nStatement 3 is correct\r\n• Renowned for his visionary leadership, King Karikala of the Chola dynasty left an indelible mark on ancient South India.\r\n• Notably, he is credited with the foundation of the city of Puhar and the construction of an impressive\r\n160-kilometer-long embankment along the Kaveri River.\r\n• These monumental achievements not only enhanced the kingdom's infrastructure but also facilitated\r\nagricultural development and trade along the fertile banks of the Kaveri."
+                },
+                {
+                  "questionId": "q1741605026294-r3nrkots3",
+                  "question": "Who among the following is known as Red Chera or Good Chera?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Uthiyan Cheralathan"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Nedum Cherlathan"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Senguttuvan Chera"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Kulashekhara Varma"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The Chera Kingdom, one of the prominent dynasties of ancient South India, flourished during the Sangam Age, approximately from the 3rd century BCE to the 3rd century CE.\r\n• According to Chera poets, the pinnacle of their kingdom's leadership was embodied in Senguttuvan,\r\nfamously known as the Red or Good Chera.\r\n• Revered for his military prowess, he triumphed over his adversaries and ensured the stability of his\r\ncousin's rule.\r\n• Legends even attribute to him the audacious feat of invading northern territories and crossing the Ganges, though such claims likely carry elements of embellishment.\r\n• By the second century, Chera influence waned, and historical records became sparse until the eighth\r\ncentury, leaving a gap in our understanding of the kingdom's trajectory and governance during this period of decline.\r\n• Cheras were known for their maritime trade connections with foreign lands, particularly the Roman\r\nEmpire, the Cheras established a prosperous economy based on trade in spices, precious stones, and\r\nother commodities.\r\n• Their capital, Vanji (present-day Karur), served as a hub for commercial activities and cultural exchange"
+                },
+                {
+                  "questionId": "q1741605026294-tnjey9prc",
+                  "question": "With reference to ancient India, Title of Enadi refers to?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "The title of an Indian epic poem."
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "A renowned Indian mathematician."
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Location of temple complex"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Commanders of the army"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "The warrior class was an important element in the polity and society.\r\n• It is said in sangam texts that the Commanders of the army were invested with the title of Enadi at a\r\nformal ceremony.\r\n• The kshatriyas and vaishyas appear as regular varnas in the Sangam texts. However, we have no clear\r\nidea about the vaishyas.\r\n• According to sangam texts, civil and military offices were held under both the Cholas and Pandyas by\r\nvellalas or rich peasants.\r\n• The ruling class was called arasar, and its members had marriage relations with the vellalas, who formed\r\nthe fourth caste.\r\n• Arasar held the bulk of the land and thus constituted the cultivating class, divided into the rich and the\r\npoor.\r\n• The rich did not plough the land themselves but employed labourers to undertake this.\r\n• The vellalas held the bulk of land, and employed kadaisiyan (agricultural labour) to do the manual farm\r\nwork. "
+                },
+                {
+                  "questionId": "q1741605026294-zx45yw0as",
+                  "question": "Consider the following pairs regarding Sangam age:\r\n Empire Capital\r\n1. Chola Vanji\r\n2. Chera Uraiyur\r\n3. Pandya Madurai\r\nHow many of the pair(s) given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two \r\n"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three "
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Pair 1 is not correct\r\n• Chola:\r\n Initially, the capital of the Cholas was Uraiyur. Later it was shifted to Puhar (also called Poompuhar).\r\n The insignia/emblem of the Cholas was Tiger.\r\n King Karikala was a prominent king of the Sangam Chola dynasty.\r\nPair 2 is not correct\r\n• Chera:\r\n Vanji was the capital of the Cheras.\r\n The emblem of Cheras is the bow and arrow.\r\n The first-century Pugalur inscriptions references 3 generations of Chera kings.\r\n Senguttuvan (2nd century CE) was the prominent ruler of the Chera dynasty.\r\n Musiri and Tondi were the important seaports in this period.\r\nPair 3 is correct\r\n• Pandya:\r\n Madurai (center of trade and industry) was the capital of Pandyas.\r\n The Pandyas reigned over the Southern region of modern-day Tamil Nadu.\r\n Their emblem is Carp (Fish).\r\n King Neduncheliyan was the prominent king of this period.\r\n According to mythology, the curse of the Kannagi, wife of Kovalan, burnt and destroyed Madurai.\r\n The socio-economic condition of the seaport of Korkai was mentioned in Madurai Kanji which was\r\nwritten by Mangudi Maruthanar.\r\n Pandyas had trade relations with Romans.\r\n Pandyas are mentioned in Kautilya‘s Arthashastra and Megasthenes‘ Indica. \r\n"
+                },
+                {
+                  "questionId": "q1741605026294-dyzd32eud",
+                  "question": "Which one of the following is the correct chronological order (largest to smallest)\r\nfor the division of kingdom during Sangam age?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Mandalam-Nadu-Ur-Sirur-Perur "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Nadu-Mandalam-Ur-Sirur-Perur "
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Ur-Mandalam-Nadu-Sirur-Perur\r\n"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Mandalam-Nadu-Ur-Perur-Sirur"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "The kingdom was divided into Mandalam (Territory), Nadu (province), Ur (town), Perur (big village),\r\nand Sirur (small village) for administrative convenience.\r\n• These divisions facilitated the governance of the broader territories controlled by major kingdoms like\r\nthe Cholas, Cheras, and Pandyas.\r\n• The system allowed for a hierarchical structure of governance, enabling efficient administration, taxation,\r\nand defense throughout the kingdom. "
+                },
+                {
+                  "questionId": "q1741605026294-4814xi222",
+                  "question": "Consider the following statements regarding Rigvedic age:\r\n1. Cattle were considered to be synonymous with wealth, and a wealthy person was called gopa or\r\ngomati.\r\n2. Wars were fought over cattle and, therefore, the raja, whose principal responsibility was to protect\r\nthe cows, was called gomat.\r\nWhich of the statement(s) given above is/are not correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2 \r\n"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Statement 1 is not correct\r\n• Written texts provide invaluable insights into societal evolution from the Rig Veda era onwards.\r\n• The Rig Vedic society, although proficient in agriculture, predominantly revolved around pastoralism.\r\n• Semi-nomadic lifestyles were prevalent, with cattle and horses being the primary assets.\r\n• This pastoral emphasis is evident in the Rig Vedic texts, where terms like cow, bull, and horse are recurrently mentioned.\r\n• Cattle, in particular, were regarded as symbols of wealth, to the extent that a wealthy individual was\r\ntermed \"gomat.\"\r\n• While agriculture held importance, the centrality of pastoralism indicates a nomadic lifestyle that prioritized the management and accumulation of cattle and horses.\r\n• This emphasis on pastoral wealth reflects not only the economic foundation of society but also its cultural\r\nand social values.\r\nStatement 2 is not correct\r\n• Cattle held such paramount importance in ancient Vedic society that wars were waged over their possession.\r\n• Consequently, the ruler, whose foremost duty was the protection of these valuable assets, was bestowed\r\nwith titles like gopa or gopati.\r\n• The cow's centrality to sustenance was profound, to the extent that familial roles were defined in relation\r\nto it, with daughters being termed duhitr, meaning \"one who milks.\"\r\n• This close association with cattle is evidenced by the Vedic people's intimate knowledge, as illustrated by\r\ntheir reference to the buffalo as govala, or cow-haired, upon encountering it in India.\r\n• The prominence of cattle in Vedic society is further underscored by the scarcity of agricultural references\r\nin the earlier hymns of the Rig Veda, with cattle-rearing emerging as the primary livelihood for the populace.\r\n• This reliance on cattle rearing not only shaped economic practices but also influenced social structures\r\nand cultural norms within Vedic society. \r\n"
+                },
+                {
+                  "questionId": "q1741605026294-sxt6kygp6",
+                  "question": "Consider the following statements regarding Economic relation of Sangam age:\r\n1. The Handicraft during sangam included weaving, metal works and carpentry, ship building and making of ornaments using beads, stones and ivory.\r\n2. Handicrafts were in great demand in the internal and external trade that was at its peak during the\r\nSangam period.\r\n3. A high expertise was attained in spinning and weaving of cotton and silk clothes.\r\nHow many of the above statement(s) is/are not correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Statement 1 is correct\r\n• Handicrafts during the Sangam period encompassed a diverse array of skilled crafts, ranging from\r\nweaving and metalwork to carpentry, shipbuilding, and the creation of intricate ornaments.\r\n• Weavers produced finely crafted textiles, while artisans demonstrated expertise in metalwork, crafting\r\nobjects of utility and adornment.\r\n• Carpentry skills were employed in the construction of structures and furniture.\r\n• Notably, shipbuilding flourished, facilitating maritime trade and exploration.\r\n• Additionally, artisans displayed mastery in ornamentation, fashioning jewelry using beads, stones, and\r\nivory, showcasing the sophistication and artistic prowess of Sangam-era craftsmanship across various\r\ndomains.\r\nStatement 2 is correct\r\n• Handicrafts held significant importance during the Sangam period, as evidenced by their high demand\r\nin both internal and external trade networks, which flourished during this era.\r\n• Skilled artisans produced a wide range of crafted goods, including textiles, metalwork, ceramics, and\r\njewelry, which were sought after not only within the local economy but also in international markets.\r\n• The thriving trade routes facilitated the exchange of these handicrafts across regions, contributing to\r\neconomic prosperity and cultural exchange.\r\n• This demand for handicrafts in trade underscored their integral role in the economy of the Sangam period, reflecting the sophistication and value placed on artisanal craftsmanship during this vibrant period\r\nof South Indian history.\r\nStatement 3 is correct\r\n• During the historical period, significant advancements were made in the spinning and weaving of both\r\ncotton and silk fabrics, leading to a high level of expertise in these textile crafts.\r\n• Skilled artisans mastered intricate techniques, resulting in the production of finely woven textiles renowned for their quality and craftsmanship.\r\n• Cotton and silk fabrics became highly sought after commodities, prized for their luxurious feel, vibrant\r\ncolors, and intricate designs. \r\n"
+                },
+                {
+                  "questionId": "q1741605026294-s5wjh1v4t",
+                  "question": "Consider the following statements:\r\n1. Tamil people were primarily hunters and traces of early megalithic life appear in the Sangam texts.\r\n2. Ancient primitive tribes like Thodas, Irulas, Nagas and Vedars lived in this period.\r\n3. Courage, creativity and spirituality of women was respected in Sangam society.\r\n4. Royal courts were filled with singing bards known as Panar and Viraliyar.\r\nHow many of the statement(s) given above is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Statement 1 is not correct\r\n• The Sangam texts offer glimpses into the early lifestyle of Tamil people, revealing a predominantly\r\npastoral society intertwined with traces of early megalithic life.\r\n• These texts portray the Tamil people's close relationship with pastoralism, highlighting their reliance on\r\ncattle herding as a primary means of livelihood.\r\n• Cattle were esteemed symbols of wealth and played a central role in their economy and social structure.\r\n• Traces of early megalithic life appear in the Sangam texts.\r\n Megalithic life: This refers to a prehistoric period characterized by the construction of large stone\r\nmonuments for burials or rituals.\r\nStatement 2 is correct\r\n• During the ancient period, primitive tribes such as the Thodas, Irulas, Nagas, and Vedars inhabited the\r\nregion.\r\n• These tribes, often referred to as indigenous or aboriginal, lived in close connection with the natural\r\nenvironment, relying on hunting, gathering, and simple agricultural practices for sustenance.\r\n• Their lifestyles were characterized by a deep understanding of local ecosystems and resource utilization.\r\n• The Thodas, for instance, were known for their expertise in shifting cultivation and their semi-nomadic\r\nlifestyle in the Nilgiri Hills.\r\n• Similarly, the Irulas were skilled hunters and gatherers, while the Nagas and Vedars inhabited forested\r\nregions, often engaging in activities like hunting, gathering forest produce, and small-scale agriculture.\r\nStatement 3 is correct\r\n• In Sangam society, women were esteemed for their courage, creativity, and spirituality, marking a\r\ndeparture from the patriarchal norms prevalent in many ancient societies.\r\n• Women were celebrated for their bravery in battles and their ability to contribute to various aspects of\r\nsociety beyond domestic roles.\r\n• Sangam literature depicts women as poets, scholars, and leaders, showcasing their intellectual and creative capabilities.\r\n• Additionally, spirituality held a central place in Sangam society, and women were revered for their devotion to religious practices and their roles as custodians of family and community rituals.\r\nStatement 4 is correct\r\n• During the Sangam Age, royal courts were vibrant centers of cultural patronage and entertainment,\r\noften filled with singing bards known as Panar and Viraliyar.\r\n• These bards played a crucial role in the courtly life, entertaining the royalty and the aristocracy with their\r\nmusical performances and recitations of epic poetry and heroic tales.\r\n• The Panars specialized in singing praise songs and composing poetry celebrating the valor and achievements of the rulers and their lineage, while the Viraliyars were known for their poignant and emotive\r\nrenditions of love songs and lyrical poetry.\r\n• Their performances not only entertained but also served to glorify the rulers and reinforce their legitimacy\r\nand power.\r\n• Additionally, the presence of these bards added to the cultural richness and sophistication of the royal\r\ncourts, making them vibrant hubs of artistic expression and literary creativity during the Sangam period."
+                },
+                {
+                  "questionId": "q1741605026294-kxmjpku2x",
+                  "question": "With reference to the Sangam period, the term ‘Umnar’ refers to:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Hunters and food gatherers"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Plough agriculturists"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Salt manufacturers"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Cattle-Keepers "
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Option 1 is not correct\r\n• The ‘Vetar’ were considered to be hunter-gatherers and are often associated with the forest and mountain regions.\r\n• They are depicted in Sangam literature as a group that lived in harmony with nature, engaged in hunting,\r\ngathering, and sometimes shifting cultivation.\r\n• Their lifestyle and social status were distinct from those of the agrarian and urban populations.\r\n• Sangam literature often portrays the Vetar in a romanticised manner, highlighting their knowledge of\r\nthe wilderness and their skills in hunting.\r\nOption 2 is not correct\r\n• At the core of the agrarian landscape, the ‘Ulavar’ were the principal plough agriculturists.\r\n• Their duties encompassed a spectrum of agricultural activities, including ploughing fields, sowing seeds,\r\nnurturing crops, and reaping harvests.\r\n• While rice stood as the primary crop, they also diversified their cultivation to include millets, sugarcane,\r\nand pulses. with tools like ploughs, hoes, and sickles, the ‘Ulavar’ tilled the land with precision and skill.\r\nOption 3 is correct\r\n• The ‘Umnar’ were esteemed as the salt manufacturers, a community whose significance transcended\r\nmere trade to become integral to the economic and social fabric of ancient Tamilakam.\r\n• This era, renowned for its flourishing Tamil literature and diverse cultural tapestry, saw salt as a precious\r\ncommodity, essential for both sustenance and preservation.\r\n• The Umnar, through their specialised knowledge and skilled craftsmanship, played a pivotal role in the\r\nproduction and distribution of salt, ensuring its availability across the region.\r\n• They extracted salt from saline-rich coastal areas, marshlands, and inland salt pans, employing traditional\r\ntechniques passed down through generations.\r\nOption 4 is not correct\r\n• The ‘Idaiyar’ held a distinguished role as cattle-keepers, contributing significantly to the economic and\r\nsocial landscape of ancient Tamilakam.\r\n• The Idaiyar, through their intimate knowledge of cattle husbandry and astute stewardship, played a pivotal role in the rearing, breeding, and utilisation of livestock. \r\n"
+                },
+                {
+                  "questionId": "q1741605026294-3o1wvpq0q",
+                  "question": "With reference to the Sangam authorities, consider the following pairs:\r\n Ministers Portfolios\r\n1. Kanakasurram Treasury officials\r\n2. Kadaikappalar Palace guards\r\n3. Karanattiyalavar Accountants\r\n4. Karumakarar Executive officials\r\nHow many of the above pairs(s) is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two "
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four \r\n"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Pair 1 is correct\r\n• During the Sangam period, ‘Kanakasurram’ referred to the treasury officials who were pivotal in managing the financial resources of the ancient Tamil kingdoms.\r\n• Their roles encompassed the collection, safeguarding, and disbursement of state revenues, ensuring the\r\neconomic stability and prosperity of the region.\r\nPair 2 is correct\r\n• The ‘Kadaikappalar’, often referred to as palace guards, played a significant role in the Sangam era of\r\nTamil history.\r\n• The primary duty of the Kadaikappalar was to ensure the safety and security of the king, the royal family,\r\nand the palace premises.\r\n• This involved not only guarding the palace gates but also maintaining vigilance within the palace grounds\r\nto prevent any internal threats. Their presence was crucial for the protection of the royal household from\r\nboth external and internal dangers.\r\nPair 3 is correct\r\n• The ‘Karanattiyalavar’, or accountants, were an integral part of the administrative machinery during the\r\nSangam era.\r\n• The primary responsibility of the Karanattiyalavar was to maintain accurate records of the kingdom’s\r\nfinances.\r\n• In addition to managing financial records, the Karanattiyalavar were involved in overseeing land transactions and the collection of agricultural taxes, which were significant sources of revenue.\r\nPair 4 is correct\r\n• The ‘Karumakarar’ which refers to executive officials, were essential to the administrative structure of\r\nthe Sangam era (300 BCE -300 CE).\r\n• Their primary duty was to implement the king's directives, ensuring efficient governance across the\r\nkingdom.\r\n• They coordinated with various departments, managed resources, and oversaw lower-level officials to\r\nmaintain the smooth operation of the state. "
+                },
+                {
+                  "questionId": "q1741605026294-l0szgqx7m",
+                  "question": "With reference to the Sangam period, the terms ‘Iravu’ and ‘Karai’ refer to:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Forms of taxes"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Important port towns"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Royal families"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Dance forms"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The term \"Iravu\" referred to a forced gift or an extra demand imposed by those in power, typically\r\nthe ruling elite or officials representing the state. This term denotes a form of extraction beyond regular\r\ntaxes or dues.\r\n• The \"Iravu\" could take various forms, such as additional tribute demanded from subjects, requisition of\r\ngoods or services without compensation, or even forced labour.\r\n• \"Karai\" specifically refers to land tax. This term denotes the levy imposed on agricultural land by the\r\nruling authority.\r\n• It was often based on the fertility and productivity of the land, with assessments made by officials appointed for this purpose"
+                },
+                {
+                  "questionId": "q1741605026294-11ahez705",
+                  "question": "With reference to the “Tolkappiyam”, consider the following pairs:\r\n Land type Chief deity\r\n1. Kurinji Murugan\r\n2. Marudam Indra\r\n3. Neydal Varunan\r\n4. Palai Korravai\r\nHow many of the above Pair(s) is/are not correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two \r\n"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "The society during Sangam was characterised by a well-defined social structure and, to some extent,\r\ngender equality.\r\n• The society was organised into different strata, or divisions, based on occupation and land.\r\n• Tolkappiyam refers to a five-fold division of lands: Kurinji, Marudam, Neydal, Palai, and Mullai.\r\nPair 1 is correct\r\n• The region of Kurinji, characterised by its hilly tracks, is categorised as one of the five types of landscapes.\r\n• The chief deity associated with Kurinji was Lord Murugan, also known as Subramanya or Kartikeya. Murugan was revered as the god of war, victory, and wisdom in Tamil culture.\r\n• His connection to Kurinji reflects the spiritual significance attributed to the region's rugged and untamed\r\nlandscapes.\r\n• The primary occupation of the inhabitants of Kurinji was hunting and honey collection. The hilly terrain\r\nprovided abundant opportunities for hunting wild animals and gathering honey from natural beehives\r\nnestled within the rocky outcrops. These activities were essential for sustenance and livelihood in the\r\nregion.\r\n• The inhabitants of Kurinji were primarily Kurvar and Vetar.\r\n• Kurvars were a community traditionally associated with hunting and gathering, while the Vetars were\r\nknown for their expertise in honey collection and beekeeping.\r\nPair 2 is correct\r\n• Marudam was distinguished by its fertile plains, which were suitable for agriculture and cultivation. It\r\nrepresented the agrarian landscape, where farming and cultivation activities predominated.\r\n• The chief deity associated with Marudam was Indra, also known as the rain god or the deity of fertility\r\nand prosperity.\r\n• The primary inhabitants of Marudam were Ayar and Idaiyar. These communities were traditionally associated with agriculture and were responsible for tilling the land, sowing seeds, and harvesting crops.\r\nPair 3 is correct\r\n• Neydal was one of the five landscapes distinguished by its coastal features and maritime environment.\r\n• The coastline offered a unique set of resources and economic opportunities.\r\n• The chief deity associated with Neydal was Varunan, the god of the sea.\r\n• Fishing and salt manufacturing were the chief occupations of the inhabitants of Neydal.\r\n• The coastal environment provided abundant marine resources, including fish, shellfish, and seaweed,\r\nwhich formed the basis of the coastal economy.\r\n• Vellalar, belonging to the agricultural community, was also prominent in coastal regions, engaging\r\nin farming activities adapted to the coastal environment, such as salt cultivation and cultivating saltresistant crops.\r\nPair 4 is correct\r\n• Palai was one of the five landscapes distinguished by its arid conditions, scarcity of water, and limited\r\nvegetation.\r\n• The desert landscape posed significant challenges for habitation and sustenance.\r\n• The chief deity associated with Palai was Korravai, a goddess often depicted as a warrior deity associated\r\nwith protection.\r\n• Robbery was one of the chief occupations associated with Palai in Sangam literature.\r\n• The primary inhabitants of Palai were Paratavar and Valayar. These communities were traditionally associated with a nomadic or semi-nomadic lifestyle, adapting to the harsh conditions of the desert. "
+                },
+                {
+                  "questionId": "q1741605026294-v6gdsbif0",
+                  "question": "With reference to the Megalithic age the ‘Cists’ refer to:\r\n",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Type of burials"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Merchant guilds"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Peasants"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Tax forms "
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "A Cist is a small stone-built coffin-like box or ossuary used to hold the bodies of the dead.\r\n• These types of burials were completely underground.\r\n• They are typically constructed using stone, often with large slabs forming the walls and a cover slab or\r\ncapstone forming the roof.\r\n• Cists can have a single chamber, designed to hold the remains of one individual, or they may have\r\nmultiple chambers for accommodating several individuals or for secondary burials.\r\n• The top of the cist is often covered with a large stone slab, providing protection for the remains inside.\r\n• Archaeologists often find artefacts, such as pottery, tools, or personal items, buried alongside the human\r\nremains within the cist. These artefacts can provide clues about the culture and beliefs of the people who\r\ncreated the cist.\r\n• Cists are often found in association with other megalithic structures, such as dolmens, cairns, or stone\r\ncircles, within burial complexes or necropolises."
+                },
+                {
+                  "questionId": "q1741605026294-j2u21eiod",
+                  "question": "Which term was denoted “customs duties” in the Sangam period?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Ulgu\r\n"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Vendar"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Velir\r\n"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Tyndis "
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Option (a) is correct\r\n• In Sangam Tamil literature, there was a customary practice to collect a toll called”ulgu” from the traders,\r\nwhich stands for customs duty.\r\n• The commodities that were taxable were called ulgu-porul.\r\nOption (c) is not correct\r\n• Three levels of rulers are found in the Sangam period:\r\n Kizhar: They were the heads of the villages or a small territory, later known as Nadu. They were the\r\nchiefs of tribal communities living in specific areas.\r\n Velir: They were many in number, controlling the territories of varied geographical nature, mainly\r\nhilly and forest areas, that were in between the muvendar’s fertile territories.\r\nOption (b) is not correct\r\n Vendar: They were kings controlling larger, fertile territories.\r\nOption (d) is not correct\r\n• Tyndis and Muzris (an ancient seaport on the Malabar Coast) were port cities of the Chera dynasties\r\nin the Sangam period.\r\n• The port thrived during the golden age of the historic Spice Route.\r\n• The references by Ptolemy and the book “THE PERIPLUS OF THE ERYTHREAN SEA” also mention the\r\nlocation of these coastal towns.\r\n• Tyndis Port is regarded as the ancestor of the present-day Ponnani Port by the majority of historians. \r\n"
+                },
+                {
+                  "questionId": "q1741605026294-t0ohydprt",
+                  "question": "With reference to the Megalithic period, “Topikal” and “Dolmen” were used:\r\n",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "To identify the burial sites \r\n"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "To exchange goods"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "To act as a tool for trade"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None of the above"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Topikal was used to mark the burial sites of Megalithic people. It was widely seen in Kerala and Tamil\r\nNadu.\r\n• Characteristics of Topikal structures:\r\n Three Vertically Placed Stones: These stones are positioned upright in such a way that they form\r\nthe main structure of the topikal. They are arranged in a triangular formation, with each stone inclined\r\ninwardly at the top.\r\n Inward Inclination: The inward inclination at the top of the vertical stones suggests that the stones\r\nare not completely parallel but instead lean towards each other. This creates a stable base for the\r\ncap stone and ensures that the structure is sturdy.\r\n Plano-Convex Cap Stone: A plano-convex stone is one that is flat on one side and convex (curved\r\noutward) on the other. This cap stone is placed on top of the three vertical stones. The flat side\r\nlikely rests on the tips of the vertical stones, while the convex side faces upwards.A dolmen is a type of megalithic structure typically associated with prehistoric burial practices.\r\n• It is characterized by a large flat capstone that is placed horizontally atop two or more upright stones,\r\ncreating a chamber beneath it.\r\n• This chamber can sometimes be closed on three sides, forming a more enclosed space.\r\n• Dolmens are often found in Europe, Asia, and Africa, and they were usually used as tombs or burial\r\nchambers, signifying their importance in ancient rituals and practices related to death and the afterlife.\r\n• Key characteristics of dolmens include:\r\n Capstone: A large, flat stone placed horizontally.\r\n Support Stones: Upright stones that hold up the capstone, forming the walls of the chamber.\r\n Chamber: The space beneath the capstone, sometimes enclosed on three sides,is used for burials"
+                },
+                {
+                  "questionId": "q1741605026294-52j33fps9",
+                  "question": "With reference to the Mahasabhas in Sangam period, consider the following\r\npairs:\r\n Mahasabhas Denotes\r\n1. Amaichar Priests\r\n2. Anthanar Ministers\r\n3. Thuthar Envoys\r\n4. Senapathi Military leaders\r\nHow many of the above pair(s) is/are correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one "
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four\r\n"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "In Sangam administration, the king served as the epicentre and personification of government.\r\n• The King was aided by a vast number of administrators, who were organised into five groups:\r\n• They were ministers (amaichar), priests (anthanar), military commanders (senapathi), envoys\r\n(thuthar) and spies (orrar)\r\nPair 1 is not correct\r\n• The Amaichar were important ministers during the Sangam period in ancient Tamil Nadu.\r\n• Their responsibilities included advising the king, administering justice, and overseeing various aspects of\r\nthe kingdom's internal and external affairs.\r\nPair 2 is not correct\r\n• During the Sangam period, the Anthanar held revered positions as priests who bridged the gap between\r\npeople and gods.\r\n• They conducted rituals for prosperity and protection, advised rulers on matters of governance and morality, and preserved sacred knowledge.\r\nPair 3 is correct\r\n• Thuthar refers to envoys or messengers during the Sangam period.\r\n• They played crucial roles in communication, diplomacy, and maintaining relations between different kingdoms, chieftains, or allied groups.\r\nPair 4 is correct\r\n• Senapathi refers to a military commander or general in ancient India, including during the Sangam\r\nperiod.\r\n• During the Sangam period, the Senapathi held a prominent position in the military hierarchy of the\r\nTamil kingdoms.\r\n• They were responsible for leading and organising the army, strategizing military campaigns, and ensuring\r\nthe defence of the kingdom against external threats. "
+                }
+              ]
             }
           ]
         },
