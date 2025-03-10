@@ -1,36 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subjects - <%= examName %></title>
+    <title>Subjects - <%= examName %>
+    </title>
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/navbar.css">
+    <meta name="google-adsense-account" content="ca-pub-7935640093775501">
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-5HNLDBJ7EL');
-</script>
+        gtag('config', 'G-5HNLDBJ7EL');
+    </script>
 </head>
+
 <body>
     <%- include('partials/navbar') %>
-    
-    <div class="hero-section">
-        <h1 class="hero-title"><%= examName %> Subjects</h1>
-        <p class="hero-subtitle">Select a subject to continue</p>
-        
-        <div class="subjects-container show-subjects">
-            <% subjects.forEach(subject => { %>
-                <a href="/<%= examId %>/<%= subject.subjectId %>/questionPapers" class="subject-card">
-                    <i class="fas fa-book-open subject-icon"></i>
-                    <span class="subject-name"><%= subject.subjectName %></span>
-                </a>
-            <% }); %>
+
+        <div class="hero-section">
+            <h1 class="hero-title">
+                <%= examName %> Subjects
+            </h1>
+            <p class="hero-subtitle">Select a subject to continue</p>
+
+            <div class="subjects-container show-subjects">
+                <% subjects.forEach(subject=> { %>
+                    <a href="/<%= examId %>/<%= subject.subjectId %>/questionPapers" class="subject-card">
+                        <i class="fas fa-book-open subject-icon"></i>
+                        <span class="subject-name">
+                            <%= subject.subjectName %>
+                        </span>
+                    </a>
+                    <% }); %>
+            </div>
         </div>
-    </div>
 </body>
+
 </html>
