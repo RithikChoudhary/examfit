@@ -319,13 +319,13 @@ router.post('/questions/:examId/:subjectId/:paperId/upload', upload.single('file
         questionId: `q${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
         question: q.Question,
         options: [
-          { optionId: 'a', text: q['Option A'] },
-          { optionId: 'b', text: q['Option B'] },
-          { optionId: 'c', text: q['Option C'] },
-          { optionId: 'd', text: q['Option D'] }
+          { optionId: 'a', text: q['Option A'].trim() },
+            { optionId: 'b', text: q['Option B'].trim() },
+            { optionId: 'c', text: q['Option C'].trim() },
+            { optionId: 'd', text: q['Option D'].trim() }
         ],
         correctOption: String(q['Correct Option']).toLowerCase(),
-        explanation: q.Explanation || ''
+        explanation: (q.Explanation || '').trim()
       };
     });
 
