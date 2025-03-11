@@ -1,7 +1,7 @@
 // /Volumes/Macintosh HD/Users/burnt/Documents/workspace/DevOps/Terraform/eatpl/app.js
 const express = require('express');
 const path = require('path');
-
+const favicon = require('serve-favicon');
 // Import routes
 const indexRouter = require('./routes/index');
 const dashboardRouter = require('./routes/dashboard');
@@ -19,6 +19,7 @@ app.use(express.json()); // For parsing JSON payloads
 app.use(express.urlencoded({ extended: true })); // For parsing URL-encoded bodies
 
 // Static file serving - specify the full path
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
 // If you have CSS in a specific folder, you can also add:
 app.use('/css', express.static(path.join(__dirname, 'public/css')));
@@ -35,15 +36,15 @@ app.use('/', examHierarchyRoutes);
 app.use('/', xlsxTemplateRoutes);
 app.use('/', examRouter); 
 app.use('/', indexRouter); 
-app.use('/', directExamRoutes);
 
+app.use('/', directExamRoutes);
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
   res.status(500).send('Something. broke!');
 });
 
-// const PORT = process.env.PORT || 4;
+// const PORT = process.env.PORT || 6;
 // app.listen(PORT, () => {
 //   console.log(`Server rasunning.,../ on http://localhost:${PORT}`); 
 // });
