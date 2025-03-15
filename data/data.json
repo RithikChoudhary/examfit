@@ -42295,7 +42295,2408 @@
               "questionPaperId": "qp-1741855478852",
               "questionPaperName": "Test Paper 6",
               "section": "Section III",
-              "questions": []
+              "questions": [
+                {
+                  "questionId": "q1742034187866-dg6qwmfg0",
+                  "question": "With reference to the qualifications for election as Vice-President, consider the following statements:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "A naturalized citizen is also eligible for the office of Vice-President."
+                },
+                {
+                  "questionId": "q1742034187866-vndbd7x60",
+                  "question": "Consider the following statements with reference to the reservation of seats under the PESA Act, 1996:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Reservation for Scheduled Tribes shall not be less than half of total seats."
+                },
+                {
+                  "questionId": "q1742034187866-z4leqzp1g",
+                  "question": "Consider the following statements regarding the Bharat Ratna Award:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Bharat Ratna can be awarded to Indian citizens and non-Indians as well."
+                },
+                {
+                  "questionId": "q1742034187866-xd68zbtzq",
+                  "question": "Consider the following situations/scenarios regarding appointment of Prime Minister:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "President can use discretion in appointment when no clear majority exists."
+                },
+                {
+                  "questionId": "q1742034187866-6ea11stzb",
+                  "question": "Who among the following may be provided representation in a municipality by the state legislature?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "1 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "2 and 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "State legislature can include experts without voting rights in municipalities."
+                },
+                {
+                  "questionId": "q1742034187866-18os2ulym",
+                  "question": "Consider the following statements regarding appointment of Judges of Supreme Court and High Courts:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Judges of the Supreme Court are appointed by the President."
+                },
+                {
+                  "questionId": "q1742034187866-am04o72gl",
+                  "question": "Consider the following statements with reference to the tribunals in India:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Tribunals were introduced via the 42nd Amendment Act."
+                },
+                {
+                  "questionId": "q1742034187866-nxdeoarrm",
+                  "question": "Consider the following statements regarding the Governor of a state:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "All four"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Governor may be transferred and can serve beyond five years until successor arrives."
+                },
+                {
+                  "questionId": "q1742034187866-au7gb7ex8",
+                  "question": "Which of the following maritime passages separates India and Maldives?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "8 degree channel"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "9 degree channel"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "10 degree channel"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Duncan passage"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "8-degree channel separates India and Maldives."
+                },
+                {
+                  "questionId": "q1742034187866-wyspl3joq",
+                  "question": "Consider the following statements regarding the impeachment of the President:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Impeachment of the President can be initiated in either House."
+                },
+                {
+                  "questionId": "q1742034187866-2fo2hn19h",
+                  "question": "Consider the following statements with reference to the High Courts:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Statement-I is correct but Statement-II is incorrect"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Both Statement-I and II are correct"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Statement-I is incorrect but Statement-II is correct"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither statement is correct"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Salaries of High Court Judges are decided by Parliament but charged to State funds."
+                },
+                {
+                  "questionId": "q1742034187866-8gazyu0h1",
+                  "question": "Consider the following statements regarding the Deputy Speaker of the Lok Sabha:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Deputy Speaker automatically becomes committee chairman when appointed."
+                },
+                {
+                  "questionId": "q1742034187866-e5fdwhb1p",
+                  "question": "Which of the following accurately reflects the fundamental objectives and essence of the Panchayati Raj system?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 and 2 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 and 3 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "1 and 3 only"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "1, 2 and 3"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Panchayati Raj aims at grassroots democracy and people's participation."
+                },
+                {
+                  "questionId": "q1742034187866-qtlk813sx",
+                  "question": "It is created for the administration of a town which does not yet fulfill all the conditions necessary for the constitution of a municipality. Which type of urban local body is it?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Town Area Committee"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Notified Area Committee"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Cantonment Board"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Port Trust"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Notified Area Committees are appointed bodies, not elected ones."
+                },
+                {
+                  "questionId": "q1742034187866-yzb4709rm",
+                  "question": "Which of the following individual privileges is provided to the members of the state legislatures?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Right to receive information on arrest"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Prohibition of legal action in House"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Exemption from jury service"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Right to call witnesses in House"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "State legislature members are exempt from jury service."
+                },
+                {
+                  "questionId": "q1742034187866-szzebr3b9",
+                  "question": "In the context of Indian polity, consider the following statements regarding the legislative assemblies:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Elections of legislative assembly members are not always through direct elections."
+                },
+                {
+                  "questionId": "q1742034187866-0noz2mro1",
+                  "question": "Consider the following statements with reference to the composition of the Rajya Sabha:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Fourth Schedule of Constitution allocates Rajya Sabha seats to states."
+                },
+                {
+                  "questionId": "q1742034187866-n7tmu0djv",
+                  "question": "Consider the following statements regarding the elusive binturong (bearcat) and the small-clawed otter:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Binturong and small-clawed otter are vulnerable under IUCN."
+                },
+                {
+                  "questionId": "q1742034187866-rhs62ij01",
+                  "question": "Consider the following statements with reference to the jurisdiction of a court:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "High Courts have original jurisdiction over election petitions."
+                },
+                {
+                  "questionId": "q1742034187866-ov64nvidd",
+                  "question": "With reference to the veto power of the president, consider the following pairs:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "President has absolute, suspensive, and pocket veto powers."
+                },
+                {
+                  "questionId": "q1742034187866-qdxrwplkj",
+                  "question": "Consider the following statements regarding the Chief Justice of India:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Chief Justice of India is appointed by the President on the recommendation of the collegium."
+                },
+                {
+                  "questionId": "q1742034187866-13fg8t6ok",
+                  "question": "Which of the following constitutional provisions deals with the protection of the environment?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Article 21"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Article 48A"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Article 14"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Article 32"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Article 48A of the Indian Constitution deals with the protection and improvement of the environment."
+                },
+                {
+                  "questionId": "q1742034187866-c6tomixsv",
+                  "question": "Which of the following is the largest source of revenue for the Indian government?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Corporate Tax"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Goods and Services Tax"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Income Tax"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Excise Duty"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Income tax is the largest source of revenue for the Indian government."
+                },
+                {
+                  "questionId": "q1742034187866-niootf18i",
+                  "question": "Which of the following constitutional amendments lowered the voting age from 21 to 18 years?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "61st"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "73rd"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "86th"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "101st"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The 61st Constitutional Amendment lowered the voting age from 21 to 18 years."
+                },
+                {
+                  "questionId": "q1742034187866-3rnyw20nm",
+                  "question": "Consider the following statements regarding the Right to Information (RTI) Act:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The RTI Act allows citizens to access information from government authorities."
+                },
+                {
+                  "questionId": "q1742034187866-viwizsbgl",
+                  "question": "Which of the following statements regarding the Goods and Services Tax (GST) is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "GST is an indirect tax that replaced multiple other taxes in India."
+                },
+                {
+                  "questionId": "q1742034187866-w0166feha",
+                  "question": "Which of the following statements about the Governor of an Indian state is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The Governor is the constitutional head of the state and is appointed by the President."
+                },
+                {
+                  "questionId": "q1742034187866-g4jm34z6w",
+                  "question": "The concept of 'Single Citizenship' in India has been borrowed from which country's constitution?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "USA"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "UK"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "France"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Germany"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Single Citizenship in India is borrowed from the UK Constitution."
+                },
+                {
+                  "questionId": "q1742034187866-4riefva5e",
+                  "question": "Which of the following statements regarding the Vice President of India is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Elected by Lok Sabha"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Elected by Rajya Sabha"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Elected by an electoral college"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Appointed by the President"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The Vice President of India is elected by the members of both Lok Sabha and Rajya Sabha."
+                },
+                {
+                  "questionId": "q1742034187866-y9qawkq5s",
+                  "question": "Which of the following writs is issued to secure the liberty of a person from unlawful detention?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Mandamus"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Habeas Corpus"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Certiorari"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Quo Warranto"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Habeas Corpus is a writ issued to secure the release of a person from unlawful detention."
+                },
+                {
+                  "questionId": "q1742034187866-hl38xy3hu",
+                  "question": "Which of the following fundamental rights cannot be suspended during a national emergency?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Right to Equality"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Right to Life and Personal Liberty"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Right to Freedom of Speech"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Right to Property"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Right to Life and Personal Liberty cannot be suspended even during a national emergency."
+                },
+                {
+                  "questionId": "q1742034187866-r6tb80y2g",
+                  "question": "Which of the following best describes the term 'Public Interest Litigation' (PIL)?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "A petition filed in court for public welfare"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "A law passed by the Parliament"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "A special investigation committee"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "A type of constitutional amendment"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Public Interest Litigation (PIL) allows individuals or groups to seek judicial intervention for public welfare."
+                },
+                {
+                  "questionId": "q1742034187866-ipftfhl0q",
+                  "question": "Which of the following statements regarding the Speaker of the Lok Sabha is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Elected by Lok Sabha members"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Appointed by the Prime Minister"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Nominated by the President"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Elected by Rajya Sabha members"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Speaker of the Lok Sabha is elected by the members of Lok Sabha."
+                },
+                {
+                  "questionId": "q1742034187866-t2e6ga0hd",
+                  "question": "Which of the following taxes is levied by the state governments in India?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Income Tax"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Goods and Services Tax"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Excise Duty"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Property Tax"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Property tax is levied by state governments in India."
+                },
+                {
+                  "questionId": "q1742034187866-tse4v645u",
+                  "question": "Which of the following statements regarding the Directive Principles of State Policy is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Legally enforceable"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Guidelines for government policies"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Provides special rights"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Part of the fundamental rights"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Directive Principles are guidelines for state policies but are not legally enforceable."
+                },
+                {
+                  "questionId": "q1742034187866-bq59xa7ui",
+                  "question": "Which of the following statements regarding the President's Rule in a state is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Imposed by the Governor"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Imposed by the President"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Declared by the Supreme Court"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Decided by the Prime Minister"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "President's Rule in a state is imposed by the President under Article 356 of the Constitution."
+                },
+                {
+                  "questionId": "q1742034187866-rthgjx1b1",
+                  "question": "Which of the following schedules of the Indian Constitution deals with the allocation of seats in the Rajya Sabha?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Fourth"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Seventh"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Eighth"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Tenth"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Fourth Schedule of the Indian Constitution deals with the allocation of seats in Rajya Sabha."
+                },
+                {
+                  "questionId": "q1742034187866-ix3uely3e",
+                  "question": "Which of the following constitutional amendments made education a fundamental right?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "42nd"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "73rd"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "86th"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "101st"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The 86th Constitutional Amendment made education a fundamental right."
+                },
+                {
+                  "questionId": "q1742034187866-eawt39uh7",
+                  "question": "Which of the following statements regarding the National Green Tribunal (NGT) is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Deals with financial matters"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Deals with environmental protection"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Deals with defense policies"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Deals with parliamentary affairs"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The National Green Tribunal (NGT) deals with environmental protection and dispute resolution."
+                },
+                {
+                  "questionId": "q1742034187866-nxk98740p",
+                  "question": "Which of the following is a discretionary power of the Governor of a state?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Appointment of Chief Minister"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Dissolving the State Assembly"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Recommending President’s Rule"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Enacting laws on concurrent subjects"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Recommending President’s Rule in a state is a discretionary power of the Governor."
+                },
+                {
+                  "questionId": "q1742034187866-y33kqfq0g",
+                  "question": "Consider the following statements regarding the Attorney General of India:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Attorney General of India is appointed by the President and holds office during the pleasure of the President."
+                },
+                {
+                  "questionId": "q1742034187866-8d623qfye",
+                  "question": "Which of the following statements regarding the Comptroller and Auditor General (CAG) of India is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "CAG audits the accounts of the central and state governments and reports to the Parliament."
+                },
+                {
+                  "questionId": "q1742034187866-ruaea85py",
+                  "question": "Which of the following bodies is responsible for framing India's Five-Year Plans?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Planning Commission"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "NITI Aayog"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Finance Commission"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Ministry of Finance"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "NITI Aayog is responsible for strategic policy planning and economic development in India."
+                },
+                {
+                  "questionId": "q1742034187866-tj4a10ew5",
+                  "question": "Consider the following statements regarding the Election Commission of India:",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Election Commission of India conducts free and fair elections in the country."
+                },
+                {
+                  "questionId": "q1742034187866-x1oyeo8dd",
+                  "question": "Which of the following statements regarding the Right to Constitutional Remedies is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "1 only"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "2 only"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Both 1 and 2"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Neither 1 nor 2"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Right to Constitutional Remedies allows citizens to move the court in case of fundamental rights violation."
+                },
+                {
+                  "questionId": "q1742034187866-bdznksdqb",
+                  "question": "The concept of Fundamental Rights in the Indian Constitution is borrowed from which country's constitution?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "USA"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "UK"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "France"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Russia"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Fundamental Rights in the Indian Constitution are inspired by the US Bill of Rights."
+                },
+                {
+                  "questionId": "q1742034187866-o1s7jxnac",
+                  "question": "Which of the following best describes the concept of 'Directive Principles of State Policy'?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Guidelines for governance"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Legally enforceable rights"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Directive for political parties"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Fundamental Rights"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Directive Principles of State Policy serve as guidelines for governance but are not legally enforceable."
+                },
+                {
+                  "questionId": "q1742034187866-nrr7chx2n",
+                  "question": "Which of the following is NOT a fundamental right under the Indian Constitution?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Right to Equality"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Right to Freedom"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Right to Property"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Right to Education"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Right to Property is not a fundamental right; it is a constitutional right."
+                },
+                {
+                  "questionId": "q1742034187866-7bzg46khz",
+                  "question": "Which of the following Articles of the Indian Constitution provides for the abolition of untouchability?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Article 14"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Article 15"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Article 17"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Article 19"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Article 17 of the Constitution abolishes untouchability and forbids its practice."
+                },
+                {
+                  "questionId": "q1742034187866-ohjfet8m1",
+                  "question": "Which of the following statements regarding the Indian Judiciary is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Indian Judiciary is independent and has the power of judicial review."
+                },
+                {
+                  "questionId": "q1742034187866-9dsqxt1qf",
+                  "question": "The President of India can be removed from office by which of the following methods?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Impeachment by Parliament"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Decision by Supreme Court"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Resignation submitted to PM"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Vote by Rajya Sabha"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The President can be removed through the process of impeachment by Parliament."
+                },
+                {
+                  "questionId": "q1742034187866-86k44rvu9",
+                  "question": "Which of the following is NOT a qualification for a person to be elected as a member of Lok Sabha?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "At least 25 years of age"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Must be a graduate"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Should be a citizen of India"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Should not hold an office of profit"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "A person must be at least 25 years old, be a citizen of India, and not hold an office of profit to contest Lok Sabha elections."
+                },
+                {
+                  "questionId": "q1742034187866-aog701tx1",
+                  "question": "Which of the following statements regarding the Lok Sabha Speaker is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Elected by President"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Elected by Lok Sabha members"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Appointed by Prime Minister"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Nominated by Rajya Sabha"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The Lok Sabha Speaker is elected by the members of the Lok Sabha."
+                },
+                {
+                  "questionId": "q1742034187866-34loh3mfm",
+                  "question": "Which of the following correctly defines the function of the Public Accounts Committee?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Scrutinizing government expenditure"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Drafting laws"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Formulating policies"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Conducting elections"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Public Accounts Committee examines government expenditure to ensure accountability."
+                },
+                {
+                  "questionId": "q1742034187866-18i9xa6py",
+                  "question": "Which of the following bodies is responsible for setting the inflation target in India?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Reserve Bank of India"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "NITI Aayog"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Ministry of Finance"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Government of India"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Reserve Bank of India sets the inflation target in India in consultation with the government."
+                },
+                {
+                  "questionId": "q1742034187866-4z6skn1dg",
+                  "question": "The term 'quorum' in the context of the Indian Parliament refers to what?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Minimum strength required for a House to conduct business"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Majority required to pass a bill"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "The number of times a House meets"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "A temporary adjournment of Parliament"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Quorum refers to the minimum number of members required to conduct parliamentary proceedings."
+                },
+                {
+                  "questionId": "q1742034187866-jz898wpkw",
+                  "question": "Which of the following constitutional amendments gave constitutional status to Panchayati Raj institutions?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "42nd"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "73rd"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "86th"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "101st"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The 73rd Amendment Act gave constitutional status to Panchayati Raj institutions."
+                },
+                {
+                  "questionId": "q1742034187866-fnxensupa",
+                  "question": "Which of the following is an example of a Statutory Body in India?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Election Commission of India"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Finance Commission"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Central Vigilance Commission"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "National Green Tribunal"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "The National Green Tribunal is an example of a statutory body in India."
+                },
+                {
+                  "questionId": "q1742034187867-cjj4rdctw",
+                  "question": "Which of the following best describes the term 'writ' in Indian constitutional law?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Order of the President"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Order of the Supreme Court"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "A written command issued by a court"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Directive of the Parliament"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "A writ is a written command issued by a court to enforce constitutional rights."
+                },
+                {
+                  "questionId": "q1742034187867-n4b8bthat",
+                  "question": "Which of the following writs is issued to prevent a lower court from exceeding its jurisdiction?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Mandamus"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Certiorari"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Habeas Corpus"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Quo Warranto"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Certiorari is a writ issued to prevent a lower court from exceeding its jurisdiction."
+                },
+                {
+                  "questionId": "q1742034187867-27hvzqhx0",
+                  "question": "Which of the following is NOT a feature of the Indian Constitution?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Rigid Constitution"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Single Citizenship"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Judicial Supremacy"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Federalism"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Judicial Supremacy is not a feature of the Indian Constitution as India follows Parliamentary Sovereignty."
+                },
+                {
+                  "questionId": "q1742034187867-yyz1qqf7i",
+                  "question": "Which of the following statements regarding the fundamental duties is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Legally enforceable"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Non-enforceable but obligatory"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Recognized only in emergencies"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Applicable only to citizens"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Fundamental duties are non-enforceable but obligatory for every citizen."
+                },
+                {
+                  "questionId": "q1742034187867-us0m97nuz",
+                  "question": "Which of the following is the primary function of the Election Commission of India?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Conducting free and fair elections"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Drafting government policies"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Framing laws"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Supervising judiciary"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Election Commission of India conducts free and fair elections in the country."
+                },
+                {
+                  "questionId": "q1742034187867-k4au9m0rz",
+                  "question": "Which of the following statements regarding the President’s veto power is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The President has absolute, suspensive, and pocket veto powers."
+                },
+                {
+                  "questionId": "q1742034187867-kj0rxuo6v",
+                  "question": "Which of the following bodies is responsible for the enforcement of fundamental rights?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Election Commission"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Finance Commission"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Supreme Court"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Planning Commission"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The Supreme Court enforces fundamental rights through judicial review."
+                },
+                {
+                  "questionId": "q1742034187867-4lxgh7jl6",
+                  "question": "Which of the following statements regarding parliamentary privileges is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only one"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only two"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "All three"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "None"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Parliamentary privileges ensure independence of the legislature but are not absolute."
+                },
+                {
+                  "questionId": "q1742034187867-i5a8rfuj3",
+                  "question": "Which of the following is a function of the Comptroller and Auditor General (CAG) of India?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Preparing budgets"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Conducting financial audits"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Issuing monetary policies"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Managing foreign reserves"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The CAG conducts financial audits of government accounts and expenditures."
+                },
+                {
+                  "questionId": "q1742034187867-7nlgrk0de",
+                  "question": "Which of the following articles of the Indian Constitution provides for the right to form associations?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Article 14"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Article 19"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Article 21"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Article 32"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Article 19 of the Indian Constitution provides the right to form associations."
+                },
+                {
+                  "questionId": "q1742034187867-tnhwgxrdm",
+                  "question": "Which of the following correctly describes the 'Basic Structure Doctrine'?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Amendments cannot violate the basic structure"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Parliament can amend any part"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Only President can amend the Constitution"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Only Judiciary can amend the Constitution"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Basic Structure Doctrine states that constitutional amendments must not alter the basic structure."
+                },
+                {
+                  "questionId": "q1742034187867-45g0fx9ua",
+                  "question": "Which of the following statements about the Speaker of the Lok Sabha is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Elected by Lok Sabha"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Appointed by Prime Minister"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Nominated by President"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Decided by Rajya Sabha"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Speaker of the Lok Sabha is elected by the members of the Lok Sabha."
+                },
+                {
+                  "questionId": "q1742034187867-bcib1x9l9",
+                  "question": "Which of the following is NOT an objective of the Directive Principles of State Policy?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Ensuring social justice"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Providing fundamental rights"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Guiding state policies"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Promoting welfare schemes"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Directive Principles of State Policy provide guidelines for governance but do not grant fundamental rights."
+                },
+                {
+                  "questionId": "q1742034187867-9glb9ik9t",
+                  "question": "Which of the following correctly describes the concept of 'Judicial Review'?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Power of judiciary to review laws"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Authority of Parliament over states"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Rights of citizens to form parties"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Powers of the executive"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Judicial Review allows the judiciary to review the constitutionality of laws."
+                },
+                {
+                  "questionId": "q1742034187867-ykf36kot1",
+                  "question": "Which of the following statements about the Supreme Court of India is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "It is the final interpreter of the Constitution"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "It has legislative powers"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "It is part of the executive"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "It can amend the Constitution"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Supreme Court is the final interpreter of the Constitution."
+                },
+                {
+                  "questionId": "q1742034187867-vmsshem67",
+                  "question": "Which of the following is NOT a function of the Finance Commission of India?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Allocating funds to government departments"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Recommending financial distribution"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Monitoring fiscal policies"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Managing central taxation"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The Finance Commission does not manage central taxation; it only recommends financial distribution."
+                },
+                {
+                  "questionId": "q1742034187867-uoe2vqmbr",
+                  "question": "Which of the following statements about the Chief Minister of a state is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Selected by the Governor"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Elected by the State Assembly"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Nominated by the President"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Appointed by Prime Minister"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The Chief Minister is elected by the State Assembly and appointed by the Governor."
+                },
+                {
+                  "questionId": "q1742034187867-73ucdnmq6",
+                  "question": "Which of the following is NOT a writ issued by the Supreme Court?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Mandamus"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Habeas Corpus"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Certiorari"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Subpoena"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "Subpoena is not a writ issued by the Supreme Court."
+                },
+                {
+                  "questionId": "q1742034187867-oi9ghf3dj",
+                  "question": "Which of the following correctly describes the concept of ‘Separation of Powers’?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Legislature, executive, and judiciary function independently"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only the executive has powers"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Parliament controls judiciary"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Only President can enforce laws"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Separation of Powers ensures that the legislature, executive, and judiciary function independently."
+                },
+                {
+                  "questionId": "q1742034187867-i9na4g8dr",
+                  "question": "Which of the following statements regarding the Lok Sabha elections is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Based on proportional representation"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Conducted every 10 years"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Supervised by State Election Commissions"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Requires minimum 60% voter turnout"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Lok Sabha elections are based on proportional representation and conducted every five years."
+                },
+                {
+                  "questionId": "q1742034187867-pusywi1al",
+                  "question": "Which of the following constitutional provisions provides for the protection of the interests of minorities?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Article 15"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Article 19"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Article 29"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Article 44"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Article 29 provides for the protection of the interests of minorities in India."
+                },
+                {
+                  "questionId": "q1742034187867-aqwxgjvxk",
+                  "question": "Which of the following is a responsibility of the Prime Minister of India?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Advising the President"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Formulating defense policies"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Managing state elections"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Supervising Supreme Court"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Prime Minister advises the President on key policy matters."
+                },
+                {
+                  "questionId": "q1742034187867-8dk9jwxrq",
+                  "question": "Which of the following is NOT a source of revenue for the Indian government?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Income Tax"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Corporate Tax"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Donations from citizens"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Goods and Services Tax"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Donations from citizens are not a primary source of revenue for the Indian government."
+                },
+                {
+                  "questionId": "q1742034187867-fkc8hfwr8",
+                  "question": "Which of the following statements about the National Emergency is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Declared under Article 352"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Declared by Supreme Court"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Can be declared by State Governor"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Requires Lok Sabha approval only"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "National Emergency can be declared under Article 352 in cases of war, external aggression, or armed rebellion."
+                },
+                {
+                  "questionId": "q1742034187867-zy6av5yqu",
+                  "question": "Which of the following best defines the term 'Social Justice' in the Indian Constitution?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Providing equal opportunities to all"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Giving reservations to all minorities"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Encouraging private sector"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Enforcing cultural policies"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Social justice ensures equal opportunities for all citizens, regardless of background."
+                },
+                {
+                  "questionId": "q1742034187867-n09p576d5",
+                  "question": "Which of the following statements regarding Article 19 is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Gives right to life"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Provides for equality before law"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Grants freedom of speech"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Enforces property rights"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Article 19 of the Indian Constitution grants the freedom of speech and expression."
+                },
+                {
+                  "questionId": "q1742034187867-6i5656e58",
+                  "question": "Which of the following is NOT a function of the Prime Minister of India?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Appointing the President"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Leading the Council of Ministers"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Advising the President"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Representing India in international forums"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Prime Minister does not appoint the President; the President is elected by an electoral college."
+                },
+                {
+                  "questionId": "q1742034187867-26nigyv3x",
+                  "question": "Which of the following correctly describes the concept of 'Rule of Law'?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Law applies equally to all"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Only Parliament can make laws"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Judiciary can amend laws"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "State laws override central laws"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Rule of Law means that laws apply equally to all citizens, without discrimination."
+                },
+                {
+                  "questionId": "q1742034187867-776cnruwv",
+                  "question": "Which of the following statements regarding Fundamental Rights is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Only citizens have fundamental rights"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Fundamental rights are absolute"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "They are enforceable by the Supreme Court"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "They can never be amended"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Fundamental rights are enforceable by the Supreme Court and are not absolute."
+                },
+                {
+                  "questionId": "q1742034187867-i5np0ohxr",
+                  "question": "Which of the following statements regarding Article 21 is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Gives the right to equality"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Ensures the right to life and personal liberty"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Provides freedom of religion"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Gives right to education"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Article 21 guarantees the right to life and personal liberty to all citizens."
+                },
+                {
+                  "questionId": "q1742034187867-zq6h3s849",
+                  "question": "Which of the following correctly defines the 'Preamble' of the Indian Constitution?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "A statement of objectives"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "A legal provision"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "An enforceable right"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "A directive for economic policy"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Preamble is a statement of objectives guiding the interpretation of the Constitution."
+                },
+                {
+                  "questionId": "q1742034187867-0lc6vy81b",
+                  "question": "Which of the following statements about the Governor of a state is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Appointed by Parliament"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Acts as head of state"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Has a fixed tenure of six years"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Elected by the State Assembly"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The Governor acts as the head of state at the state level and is appointed by the President."
+                },
+                {
+                  "questionId": "q1742034187867-rp02smuq3",
+                  "question": "Which of the following is NOT a function of the Union Public Service Commission (UPSC)?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Conducting civil services exams"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Advising on personnel policies"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Managing state elections"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Recruiting officials for government jobs"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "The UPSC does not manage state elections; that is the role of State Election Commissions."
+                },
+                {
+                  "questionId": "q1742034187867-pb0bjcpm9",
+                  "question": "Which of the following correctly describes the concept of 'Equality before Law'?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Special rights to citizens"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Equal application of law to all"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Reserved rights for officials"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Only Parliament can enforce laws"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Equality before Law means that no individual is above the law, and it applies to all citizens equally."
+                },
+                {
+                  "questionId": "q1742034187867-992x47iqo",
+                  "question": "Which of the following is a feature of the Indian parliamentary system?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Separation of Powers"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Collective responsibility"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Federal Supremacy"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Independent Judiciary"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "Collective responsibility is a key feature of the Indian parliamentary system."
+                },
+                {
+                  "questionId": "q1742034187867-402rdxr9a",
+                  "question": "Which of the following best describes the term 'Welfare State'?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "A state that provides only law and order"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "A state that ensures social and economic justice"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "A dictatorship"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "A monarchy"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "A Welfare State ensures social and economic justice for all citizens."
+                },
+                {
+                  "questionId": "q1742034187867-8pj0yvk2w",
+                  "question": "Which of the following is a power of the President of India?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Declaring war"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Appointing Chief Minister"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Leading Parliament"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Making economic policies"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The President of India has the power to declare war and make treaties."
+                },
+                {
+                  "questionId": "q1742034187867-b5d2kj9bp",
+                  "question": "Which of the following is a Directive Principle of State Policy?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Providing free legal aid"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Making laws"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Appointing judges"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Managing public enterprises"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "Providing free legal aid is a Directive Principle of State Policy under Article 39A."
+                },
+                {
+                  "questionId": "q1742034187867-ctf6azs5a",
+                  "question": "Which of the following statements about the Rajya Sabha is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Has equal powers as Lok Sabha"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Cannot be dissolved"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Has a fixed tenure of six years"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Directly elected by people"
+                    }
+                  ],
+                  "correctOption": "b",
+                  "explanation": "The Rajya Sabha is a permanent house and cannot be dissolved, unlike the Lok Sabha."
+                },
+                {
+                  "questionId": "q1742034187867-hpmhx0f0z",
+                  "question": "Which of the following is NOT a function of the Election Commission of India?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Supervising municipal elections"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Conducting Lok Sabha elections"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Managing voter registration"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Recognizing political parties"
+                    }
+                  ],
+                  "correctOption": "a",
+                  "explanation": "The Election Commission does not supervise municipal elections; that is the responsibility of State Election Commissions."
+                },
+                {
+                  "questionId": "q1742034187867-9ttz31rm3",
+                  "question": "Which of the following correctly describes the term 'Judicial Activism'?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Judiciary making policies"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Courts enforcing laws strictly"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Courts taking an active role in governance"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Courts refusing to act"
+                    }
+                  ],
+                  "correctOption": "c",
+                  "explanation": "Judicial Activism refers to courts taking an active role in ensuring justice and interpreting laws broadly."
+                },
+                {
+                  "questionId": "q1742034187867-auxwcb980",
+                  "question": "Which of the following statements about the Lok Sabha is correct?",
+                  "options": [
+                    {
+                      "optionId": "a",
+                      "text": "Elected for six years"
+                    },
+                    {
+                      "optionId": "b",
+                      "text": "Can be dissolved by the Prime Minister"
+                    },
+                    {
+                      "optionId": "c",
+                      "text": "Has more powers than Rajya Sabha"
+                    },
+                    {
+                      "optionId": "d",
+                      "text": "Is directly elected by citizens"
+                    }
+                  ],
+                  "correctOption": "d",
+                  "explanation": "The Lok Sabha is directly elected by citizens and represents the people in the Parliament."
+                }
+              ]
             },
             {
               "questionPaperId": "qp-1741855553077",
