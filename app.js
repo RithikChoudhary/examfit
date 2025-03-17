@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
-// require("xtend");
+require("xtend");
 
 // Import routes
 const indexRouter = require('./routes/index');
