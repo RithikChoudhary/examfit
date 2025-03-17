@@ -161,7 +161,9 @@ body {
   border-color: var(--blue-500);
   box-shadow: 0 4px 8px rgba(59, 130, 246, 0.15);
 }
-
+.subjects-list {
+  transition: all ${animationSpeed} ease-in-out;
+}
 .subject-icon {
   font-size: 1.1rem;
   background: var(--gray-50);

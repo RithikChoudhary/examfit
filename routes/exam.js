@@ -71,7 +71,8 @@ router.get('/:exam', debounceRequest(async (req, res) => {
     const templateData = { 
       exam: examId,
       examName: examData.examName,
-      subjects: examData.subjects 
+      subjects: examData.subjects,
+      animationSpeed: '0.3s'  // Added animation speed control
     };
 
     renderWithCache(res, 'subjects', templateData, cacheKey);
@@ -100,7 +101,8 @@ router.get('/:exam/:subject/questionPapers', debounceRequest(async (req, res) =>
       subject: subjectId,
       subjectName: subjectData.subjectName,
       questionPapers: subjectData.questionPapers || [],
-      subjects: examData.subjects
+      subjects: examData.subjects,
+      animationSpeed: '0.3s'  // Added animation speed control
     };
 
     renderWithCache(res, 'questionPapers', templateData, cacheKey);
@@ -131,7 +133,8 @@ router.get('/:exam/:subject', debounceRequest(async (req, res) => {
       subject: subjectId,
       questions: subjectData.questions,
       examName: examData.examName,
-      subjectName: subjectData.subjectName
+      subjectName: subjectData.subjectName,
+      animationSpeed: '0.3s'  // Added animation speed control
     };
 
     renderWithCache(res, 'subject-questions', templateData, cacheKey);
@@ -171,7 +174,8 @@ router.get('/:exam/:subject/:questionPaper/questions', debounceRequest(async (re
       questionPaper: questionPaperId, 
       questionPaperName: questionPaper.questionPaperName,
       questions: questionPaper.questions,
-      subjects: examData.subjects
+      subjects: examData.subjects,
+      animationSpeed: '0.3s'  // Added animation speed control
     };
 
     renderWithCache(res, 'questions', templateData, cacheKey);
