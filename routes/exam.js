@@ -3,8 +3,17 @@ const express = require('express');
 const router = express.Router();
 const { getQuestions } = require('../utils/dataHelpers');
 
+// Debounce function to prevent multiple requests
+function debounceRequest(callback, delay = 300) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => callback.apply(this, args), delay);
+  };
+}
+
 // Route for displaying subjects for a specific exam (e.g., /upsc or /cgl)
-router.get('/:exam', async (req, res) => {
+router.get('/:exam', debounceRequest(async (req, res) => {
   try {
     const data = await getQuestions();
     const examId = req.params.exam.toLowerCase();
@@ -14,30 +23,19 @@ router.get('/:exam', async (req, res) => {
       return res.status(404).send('Exam not found');
     }
 
-    // Create a Set to track unique subject IDs
-    const seenSubjects = new Set();
-    const uniqueSubjects = examData.subjects.filter(subject => {
-      const subjectId = subject.subjectId;
-      if (!seenSubjects.has(subjectId)) {
-        seenSubjects.add(subjectId);
-        return true;
-      }
-      return false;
-    });
-
     res.render('subjects', { 
       exam: examId,
       examName: examData.examName,
-      subjects: uniqueSubjects
+      subjects: examData.subjects 
     });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).send('Error loading exam data');
   }
-});
+}));
 
 // Route for displaying question papers for a subject within an exam
-router.get('/:exam/:subject/questionPapers', async (req, res) => { 
+router.get('/:exam/:subject/questionPapers', debounceRequest(async (req, res) => { 
   try {
     const data = await getQuestions();
     const { exam: examId, subject: subjectId } = req.params;
@@ -61,8 +59,8 @@ router.get('/:exam/:subject/questionPapers', async (req, res) => {
     console.error('Error:', error);
     res.status(500).send('Error loading question papers');
   }
-});
-router.get('/:exam/:subject', async (req, res) => {
+}));
+router.get('/:exam/:subject', debounceRequest(async (req, res) => {
   try {
     const data = await getQuestions();
     const examId = req.params.exam.toLowerCase();
@@ -89,10 +87,10 @@ router.get('/:exam/:subject', async (req, res) => {
     console.error('Error:', error);
     res.status(500).send('Error loading questions');
   }
-});
+}));
 
 // Route for displaying questions for a specific question paper
-router.get('/:exam/:subject/:questionPaper/questions', async (req, res) => {
+router.get('/:exam/:subject/:questionPaper/questions', debounceRequest(async (req, res) => {
   try {
     const data = await getQuestions();
     const { exam: examId, subject: subjectId, questionPaper: questionPaperId } = req.params;
@@ -125,6 +123,6 @@ router.get('/:exam/:subject/:questionPaper/questions', async (req, res) => {
     console.error('Error:', error);
     res.status(500).send('Error loading questions');
   }
-});
+}));
 
 module.exports = router;
