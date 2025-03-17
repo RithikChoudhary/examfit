@@ -4,38 +4,62 @@ const express = require('express');
 const router = express.Router();
 const { getQuestions } = require('../utils/dataHelpers');
 
-// Enhanced debounce function with request cancellation
+// Enhanced debounce function with request cancellation and URL tracking
 function debounceRequest(callback, delay = 300) {
-  let timeout;
-  let inFlightRequest = false;
-  let abortController = new AbortController();
+  const inFlightRequests = new Map();  // To track requests per URL
+  const timeouts = new Map();          // To track timeouts per URL
 
   return function(...args) {
-    // Clear previous timeout and abort in-flight request
-    clearTimeout(timeout);
-    abortController.abort();
-    abortController = new AbortController();
+    const req = args[0];
+    const url = req.originalUrl;
     
-    const wrappedCallback = async () => {
+    // Cancel any pending request for this URL
+    if (inFlightRequests.has(url)) {
+      inFlightRequests.get(url).abort();
+      inFlightRequests.delete(url);
+    }
+
+    // Clear previous timeout for this URL
+    if (timeouts.has(url)) {
+      clearTimeout(timeouts.get(url));
+      timeouts.delete(url);
+    }
+
+    // Create new abort controller for this request
+    const abortController = new AbortController();
+    inFlightRequests.set(url, abortController);
+
+    // Set new timeout
+    const timeout = setTimeout(async () => {
       try {
-        if (inFlightRequest) return;
-        inFlightRequest = true;
-        
         // Pass the abort signal to the callback
         const result = await callback(...args, { signal: abortController.signal });
         return result;
       } catch (error) {
         if (error.name === 'AbortError') {
-          console.log('Request aborted due to new request coming in');
+          console.log('Request aborted due to new request coming in for:', url);
           return;
         }
         throw error;
       } finally {
-        inFlightRequest = false;
+        inFlightRequests.delete(url);
+        timeouts.delete(url);
       }
-    };
+    }, delay);
 
-    timeout = setTimeout(wrappedCallback, delay);
+    // Store timeout so we can clear it later
+    timeouts.set(url, timeout);
+
+    // Add cleanup on request end
+    req.on('end', () => {
+      if (timeouts.has(url)) {
+        clearTimeout(timeouts.get(url));
+        timeouts.delete(url);
+      }
+      if (inFlightRequests.has(url)) {
+        inFlightRequests.delete(url);
+      }
+    });
   };
 }
 
