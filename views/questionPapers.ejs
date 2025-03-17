@@ -38,7 +38,7 @@
                 <p>No question papers available for this subject yet.</p>
               </div>
             <% } else { %>
-              <% const sections = [...new Set(questionPapers.map(paper => paper.section))]; %>
+              <% const sections = [...new Set(questionPapers.map(paper => paper.section))].sort(); %>
               <% sections.forEach(sectionName => { %>
                 <% const papersInSection = questionPapers.filter(paper => paper.section === sectionName); %>
                 <% if (papersInSection.length > 0) { %>
