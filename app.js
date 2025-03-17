@@ -31,7 +31,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Important: Route order matters
-app.use('/dashboard', dashboardRouter); // Dashboard route enabled
+// app.use('/dashboard', dashboardRouter); // Dashboard route enabled
 app.use('/api', apiRouter);
 app.use('/', examHierarchyRoutes); 
 app.use('/', xlsxTemplateRoutes);
@@ -55,9 +55,9 @@ app.use((req, res) => {
   });
 });
 
-const PORT = process.env.PORT || 16;
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// const PORT = process.env.PORT || 16;
+// app.listen(PORT, () => {
+//   console.log(`Server running on http://localhost:${PORT}`);
+// });
 
 module.exports = app;
