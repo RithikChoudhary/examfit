@@ -31,33 +31,40 @@
             </button>
 
             <div class="question-paper-sections">
-              <% const sections=["Previous Year", "Section I" , "Section II" , "Section III" ]; %>
-                <% sections.forEach(sectionName=> { %>
-                  <div class="section">
-                    <h3>
-                      <%= sectionName %>
-                    </h3>
-                    <ul class="question-paper-list">
-                      <% questionPapers.forEach(paper=> { %>
-                        <% if (paper.section===sectionName) { %>
-                          <li class="question-paper-item">
-                            <div class="paper-container">
-                              <a href="/dashboard/questions/<%= examId %>/<%= subjectId %>/<%= paper.questionPaperId %>">
-                                <%= paper.questionPaperName %>
-                              </a>
-                              <button 
-                                class="delete-button"
-                                onclick="deleteQuestionPaper('<%= examId %>', '<%= subjectId %>', '<%= paper.questionPaperId %>')"
-                              >
-                                <i class="fas fa-trash"></i>
-                              </button>
-                            </div>
-                          </li>
-                          <% } %>
-                            <% }); %>
-                    </ul>
-                  </div>
-                  <% }); %>
+              <% 
+              const sections=["Previous Year", "Section I" , "Section II" , "Section III" ];
+              
+              function hasQuestionPapers(sectionName) {
+                return questionPapers.some(paper => paper.section === sectionName);
+              }
+              
+              const visibleSections = sections.filter(section => hasQuestionPapers(section));
+              %>
+              
+              <% visibleSections.forEach(sectionName => { %>
+                <div class="section">
+                  <h3><%= sectionName %></h3>
+                  <ul class="question-paper-list">
+                    <% questionPapers.sort((a, b) => a.questionPaperName.localeCompare(b.questionPaperName)).forEach(paper => { %>
+                      <% if (paper.section === sectionName) { %>
+                        <li class="question-paper-item">
+                          <div class="paper-container">
+                            <a href="/dashboard/questions/<%= examId %>/<%= subjectId %>/<%= paper.questionPaperId %>">
+                              <%= paper.questionPaperName %>
+                            </a>
+                            <button 
+                              class="delete-button"
+                              onclick="deleteQuestionPaper('<%= examId %>', '<%= subjectId %>', '<%= paper.questionPaperId %>')"
+                            >
+                              <i class="fas fa-trash"></i>
+                            </button>
+                          </div>
+                        </li>
+                      <% } %>
+                    <% }); %>
+                  </ul>
+                </div>
+              <% }); %>
             </div>
           </div>
 
@@ -139,7 +146,7 @@
       }
     }
     async function deleteQuestionPaper(examId, subjectId, questionPaperId) {
-  event.preventDefault(); // Add this line
+  if (event) event.preventDefault();
   if (!confirm('Are you sure you want to delete this question paper? This action cannot be undone.')) {
     return;
   }

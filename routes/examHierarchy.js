@@ -79,7 +79,7 @@ router.get('/:exam/:subExam/subjects', async (req, res) => {
 //   router.get('/cgl', (req, res) => {
 //     res.send('CGL exams');
 //   });
-  // Add this route for public question papers view
+  // Route for displaying question papers for a subject within an exam
 router.get('/:examId/:subjectId/questionPapers', async (req, res) => {
     try {
       const { examId, subjectId } = req.params;
@@ -92,15 +92,21 @@ router.get('/:examId/:subjectId/questionPapers', async (req, res) => {
       const subjectData = examData.subjects.find(s => s.subjectId === subjectId);
       if (!subjectData) return res.status(404).send('Subject not found');
   
+      // Define possible sections
       const sections = ["Previous Year", "Section I", "Section II", "Section III"];
-  
+      
+      // Filter sections that have actual data
+      const availableSections = sections.filter(section => {
+        return subjectData.questionPapers?.find(qp => qp.section === section);
+      });
+
       res.render('questionPapers', { 
         exam: examId,
         subject: subjectId,
         examName: examData.examName,
         subjectName: subjectData.subjectName,
         questionPapers: subjectData.questionPapers || [],
-        sections: sections,
+        sections: availableSections,
         subjects: examData.subjects // Make sure 'subjects' is available to the view
     });
   

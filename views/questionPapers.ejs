@@ -33,23 +33,32 @@
       
         <div class="content-area">
           <div class="question-paper-sections">
-            <% const sections = ["Previous Year", "Section I", "Section II", "Section III"]; %>
-            <% sections.forEach(sectionName => { %>
-              <div class="section">
-                <h3><%= sectionName %></h3>
-                <ul class="question-paper-list">
-                  <% questionPapers.filter(paper => paper.section === sectionName).forEach(paper => { %>
-                    <li class="question-paper-item">
-                      <div class="paper-container">
-                        <a href="/<%= exam %>/<%= subject %>/<%= paper.questionPaperId %>/questions">
-                          <%= paper.questionPaperName %>
-                        </a>
-                      </div>
-                    </li>
-                  <% }); %>
-                </ul>
+            <% if (questionPapers.length === 0) { %>
+              <div class="no-papers-message">
+                <p>No question papers available for this subject yet.</p>
               </div>
-            <% }); %>
+            <% } else { %>
+              <% const sections = [...new Set(questionPapers.map(paper => paper.section))]; %>
+              <% sections.forEach(sectionName => { %>
+                <% const papersInSection = questionPapers.filter(paper => paper.section === sectionName); %>
+                <% if (papersInSection.length > 0) { %>
+                  <div class="section">
+                    <h3><%= sectionName %></h3>
+                    <ul class="question-paper-list">
+                      <% papersInSection.forEach(paper => { %>
+                        <li class="question-paper-item">
+                          <div class="paper-container">
+                            <a href="/<%= exam %>/<%= subject %>/<%= paper.questionPaperId %>/questions">
+                              <%= paper.questionPaperName %>
+                            </a>
+                          </div>
+                        </li>
+                      <% }); %>
+                    </ul>
+                  </div>
+                <% } %>
+              <% }); %>
+            <% } %>
           </div>
         </div>
     </main>
