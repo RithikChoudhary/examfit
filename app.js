@@ -2,6 +2,8 @@
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
+require("xtend");
+
 // Import routes
 const indexRouter = require('./routes/index');
 const dashboardRouter = require('./routes/dashboard');
