@@ -45,10 +45,10 @@ function calculateResults() {
     
     allQuestions.forEach(question => {
         const selectedInput = question.querySelector('input:checked');
-        const correctOption = selectedInput?.getAttribute('data-correct');
         
         if (selectedInput) {
             attempted++;
+            const correctOption = selectedInput.getAttribute('data-correct');
             if (selectedInput.value === correctOption) {
                 correct++;
             }

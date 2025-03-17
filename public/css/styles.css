@@ -1,0 +1,73 @@
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Main content */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Navigation */
+nav {
+  background-color: #444;
+  padding: 1rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Links */
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Error messages */
+.error {
+  color: #dc3545;
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #f8d7da;
+  border-radius: 4px;
+}
+
+/* Success messages */
+.success {
+  color: #28a745;
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #d4edda;
+  border-radius: 4px;
+}

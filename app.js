@@ -21,32 +21,43 @@ app.use(express.urlencoded({ extended: true })); // For parsing URL-encoded bodi
 // Static file serving - specify the full path
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'public')));
-// If you have CSS in a specific folder, you can also add:
 app.use('/css', express.static(path.join(__dirname, 'public/css')));
+app.use('/js', express.static(path.join(__dirname, 'public/js')));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 app.use('/icons', express.static(path.join(__dirname, 'public/icons')));
 
+// View engine setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// app.use('/dashboard', dashboardRouter);
+// Important: Route order matters
+app.use('/dashboard', dashboardRouter); // Dashboard route enabled
 app.use('/api', apiRouter);
- // This should probably be your main rout.e
 app.use('/', examHierarchyRoutes); 
 app.use('/', xlsxTemplateRoutes);
 app.use('/', examRouter); 
 app.use('/', indexRouter); 
-
 app.use('/', directExamRoutes);
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
-  res.status(500).send('Something. broke!');
+  res.status(500).json({
+    error: 'Internal Server Error',
+    message: 'Something went wrong. Please try again later.'
+  });
 });
 
-// const PORT = process.env.PORT || 6;
-// app.listen(PORT, () => {
-//   console.log(`Server rasunning.,../ on http://localhost:${PORT}`); 
-// });
+// 404 handling for routes not found
+app.use((req, res) => {
+  res.status(404).json({
+    error: 'Not Found',
+    message: 'The requested resource could not be found.'
+  });
+});
+
+const PORT = process.env.PORT || 16;
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
 
 module.exports = app;

@@ -5,22 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ExamFit</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7935640093775501"
-     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/css/home.css">
   <link rel="stylesheet" href="/css/navbar.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="/css/home-footer.css">
-  <meta name="google-adsense-account" content="ca-pub-7935640093775501">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5HNLDBJ7EL');
-</script>
 </head>
 
 <body>
@@ -32,17 +20,19 @@
       <p class="hero-subtitle">Choose an exam to begin your preparation</p>
 
       <div class="exam-container">
-        <div class="exam-column">
-          <div class="exam-card" data-exam-id="upsc">
-            <div class="exam-icon">
-              <img src="/templates/upsc.png" alt="UPSC">
+        <% exams.forEach((exam)=> { %>
+          <div class="exam-column">
+            <div class="exam-card" data-exam-id="<%= exam.examId %>">
+              <div class="exam-icon">
+                <img src="/templates/<%= exam.examId %>.png" alt="<%= exam.examName %>">
+              </div>
+              <div class="exam-title">
+                <%= exam.examName %>
+              </div>
             </div>
-            <div class="exam-title">
-              Union Public Service Commission
-            </div>
+            <div class="subjects-container" id="subjects-<%= exam.examId %>"></div>
           </div>
-          <div class="subjects-container" id="subjects-upsc"></div>
-        </div>
+        <% }); %>
       </div>
     </section>
   </div>
@@ -50,72 +40,82 @@
   <%- include('./partials/footer') %>
 
   <script>
-    document.querySelector('.exam-card').addEventListener('click', async function() {
-      const examId = "upsc";
-      const subjectsContainer = document.getElementById(`subjects-${examId}`);
+    document.querySelectorAll('.exam-card').forEach(card => {
+  card.addEventListener('click', async function() {
+    const examId = this.dataset.examId;
+    const subjectsContainer = document.getElementById(`subjects-${examId}`);
+    const allSubjectsContainers = document.querySelectorAll('.subjects-container');
 
-      // Toggle current subjects container
-      subjectsContainer.classList.toggle('show-subjects');
-
-      // Load subjects if not already loaded
-      if (subjectsContainer.children.length === 0) {
-        try {
-          const response = await fetch(`/api/subjects/${examId}`);
-          const data = await response.json();
-
-          if (data.subjects && data.subjects.length > 0) {
-            data.subjects.forEach(subject => {
-              const subjectLink = document.createElement('a');
-              subjectLink.href = `/${examId}/${subject.subjectId}/questionPapers`;
-              subjectLink.className = 'subject-card';
-
-              // Choose icon and color class based on subject name
-              let iconClass = 'fa-book-open';
-              let colorClass = '';
-              const subjectLower = subject.subjectName.toLowerCase();
-              
-              if (subjectLower.includes('math') || subjectLower.includes('maths')) {
-                iconClass = 'fa-square-root-variable';
-                colorClass = 'math';
-              } else if (subjectLower.includes('polity')) {
-                iconClass = 'fa-atom';
-                colorClass = 'physics';
-              } else if (subjectLower.includes('chemistry')) {
-                iconClass = 'fa-flask';
-                colorClass = 'chemistry';
-              } else if (subjectLower.includes('general')) {
-                iconClass = 'fa-dna';
-                colorClass = 'biology';
-              } else if (subjectLower.includes('science') || subjectLower.includes('programming')) {
-                iconClass = 'fa-laptop-code';
-                colorClass = 'computer';
-              } else if (subjectLower.includes('economy') || subjectLower.includes('language')) {
-                iconClass = 'fa-language';
-                colorClass = 'english';
-              } else if (subjectLower.includes('history')) {
-                iconClass = 'fa-landmark';
-                colorClass = 'history';
-              } else if (subjectLower.includes('geography')) {
-                iconClass = 'fa-earth-americas';
-                colorClass = 'geography';
-              }
-
-              subjectLink.innerHTML = `
-                <i class="fas ${iconClass} subject-icon ${colorClass}"></i>
-                <span class="subject-name">${subject.subjectName}</span>
-              `;
-
-              subjectsContainer.appendChild(subjectLink);
-            });
-          } else {
-            subjectsContainer.innerHTML = '<p class="no-subjects">No subjects found for this exam.</p>';
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          subjectsContainer.innerHTML = '<p class="error-message">Failed to load subjects.</p>';
-        }
+    // Hide other subject containers
+    allSubjectsContainers.forEach(container => {
+      if (container.id !== `subjects-${examId}`) {
+        container.classList.remove('show-subjects');
       }
     });
+
+    // Toggle current subjects container
+    subjectsContainer.classList.toggle('show-subjects');
+
+    // Load subjects if not already loaded
+    if (subjectsContainer.children.length === 0) {
+      try {
+        const response = await fetch(`/api/subjects/${examId}`);
+        const data = await response.json();
+
+        if (data.subjects && data.subjects.length > 0) {
+          data.subjects.forEach(subject => {
+            const subjectLink = document.createElement('a');
+            subjectLink.href = `/${examId}/${subject.subjectId}/questionPapers`;
+            subjectLink.className = 'subject-card';
+
+            // Choose icon and color class based on subject name
+            let iconClass = 'fa-book-open';
+            let colorClass = '';
+            const subjectLower = subject.subjectName.toLowerCase();
+            
+            if (subjectLower.includes('math') || subjectLower.includes('maths')) {
+              iconClass = 'fa-square-root-variable';
+              colorClass = 'math';
+            } else if (subjectLower.includes('physics')) {
+              iconClass = 'fa-atom';
+              colorClass = 'physics';
+            } else if (subjectLower.includes('chemistry')) {
+              iconClass = 'fa-flask';
+              colorClass = 'chemistry';
+            } else if (subjectLower.includes('general')) {
+              iconClass = 'fa-dna';
+              colorClass = 'biology';
+            } else if (subjectLower.includes('science') || subjectLower.includes('programming')) {
+              iconClass = 'fa-laptop-code';
+              colorClass = 'computer';
+            } else if (subjectLower.includes('economy') || subjectLower.includes('language')) {
+              iconClass = 'fa-language';
+              colorClass = 'english';
+            } else if (subjectLower.includes('history')) {
+              iconClass = 'fa-landmark';
+              colorClass = 'history';
+            } else if (subjectLower.includes('geography')) {
+              iconClass = 'fa-earth-americas';
+              colorClass = 'geography';
+            }
+
+            subjectLink.innerHTML = `
+              <i class="fas ${iconClass} subject-icon ${colorClass}"></i>
+              <span class="subject-name">${subject.subjectName}</span>
+            `;
+
+            subjectsContainer.appendChild(subjectLink);
+          });
+        } else {
+          subjectsContainer.innerHTML = '<p class="no-subjects">No subjects found for this exam.</p>';
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        subjectsContainer.innerHTML = '<p class="error-message">Failed to load subjects.</p>';
+      }
+    }
+  });
+});
   </script>
 </body>
 
