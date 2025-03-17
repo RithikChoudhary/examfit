@@ -14,10 +14,21 @@ router.get('/:exam', async (req, res) => {
       return res.status(404).send('Exam not found');
     }
 
+    // Create a Set to track unique subject IDs
+    const seenSubjects = new Set();
+    const uniqueSubjects = examData.subjects.filter(subject => {
+      const subjectId = subject.subjectId;
+      if (!seenSubjects.has(subjectId)) {
+        seenSubjects.add(subjectId);
+        return true;
+      }
+      return false;
+    });
+
     res.render('subjects', { 
       exam: examId,
       examName: examData.examName,
-      subjects: examData.subjects 
+      subjects: uniqueSubjects
     });
   } catch (error) {
     console.error('Error:', error);
