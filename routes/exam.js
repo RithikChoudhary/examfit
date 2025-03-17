@@ -1,4 +1,5 @@
 // routes/exam.js
+require("xtend");
 const express = require('express');
 const router = express.Router();
 const { getQuestions } = require('../utils/dataHelpers');
