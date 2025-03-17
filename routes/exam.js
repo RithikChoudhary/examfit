@@ -5,26 +5,36 @@ const router = express.Router();
 const { getQuestions } = require('../utils/dataHelpers');
 
 // Enhanced debounce function with request cancellation
-let inFlightRequest = false;
-
 function debounceRequest(callback, delay = 300) {
   let timeout;
-  return function(...args) {
-    const requestAborted = () => {
-      clearTimeout(timeout);
-      inFlightRequest = false;
-    };
+  let inFlightRequest = false;
+  let abortController = new AbortController();
 
-    const wrappedCallback = () => {
-      if (!inFlightRequest) {
+  return function(...args) {
+    // Clear previous timeout and abort in-flight request
+    clearTimeout(timeout);
+    abortController.abort();
+    abortController = new AbortController();
+    
+    const wrappedCallback = async () => {
+      try {
+        if (inFlightRequest) return;
         inFlightRequest = true;
-        callback(...args).finally(() => {
-          inFlightRequest = false;
-        });
+        
+        // Pass the abort signal to the callback
+        const result = await callback(...args, { signal: abortController.signal });
+        return result;
+      } catch (error) {
+        if (error.name === 'AbortError') {
+          console.log('Request aborted due to new request coming in');
+          return;
+        }
+        throw error;
+      } finally {
+        inFlightRequest = false;
       }
     };
 
-    clearTimeout(timeout);
     timeout = setTimeout(wrappedCallback, delay);
   };
 }
@@ -55,7 +65,7 @@ function renderWithCache(res, template, data, cacheKey, cacheDuration = 5000) {
 renderWithCache.cache = {};
 
 // Route for displaying subjects for a specific exam (e.g., /upsc or /cgl)
-router.get('/:exam', debounceRequest(async (req, res) => {
+router.get('/:exam', debounceRequest(async (req, res, options = {}) => {
   try {
     const examId = req.params.exam.toLowerCase();
     const cacheKey = `exam-${examId}`;
@@ -83,7 +93,7 @@ router.get('/:exam', debounceRequest(async (req, res) => {
 }));
 
 // Route for displaying question papers for a subject within an exam
-router.get('/:exam/:subject/questionPapers', debounceRequest(async (req, res) => { 
+router.get('/:exam/:subject/questionPapers', debounceRequest(async (req, res, options = {}) => { 
   try {
     const { exam: examId, subject: subjectId } = req.params;
     const cacheKey = `questionPapers-${examId}-${subjectId}`;
@@ -111,7 +121,7 @@ router.get('/:exam/:subject/questionPapers', debounceRequest(async (req, res) =>
     res.status(500).send('Error loading question papers');
   }
 }));
-router.get('/:exam/:subject', debounceRequest(async (req, res) => {
+router.get('/:exam/:subject', debounceRequest(async (req, res, options = {}) => {
   try {
     const examId = req.params.exam.toLowerCase();
     const subjectId = req.params.subject.toLowerCase();
@@ -145,7 +155,7 @@ router.get('/:exam/:subject', debounceRequest(async (req, res) => {
 }));
 
 // Route for displaying questions for a specific question paper
-router.get('/:exam/:subject/:questionPaper/questions', debounceRequest(async (req, res) => {
+router.get('/:exam/:subject/:questionPaper/questions', debounceRequest(async (req, res, options = {}) => {
   try {
     const { exam: examId, subject: subjectId, questionPaper: questionPaperId } = req.params;
     const cacheKey = `questions-${examId}-${subjectId}-${questionPaperId}`;
