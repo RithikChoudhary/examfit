@@ -5,6 +5,19 @@ const multer = require('multer');
 const XLSX = require('xlsx');
 const upload = multer({ storage: multer.memoryStorage() });
 
+// Constants for API responses and pagination
+const StatusCodes = {
+  OK: 200,
+  CREATED: 201,
+  BAD_REQUEST: 400,
+  NOT_FOUND: 404,
+  INTERNAL_SERVER_ERROR: 500
+};
+
+// Constants for lazy loading
+const DEFAULT_PAGE_SIZE = 10;
+const MAX_PAGE_SIZE = 50;
+
 async function findExamAndSubject(examId, subjectId) {
   const data = await getQuestions();
   const examData = data.exams.find(e => e.examId === examId);
@@ -43,11 +56,54 @@ router.post('/subjects', express.json(), async (req, res) => {
 
 router.get('/subjects/:examId', async (req, res) => {
   try {
-    const { data, examData } = await findExamAndSubject(req.params.examId);
-    res.json({ subjects: examData.subjects });
+    const { examId } = req.params;
+    let { page = 1, pageSize = DEFAULT_PAGE_SIZE } = req.query;
+    
+    // Convert to numbers and validate
+    page = parseInt(page, 10);
+    pageSize = parseInt(pageSize, 10);
+    
+    if (isNaN(page) || isNaN(pageSize) || page < 1 || pageSize < 1) {
+      return res.status(StatusCodes.BAD_REQUEST).json({ 
+        error: 'Invalid pagination parameters' 
+      });
+    }
+    
+    // Limit page size to prevent excessive data loading
+    pageSize = Math.min(pageSize, MAX_PAGE_SIZE);
+    
+    const data = await getQuestions();
+    const examData = data.exams.find(e => e.examId === examId);
+    
+    if (!examData) {
+      return res.status(StatusCodes.NOT_FOUND).json({ 
+        error: 'Exam not found' 
+      });
+    }
+
+    // Calculate pagination
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    
+    const subjects = examData.subjects.slice(startIndex, endIndex);
+    const totalSubjects = examData.subjects.length;
+    const hasMore = endIndex < totalSubjects;
+
+    res.json({ 
+      subjects,
+      pagination: {
+        totalSubjects,
+        currentPage: page,
+        pageSize,
+        totalPages: Math.ceil(totalSubjects / pageSize),
+        hasMore
+      }
+    });
   } catch (error) {
     console.error('Error fetching subjects:', error);
-    res.status(500).json({ error: 'Failed to fetch subjects' });
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ 
+      error: 'Failed to fetch subjects' 
+    });
   }
 });
 router.get('/questions/:examId/:subjectId', async (req, res) => {
@@ -274,6 +330,7 @@ router.get('/questions/:examId/:subjectId/:paperId', async (req, res) => {
     res.status(500).send('Error loading questions');
   }
 });
+
 
 router.post('/questions/:examId/:subjectId/:paperId/upload', upload.single('file'), async (req, res) => {
   try {
