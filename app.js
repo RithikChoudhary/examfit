@@ -31,13 +31,6 @@ app.use('/icons', express.static(path.join(__dirname, 'public/icons')));
 // View engine setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.set('view options', {
-  layout: 'layout',
-  partials: {
-    header: 'partials/header',
-    footer: 'partials/footer'
-  }
-});
 
 // Important: Route order matters
 // app.use('/dashboard', dashboardRouter); // Dashboard route enabled
