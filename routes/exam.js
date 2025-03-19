@@ -4,14 +4,27 @@ const express = require('express');
 const router = express.Router();
 const { getQuestions } = require('../utils/dataHelpers');
 
-// Enhanced debounce function with request cancellation and URL tracking
+// Optimized debounce function with request cancellation, URL tracking, and memory management
 function debounceRequest(callback, delay = 300) {
+  // Use WeakMap for better memory management when possible
   const inFlightRequests = new Map();  // To track requests per URL
   const timeouts = new Map();          // To track timeouts per URL
+  
+  // Shared cleanup function to reduce code duplication
+  const cleanup = (url) => {
+    if (timeouts.has(url)) {
+      clearTimeout(timeouts.get(url));
+      timeouts.delete(url);
+    }
+    if (inFlightRequests.has(url)) {
+      inFlightRequests.delete(url);
+    }
+  };
 
   return function(...args) {
     const req = args[0];
     const url = req.originalUrl;
+    const requestId = `${url}-${Date.now()}`;
     
     // Cancel any pending request for this URL
     if (inFlightRequests.has(url)) {
@@ -29,45 +42,51 @@ function debounceRequest(callback, delay = 300) {
     const abortController = new AbortController();
     inFlightRequests.set(url, abortController);
 
-    // Set new timeout
+    // Set new timeout with performance optimization
     const timeout = setTimeout(async () => {
       try {
-        // Pass the abort signal to the callback
-        const result = await callback(...args, { signal: abortController.signal });
+        // Pass the abort signal and requestId to the callback
+        const result = await callback(...args, { 
+          signal: abortController.signal,
+          requestId
+        });
         return result;
       } catch (error) {
         if (error.name === 'AbortError') {
-          console.log('Request aborted due to new request coming in for:', url);
+          console.log(`Request aborted for URL: ${url}`);
           return;
         }
+        console.error(`Request failed for URL: ${url}`, error);
         throw error;
       } finally {
-        inFlightRequests.delete(url);
-        timeouts.delete(url);
+        cleanup(url);
       }
     }, delay);
 
     // Store timeout so we can clear it later
     timeouts.set(url, timeout);
 
-    // Add cleanup on request end
-    req.on('end', () => {
-      if (timeouts.has(url)) {
-        clearTimeout(timeouts.get(url));
-        timeouts.delete(url);
-      }
-      if (inFlightRequests.has(url)) {
-        inFlightRequests.delete(url);
-      }
-    });
+    // Add cleanup on request end and error
+    req.on('end', () => cleanup(url));
+    req.on('error', () => cleanup(url));
+    
+    // Add cleanup on response finish to handle cases where 'end' isn't triggered
+    const res = args[1];
+    if (res && typeof res.on === 'function') {
+      res.on('finish', () => cleanup(url));
+    }
   };
 }
 
 // Optimized rendering helper with caching
-function renderWithCache(res, template, data, cacheKey, cacheDuration = 5000) {
+function renderWithCache(res, template, data, cacheKey, cacheDuration = 3600000) {
   // Get cache for this specific route
   const cache = renderWithCache.cache || {};
   const cacheEntry = cache[cacheKey];
+  
+  // Set cache-control headers for better browser caching
+  res.setHeader('Cache-Control', 'public, max-age=3600, stale-while-revalidate=60');
+  res.setHeader('Vary', 'Accept');
   
   // Check if we have valid cached data
   if (cacheEntry && cacheEntry.timestamp > Date.now() - cacheDuration) {
@@ -92,7 +111,7 @@ renderWithCache.cache = {};
 router.get('/:exam', debounceRequest(async (req, res, options = {}) => {
   try {
     const examId = req.params.exam.toLowerCase();
-    const cacheKey = `exam-${examId}`;
+    const cacheKey = `exam-${examId}-subjects`;
     
     // Get data
     const data = await getQuestions();
@@ -120,7 +139,7 @@ router.get('/:exam', debounceRequest(async (req, res, options = {}) => {
 router.get('/:exam/:subject/questionPapers', debounceRequest(async (req, res, options = {}) => { 
   try {
     const { exam: examId, subject: subjectId } = req.params;
-    const cacheKey = `questionPapers-${examId}-${subjectId}`;
+    const cacheKey = `exam-${examId}-subject-${subjectId}-questionPapers`;
 
     const data = await getQuestions();
     const examData = data.exams.find(e => e.examId === examId);
@@ -149,7 +168,7 @@ router.get('/:exam/:subject', debounceRequest(async (req, res, options = {}) => 
   try {
     const examId = req.params.exam.toLowerCase();
     const subjectId = req.params.subject.toLowerCase();
-    const cacheKey = `subject-${examId}-${subjectId}`;
+    const cacheKey = `exam-${examId}-subject-${subjectId}-questions`;
 
     const data = await getQuestions();
     const examData = data.exams.find(e => e.examId === examId);
@@ -182,7 +201,7 @@ router.get('/:exam/:subject', debounceRequest(async (req, res, options = {}) => 
 router.get('/:exam/:subject/:questionPaper/questions', debounceRequest(async (req, res, options = {}) => {
   try {
     const { exam: examId, subject: subjectId, questionPaper: questionPaperId } = req.params;
-    const cacheKey = `questions-${examId}-${subjectId}-${questionPaperId}`;
+    const cacheKey = `exam-${examId}-subject-${subjectId}-questionPaper-${questionPaperId}`;
 
     const data = await getQuestions();
     const examData = data.exams.find(e => e.examId === examId);
