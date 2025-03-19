@@ -2,7 +2,7 @@
 require("xtend");
 const express = require('express');
 const router = express.Router();
-const { getQuestions } = require('../utils/dataHelpers');
+const { getQuestions, loadData } = require('../utils/dataHelpers');
 
 // Optimized debounce function with request cancellation, URL tracking, and memory management
 function debounceRequest(callback, delay = 300) {
@@ -113,8 +113,8 @@ router.get('/:exam', debounceRequest(async (req, res, options = {}) => {
     const examId = req.params.exam.toLowerCase();
     const cacheKey = `exam-${examId}-subjects`;
     
-    // Get data
-    const data = await getQuestions();
+    // Get data in parallel
+    const data = await loadData();
     const examData = data.exams.find(e => e.examId === examId);
 
     if (!examData) {
@@ -141,7 +141,8 @@ router.get('/:exam/:subject/questionPapers', debounceRequest(async (req, res, op
     const { exam: examId, subject: subjectId } = req.params;
     const cacheKey = `exam-${examId}-subject-${subjectId}-questionPapers`;
 
-    const data = await getQuestions();
+    // Get data in parallel
+    const data = await loadData();
     const examData = data.exams.find(e => e.examId === examId);
     if (!examData) return res.status(404).send('Exam not found');
 
@@ -170,7 +171,8 @@ router.get('/:exam/:subject', debounceRequest(async (req, res, options = {}) => 
     const subjectId = req.params.subject.toLowerCase();
     const cacheKey = `exam-${examId}-subject-${subjectId}-questions`;
 
-    const data = await getQuestions();
+    // Get data in parallel
+    const data = await loadData();
     const examData = data.exams.find(e => e.examId === examId);
     if (!examData) {
       return res.status(404).send('Exam not found');
@@ -203,7 +205,8 @@ router.get('/:exam/:subject/:questionPaper/questions', debounceRequest(async (re
     const { exam: examId, subject: subjectId, questionPaper: questionPaperId } = req.params;
     const cacheKey = `exam-${examId}-subject-${subjectId}-questionPaper-${questionPaperId}`;
 
-    const data = await getQuestions();
+    // Get data in parallel
+    const data = await loadData();
     const examData = data.exams.find(e => e.examId === examId);
     if (!examData) {
       return res.status(404).send('Exam not found');
