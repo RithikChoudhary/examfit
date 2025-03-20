@@ -40,7 +40,7 @@
   <%- include('./partials/footer') %>
 
   <script>
-    document.querySelectorAll('.exam-card').forEach(card => {
+  document.querySelectorAll('.exam-card').forEach(card => {
   card.addEventListener('click', async function() {
     const examId = this.dataset.examId;
     const subjectsContainer = document.getElementById(`subjects-${examId}`);
@@ -53,69 +53,88 @@
       }
     });
 
-    // Toggle current subjects container
+    // Toggle the current subjects container
     subjectsContainer.classList.toggle('show-subjects');
 
-    // Load subjects if not already loaded
-    if (subjectsContainer.children.length === 0) {
-      try {
-        const response = await fetch(`/api/subjects/${examId}`);
-        const data = await response.json();
+    // Prevent multiple fetch requests
+    if (subjectsContainer.dataset.loading === "true") {
+      return; // If already fetching, don't fetch again
+    }
 
-        if (data.subjects && data.subjects.length > 0) {
-          data.subjects.forEach(subject => {
-            const subjectLink = document.createElement('a');
-            subjectLink.href = `/${examId}/${subject.subjectId}/questionPapers`;
-            subjectLink.className = 'subject-card';
+    // If already populated, don't fetch again
+    if (subjectsContainer.children.length > 0) {
+      return;
+    }
 
-            // Choose icon and color class based on subject name
-            let iconClass = 'fa-book-open';
-            let colorClass = '';
-            const subjectLower = subject.subjectName.toLowerCase();
-            
-            if (subjectLower.includes('math') || subjectLower.includes('maths')) {
-              iconClass = 'fa-square-root-variable';
-              colorClass = 'math';
-            } else if (subjectLower.includes('physics')) {
-              iconClass = 'fa-atom';
-              colorClass = 'physics';
-            } else if (subjectLower.includes('chemistry')) {
-              iconClass = 'fa-flask';
-              colorClass = 'chemistry';
-            } else if (subjectLower.includes('general')) {
-              iconClass = 'fa-dna';
-              colorClass = 'biology';
-            } else if (subjectLower.includes('science') || subjectLower.includes('programming')) {
-              iconClass = 'fa-laptop-code';
-              colorClass = 'computer';
-            } else if (subjectLower.includes('economy') || subjectLower.includes('language')) {
-              iconClass = 'fa-language';
-              colorClass = 'english';
-            } else if (subjectLower.includes('history')) {
-              iconClass = 'fa-landmark';
-              colorClass = 'history';
-            } else if (subjectLower.includes('geography')) {
-              iconClass = 'fa-earth-americas';
-              colorClass = 'geography';
-            }
+    // Mark as loading to prevent duplicate fetches
+    subjectsContainer.dataset.loading = "true";
 
-            subjectLink.innerHTML = `
-              <i class="fas ${iconClass} subject-icon ${colorClass}"></i>
-              <span class="subject-name">${subject.subjectName}</span>
-            `;
+    try {
+      const response = await fetch(`/api/subjects/${examId}`);
+      const data = await response.json();
 
-            subjectsContainer.appendChild(subjectLink);
-          });
-        } else {
-          subjectsContainer.innerHTML = '<p class="no-subjects">No subjects found for this exam.</p>';
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        subjectsContainer.innerHTML = '<p class="error-message">Failed to load subjects.</p>';
+      // Clear previous content to prevent duplicates
+      subjectsContainer.innerHTML = '';
+
+      if (data.subjects && data.subjects.length > 0) {
+        data.subjects.forEach(subject => {
+          const subjectLink = document.createElement('a');
+          subjectLink.href = `/${examId}/${subject.subjectId}/questionPapers`;
+          subjectLink.className = 'subject-card';
+
+          // Choose icon and color class based on subject name
+          let iconClass = 'fa-book-open';
+          let colorClass = '';
+          const subjectLower = subject.subjectName.toLowerCase();
+
+          if (subjectLower.includes('math') || subjectLower.includes('maths')) {
+            iconClass = 'fa-square-root-variable';
+            colorClass = 'math';
+          } else if (subjectLower.includes('physics')) {
+            iconClass = 'fa-atom';
+            colorClass = 'physics';
+          } else if (subjectLower.includes('chemistry')) {
+            iconClass = 'fa-flask';
+            colorClass = 'chemistry';
+          } else if (subjectLower.includes('general')) {
+            iconClass = 'fa-dna';
+            colorClass = 'biology';
+          } else if (subjectLower.includes('science') || subjectLower.includes('programming')) {
+            iconClass = 'fa-laptop-code';
+            colorClass = 'computer';
+          } else if (subjectLower.includes('economy') || subjectLower.includes('language')) {
+            iconClass = 'fa-language';
+            colorClass = 'english';
+          } else if (subjectLower.includes('history')) {
+            iconClass = 'fa-landmark';
+            colorClass = 'history';
+          } else if (subjectLower.includes('geography')) {
+            iconClass = 'fa-earth-americas';
+            colorClass = 'geography';
+          }
+
+          subjectLink.innerHTML = `
+            <i class="fas ${iconClass} subject-icon ${colorClass}"></i>
+            <span class="subject-name">${subject.subjectName}</span>
+          `;
+
+          subjectsContainer.appendChild(subjectLink);
+        });
+      } else {
+        subjectsContainer.innerHTML = '<p class="no-subjects">No subjects found for this exam.</p>';
       }
+    } catch (error) {
+      console.error('Error:', error);
+      subjectsContainer.innerHTML = '<p class="error-message">Failed to load subjects.</p>';
+    } finally {
+      // Remove the loading state
+      subjectsContainer.dataset.loading = "false";
     }
   });
 });
+
+  
+  
   </script>
 </body>
 
