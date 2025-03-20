@@ -6,7 +6,10 @@ const { getQuestions } = require('../utils/dataHelpers');
 // Route for sub-exams (e.g., IPS, IRS under UPSC)
 router.get('/:exam', async (req, res) => {
     try {
+        console.time("getQuestions()");
         const data = await getQuestions();
+        console.timeEnd("getQuestions()");
+
         const exam = req.params.exam.toLowerCase();
         const examData = data.exams.find(e => e.examId === exam);
 
@@ -20,7 +23,6 @@ router.get('/:exam', async (req, res) => {
                 examName: examData.examName,
                 subExams: examData.subExams
             });
-            
         } else {
             const subjects = examData.subjects.map(s => ({
                 id: s.subjectId,
@@ -38,6 +40,7 @@ router.get('/:exam', async (req, res) => {
         res.status(500).send('Error loading exam data');
     }
 });
+
 
 // Route for subjects under sub-exams
 router.get('/:exam/:subExam/subjects', async (req, res) => {
