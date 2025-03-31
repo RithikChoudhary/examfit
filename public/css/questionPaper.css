@@ -1,124 +1,160 @@
-/* Clean White Exam Platform Theme */
-
 :root {
-    --white: #ffffff;
-    --gray-50: #f8fafc;
-    --gray-100: #f1f5f9;
-    --gray-600: #475569;
-    --gray-700: #334155;
-    --blue-500: #3b82f6;
-    --shadow-sm: rgba(0, 0, 0, 0.1);
+  --bg-light: #f9fafb;
+  --bg-card: #ffffff;
+  --border: #e5e7eb;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --shadow: rgba(0, 0, 0, 0.06);
+  --glow: rgba(37, 99, 235, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--white);
+  color: #000;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.subject-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: visible;
+  position: relative;
+  z-index: 0;
+}
+
+.content-area {
+  overflow: visible;
+  position: relative;
+  z-index: 0;
+}
+
+.exam-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.exam-header h1 {
+  color: #000 !important;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.exam-header p {
+  color: var(--gray-600);
+  font-size: 1rem;
+}
+
+.section-block {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+  width: 100%;
+  overflow: visible;
+  position: relative;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--gray-700);
+}
+
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  overflow: visible;
+  position: relative;
+}
+
+.carousel {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-behavior: smooth;
+  flex: 1;
+  padding-bottom: 0.5rem;
+}
+
+.paper-card-wrapper {
+  padding-top: 10px;
+  position: relative;
+  overflow: visible;
+}
+
+.paper-card {
+  min-width: 180px;
+  max-width: 180px;
+  height: 100px;
+  background: #f1f5f9;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+  transition: 0.3s ease;
+  text-align: center;
+}
+
+.paper-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+  z-index: 10;
+}
+
+.paper-card a {
+  color: #000 !important;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.paper-card a:hover {
+  color: #1d4ed8;
+}
+
+.scroll-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0 10px;
+  color: #333;
+}
+
+.question-paper-sections {
+  display: block;
+  padding-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    gap: 12px;
   }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+  .paper-card {
+    min-width: 140px;
+    max-width: 140px;
+    height: 90px;
   }
-  
-  body {
-    background: var(--white);
-    color: var(--gray-700);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.5;
+
+  .scroll-btn {
+    font-size: 1.5rem;
+    padding: 0 6px;
   }
-  
-  .subject-page {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .exam-header {
-    text-align: center;
-    margin-bottom: 2.5rem;
-  }
-  
-  .exam-header h1 {
-    color: var(--gray-700);
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  
-  .exam-header p {
-    color: var(--gray-600);
-    font-size: 1rem;
-  }
-  
-  .subjects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
-    gap: 1.5rem;
-    justify-content: center;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0.5rem;
-  }
-  
-  .subject-card {
-    background: var(--white);
-    border: 3px solid #e2e8f0;
-    border-radius: 8px;
-    padding: 1.5rem;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    width: 200px;
-    height: 200px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    margin: 0 auto;
-  }
-  
-  .subject-card:hover {
-    transform: translateY(-2px);
-    border-color: var(--blue-500);
-    border-width: 2px;
-    box-shadow: 0 6px 16px var(--shadow-sm);
-  }
-  
-  .subject-icon {
-    font-size: 1.75rem;
-    color: var(--blue-500);
-    background: var(--gray-50);
-    padding: 0.75rem;
-    border-radius: 8px;
-    transition: 0.2s;
-  }
-  
-  .subject-card:hover .subject-icon {
-    background: var(--blue-500);
-    color: var(--white);
-  }
-  
-  .subject-name {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--gray-700);
-    text-align: center;
-  }
-  
-  /* Subject Icons */
-  [data-subject="physics"] .subject-icon::before { content: "\f90c"; }
-  [data-subject="chemistry"] .subject-icon::before { content: "\f0c3"; }
-  [data-subject="biology"] .subject-icon::before { content: "\f471"; }
-  [data-subject="mathematics"] .subject-icon::before { content: "\f698"; }
-  [data-subject="english"] .subject-icon::before { content: "\f02d"; }
-  [data-subject="history"] .subject-icon::before { content: "\f1da"; }
-  [data-subject="geography"] .subject-icon::before { content: "\f0ac"; }
-  [data-subject="computer-science"] .subject-icon::before { content: "\f121"; }
-  
-  @media (max-width: 768px) {
-    .subjects-container {
-      gap: 1rem;
-      padding: 1rem;
-    }
-    
-    .subject-card {
-      padding: 1.25rem;
-    }
-  }
+}

@@ -8,7 +8,7 @@
   <title>Question Papers - <%= subjectName %> - <%= examName %></title>
   <link rel="stylesheet" href="/css/questionPaper.css"> 
   <link rel="stylesheet" href="/css/navbar.css"> 
-  <link rel="stylesheet" href="/css/dashboard-questionPaper.css">
+  <!-- <link rel="stylesheet" href="/css/dashboard-questionPaper.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <meta name="google-adsense-account" content="ca-pub-7935640093775501">
   <!-- Google tag (gtag.js) -->
@@ -33,7 +33,7 @@
       
         <div class="content-area">
           <div class="question-paper-sections">
-            <% if (questionPapers.length === 0) { %>
+            <!-- <% if (questionPapers.length === 0) { %>
               <div class="no-papers-message">
                 <p>No question papers available for this subject yet.</p>
               </div>
@@ -58,11 +58,65 @@
                   </div>
                 <% } %>
               <% }); %>
+            <% } %> -->
+            <% if (questionPapers.length === 0) { %>
+              <div class="no-papers-message">
+                <p>No question papers available for this subject yet.</p>
+              </div>
+            <% } else { %>
+              <% const sections = [...new Set(questionPapers.map(paper => paper.section))].sort(); %>
+              <% sections.forEach(sectionName => { %>
+                <% const papersInSection = questionPapers.filter(p => p.section === sectionName); %>
+                <% if (papersInSection.length > 0) { %>
+                  <div class="section-block">
+                    <h3 class="section-title"><%= sectionName %></h3>
+                    <div class="carousel-wrapper">
+                      <button class="scroll-btn left" onclick="scrollSectionCarousel('<%= sectionName %>', -1)">&#10094;</button>
+                      <div class="carousel" id="carousel-<%= sectionName.replace(/\s+/g, '-') %>">
+                        <% papersInSection.forEach(paper => { %>
+                          <div class="paper-card-wrapper">
+                          <div class="paper-card">
+                            <a href="/<%= exam %>/<%= subject %>/<%= paper.questionPaperId %>/questions">
+                              <%= paper.questionPaperName %>
+                            </a>
+                          </div>
+                          </div>
+                        <% }); %>
+                      </div>
+                      <button class="scroll-btn right" onclick="scrollSectionCarousel('<%= sectionName %>', 1)">&#10095;</button>
+                    </div>
+                  </div>
+                <% } %>
+              <% }); %>
             <% } %>
           </div>
         </div>
     </main>
-  <script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script> 
+    <script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script>
+
+    <script>
+      function scrollSectionCarousel(sectionName, direction) {
+        const carouselId = 'carousel-' + sectionName.replace(/\s+/g, '-');
+        const carousel = document.getElementById(carouselId);
+        const card = carousel.querySelector('.paper-card');
+        if (!card) return;
+    
+        const cardStyle = getComputedStyle(card);
+        const cardWidth = card.offsetWidth 
+                        + parseInt(cardStyle.marginLeft || 0) 
+                        + parseInt(cardStyle.marginRight || 0)
+                        + 20; // match your .carousel gap in px
+    
+        carousel.scrollBy({
+          left: direction * cardWidth,
+          behavior: 'smooth'
+        });
+      }
+    </script>
+    
+
+    
+    
 </body>
 </html>
 
