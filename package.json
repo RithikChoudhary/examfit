@@ -25,7 +25,9 @@
     "xtend": "^4.0.2"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "nodemon": "^3.1.9",
+    "postcss-cli": "^11.0.1"
   },
   "engines": {
     "node": "22.14.0"
