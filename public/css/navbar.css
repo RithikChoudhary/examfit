@@ -1,4 +1,13 @@
 /* Navbar CSS */
+:root {
+   --white: #ffffff;
+   --gray-50: #f9fafb;
+   --gray-100: #f3f4f6;
+   --gray-600: #4b5563;
+   --gray-700: #374151;
+   --blue-500: #3b82f6;
+ }
+ 
 .main-header {
     background: var(--white);
     border-bottom: 2px solid var(--gray-100);
