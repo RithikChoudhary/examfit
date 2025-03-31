@@ -35,17 +35,19 @@ app.set('views', path.join(__dirname, 'views'));
 // Important: Route order matters
 // app.use('/dashboard', dashboardRouter); // Dashboard route enabled
 app.use('/api', apiRouter);
+app.use('/', indexRouter);       // move this UP
 app.use('/', examHierarchyRoutes); 
 app.use('/', xlsxTemplateRoutes);
-app.use('/', examRouter); 
-app.use('/', indexRouter); 
+app.use('/', examRouter);       // move this DOWN
 app.use('/', directExamRoutes);
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
   res.status(500).json({
     error: 'Internal Server Error',
     message: 'Something went wrong. Please try again later.'
+    
   });
 });
 
