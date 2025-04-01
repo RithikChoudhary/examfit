@@ -45,10 +45,11 @@
             flex-grow: 1;
         }
     </style>
+    <link rel="stylesheet" href="/css/home-footer.css">
 </head>
 <body>
     <%- include('partials/navbar', { subjects: subjects, exam: exam }) %>
-
+    <div class="content-wrapper">
     <main>
         <h1><%= subject.charAt(0).toUpperCase() + subject.slice(1) %> Questions</h1>
         <% if (questions.length === 0) { %>
@@ -79,8 +80,8 @@
             </button>
         <% } %>
     </main>
-
-
+</div>
+    <%- include('./partials/footer') %>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}

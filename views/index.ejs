@@ -28,7 +28,7 @@
       text-align: center;
       margin-bottom: 2rem;
     }
-  
+
     .hero-title {
       font-size: 2.5rem;
       margin-bottom: 1rem;
@@ -36,14 +36,14 @@
       font-weight: 600;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
-  
+
     .hero-subtitle {
       font-size: 1.2rem;
       color: #475569;
       max-width: 600px;
       margin: 0 auto;
     }
-  
+
     @media (max-width: 768px) {
       .hero-title {
         font-size: 2rem;
@@ -54,7 +54,7 @@
       }
     }
   </style>
-  
+
   <link rel="preload" href="/css/home.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="/css/home.css">
@@ -66,167 +66,165 @@
   <noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   </noscript>
-  
+
   <link rel="stylesheet" href="/css/home-footer.css">
 </head>
 
 <body>
-  <%- include('partials/navbar') %>
-  <div class="content-wrapper">
-    <section class="hero-section">
-      <h1 class="hero-title">Welcome to ExamFit</h1>
-      <p class="hero-subtitle">Choose an exam to begin your preparation</p>
-      <div class="exam-container">
-        <% exams.forEach((exam)=> { %>
-          <div class="exam-column">
-            <div class="exam-card" data-exam-id="<%= exam.examId %>">
-              <div class="exam-icon">
+    <%- include('partials/navbar') %>
+      <div class="content-wrapper">
+        <section class="hero-section">
+          <h1 class="hero-title">Welcome to ExamFit</h1>
+          <p class="hero-subtitle">Choose an exam to begin your preparation</p>
+          <div class="exam-container">
+            <% exams.forEach((exam)=> { %>
+              <div class="exam-column">
+                <div class="exam-card" data-exam-id="<%= exam.examId %>">
+                  <div class="exam-icon">
                     <img src="/templates/<%= exam.examId %>.webp" alt="<%= exam.examName %>" width="200" height="200"
                       loading="lazy" decoding="async">
+                  </div>
+                  <div class="exam-title">
+                    <%= exam.examName %>
+                  </div>
+                </div>
+                <div class="subjects-container" id="subjects-<%= exam.examId %>"></div>
               </div>
-              <div class="exam-title">
-                <%= exam.examName %>
-              </div>
-            </div>
-            <div class="subjects-container" id="subjects-<%= exam.examId %>"></div>
+              <% }); %>
           </div>
-        <% }); %>
+        </section>
       </div>
-    </section>
+      <%- include('./partials/footer') %>
   </div>
 
-  <%- include('./partials/footer') %>
 
   <script>
-  
-document.querySelectorAll('.exam-card').forEach(card => {
-  card.addEventListener('click', async function () {
-    const examId = this.dataset.examId;
-    const subjectsContainer = document.getElementById(`subjects-${examId}`);
-    const allSubjectsContainers = document.querySelectorAll('.subjects-container');
 
-    // Hide other subject containers
-    allSubjectsContainers.forEach(container => {
-      if (container.id !== `subjects-${examId}`) {
-        container.classList.remove('show-subjects');
-      }
-    });
+    document.querySelectorAll('.exam-card').forEach(card => {
+      card.addEventListener('click', async function () {
+        const examId = this.dataset.examId;
+        const subjectsContainer = document.getElementById(`subjects-${examId}`);
+        const allSubjectsContainers = document.querySelectorAll('.subjects-container');
 
-    // Toggle the current subjects container
-    subjectsContainer.classList.toggle('show-subjects');
-
-    // Prevent multiple fetch requests
-    if (subjectsContainer.dataset.loading === "true") {
-      return;
-    }
-
-    // If already populated, don't fetch again
-    if (subjectsContainer.children.length > 0) {
-      return;
-    }
-
-    // Mark as loading
-    subjectsContainer.dataset.loading = "true";
-
-    // Start timing the request
-    console.time(`Fetch subjects for ${examId}`);
-
-    try {
-      const response = await fetch(`/api/subjects/${examId}`);
-      console.timeEnd(`Fetch subjects for ${examId}`); // End timing
-      const data = await response.json();
-
-      // Clear previous content to prevent duplicates
-      subjectsContainer.innerHTML = '';
-
-      if (data.subjects && data.subjects.length > 0) {
-        data.subjects.forEach(subject => {
-          const subjectLink = document.createElement('a');
-          subjectLink.href = `/${examId}/${subject.subjectId}/questionPapers`;
-          subjectLink.className = 'subject-card';
-          let iconClass = 'fa-book-open-reader';
-          let colorClass = '';
-          const subjectLower = subject.subjectName.toLowerCase();
-
-          if (subjectLower.includes('math')) {
-            iconClass = 'fa-square-root-variable';
-            colorClass = 'math';
-          } else if (subjectLower.includes('physics')) {
-            iconClass = 'fa-atom';
-            colorClass = 'physics';
-          } else if (subjectLower.includes('chemistry')) {
-            iconClass = 'fa-flask';
-            colorClass = 'chemistry';
-          } else if (subjectLower.includes('general')) {
-            iconClass = 'fa-book-open-reader';
-            colorClass = 'general';
-          } else if (subjectLower.includes('science') || subjectLower.includes('programming')) {
-            iconClass = 'fa-laptop-code';
-            colorClass = 'computer';
-          } else if (subjectLower.includes('economy') || subjectLower.includes('language')) {
-            iconClass = 'fa-language';
-            colorClass = 'english';
-          } else if (subjectLower.includes('history')) {
-            iconClass = 'fa-landmark';
-            colorClass = 'history';
-          } else if (subjectLower.includes('geography')) {
-            iconClass = 'fa-earth-americas';
-            colorClass = 'geography';
+        // Hide other subject containers
+        allSubjectsContainers.forEach(container => {
+          if (container.id !== `subjects-${examId}`) {
+            container.classList.remove('show-subjects');
           }
+        });
 
-          subjectLink.innerHTML = `
+        // Toggle the current subjects container
+        subjectsContainer.classList.toggle('show-subjects');
+
+        // Prevent multiple fetch requests
+        if (subjectsContainer.dataset.loading === "true") {
+          return;
+        }
+
+        // If already populated, don't fetch again
+        if (subjectsContainer.children.length > 0) {
+          return;
+        }
+
+        // Mark as loading
+        subjectsContainer.dataset.loading = "true";
+
+        // Start timing the request
+        console.time(`Fetch subjects for ${examId}`);
+
+        try {
+          const response = await fetch(`/api/subjects/${examId}`);
+          console.timeEnd(`Fetch subjects for ${examId}`); // End timing
+          const data = await response.json();
+
+          // Clear previous content to prevent duplicates
+          subjectsContainer.innerHTML = '';
+
+          if (data.subjects && data.subjects.length > 0) {
+            data.subjects.forEach(subject => {
+              const subjectLink = document.createElement('a');
+              subjectLink.href = `/${examId}/${subject.subjectId}/questionPapers`;
+              subjectLink.className = 'subject-card';
+              let iconClass = 'fa-book-open-reader';
+              let colorClass = '';
+              const subjectLower = subject.subjectName.toLowerCase();
+
+              if (subjectLower.includes('math')) {
+                iconClass = 'fa-square-root-variable';
+                colorClass = 'math';
+              } else if (subjectLower.includes('physics')) {
+                iconClass = 'fa-atom';
+                colorClass = 'physics';
+              } else if (subjectLower.includes('chemistry')) {
+                iconClass = 'fa-flask';
+                colorClass = 'chemistry';
+              } else if (subjectLower.includes('general')) {
+                iconClass = 'fa-book-open-reader';
+                colorClass = 'general';
+              } else if (subjectLower.includes('science') || subjectLower.includes('programming')) {
+                iconClass = 'fa-laptop-code';
+                colorClass = 'computer';
+              } else if (subjectLower.includes('economy') || subjectLower.includes('language')) {
+                iconClass = 'fa-language';
+                colorClass = 'english';
+              } else if (subjectLower.includes('history')) {
+                iconClass = 'fa-landmark';
+                colorClass = 'history';
+              } else if (subjectLower.includes('geography')) {
+                iconClass = 'fa-earth-americas';
+                colorClass = 'geography';
+              }
+
+              subjectLink.innerHTML = `
             <i class="fas ${iconClass} subject-icon ${colorClass}"></i>
             <span class="subject-name">${subject.subjectName}</span>
           `;
 
-          subjectsContainer.appendChild(subjectLink);
-        });
-      } else {
-        subjectsContainer.innerHTML = '<p class="no-subjects">No subjects found for this exam.</p>';
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      subjectsContainer.innerHTML = '<p class="error-message">Failed to load subjects.</p>';
-    } finally {
-      // Remove the loading state
-      subjectsContainer.dataset.loading = "false";
-    }
-  });
-});
+              subjectsContainer.appendChild(subjectLink);
+            });
+          } else {
+            subjectsContainer.innerHTML = '<p class="no-subjects">No subjects found for this exam.</p>';
+          }
+        } catch (error) {
+          console.error('Error:', error);
+          subjectsContainer.innerHTML = '<p class="error-message">Failed to load subjects.</p>';
+        } finally {
+          // Remove the loading state
+          subjectsContainer.dataset.loading = "false";
+        }
+      });
+    });
 
   </script>
   <!-- Optimized Google Analytics (lazy-loaded) -->
-<script>
-  window.dataLayer = window.dataLayer || [];
+  <script>
+    window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
 
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(() => {
-      const gtagScript = document.createElement('script');
-      gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
-      gtagScript.async = true;
-      document.head.appendChild(gtagScript);
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        const gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
 
-      gtag('js', new Date());
-      gtag('config', 'G-5HNLDBJ7EL');
-    });
-  } else {
-    // Fallback if browser doesn't support requestIdleCallback
-    setTimeout(() => {
-      const gtagScript = document.createElement('script');
-      gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
-      gtagScript.async = true;
-      document.head.appendChild(gtagScript);
+        gtag('js', new Date());
+        gtag('config', 'G-5HNLDBJ7EL');
+      });
+    } else {
+      // Fallback if browser doesn't support requestIdleCallback
+      setTimeout(() => {
+        const gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
 
-      gtag('js', new Date());
-      gtag('config', 'G-5HNLDBJ7EL');
-    }, 2000);
-  }
-</script>
+        gtag('js', new Date());
+        gtag('config', 'G-5HNLDBJ7EL');
+      }, 2000);
+    }
+  </script>
 
 </body>
 
 </html>
-
-
-
