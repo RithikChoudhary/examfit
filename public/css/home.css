@@ -12,6 +12,7 @@
   --gray-700: #334155;
   --blue-500: #3b82f6;
   --shadow-sm: rgba(0, 0, 0, 0.1);
+  --general-color: #fbbf24;
   /* Colors for different subjects */
   --math-color: #FF6B6B;
   --physics-color: #4ECDC4;
@@ -181,6 +182,8 @@ body {
 .subject-icon.physics { color: var(--physics-color); }
 .subject-icon.chemistry { color: var(--chemistry-color); }
 .subject-icon.biology { color: var(--biology-color); }
+.subject-icon.general { color: var(--general-color); }
+
 .subject-icon.computer { color: var(--computer-color); }
 .subject-icon.english { color: var(--english-color); }
 .subject-icon.history { color: var(--history-color); }
@@ -190,6 +193,10 @@ body {
 .subject-card:hover .subject-icon.math { 
     background: var(--math-color); 
     color: white;
+}
+.subject-card:hover .subject-icon.general {
+  background: var(--general-color);
+  color: white;
 }
 .subject-card:hover .subject-icon.physics { 
     background: var(--physics-color); 

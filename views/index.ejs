@@ -129,7 +129,7 @@ document.querySelectorAll('.exam-card').forEach(card => {
           const subjectLink = document.createElement('a');
           subjectLink.href = `/${examId}/${subject.subjectId}/questionPapers`;
           subjectLink.className = 'subject-card';
-          let iconClass = 'fa-book-open';
+          let iconClass = 'fa-book-open-reader';
           let colorClass = '';
           const subjectLower = subject.subjectName.toLowerCase();
 
@@ -143,8 +143,8 @@ document.querySelectorAll('.exam-card').forEach(card => {
             iconClass = 'fa-flask';
             colorClass = 'chemistry';
           } else if (subjectLower.includes('general')) {
-            iconClass = 'fa-dna';
-            colorClass = 'biology';
+            iconClass = 'fa-book-open-reader';
+            colorClass = 'general';
           } else if (subjectLower.includes('science') || subjectLower.includes('programming')) {
             iconClass = 'fa-laptop-code';
             colorClass = 'computer';
