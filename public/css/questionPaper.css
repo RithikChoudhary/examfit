@@ -157,4 +157,7 @@ body {
     font-size: 1.5rem;
     padding: 0 6px;
   }
+  .exam-header h1 {
+    font-size: 1rem;
+  }
 }
