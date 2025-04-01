@@ -6,9 +6,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- ✅ New Meta Description -->
-  <meta name="description" content="Prepare for competitive exams with ExamFit. Practice previous year papers, explore subject-wise questions, and boost your exam readiness.">
+  <meta name="description"
+    content="Prepare for competitive exams with ExamFit. Practice previous year papers, explore subject-wise questions, and boost your exam readiness.">
   <meta property="og:title" content="ExamFit – Prepare Smarter" />
-  <meta property="og:description" content="Practice competitive exams with real question papers and smart subject-wise prep." />
+  <meta property="og:description"
+    content="Practice competitive exams with real question papers and smart subject-wise prep." />
   <meta property="og:image" content="/templates/logo.webp" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://examfit.in" />
@@ -56,18 +58,17 @@
 
 <body>
   <%- include('partials/navbar') %>
-
   <div class="content-wrapper">
     <section class="hero-section">
       <h1 class="hero-title">Welcome to ExamFit</h1>
       <p class="hero-subtitle">Choose an exam to begin your preparation</p>
-
       <div class="exam-container">
         <% exams.forEach((exam)=> { %>
           <div class="exam-column">
             <div class="exam-card" data-exam-id="<%= exam.examId %>">
               <div class="exam-icon">
-                <img src="/templates/<%= exam.examId %>.webp" alt="<%= exam.examName %>" width="200" height="200" loading="lazy" decoding="async">
+                    <img src="/templates/<%= exam.examId %>.webp" alt="<%= exam.examName %>" width="200" height="200"
+                      loading="lazy" decoding="async">
               </div>
               <div class="exam-title">
                 <%= exam.examName %>
@@ -183,7 +184,7 @@ document.querySelectorAll('.exam-card').forEach(card => {
   <!-- Optimized Google Analytics (lazy-loaded) -->
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
 
   if ('requestIdleCallback' in window) {
     requestIdleCallback(() => {
