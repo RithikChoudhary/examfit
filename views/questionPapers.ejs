@@ -1,40 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
- 
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Prepare for competitive exams with ExamFit. Practice previous year papers, explore subject-wise questions, and boost your exam readiness.">
+  <meta name="description"
+    content="Prepare for competitive exams with ExamFit. Practice previous year papers, explore subject-wise questions, and boost your exam readiness.">
   <meta property="og:title" content="ExamFit – Prepare Smarter" />
-  <meta property="og:description" content="Practice competitive exams with real question papers and smart subject-wise prep." />
+  <meta property="og:description"
+    content="Practice competitive exams with real question papers and smart subject-wise prep." />
   <meta property="og:image" content="/templates/logo.webp" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://examfit.in" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7935640093775501"
-     crossorigin="anonymous"></script>
-  <title>Question Papers - <%= subjectName %> - <%= examName %></title>
-  <link rel="stylesheet" href="/css/questionPaper.css"> 
-  <link rel="stylesheet" href="/css/navbar.css"> 
-  <!-- <link rel="stylesheet" href="/css/dashboard-questionPaper.css"> -->
+    crossorigin="anonymous"></script>
+  <title>Question Papers - <%= subjectName %> - <%= examName %>
+  </title>
+  <link rel="stylesheet" href="/css/questionPaper.css">
+  <link rel="stylesheet" href="/css/navbar.css">
 
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  </noscript>
 
   <meta name="google-adsense-account" content="ca-pub-7935640093775501">
-  
+
 </head>
+
 <body>
-    <%- include('./partials/navbar', { subjects: subjects, exam: exam }) %>
+  <%- include('./partials/navbar', { subjects: subjects, exam: exam }) %>
 
     <main class="subject-page">
-        <header class="exam-header">
-            <h1><%= subjectName %> Question Papers for <%= examName %></h1>
-            <p>Select a Question Paper to start practicing.</p>
-        </header>
-      
-        <div class="content-area">
-          <div class="question-paper-sections">
-            <!-- <% if (questionPapers.length === 0) { %>
+      <header class="exam-header">
+        <h1>
+          <%= subjectName %> Question Papers for <%= examName %>
+        </h1>
+        <p>Select a Question Paper to start practicing.</p>
+      </header>
+
+      <div class="content-area">
+        <div class="question-paper-sections">
+          <!-- <% if (questionPapers.length === 0) { %>
               <div class="no-papers-message">
                 <p>No question papers available for this subject yet.</p>
               </div>
@@ -60,38 +70,42 @@
                 <% } %>
               <% }); %>
             <% } %> -->
-            <% if (questionPapers.length === 0) { %>
-              <div class="no-papers-message">
-                <p>No question papers available for this subject yet.</p>
-              </div>
+          <% if (questionPapers.length===0) { %>
+            <div class="no-papers-message">
+              <p>No question papers available for this subject yet.</p>
+            </div>
             <% } else { %>
-              <% const sections = [...new Set(questionPapers.map(paper => paper.section))].sort(); %>
-              <% sections.forEach(sectionName => { %>
-                <% const papersInSection = questionPapers.filter(p => p.section === sectionName); %>
-                <% if (papersInSection.length > 0) { %>
-                  <div class="section-block">
-                    <h3 class="section-title"><%= sectionName %></h3>
-                    <div class="carousel-wrapper">
-                      <button class="scroll-btn left" onclick="scrollSectionCarousel('<%= sectionName %>', -1)">&#10094;</button>
-                      <div class="carousel" id="carousel-<%= sectionName.replace(/\s+/g, '-') %>">
-                        <% papersInSection.forEach(paper => { %>
-                          <div class="paper-card-wrapper">
-                          <div class="paper-card">
-                            <a href="/<%= exam %>/<%= subject %>/<%= paper.questionPaperId %>/questions">
-                              <%= paper.questionPaperName %>
-                            </a>
+              <% const sections=[...new Set(questionPapers.map(paper=> paper.section))].sort(); %>
+                <% sections.forEach(sectionName=> { %>
+                  <% const papersInSection=questionPapers.filter(p=> p.section === sectionName); %>
+                    <% if (papersInSection.length> 0) { %>
+                      <div class="section-block">
+                        <h3 class="section-title">
+                          <%= sectionName %>
+                        </h3>
+                        <div class="carousel-wrapper">
+                          <button class="scroll-btn left"
+                            onclick="scrollSectionCarousel('<%= sectionName %>', -1)">&#10094;</button>
+                          <div class="carousel" id="carousel-<%= sectionName.replace(/\s+/g, '-') %>">
+                            <% papersInSection.forEach(paper=> { %>
+                              <div class="paper-card-wrapper">
+                                <div class="paper-card">
+                                  <a href="/<%= exam %>/<%= subject %>/<%= paper.questionPaperId %>/questions">
+                                    <%= paper.questionPaperName %>
+                                  </a>
+                                </div>
+                              </div>
+                              <% }); %>
                           </div>
-                          </div>
-                        <% }); %>
+                          <button class="scroll-btn right"
+                            onclick="scrollSectionCarousel('<%= sectionName %>', 1)">&#10095;</button>
+                        </div>
                       </div>
-                      <button class="scroll-btn right" onclick="scrollSectionCarousel('<%= sectionName %>', 1)">&#10095;</button>
-                    </div>
-                  </div>
-                <% } %>
-              <% }); %>
-            <% } %>
-          </div>
+                      <% } %>
+                        <% }); %>
+                          <% } %>
         </div>
+      </div>
     </main>
     <script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script>
 
@@ -101,33 +115,45 @@
         const carousel = document.getElementById(carouselId);
         const card = carousel.querySelector('.paper-card');
         if (!card) return;
-    
+
         const cardStyle = getComputedStyle(card);
-        const cardWidth = card.offsetWidth 
-                        + parseInt(cardStyle.marginLeft || 0) 
-                        + parseInt(cardStyle.marginRight || 0)
-                        + 20; // match your .carousel gap in px
-    
+        const cardWidth = card.offsetWidth
+          + parseInt(cardStyle.marginLeft || 0)
+          + parseInt(cardStyle.marginRight || 0)
+          + 20; // your .carousel gap
+
+        const scrollAmount = direction * cardWidth;
+        const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+        const nextScrollPos = carousel.scrollLeft + scrollAmount;
+
+        // Prevent overscrolling
+        if (nextScrollPos < 0 || nextScrollPos > maxScrollLeft + 5) {
+          return;
+        }
+
         carousel.scrollBy({
-          left: direction * cardWidth,
+          left: scrollAmount,
           behavior: 'smooth'
         });
       }
-    </script>
-    
 
-    
+      
+
+    </script>
+
+
+
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-    
+      function gtag() { dataLayer.push(arguments); }
+
       if ('requestIdleCallback' in window) {
         requestIdleCallback(() => {
           const gtagScript = document.createElement('script');
           gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
           gtagScript.async = true;
           document.head.appendChild(gtagScript);
-    
+
           gtag('js', new Date());
           gtag('config', 'G-5HNLDBJ7EL');
         });
@@ -138,12 +164,12 @@
           gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
           gtagScript.async = true;
           document.head.appendChild(gtagScript);
-    
+
           gtag('js', new Date());
           gtag('config', 'G-5HNLDBJ7EL');
         }, 2000);
       }
     </script>
 </body>
-</html>
 
+</html>
