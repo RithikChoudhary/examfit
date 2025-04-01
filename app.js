@@ -28,6 +28,14 @@ app.use('/js', express.static(path.join(__dirname, 'public/js')));
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 app.use('/icons', express.static(path.join(__dirname, 'public/icons')));
 
+app.use((req, res, next) => {
+  if (req.method === 'GET' && req.accepts('html')) {
+    res.set('Cache-Control', 'public, max-age=3600, s-maxage=86400');
+  }
+  next();
+});
+
+
 // View engine setup
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
