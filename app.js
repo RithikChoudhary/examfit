@@ -12,7 +12,7 @@ const examHierarchyRoutes = require('./routes/examHierarchy');
 const xlsxTemplateRoutes = require('./routes/xlsxTemplate');
 const directExamRoutes = require('./routes/directExamRoutes');
 const examRouter = require('./routes/exam');
-
+const data = require('./data/data.json');
 
 const app = express();
 
@@ -33,6 +33,65 @@ app.use((req, res, next) => {
     res.set('Cache-Control', 'public, max-age=3600, s-maxage=86400');
   }
   next();
+});
+
+// 💥 Place the sitemap route here
+const { SitemapStream, streamToPromise } = require('sitemap');
+const { Readable } = require('stream');
+
+app.get('/sitemap.xml', async (req, res) => {
+  try {
+    console.log('Generating sitemap...');
+    const links = [
+      { url: '/', changefreq: 'daily', priority: 1.0 },
+      { url: '/dashboard', changefreq: 'weekly', priority: 0.8 }
+    ];
+
+    data.exams.forEach(exam => {
+      // Exam page
+      links.push({
+        url: `/${exam.examId}`,
+        changefreq: 'weekly',
+        priority: 0.9
+      });
+
+      exam.subjects?.forEach(subject => {
+        // Subject's question paper list
+        links.push({
+          url: `/${exam.examId}/${subject.subjectId}/questionPapers`,
+          changefreq: 'weekly',
+          priority: 0.8
+        });
+
+        subject.questionPapers?.forEach(paper => {
+          // Specific paper page
+          links.push({
+            url: `/${exam.examId}/${subject.subjectId}/questionPapers/${paper.questionPaperId}`,
+            changefreq: 'monthly',
+            priority: 0.7
+          });
+
+          paper.questions?.forEach(question => {
+            // Individual question URL
+            links.push({
+              url: `/${exam.examId}/${subject.subjectId}/questionPapers/${paper.questionPaperId}/${question.questionId}`,
+              changefreq: 'yearly',
+              priority: 0.5
+            });
+          });
+        });
+      });
+    });
+
+    const stream = new SitemapStream({ hostname: 'https://examfit.in' });
+    res.writeHead(200, { 'Content-Type': 'application/xml' });
+
+    const xml = await streamToPromise(Readable.from(links).pipe(stream)).then(data => data.toString());
+    res.end(xml);
+  } catch (err) {
+    console.error('Sitemap generation error:', err);
+    res.status(500).end();
+  }
 });
 
 
@@ -58,6 +117,9 @@ app.use((err, req, res, next) => {
     
   });
 });
+
+
+
 
 // 404 handling for routes not found
 app.use((req, res) => {
