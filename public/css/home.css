@@ -311,3 +311,29 @@ body {
     font-size: 1rem;
   }
 }
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 1rem 1rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .exam-card {
+    padding: 1rem;
+    height: auto;
+    gap: 1rem;
+  }
+
+  .exam-icon img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .exam-title {
+    font-size: 1rem;
+  }
+
+  .exam-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+}

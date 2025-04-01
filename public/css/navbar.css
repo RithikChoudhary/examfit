@@ -108,6 +108,7 @@
    object-fit: contain;
 }
 
+/* MOBILE NAVBAR CLEANUP */
 @media (max-width: 768px) {
     .nav-container {
         padding: 1rem;
