@@ -89,10 +89,14 @@ body {
   overflow-x: auto;
   overflow-y: visible;
   scroll-behavior: smooth;
+  -ms-overflow-style: none;  /* IE/Edge */
+  scrollbar-width: none;   
   flex: 1;
   padding-bottom: 0.5rem;
 }
-
+.carousel::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
 .paper-card-wrapper {
   padding-top: 10px;
   position: relative;
