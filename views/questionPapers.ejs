@@ -19,6 +19,7 @@
   </title>
   <link rel="stylesheet" href="/css/questionPaper.css">
   <link rel="stylesheet" href="/css/navbar.css">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
 
   <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
@@ -45,32 +46,6 @@
 
       <div class="content-area">
         <div class="question-paper-sections">
-          <!-- <% if (questionPapers.length === 0) { %>
-              <div class="no-papers-message">
-                <p>No question papers available for this subject yet.</p>
-              </div>
-            <% } else { %>
-              <% const sections = [...new Set(questionPapers.map(paper => paper.section))].sort(); %>
-              <% sections.forEach(sectionName => { %>
-                <% const papersInSection = questionPapers.filter(paper => paper.section === sectionName); %>
-                <% if (papersInSection.length > 0) { %>
-                  <div class="section">
-                    <h3><%= sectionName %></h3>
-                    <ul class="question-paper-list">
-                      <% papersInSection.forEach(paper => { %>
-                        <li class="question-paper-item">
-                          <div class="paper-container">
-                            <a href="/<%= exam %>/<%= subject %>/<%= paper.questionPaperId %>/questions">
-                              <%= paper.questionPaperName %>
-                            </a>
-                          </div>
-                        </li>
-                      <% }); %>
-                    </ul>
-                  </div>
-                <% } %>
-              <% }); %>
-            <% } %> -->
           <% if (questionPapers.length===0) { %>
             <div class="no-papers-message">
               <p>No question papers available for this subject yet.</p>
@@ -91,7 +66,9 @@
                             <% papersInSection.forEach(paper=> { %>
                               <div class="paper-card-wrapper">
                                 <div class="paper-card">
+                                  
                                   <a href="/<%= exam %>/<%= subject %>/<%= paper.questionPaperId %>/questions">
+                                    <i class="fas fa-file-alt" style="margin-right: 5px;"></i>
                                     <%= paper.questionPaperName %>
                                   </a>
                                 </div>
@@ -112,35 +89,28 @@
     
     <%- include('./partials/footer') %>
     <script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script>
-
     <script>
       function scrollSectionCarousel(sectionName, direction) {
         const carouselId = 'carousel-' + sectionName.replace(/\s+/g, '-');
         const carousel = document.getElementById(carouselId);
         const card = carousel.querySelector('.paper-card');
         if (!card) return;
-
-        const cardStyle = getComputedStyle(card);
-        const cardWidth = card.offsetWidth
-          + parseInt(cardStyle.marginLeft || 0)
-          + parseInt(cardStyle.marginRight || 0)
-          + 20; // your .carousel gap
-
+    
+        const style = window.getComputedStyle(card);
+        const cardWidth = card.offsetWidth +
+                          parseFloat(style.marginLeft || 0) +
+                          parseFloat(style.marginRight || 0);
+    
         const scrollAmount = direction * cardWidth;
-        const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
         const nextScrollPos = carousel.scrollLeft + scrollAmount;
-
-        // Prevent overscrolling
-        if (nextScrollPos < 0 || nextScrollPos > maxScrollLeft + 5) {
-          return;
-        }
-
-        carousel.scrollBy({
-          left: scrollAmount,
+    
+        carousel.scrollTo({
+          left: nextScrollPos,
           behavior: 'smooth'
         });
       }
     </script>
+    
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
@@ -168,6 +138,8 @@
         }, 2000);
       }
     </script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
   
 </body>
 
