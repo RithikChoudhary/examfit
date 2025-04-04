@@ -65,11 +65,14 @@ body {
 }
 
 .section-title {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1e293b;
   margin-bottom: 1rem;
-  color: var(--gray-700);
+  border-left: 5px solid #3b82f6;
+  padding-left: 10px;
 }
+
 
 .carousel-wrapper {
   display: flex;
@@ -129,13 +132,21 @@ body {
 }
 
 .scroll-btn {
-  background: none;
+  background: #3b82f6;
   border: none;
-  font-size: 2rem;
+  color: white;
+  padding: 0.6rem 0.9rem;
+  border-radius: 50%;
+  font-size: 1rem;
   cursor: pointer;
-  padding: 0 10px;
-  color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
 }
+
+.scroll-btn:hover {
+  background: #2563eb;
+}
+
 
 .question-paper-sections {
   display: block;
@@ -150,7 +161,7 @@ body {
   .paper-card {
     min-width: 140px;
     max-width: 140px;
-    height: 60px;
+    height: 70px;
   }
 
   .scroll-btn {
@@ -160,4 +171,27 @@ body {
   .exam-header h1 {
     font-size: 1rem;
   }
+}
+.paper-card-wrapper {
+  flex: 0 0 auto;
+}
+
+.paper-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+}
+
+
+.paper-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.paper-card a {
+  text-decoration: none;
+  color: #1d4ed8;
+  font-weight: 600;
+  font-size: 1.05rem;
 }
