@@ -100,7 +100,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Important: Route order matters
-// app.use('/dashboard', dashboardRouter); // Dashboard route enabled
+app.use('/dashboard', dashboardRouter); // Dashboard route enabled
 app.use('/api', apiRouter);
 app.use('/', indexRouter);       // move this UP
 app.use('/', examHierarchyRoutes); 
