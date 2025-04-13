@@ -113,12 +113,18 @@
   <script>
     const form = document.getElementById('contactForm');
     const successMessage = document.getElementById('successMessage');
-
+    const submitButton = form.querySelector('button');
+  
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-
+  
+      // Disable button + show "Sending..."
+      submitButton.disabled = true;
+      const originalText = submitButton.textContent;
+      submitButton.textContent = "Sending...";
+  
       const formData = new FormData(form);
-
+  
       fetch(form.action, {
         method: 'POST',
         body: new URLSearchParams(formData)
@@ -137,9 +143,15 @@
       .catch(err => {
         console.error(err);
         alert('Something went wrong.');
+      })
+      .finally(() => {
+        // Re-enable button
+        submitButton.disabled = false;
+        submitButton.textContent = originalText;
       });
     });
   </script>
+  
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
