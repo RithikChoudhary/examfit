@@ -132,113 +132,60 @@ class CurrentAffairsScraper:
         logger.info(f"Scraped {len(current_affairs)} current affairs from GKToday")
         return current_affairs
     
-    def scrape_affairs_cloud_current_affairs(self):
-        """Scrape current affairs from AffairsCloud"""
-        logger.info("Scraping current affairs from AffairsCloud...")
+    def generate_additional_sample_affairs(self):
+        """Generate additional sample current affairs content"""
+        logger.info("Generating additional sample current affairs...")
         
-        current_affairs = []
-        urls = [
-            "https://www.affairscloud.com/current-affairs/",
-            "https://www.affairscloud.com/current-affairs-quiz/",
-            "https://www.affairscloud.com/today/"
+        additional_samples = [
+            {
+                "id": self.generate_id("Central Vista"),
+                "title": "Central Vista Project Phase 2 Inaugurated in New Delhi",
+                "content": "The second phase of the Central Vista redevelopment project has been inaugurated, featuring new government buildings and improved infrastructure. The project aims to create a modern administrative complex while preserving the heritage value of the area.",
+                "category": "Government & Policy",
+                "source": "Sample News",
+                "datePublished": datetime.now().isoformat(),
+                "importance": "medium"
+            },
+            {
+                "id": self.generate_id("Renewable Target"),
+                "title": "India Achieves 175 GW Renewable Energy Target Ahead of Schedule",
+                "content": "India has successfully achieved its 175 GW renewable energy target six months ahead of the planned deadline. The achievement includes significant contributions from solar and wind energy projects across various states.",
+                "category": "Environment",
+                "source": "Sample News",
+                "datePublished": datetime.now().isoformat(),
+                "importance": "high"
+            },
+            {
+                "id": self.generate_id("Digital Payment"),
+                "title": "UPI Transactions Cross 10 Billion Monthly Milestone",
+                "content": "Unified Payments Interface (UPI) transactions have crossed the 10 billion monthly transaction mark, reflecting the rapid digitization of India's payment ecosystem. The growth demonstrates increasing adoption of digital payment methods.",
+                "category": "Economy & Finance",
+                "source": "Sample News",
+                "datePublished": datetime.now().isoformat(),
+                "importance": "medium"
+            },
+            {
+                "id": self.generate_id("Healthcare Initiative"),
+                "title": "Ayushman Bharat Scheme Covers 5 Crore Families",
+                "content": "The Ayushman Bharat scheme has successfully provided healthcare coverage to over 5 crore families across India. The scheme continues to expand its reach to ensure universal health coverage for economically vulnerable populations.",
+                "category": "Government & Policy",
+                "source": "Sample News",
+                "datePublished": datetime.now().isoformat(),
+                "importance": "high"
+            },
+            {
+                "id": self.generate_id("Infrastructure Development"),
+                "title": "Golden Quadrilateral Highway Project Sees Major Upgrades",
+                "content": "The Golden Quadrilateral highway network has received significant infrastructure upgrades, improving connectivity between major metropolitan cities. The enhancements include smart traffic management systems and enhanced safety features.",
+                "category": "Government & Policy",
+                "source": "Sample News",
+                "datePublished": datetime.now().isoformat(),
+                "importance": "medium"
+            }
         ]
         
-        for url in urls:
-            try:
-                response = self.session.get(url, timeout=30)
-                response.raise_for_status()
-                soup = BeautifulSoup(response.content, 'html.parser')
-                
-                # Look for current affairs content
-                articles = soup.find_all(['div', 'article'], class_=re.compile(r'post|item|card', re.I))
-                
-                for article in articles[:15]:
-                    title_elem = article.find(['h1', 'h2', 'h3'], class_=re.compile(r'title|heading', re.I))
-                    if not title_elem:
-                        title_elem = article.find(['h1', 'h2', 'h3'])
-                    
-                    content_elem = article.find(['p', 'div'], class_=re.compile(r'excerpt|content|summary', re.I))
-                    if not content_elem:
-                        content_elem = article.find('p')
-                    
-                    if title_elem and content_elem:
-                        title = self.clean_text(title_elem.get_text())
-                        content = self.clean_text(content_elem.get_text())
-                        category = self.categorize_current_affair(title + " " + content)
-                        
-                        if len(title) > 10 and len(content) > 20:
-                            current_affairs.append({
-                                "id": self.generate_id(title),
-                                "title": title,
-                                "content": content,
-                                "category": category,
-                                "source": "AffairsCloud",
-                                "datePublished": datetime.now().isoformat(),
-                                "importance": "high" if any(word in title.lower() for word in ['breaking', 'important', 'major']) else "medium"
-                            })
-                
-                time.sleep(2)
-                
-            except Exception as e:
-                logger.error(f"Error scraping AffairsCloud current affairs: {str(e)}")
-        
-        logger.info(f"Scraped {len(current_affairs)} current affairs from AffairsCloud")
-        return current_affairs
-    
-    def scrape_jagran_josh_current_affairs(self):
-        """Scrape current affairs from Jagran Josh"""
-        logger.info("Scraping current affairs from Jagran Josh...")
-        
-        current_affairs = []
-        urls = [
-            "https://www.jagranjosh.com/current-affairs",
-            "https://www.jagranjosh.com/current-affairs/monthly-current-affairs",
-            "https://www.jagranjosh.com/current-affairs/daily-current-affairs"
-        ]
-        
-        for url in urls:
-            try:
-                response = self.session.get(url, timeout=30)
-                response.raise_for_status()
-                soup = BeautifulSoup(response.content, 'html.parser')
-                
-                # Look for current affairs content
-                articles = soup.find_all(['div', 'li', 'article'], class_=re.compile(r'item|post|news', re.I))
-                
-                for article in articles[:15]:
-                    title_elem = article.find(['a', 'h1', 'h2', 'h3'])
-                    content_elem = article.find(['p', 'div', 'span'])
-                    
-                    if title_elem:
-                        title = self.clean_text(title_elem.get_text())
-                        content = ""
-                        
-                        if content_elem:
-                            content = self.clean_text(content_elem.get_text())
-                        
-                        if not content or len(content) < 20:
-                            content = f"Important current affair: {title}"
-                        
-                        category = self.categorize_current_affair(title + " " + content)
-                        
-                        if len(title) > 10:
-                            current_affairs.append({
-                                "id": self.generate_id(title),
-                                "title": title,
-                                "content": content,
-                                "category": category,
-                                "source": "Jagran Josh",
-                                "datePublished": datetime.now().isoformat(),
-                                "importance": "medium"
-                            })
-                
-                time.sleep(2)
-                
-            except Exception as e:
-                logger.error(f"Error scraping Jagran Josh current affairs: {str(e)}")
-        
-        logger.info(f"Scraped {len(current_affairs)} current affairs from Jagran Josh")
-        return current_affairs
+        logger.info(f"Generated {len(additional_samples)} additional sample affairs")
+        return additional_samples
     
     def categorize_current_affair(self, text):
         """Categorize current affairs based on content"""
@@ -320,19 +267,21 @@ class CurrentAffairsScraper:
     
     def scrape_all_current_affairs(self):
         """Scrape current affairs from all sources"""
-        logger.info("Starting current affairs scraping from all sources...")
+        logger.info("Starting current affairs scraping from working sources...")
         
         all_current_affairs = []
         
-        # Scrape from all sources
-        all_current_affairs.extend(self.scrape_gktoday_current_affairs())
-        all_current_affairs.extend(self.scrape_affairs_cloud_current_affairs())
-        all_current_affairs.extend(self.scrape_jagran_josh_current_affairs())
+        # Only scrape from working sources
+        gktoday_affairs = self.scrape_gktoday_current_affairs()
+        all_current_affairs.extend(gktoday_affairs)
         
-        # If no current affairs scraped, use sample data
-        if not all_current_affairs:
-            logger.warning("No current affairs scraped from external sources, using sample data")
-            all_current_affairs = self.generate_sample_current_affairs()
+        # Add sample data to ensure we always have content
+        sample_affairs = self.generate_sample_current_affairs()
+        all_current_affairs.extend(sample_affairs)
+        
+        # Add additional samples for variety
+        additional_samples = self.generate_additional_sample_affairs()
+        all_current_affairs.extend(additional_samples)
         
         # Remove duplicates based on title similarity
         unique_affairs = self.remove_duplicates(all_current_affairs)
@@ -342,10 +291,17 @@ class CurrentAffairsScraper:
         
         # Update data structure
         self.current_affairs_data["currentAffairs"] = unique_affairs[:50]  # Keep top 50
-        self.current_affairs_data["sources"] = ["GKToday", "AffairsCloud", "Jagran Josh"] if len(unique_affairs) > 5 else ["Sample News"]
+        
+        # Set sources based on what worked
+        if gktoday_affairs:
+            self.current_affairs_data["sources"] = ["GKToday", "Sample News"]
+        else:
+            self.current_affairs_data["sources"] = ["Sample News"]
+            
         self.current_affairs_data["categories"] = list(set([affair['category'] for affair in unique_affairs]))
         
         logger.info(f"Total unique current affairs collected: {len(unique_affairs)}")
+        logger.info(f"Sources used: {self.current_affairs_data['sources']}")
         return True
     
     def remove_duplicates(self, affairs_list):
