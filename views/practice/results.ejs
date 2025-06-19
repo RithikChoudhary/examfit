@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Results - ExamFit</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .results-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .results-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: #ffffff;
+            border-radius: 16px;
+        }
+        
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--blue-600);
+        }
+        
+        .score-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .score-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 16px var(--shadow-sm);
+        }
+        
+        .score-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--blue-600);
+            margin-bottom: 0.5rem;
+        }
+        
+        .score-label {
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+        
+        .performance-chart {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px var(--shadow-sm);
+            margin-bottom: 2rem;
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chart-bar {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+        }
+        
+        .bar-label {
+            min-width: 120px;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+        
+        .bar-track {
+            flex: 1;
+            height: 12px;
+            background: var(--gray-200);
+            border-radius: 6px;
+            margin: 0 1rem;
+            overflow: hidden;
+        }
+        
+        .bar-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.8s ease;
+        }
+        
+        .bar-fill.correct {
+            background: linear-gradient(90deg, #10b981, #059669);
+        }
+        
+        .bar-fill.incorrect {
+            background: linear-gradient(90deg, #ef4444, #dc2626);
+        }
+        
+        .bar-value {
+            min-width: 60px;
+            font-weight: 600;
+            color: var(--gray-700);
+        }
+        
+        .actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .action-btn {
+            background: var(--blue-500);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .action-btn:hover {
+            background: var(--blue-600);
+            transform: translateY(-2px);
+        }
+        
+        .action-btn.secondary {
+            background: var(--gray-500);
+        }
+        
+        .action-btn.secondary:hover {
+            background: var(--gray-600);
+        }
+        
+        .session-info {
+            background: var(--gray-50);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .info-label {
+            font-weight: 500;
+            color: var(--gray-600);
+        }
+        
+        .info-value {
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+        
+        .congratulations {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: var(--white);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .congratulations.needs-improvement {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+        
+        @media (max-width: 768px) {
+            .results-container {
+                padding: 1rem;
+            }
+            
+            .score-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    
+    <div class="results-container">
+        <div class="results-header">
+            <div class="score-circle">
+                <%= session.score %>%
+            </div>
+            <h1>Practice Session Results</h1>
+            <p><%= session.examName %> - <%= session.subjectName %></p>
+            <p><%= session.paperName %></p>
+        </div>
+        
+        <% if (session.score >= 75) { %>
+            <div class="congratulations">
+                <h2><i class="fas fa-trophy"></i> Excellent Performance!</h2>
+                <p>You scored <%= session.score %>% - Keep up the great work!</p>
+            </div>
+        <% } else if (session.score >= 50) { %>
+            <div class="congratulations needs-improvement">
+                <h2><i class="fas fa-chart-line"></i> Good Effort!</h2>
+                <p>You scored <%= session.score %>% - You're making progress!</p>
+            </div>
+        <% } else { %>
+            <div class="congratulations needs-improvement">
+                <h2><i class="fas fa-book-reader"></i> Keep Practicing!</h2>
+                <p>You scored <%= session.score %>% - More practice will help you improve!</p>
+            </div>
+        <% } %>
+        
+        <div class="score-details">
+            <div class="score-card">
+                <div class="score-value"><%= session.correct %></div>
+                <div class="score-label">Correct Answers</div>
+            </div>
+            
+            <div class="score-card">
+                <div class="score-value"><%= session.total - session.correct %></div>
+                <div class="score-label">Incorrect Answers</div>
+            </div>
+            
+            <div class="score-card">
+                <div class="score-value"><%= session.total %></div>
+                <div class="score-label">Total Questions</div>
+            </div>
+            
+            <div class="score-card">
+                <div class="score-value">
+                    <%= Math.floor(session.timeSpent / 60) %>:<%= (session.timeSpent % 60).toString().padStart(2, '0') %>
+                </div>
+                <div class="score-label">Time Taken</div>
+            </div>
+        </div>
+        
+        <div class="performance-chart">
+            <div class="chart-header">
+                <h3>Performance Breakdown</h3>
+                <span>Score: <%= session.score %>%</span>
+            </div>
+            
+            <div class="chart-bar">
+                <div class="bar-label">Correct</div>
+                <div class="bar-track">
+                    <div class="bar-fill correct" style="width: <%= (session.correct / session.total) * 100 %>%;"></div>
+                </div>
+                <div class="bar-value"><%= session.correct %>/<%= session.total %></div>
+            </div>
+            
+            <div class="chart-bar">
+                <div class="bar-label">Incorrect</div>
+                <div class="bar-track">
+                    <div class="bar-fill incorrect" style="width: <%= ((session.total - session.correct) / session.total) * 100 %>%;"></div>
+                </div>
+                <div class="bar-value"><%= session.total - session.correct %>/<%= session.total %></div>
+            </div>
+        </div>
+        
+        <div class="session-info">
+            <h3 style="margin-bottom: 1rem;">Session Details</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Date:</span>
+                    <span class="info-value"><%= new Date(session.date).toLocaleDateString() %></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Time:</span>
+                    <span class="info-value"><%= new Date(session.date).toLocaleTimeString() %></span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Accuracy:</span>
+                    <span class="info-value"><%= session.score %>%</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Time per Question:</span>
+                    <span class="info-value"><%= Math.round(session.timeSpent / session.total) %>s</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <a href="/practice" class="action-btn">
+                <i class="fas fa-redo"></i> Practice Again
+            </a>
+            
+            <a href="/practice/progress" class="action-btn secondary">
+                <i class="fas fa-chart-bar"></i> View Progress
+            </a>
+            
+            <a href="/<%= session.examId %>/<%= session.subjectId %>/questionPapers" class="action-btn secondary">
+                <i class="fas fa-book"></i> Study Material
+            </a>
+            
+            <a href="/" class="action-btn secondary">
+                <i class="fas fa-home"></i> Home
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        // Animate score circle
+        document.addEventListener('DOMContentLoaded', function() {
+            const scoreCircle = document.querySelector('.score-circle');
+            const targetScore = parseInt('<%= session.score %>');
+            let currentScore = 0;
+            
+            const interval = setInterval(() => {
+                if (currentScore < targetScore) {
+                    currentScore++;
+                    scoreCircle.textContent = currentScore + '%';
+                } else {
+                    clearInterval(interval);
+                }
+            }, 20);
+            
+            // Animate bars
+            setTimeout(() => {
+                document.querySelectorAll('.bar-fill').forEach(bar => {
+                    bar.style.width = bar.style.width;
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>

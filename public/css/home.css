@@ -298,6 +298,34 @@ body {
 .feature-card p {
   color: var(--gray-600);
   line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.feature-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--blue-600);
+  font-weight: 500;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-action {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-action i {
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-action i {
+  transform: translateX(4px);
 }
 
 /* Exams Section */

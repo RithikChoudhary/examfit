@@ -1,0 +1,162 @@
+{
+  "sessions": [
+    {
+      "id": "1750317723929",
+      "examId": "upsc",
+      "examName": "Union Public Service Commission(CSE)",
+      "subjectId": "geography",
+      "subjectName": "Geography",
+      "paperId": "qp-1739172323964",
+      "paperName": "PYQ-2022",
+      "date": "2025-06-19T07:22:03.929Z",
+      "score": 14,
+      "correct": 1,
+      "total": 7,
+      "timeSpent": 14,
+      "results": [
+        {
+          "questionId": "q1739172471602-93zlj6ei6",
+          "userAnswer": "c",
+          "correctAnswer": "b",
+          "isCorrect": false
+        },
+        {
+          "questionId": "q1739172471602-fn5v9irey",
+          "userAnswer": "a",
+          "correctAnswer": "d",
+          "isCorrect": false
+        },
+        {
+          "questionId": "q1739172471602-07nntul8w",
+          "userAnswer": "c",
+          "correctAnswer": "c",
+          "isCorrect": true
+        },
+        {
+          "questionId": "q1739172471602-v20ye23mp",
+          "userAnswer": "c",
+          "correctAnswer": "b",
+          "isCorrect": false
+        },
+        {
+          "questionId": "q1739172471602-5gnr9ctdm",
+          "userAnswer": "d",
+          "correctAnswer": "c",
+          "isCorrect": false
+        },
+        {
+          "questionId": "q1739172471602-wxlifmt4v",
+          "userAnswer": "c",
+          "correctAnswer": "b",
+          "isCorrect": false
+        },
+        {
+          "questionId": "q1739172471602-7pkqc3ibl",
+          "userAnswer": "b",
+          "correctAnswer": "c",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "1750317730598",
+      "examId": "upsc",
+      "examName": "Union Public Service Commission(CSE)",
+      "subjectId": "geography",
+      "subjectName": "Geography",
+      "paperId": "qp-1739172323964",
+      "paperName": "PYQ-2022",
+      "date": "2025-06-19T07:22:10.598Z",
+      "score": 14,
+      "correct": 1,
+      "total": 7,
+      "timeSpent": 21,
+      "results": [
+        {
+          "questionId": "q1739172471602-93zlj6ei6",
+          "userAnswer": "c",
+          "correctAnswer": "b",
+          "isCorrect": false
+        },
+        {
+          "questionId": "q1739172471602-fn5v9irey",
+          "userAnswer": "a",
+          "correctAnswer": "d",
+          "isCorrect": false
+        },
+        {
+          "questionId": "q1739172471602-07nntul8w",
+          "userAnswer": "c",
+          "correctAnswer": "c",
+          "isCorrect": true
+        },
+        {
+          "questionId": "q1739172471602-v20ye23mp",
+          "userAnswer": "c",
+          "correctAnswer": "b",
+          "isCorrect": false
+        },
+        {
+          "questionId": "q1739172471602-5gnr9ctdm",
+          "userAnswer": "d",
+          "correctAnswer": "c",
+          "isCorrect": false
+        },
+        {
+          "questionId": "q1739172471602-wxlifmt4v",
+          "userAnswer": "c",
+          "correctAnswer": "b",
+          "isCorrect": false
+        },
+        {
+          "questionId": "q1739172471602-7pkqc3ibl",
+          "userAnswer": "b",
+          "correctAnswer": "c",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "1750318490214",
+      "examId": "upsc",
+      "examName": "Union Public Service Commission(CSE)",
+      "subjectId": "polity",
+      "subjectName": "Polity",
+      "paperId": "qp-1741854894586",
+      "paperName": "Test Paper 4",
+      "date": "2025-06-19T07:34:50.214Z",
+      "score": 0,
+      "correct": 0,
+      "total": 1,
+      "timeSpent": 4,
+      "results": [
+        {
+          "questionId": "q1741855367864-4w54ot6zb",
+          "userAnswer": "d",
+          "correctAnswer": "a",
+          "isCorrect": false
+        }
+      ]
+    }
+  ],
+  "userStats": {
+    "upsc": {
+      "geography": {
+        "totalSessions": 2,
+        "totalQuestions": 14,
+        "totalCorrect": 2,
+        "totalTime": 35,
+        "bestScore": 14,
+        "averageScore": 14
+      },
+      "polity": {
+        "totalSessions": 1,
+        "totalQuestions": 1,
+        "totalCorrect": 0,
+        "totalTime": 4,
+        "bestScore": 0,
+        "averageScore": 0
+      }
+    }
+  }
+}

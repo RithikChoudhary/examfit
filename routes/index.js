@@ -17,7 +17,12 @@ router.get('/', async (req, res) => {
 
     res.render('index', { 
       exams: data.exams,
-      totalExams: data.exams.length
+      totalExams: data.exams.length,
+      dataInfo: {
+        lastUpdated: data.lastUpdated,
+        sources: data.sources,
+        autoUpdate: data.autoUpdate
+      }
     });
   } catch (error) {
     console.error('Error in index route:', error);

@@ -1,0 +1,207 @@
+name: Update Exam Data
+
+on:
+  schedule:
+    # Run every Sunday at 2:00 AM UTC (7:30 AM IST)
+    - cron: '0 2 * * 0'
+  workflow_dispatch: # Allow manual triggering
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y tesseract-ocr tesseract-ocr-eng poppler-utils
+    
+    - name: Install Python dependencies
+      run: |
+        cd scripts
+        pip install -r requirements.txt
+    
+    - name: Backup existing data
+      run: |
+        if [ -f "data/data.json" ]; then
+          cp data/data.json data/data_backup_$(date +%Y%m%d_%H%M%S).json
+          echo "✅ Created backup of existing data"
+        else
+          echo "⚠️ No existing data file to backup"
+        fi
+    
+    - name: Run data scraper
+      run: |
+        cd scripts
+        python data_scraper.py
+      env:
+        PYTHONPATH: ${{ github.workspace }}
+    
+    - name: Run current affairs scraper
+      run: |
+        cd scripts
+        python current_affairs_scraper.py
+      env:
+        PYTHONPATH: ${{ github.workspace }}
+    
+    - name: Verify data update
+      run: |
+        if [ -f "data/data.json" ]; then
+          echo "✅ Data file updated successfully"
+          echo "File size: $(du -h data/data.json | cut -f1)"
+          echo "Last modified: $(stat -c %y data/data.json)"
+          
+          # Check if file contains valid JSON
+          if python -m json.tool data/data.json > /dev/null 2>&1; then
+            echo "✅ JSON structure is valid"
+          else
+            echo "❌ Invalid JSON structure"
+            exit 1
+          fi
+          
+          # Check if file contains exams
+          exam_count=$(python -c "import json; data=json.load(open('data/data.json')); print(len(data.get('exams', [])))")
+          echo "📊 Number of exams: $exam_count"
+          
+          if [ "$exam_count" -gt 0 ]; then
+            echo "✅ Data contains exam information"
+          else
+            echo "⚠️ No exam data found, keeping existing file"
+            if [ -f "data/data_backup_*.json" ]; then
+              latest_backup=$(ls -t data/data_backup_*.json | head -1)
+              cp "$latest_backup" data/data.json
+              echo "Restored from backup: $latest_backup"
+            fi
+          fi
+        else
+          echo "❌ Data file not found after scraping"
+          exit 1
+        fi
+    
+    - name: Update metadata
+      run: |
+        # Add last updated timestamp and source info
+        python - <<EOF
+        import json
+        from datetime import datetime
+        
+        # Load existing data
+        with open('data/data.json', 'r') as f:
+            data = json.load(f)
+        
+        # Add metadata
+        data['lastUpdated'] = datetime.now().isoformat()
+        data['autoUpdate'] = {
+            'enabled': True,
+            'lastRun': datetime.now().isoformat(),
+            'nextRun': 'Weekly - Every Sunday 2:00 AM UTC',
+            'version': '1.0',
+            'sources': data.get('sources', [])
+        }
+        
+        # Save updated data
+        with open('data/data.json', 'w') as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+        
+        print("✅ Updated metadata")
+        EOF
+    
+    - name: Clean up old backups
+      run: |
+        # Keep only last 5 backups
+        cd data
+        ls -t data_backup_*.json 2>/dev/null | tail -n +6 | xargs rm -f
+        echo "🧹 Cleaned up old backups"
+    
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Check if there are changes
+        if git diff --quiet data/data.json; then
+          echo "📝 No changes to commit"
+        else
+          git add data/data.json
+          git add data/data_backup_*.json 2>/dev/null || true
+          
+          # Create commit message with stats
+          exam_count=$(python -c "import json; data=json.load(open('data/data.json')); print(len(data.get('exams', [])))")
+          question_count=$(python -c "
+          import json
+          data = json.load(open('data/data.json'))
+          total = 0
+          for exam in data.get('exams', []):
+              for subject in exam.get('subjects', []):
+                  for paper in subject.get('questionPapers', []):
+                      total += len(paper.get('questions', []))
+          print(total)
+          ")
+          
+          commit_msg="🤖 Auto-update: $exam_count exams, $question_count questions"
+          commit_msg="$commit_msg
+          
+          📅 Updated: $(date '+%Y-%m-%d %H:%M:%S UTC')
+          🔄 Sources: Jagran Josh, GKToday, AffairsCloud
+          📊 Data: $question_count total questions across $exam_count exams
+          
+          [skip ci]"
+          
+          git commit -m "$commit_msg"
+          git push
+          echo "✅ Changes committed and pushed"
+        fi
+    
+    - name: Create summary
+      run: |
+        echo "## 📊 Data Update Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        if [ -f "data/data.json" ]; then
+          exam_count=$(python -c "import json; data=json.load(open('data/data.json')); print(len(data.get('exams', [])))")
+          question_count=$(python -c "
+          import json
+          data = json.load(open('data/data.json'))
+          total = 0
+          for exam in data.get('exams', []):
+              for subject in exam.get('subjects', []):
+                  for paper in subject.get('questionPapers', []):
+                      total += len(paper.get('questions', []))
+          print(total)
+          ")
+          
+          echo "✅ **Update Successful**" >> $GITHUB_STEP_SUMMARY
+          echo "- 📚 **Exams**: $exam_count" >> $GITHUB_STEP_SUMMARY
+          echo "- ❓ **Questions**: $question_count" >> $GITHUB_STEP_SUMMARY
+          echo "- 🕒 **Updated**: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "- 🔄 **Sources**: Jagran Josh, GKToday, AffairsCloud" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🚀 **Live Site**: Your Vercel deployment will automatically update with the new data!" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "❌ **Update Failed**" >> $GITHUB_STEP_SUMMARY
+          echo "Data file was not created successfully." >> $GITHUB_STEP_SUMMARY
+        fi
+    
+    - name: Notify on failure
+      if: failure()
+      run: |
+        echo "## ❌ Data Update Failed" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "The weekly data update failed. Please check the logs above for details." >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Possible causes:**" >> $GITHUB_STEP_SUMMARY
+        echo "- Source websites are down or changed structure" >> $GITHUB_STEP_SUMMARY
+        echo "- Network connectivity issues" >> $GITHUB_STEP_SUMMARY
+        echo "- Scraping script needs updates" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Manual action required**: Check the GitHub Actions logs and update the scraping scripts if needed." >> $GITHUB_STEP_SUMMARY

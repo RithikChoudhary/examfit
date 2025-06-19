@@ -1,0 +1,97 @@
+<% if (typeof dataInfo !== 'undefined' && dataInfo && (dataInfo.lastUpdated || (dataInfo.sources && dataInfo.sources.length > 0))) { %>
+<div class="data-update-info">
+    <div class="update-badge">
+        <i class="fas fa-sync-alt"></i>
+        <span class="update-text">
+            <% if (dataInfo.lastUpdated) { %>
+                Last Updated: <%= new Date(dataInfo.lastUpdated).toLocaleDateString('en-IN', { 
+                    year: 'numeric', 
+                    month: 'short', 
+                    day: 'numeric' 
+                }) %>
+            <% } else { %>
+                Last Updated: Manual Updates
+            <% } %>
+        </span>
+        <% if (dataInfo.autoUpdate && dataInfo.autoUpdate.enabled) { %>
+            <span class="auto-badge">AUTO</span>
+        <% } %>
+    </div>
+    
+    <% if (dataInfo.sources && dataInfo.sources.length > 0) { %>
+        <div class="sources-info" title="Data Sources: <%= dataInfo.sources.join(', ') %>">
+            <i class="fas fa-database"></i>
+            <span><%= dataInfo.sources.length %> sources</span>
+        </div>
+    <% } %>
+</div>
+
+<style>
+.data-update-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+    border: 1px solid #0ea5e9;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    margin: 1rem 0;
+    color: #0369a1;
+}
+
+.update-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.update-badge i {
+    color: #0ea5e9;
+}
+
+.update-badge i.spinning {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.auto-badge {
+    background: #10b981;
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.65rem;
+    font-weight: 600;
+}
+
+.sources-info {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: #0369a1;
+    opacity: 0.8;
+}
+
+.sources-info i {
+    font-size: 0.7rem;
+}
+
+@media (max-width: 768px) {
+    .data-update-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.75rem;
+    }
+    
+    .update-badge {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+</style>
+<% } %>

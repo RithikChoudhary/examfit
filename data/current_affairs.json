@@ -1,0 +1,105 @@
+{
+  "currentAffairs": [
+    {
+      "id": "ca1742408224000-abc12345",
+      "title": "India Launches World's Largest Renewable Energy Park",
+      "content": "India has inaugurated the world's largest renewable energy park in Kutch, Gujarat, with a capacity of 30 GW. This mega project includes solar and wind energy installations spread across 726 square kilometers, contributing significantly to India's goal of achieving 500 GW renewable energy capacity by 2030.",
+      "category": "Environment",
+      "source": "GKToday",
+      "datePublished": "2025-01-18T12:00:00.000Z",
+      "importance": "high"
+    },
+    {
+      "id": "ca1742408224001-def67890",
+      "title": "New Digital Rupee Pilot Program Expanded to 26 Cities",
+      "content": "The Reserve Bank of India has expanded its Central Bank Digital Currency (CBDC) pilot program to 26 cities across India. The digital rupee aims to reduce dependency on cash and improve financial inclusion. Major banks including SBI, ICICI, and HDFC are participating in this initiative.",
+      "category": "Economy & Finance",
+      "source": "AffairsCloud",
+      "datePublished": "2025-01-17T09:30:00.000Z",
+      "importance": "high"
+    },
+    {
+      "id": "ca1742408224002-ghi11223",
+      "title": "Chandrayaan-4 Mission Approved for Sample Return from Moon",
+      "content": "The Indian Space Research Organisation (ISRO) has received approval for Chandrayaan-4 mission, which will attempt to bring back lunar samples to Earth. This ambitious mission is scheduled for 2028 and will make India the fourth country to achieve sample return from the Moon after USA, USSR, and China.",
+      "category": "Science & Technology",
+      "source": "Jagran Josh",
+      "datePublished": "2025-01-16T14:15:00.000Z",
+      "importance": "high"
+    },
+    {
+      "id": "ca1742408224003-jkl33445",
+      "title": "PM-KISAN Scheme Reaches 12 Crore Farmers",
+      "content": "The PM-KISAN scheme has successfully reached 12 crore farmers across India, providing direct income support of ₹6,000 per year. The government has announced plans to increase the annual assistance and include more beneficiaries under the scheme to boost rural economy.",
+      "category": "Government & Policy",
+      "source": "GKToday",
+      "datePublished": "2025-01-15T11:45:00.000Z",
+      "importance": "medium"
+    },
+    {
+      "id": "ca1742408224004-mno55667",
+      "title": "India Wins Asian Champions Trophy in Hockey",
+      "content": "The Indian men's hockey team has won the Asian Champions Trophy 2025, defeating Pakistan 3-1 in the final held in Dhaka, Bangladesh. This victory marks India's fifth title in the tournament and reinforces their dominance in Asian hockey.",
+      "category": "Sports",
+      "source": "AffairsCloud",
+      "datePublished": "2025-01-14T18:20:00.000Z",
+      "importance": "medium"
+    },
+    {
+      "id": "ca1742408224005-pqr77889",
+      "title": "New Semiconductor Manufacturing Policy Announced",
+      "content": "The government has announced a comprehensive semiconductor manufacturing policy with an outlay of ₹76,000 crores. The policy aims to establish India as a global hub for semiconductor manufacturing and reduce dependency on imports. Multiple international companies have shown interest in setting up facilities.",
+      "category": "Government & Policy",
+      "source": "Jagran Josh",
+      "datePublished": "2025-01-13T10:30:00.000Z",
+      "importance": "high"
+    },
+    {
+      "id": "ca1742408224006-stu99001",
+      "title": "India-UAE Comprehensive Economic Partnership Agreement Shows Results",
+      "content": "Trade between India and UAE has increased by 15% following the implementation of the Comprehensive Economic Partnership Agreement (CEPA). The bilateral trade has crossed $85 billion, making UAE India's third-largest trading partner after China and USA.",
+      "category": "International Affairs",
+      "source": "GKToday",
+      "datePublished": "2025-01-12T13:00:00.000Z",
+      "importance": "medium"
+    },
+    {
+      "id": "ca1742408224007-vwx11223",
+      "title": "National Education Policy 2020 Implementation Progress Review",
+      "content": "The Ministry of Education has released a comprehensive review of NEP 2020 implementation. Key achievements include establishment of 750 new higher education institutions, introduction of coding from Class 6, and 40% increase in enrollment in vocational courses.",
+      "category": "Government & Policy",
+      "source": "AffairsCloud",
+      "datePublished": "2025-01-11T08:45:00.000Z",
+      "importance": "medium"
+    },
+    {
+      "id": "ca1742408224008-yza33445",
+      "title": "India's First Indigenous Aircraft Carrier INS Vikrant Completes Sea Trials",
+      "content": "INS Vikrant, India's first indigenous aircraft carrier, has successfully completed all sea trials and is now ready for full operational deployment. The 45,000-tonne carrier represents a major milestone in India's naval capabilities and self-reliance in defense manufacturing.",
+      "category": "Defence & Security",
+      "source": "Jagran Josh",
+      "datePublished": "2025-01-10T16:30:00.000Z",
+      "importance": "high"
+    },
+    {
+      "id": "ca1742408224009-bcd55667",
+      "title": "Bharat Stage VI Phase 2 Emission Norms Implementation",
+      "content": "India has successfully implemented Bharat Stage VI Phase 2 emission norms for all vehicles, making them among the most stringent in the world. This move is expected to reduce vehicular emissions by 30% and significantly improve air quality in urban areas.",
+      "category": "Environment",
+      "source": "GKToday",
+      "datePublished": "2025-01-09T12:15:00.000Z",
+      "importance": "medium"
+    }
+  ],
+  "lastUpdated": "2025-01-19T07:30:00.000Z",
+  "sources": ["GKToday", "AffairsCloud", "Jagran Josh"],
+  "categories": [
+    "Environment",
+    "Economy & Finance", 
+    "Science & Technology",
+    "Government & Policy",
+    "Sports",
+    "International Affairs",
+    "Defence & Security"
+  ]
+}

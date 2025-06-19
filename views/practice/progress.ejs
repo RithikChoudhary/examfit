@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracking - ExamFit</title>
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .progress-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .progress-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+        }
+        
+        .progress-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+        }
+        
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .stat-card {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border: 2px solid #f3f4f6;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        .stat-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: #ffffff;
+            font-size: 1.5rem;
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #6b7280;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .sessions-section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .performance-section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f3f4f6;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+        
+        .session-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: #f9fafb;
+            border-radius: 12px;
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s ease;
+        }
+        
+        .session-item:hover {
+            background: #f3f4f6;
+            transform: translateX(4px);
+        }
+        
+        .session-info {
+            flex: 1;
+        }
+        
+        .session-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+        
+        .session-meta {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .session-score {
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .session-score.excellent {
+            background: #10b981;
+        }
+        
+        .session-score.good {
+            background: #f59e0b;
+        }
+        
+        .session-score.needs-work {
+            background: #ef4444;
+        }
+        
+        .performance-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .performance-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .performance-label {
+            font-weight: 500;
+            color: #1f2937;
+        }
+        
+        .performance-value {
+            font-weight: 600;
+            color: #3b82f6;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #f3f4f6;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 4px;
+            transition: width 0.8s ease;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #6b7280;
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .action-btn {
+            background: #3b82f6;
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .action-btn:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+        
+        .action-btn.secondary {
+            background: #6b7280;
+        }
+        
+        .action-btn.secondary:hover {
+            background: #4b5563;
+        }
+        
+        @media (max-width: 768px) {
+            .progress-container {
+                padding: 1rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-overview {
+                grid-template-columns: 1fr;
+            }
+            
+            .session-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .session-score {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    
+    <div class="progress-container">
+        <div class="progress-header">
+            <h1><i class="fas fa-chart-line"></i> Progress Tracking</h1>
+            <p>Monitor your performance and track your improvement over time</p>
+        </div>
+        
+        <!-- Overall Stats -->
+        <div class="stats-overview">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-value"><%= overallStats.totalSessions %></div>
+                <div class="stat-label">Total Sessions</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <div class="stat-value"><%= overallStats.totalQuestions %></div>
+                <div class="stat-label">Questions Attempted</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-value"><%= overallStats.totalCorrect %></div>
+                <div class="stat-label">Correct Answers</div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-percentage"></i>
+                </div>
+                <div class="stat-value"><%= overallStats.averageScore %>%</div>
+                <div class="stat-label">Average Score</div>
+            </div>
+        </div>
+        
+        <div class="content-grid">
+            <!-- Recent Sessions -->
+            <div class="sessions-section">
+                <div class="section-header">
+                    <h3 class="section-title">Recent Sessions</h3>
+                    <span><%= recentSessions.length %> sessions</span>
+                </div>
+                
+                <% if (recentSessions.length > 0) { %>
+                    <% recentSessions.forEach(session => { %>
+                        <div class="session-item">
+                            <div class="session-info">
+                                <div class="session-title">
+                                    <%= session.examName %> - <%= session.subjectName %>
+                                </div>
+                                <div class="session-meta">
+                                    <%= session.paperName %> • 
+                                    <%= new Date(session.date).toLocaleDateString() %> • 
+                                    <%= session.total %> questions
+                                </div>
+                            </div>
+                            <div class="session-score <%= session.score >= 75 ? 'excellent' : session.score >= 50 ? 'good' : 'needs-work' %>">
+                                <%= session.score %>%
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <div class="empty-state">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>No Practice Sessions Yet</h3>
+                        <p>Start practicing to see your progress here!</p>
+                    </div>
+                <% } %>
+            </div>
+            
+            <!-- Subject Performance -->
+            <div class="performance-section">
+                <div class="section-header">
+                    <h3 class="section-title">Subject Performance</h3>
+                </div>
+                
+                <% if (Object.keys(subjectPerformance).length > 0) { %>
+                    <% Object.entries(subjectPerformance).forEach(([subject, stats]) => { %>
+                        <div class="performance-item">
+                            <div class="performance-header">
+                                <div class="performance-label"><%= subject %></div>
+                                <div class="performance-value"><%= stats.averageScore %>%</div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: <%= stats.averageScore %>%;"></div>
+                            </div>
+                            <div style="font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem;">
+                                <%= stats.sessions %> sessions • <%= stats.totalQuestions %> questions
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <div class="empty-state">
+                        <i class="fas fa-book"></i>
+                        <h4>No Subject Data</h4>
+                        <p>Complete practice sessions to see subject-wise performance.</p>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <a href="/practice" class="action-btn">
+                <i class="fas fa-play"></i> Start Practice Session
+            </a>
+            
+            <a href="/" class="action-btn secondary">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        // Animate progress bars
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.querySelectorAll('.progress-fill').forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+            }, 500);
+            
+            // Animate stats
+            document.querySelectorAll('.stat-value').forEach((element, index) => {
+                const finalValue = parseInt(element.textContent);
+                if (!isNaN(finalValue)) {
+                    let currentValue = 0;
+                    const increment = Math.ceil(finalValue / 30);
+                    
+                    const interval = setInterval(() => {
+                        currentValue += increment;
+                        if (currentValue >= finalValue) {
+                            currentValue = finalValue;
+                            clearInterval(interval);
+                        }
+                        element.textContent = currentValue + (element.textContent.includes('%') ? '%' : '');
+                    }, 50);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
