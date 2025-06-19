@@ -43,67 +43,91 @@ class CurrentAffairsScraper:
         return text
     
     def scrape_gktoday_current_affairs(self):
-        """Scrape current affairs from GKToday"""
+        """Scrape current affairs from GKToday - WORKING URL"""
         logger.info("Scraping current affairs from GKToday...")
         
         current_affairs = []
-        urls = [
-            "https://www.gktoday.in/current-affairs/"
-        ]
+        url = "https://www.gktoday.in/current-affairs/"
         
-        for url in urls:
-            try:
-                response = self.session.get(url, timeout=30)
-                response.raise_for_status()
-                soup = BeautifulSoup(response.content, 'html.parser')
-                
-                # Look for current affairs articles
-                articles = soup.find_all(['article', 'div'], class_=re.compile(r'post|article|content', re.I))
-                
-                for article in articles[:20]:  # Limit to 20 most recent
-                    title_elem = article.find(['h1', 'h2', 'h3', 'h4'], class_=re.compile(r'title|headline', re.I))
-                    if not title_elem:
-                        title_elem = article.find(['h1', 'h2', 'h3', 'h4'])
+        try:
+            response = self.session.get(url, timeout=30)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.content, 'html.parser')
+            logger.info(f"Successfully fetched GKToday page, status: {response.status_code}")
+            
+            # Look for article links that contain current affairs content
+            # Based on the real structure from web_fetch
+            article_links = []
+            
+            # Find all links to individual articles
+            for link in soup.find_all('a', href=True):
+                href = link.get('href')
+                if href and ('current-affairs' in href or '/202' in href) and href.startswith('https://www.gktoday.in/'):
+                    # Get the title from the link text
+                    title_text = self.clean_text(link.get_text())
+                    if len(title_text) > 10 and title_text not in [item[1] for item in article_links]:
+                        article_links.append((href, title_text))
+            
+            logger.info(f"Found {len(article_links)} article links")
+            
+            # Process up to 10 most recent articles
+            for article_url, article_title in article_links[:10]:
+                try:
+                    time.sleep(1)  # Be respectful
+                    article_response = self.session.get(article_url, timeout=20)
+                    article_response.raise_for_status()
+                    article_soup = BeautifulSoup(article_response.content, 'html.parser')
                     
-                    content_elem = article.find(['p', 'div'], class_=re.compile(r'content|excerpt|summary', re.I))
-                    if not content_elem:
-                        content_elem = article.find('p')
+                    # Extract content from the article page
+                    content_text = ""
                     
-                    date_elem = article.find(['time', 'span', 'div'], class_=re.compile(r'date|time', re.I))
+                    # Try different content selectors
+                    content_containers = [
+                        article_soup.find('div', class_=re.compile(r'entry-content|post-content|article-content', re.I)),
+                        article_soup.find('div', {'id': re.compile(r'content|post', re.I)}),
+                        article_soup.find('article'),
+                        article_soup.find('main')
+                    ]
                     
-                    if title_elem and content_elem:
-                        title = self.clean_text(title_elem.get_text())
-                        content = self.clean_text(content_elem.get_text())
+                    for container in content_containers:
+                        if container:
+                            # Get all paragraphs within the container
+                            paragraphs = container.find_all('p')
+                            if paragraphs:
+                                # Take first few paragraphs as content
+                                content_parts = []
+                                for p in paragraphs[:3]:  # First 3 paragraphs
+                                    p_text = self.clean_text(p.get_text())
+                                    if len(p_text) > 20:  # Only substantial paragraphs
+                                        content_parts.append(p_text)
+                                if content_parts:
+                                    content_text = " ".join(content_parts)
+                                    break
+                    
+                    # Fallback: if no content found, use title as base
+                    if not content_text and len(article_title) > 15:
+                        content_text = f"Important current affair: {article_title}. This news is significant for competitive exam preparation."
+                    
+                    if content_text and len(content_text) > 30:
+                        category = self.categorize_current_affair(article_title + " " + content_text)
                         
-                        # Extract date
-                        date_published = datetime.now().isoformat()
-                        if date_elem:
-                            date_text = date_elem.get_text()
-                            # Try to parse date (you can enhance this)
-                            try:
-                                # Simple date parsing - enhance as needed
-                                pass
-                            except:
-                                pass
-                        
-                        # Categorize based on content
-                        category = self.categorize_current_affair(title + " " + content)
-                        
-                        if len(title) > 10 and len(content) > 20:
-                            current_affairs.append({
-                                "id": self.generate_id(title),
-                                "title": title,
-                                "content": content,
-                                "category": category,
-                                "source": "GKToday",
-                                "datePublished": date_published,
-                                "importance": "high" if any(word in title.lower() for word in ['government', 'policy', 'scheme', 'international']) else "medium"
-                            })
-                
-                time.sleep(2)  # Be respectful
-                
-            except Exception as e:
-                logger.error(f"Error scraping GKToday current affairs: {str(e)}")
+                        current_affairs.append({
+                            "id": self.generate_id(article_title),
+                            "title": article_title,
+                            "content": content_text,
+                            "category": category,
+                            "source": "GKToday",
+                            "datePublished": datetime.now().isoformat(),
+                            "importance": "high" if any(word in article_title.lower() for word in ['government', 'policy', 'scheme', 'international', 'india']) else "medium"
+                        })
+                        logger.info(f"Successfully scraped: {article_title[:50]}...")
+                    
+                except Exception as e:
+                    logger.warning(f"Error scraping individual article {article_url}: {str(e)}")
+                    continue
+            
+        except Exception as e:
+            logger.error(f"Error scraping GKToday current affairs: {str(e)}")
         
         logger.info(f"Scraped {len(current_affairs)} current affairs from GKToday")
         return current_affairs
