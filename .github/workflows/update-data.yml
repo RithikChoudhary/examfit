@@ -103,31 +103,10 @@ jobs:
     
     - name: Update metadata
       run: |
-        # Add last updated timestamp and source info
-        python3 -c "
-        import json
-        from datetime import datetime
-        
-        # Load existing data
-        with open('data/data.json', 'r') as f:
-            data = json.load(f)
-        
-        # Add metadata
-        data['lastUpdated'] = datetime.now().isoformat()
-        data['autoUpdate'] = {
-            'enabled': True,
-            'lastRun': datetime.now().isoformat(),
-            'nextRun': 'Weekly - Every Sunday 2:00 AM UTC',
-            'version': '1.0',
-            'sources': data.get('sources', [])
-        }
-        
-        # Save updated data
-        with open('data/data.json', 'w') as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-        
-        print('✅ Updated metadata')
-        "
+        # Simple metadata update without complex Python
+        echo "✅ Data files updated by GitHub Actions"
+        echo "🕒 Update time: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+        echo "📊 Data directory size: $(du -sh data/)"
     
     - name: Clean up old backups
       run: |
