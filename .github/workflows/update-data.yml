@@ -104,7 +104,7 @@ jobs:
     - name: Update metadata
       run: |
         # Add last updated timestamp and source info
-        python - <<EOF
+        python3 -c "
         import json
         from datetime import datetime
         
@@ -126,8 +126,8 @@ jobs:
         with open('data/data.json', 'w') as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
         
-        print("✅ Updated metadata")
-        EOF
+        print('✅ Updated metadata')
+        "
     
     - name: Clean up old backups
       run: |

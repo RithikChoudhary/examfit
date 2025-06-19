@@ -48,9 +48,7 @@ class CurrentAffairsScraper:
         
         current_affairs = []
         urls = [
-            "https://www.gktoday.in/current-affairs/",
-            "https://www.gktoday.in/current-affairs/monthly-current-affairs/",
-            "https://www.gktoday.in/current-affairs/daily-current-affairs/"
+            "https://www.gktoday.in/current-affairs/"
         ]
         
         for url in urls:
@@ -241,6 +239,61 @@ class CurrentAffairsScraper:
         else:
             return 'General Affairs'
     
+    def generate_sample_current_affairs(self):
+        """Generate sample current affairs when scraping fails"""
+        logger.info("Generating sample current affairs as fallback...")
+        
+        sample_affairs = [
+            {
+                "id": self.generate_id("Digital India Mission"),
+                "title": "Government Launches Next Phase of Digital India Mission",
+                "content": "The Government of India has announced the launch of the next phase of Digital India Mission with a focus on AI integration and digital literacy. The initiative aims to bridge the digital divide and enhance citizen services through technology.",
+                "category": "Government & Policy",
+                "source": "Sample News",
+                "datePublished": datetime.now().isoformat(),
+                "importance": "high"
+            },
+            {
+                "id": self.generate_id("Climate Summit"),
+                "title": "India Hosts International Climate Action Summit",
+                "content": "India is hosting a major international climate action summit focusing on renewable energy and sustainable development. Leaders from over 50 countries are participating to discuss climate change mitigation strategies.",
+                "category": "International Affairs",
+                "source": "Sample News",
+                "datePublished": datetime.now().isoformat(),
+                "importance": "high"
+            },
+            {
+                "id": self.generate_id("Economic Growth"),
+                "title": "India's GDP Growth Exceeds Expectations in Q4",
+                "content": "India's Gross Domestic Product (GDP) has shown robust growth in the fourth quarter, exceeding economists' expectations. The growth is attributed to strong performance in manufacturing and services sectors.",
+                "category": "Economy & Finance",
+                "source": "Sample News",
+                "datePublished": datetime.now().isoformat(),
+                "importance": "medium"
+            },
+            {
+                "id": self.generate_id("Space Mission"),
+                "title": "ISRO Successfully Launches Advanced Earth Observation Satellite",
+                "content": "The Indian Space Research Organisation (ISRO) has successfully launched an advanced earth observation satellite that will enhance weather forecasting and disaster management capabilities.",
+                "category": "Science & Technology",
+                "source": "Sample News",
+                "datePublished": datetime.now().isoformat(),
+                "importance": "high"
+            },
+            {
+                "id": self.generate_id("Education Policy"),
+                "title": "New Education Policy Implementation Shows Positive Results",
+                "content": "The implementation of the New Education Policy (NEP) 2020 is showing positive results with increased enrollment in vocational courses and improved learning outcomes in government schools.",
+                "category": "Government & Policy",
+                "source": "Sample News",
+                "datePublished": datetime.now().isoformat(),
+                "importance": "medium"
+            }
+        ]
+        
+        logger.info(f"Generated {len(sample_affairs)} sample current affairs")
+        return sample_affairs
+    
     def scrape_all_current_affairs(self):
         """Scrape current affairs from all sources"""
         logger.info("Starting current affairs scraping from all sources...")
@@ -252,6 +305,11 @@ class CurrentAffairsScraper:
         all_current_affairs.extend(self.scrape_affairs_cloud_current_affairs())
         all_current_affairs.extend(self.scrape_jagran_josh_current_affairs())
         
+        # If no current affairs scraped, use sample data
+        if not all_current_affairs:
+            logger.warning("No current affairs scraped from external sources, using sample data")
+            all_current_affairs = self.generate_sample_current_affairs()
+        
         # Remove duplicates based on title similarity
         unique_affairs = self.remove_duplicates(all_current_affairs)
         
@@ -260,7 +318,7 @@ class CurrentAffairsScraper:
         
         # Update data structure
         self.current_affairs_data["currentAffairs"] = unique_affairs[:50]  # Keep top 50
-        self.current_affairs_data["sources"] = ["GKToday", "AffairsCloud", "Jagran Josh"]
+        self.current_affairs_data["sources"] = ["GKToday", "AffairsCloud", "Jagran Josh"] if len(unique_affairs) > 5 else ["Sample News"]
         self.current_affairs_data["categories"] = list(set([affair['category'] for affair in unique_affairs]))
         
         logger.info(f"Total unique current affairs collected: {len(unique_affairs)}")
