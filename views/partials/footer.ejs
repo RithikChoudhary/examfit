@@ -1,9 +1,66 @@
-<footer>
-    <div class="container"> 
-      <p>&copy; <%= new Date().getFullYear() %> Your Company. All rights reserved.</p> 
-      <a href="#">About</a> | 
-      <a href="/contact">Contact</a> |
-      <a href="#">Privacy Policy</a>
+<footer class="modern-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <div class="footer-brand">
+        <img src="/templates/logo.webp" alt="ExamFit Logo" class="footer-logo">
+        <h3>ExamFit</h3>
+        <p>Your ultimate exam preparation platform. Master competitive exams with comprehensive question banks and smart learning tools.</p>
+      </div>
     </div>
-  </footer>
+    
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#privacy">Privacy Policy</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Popular Exams</h4>
+      <ul class="footer-links">
+        <li><a href="/upsc">UPSC</a></li>
+        <li><a href="/ssc">SSC</a></li>
+        <li><a href="/banking">Banking</a></li>
+        <li><a href="/railway">Railway</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h4>Connect With Us</h4>
+      <div class="social-links">
+        <a href="#" class="social-link" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+      <div class="contact-info">
+        <p><i class="fas fa-envelope"></i> support@examfit.in</p>
+        <p><i class="fas fa-phone"></i> +91 12345 67890</p>
+      </div>
+    </div>
+  </div>
   
+  <div class="footer-bottom">
+    <div class="footer-bottom-content">
+      <p>&copy; <%= new Date().getFullYear() %> ExamFit. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#terms">Terms of Service</a>
+        <span class="separator">|</span>
+        <a href="#privacy">Privacy Policy</a>
+        <span class="separator">|</span>
+        <a href="/contact">Support</a>
+      </div>
+    </div>
+  </div>
+</footer>

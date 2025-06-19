@@ -1,150 +1,250 @@
-/* Navbar CSS */
+/* Modern Navbar CSS */
 :root {
-   --white: #ffffff;
-   --gray-50: #f9fafb;
-   --gray-100: #f3f4f6;
-   --gray-600: #4b5563;
-   --gray-700: #374151;
-   --blue-500: #3b82f6;
- }
- 
-.main-header {
-    background: var(--white);
-    border-bottom: 2px solid var(--gray-100);
-/*     position: sticky; */
-    top: 0;
-    z-index: 1000;
-    width: 100%;
- }
- 
- .nav-container {
-    width: 100%;
-    padding: 1rem 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: var(--white);
- }
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+  --shadow-sm: rgba(0, 0, 0, 0.05);
+  --shadow-md: rgba(0, 0, 0, 0.1);
+}
 
- .nav-brand {
-    display: flex;
-    align-items: center;
- }
- 
- .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    color: var(--gray-700);
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    letter-spacing: 0.5px;
- }
- 
- .nav-logo:hover {
-    color: var(--blue-500);
- }
- 
- .nav-logo i {
-    color: var(--blue-500);
-    font-size: 1.8rem;
- }
- 
- .nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
- }
- 
- .exam-links {
-    display: flex;
-    gap: 1.5rem;
- }
- 
- .nav-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--gray-600);
-    text-decoration: none;
-    padding: 0.75rem 1.25rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-    border: 2px solid transparent;
- }
- 
- .nav-item:hover {
-    color: var(--blue-500);
-    background: var(--gray-50);
-    border-color: var(--gray-100);
-    transform: translateY(-2px);
- }
- 
- .nav-item i {
-    color: var(--blue-500);
- }
- 
- .nav-divider {
-    width: 2px;
-    height: 24px;
-    background: var(--gray-100);
- }
- 
-/* Keep all your existing CSS the same, just update the .pak img and media query part */
+.main-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-100);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 1px 3px var(--shadow-sm);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--gray-800);
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  padding: 0.5rem 0;
+  border-radius: 8px;
+  letter-spacing: -0.025em;
+}
+
+.nav-logo:hover {
+  color: var(--blue-600);
+  transform: translateY(-1px);
+}
 
 .pak {
-   display: flex;
-   align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .pak img {
-   width: 120px;  
-   height: 32px; 
-   object-fit: contain;
+  width: 140px;
+  height: 36px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
-/* MOBILE NAVBAR CLEANUP */
+.nav-logo:hover .pak img {
+  transform: scale(1.05);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--gray-600);
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.nav-item:hover::before {
+  left: 100%;
+}
+
+.nav-item:hover {
+  color: var(--blue-600);
+  background: var(--blue-50);
+  border-color: var(--blue-100);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-sm);
+}
+
+.nav-item i {
+  color: var(--blue-500);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover i {
+  color: var(--blue-600);
+  transform: scale(1.1);
+}
+
+.nav-item span {
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+/* Mobile Navigation */
 @media (max-width: 768px) {
-   .nav-container {
-     flex-direction: row;
-     justify-content: space-between;
-     padding: 0.5rem 1rem;
-   }
- 
-   .nav-menu {
-     flex-direction: row;
-     gap: 1rem;
-     padding: 0;
-   }
- 
-   .nav-item span {
-     display: none;
-   }
- 
-   .nav-item {
-     padding: 0.5rem;
-     font-size: 1.2rem;
-   }
- 
-   .nav-logo {
-     font-size: 1.2rem;
-     padding: 0.25rem;
-   }
- }
- 
- @media (max-width: 480px) {
-   .pak img {
-     width: 80px;
-     height: auto;
-   }
- 
-   .nav-item i {
-     font-size: 1.2rem;
-   }
- }
- 
+  .nav-container {
+    padding: 0.75rem 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav-menu {
+    gap: 0.5rem;
+  }
+
+  .nav-item {
+    padding: 0.6rem;
+    border-radius: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+  }
+
+  .nav-item span {
+    display: none;
+  }
+
+  .nav-item i {
+    font-size: 1.2rem;
+  }
+
+  .pak img {
+    width: 100px;
+    height: 28px;
+  }
+
+  .nav-logo {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0.5rem 1rem;
+  }
+
+  .pak img {
+    width: 90px;
+    height: 26px;
+  }
+
+  .nav-item {
+    padding: 0.5rem;
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  .nav-item i {
+    font-size: 1.1rem;
+  }
+
+  .nav-menu {
+    gap: 0.25rem;
+  }
+}
+
+/* Enhanced hover effects */
+.nav-item.mobile-icon {
+  position: relative;
+}
+
+.nav-item.mobile-icon:hover {
+  background: linear-gradient(135deg, var(--blue-50), var(--blue-100));
+}
+
+/* Focus states for accessibility */
+.nav-item:focus {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 2px;
+}
+
+.nav-logo:focus {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 2px;
+}
+
+/* Animation for logo */
+@keyframes logoFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-2px); }
+}
+
+.nav-logo:hover .pak img {
+  animation: logoFloat 2s ease-in-out infinite;
+}
+
+/* Gradient text effect for brand name if needed */
+.brand-text {
+  background: linear-gradient(135deg, var(--blue-600), var(--blue-700));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Active state for navigation items */
+.nav-item.active {
+  color: var(--blue-600);
+  background: var(--blue-50);
+  border-color: var(--blue-200);
+}
+
+.nav-item.active i {
+  color: var(--blue-600);
+}

@@ -67,9 +67,23 @@ router.get('/subjects/:examId', async (req, res) => {
       return res.status(500).send('Invalid subject data structure');
     }
 
+    // Calculate question count for each subject
+    const subjectsWithCount = examData.subjects.map(subject => {
+      let questionCount = 0;
+      if (subject.questionPapers && Array.isArray(subject.questionPapers)) {
+        questionCount = subject.questionPapers.reduce((total, paper) => {
+          return total + (paper.questions ? paper.questions.length : 0);
+        }, 0);
+      }
+      return {
+        ...subject,
+        questionCount
+      };
+    });
+
     res.render('dashboard/subjects', {
       examData,
-      subjects: examData.subjects,
+      subjects: subjectsWithCount,
       currentPage: 'subjects',
       examName: examData.examName,
       examId: examId

@@ -25,11 +25,11 @@ router.get('/:exam', async (req, res) => {
             });
         } else {
             const subjects = examData.subjects.map(s => ({
-                id: s.subjectId,
-                name: s.subjectName
+                subjectId: s.subjectId,
+                subjectName: s.subjectName
             }));
             res.render('subjects', { 
-                exam, 
+                examId: exam, 
                 examName: examData.examName,
                 subjects,
                 isSubExamView: false
@@ -75,13 +75,6 @@ router.get('/:exam/:subExam/subjects', async (req, res) => {
         res.status(500).send('Error loading.... subjects');
     }
 });
-// router.get('/upsc', (req, res) => {
-//     res.send('UPSC exams');
-//   });
-  
-//   router.get('/cgl', (req, res) => {
-//     res.send('CGL exams');
-//   });
   // Route for displaying question papers for a subject within an exam
 router.get('/:examId/:subjectId/questionPapers', async (req, res) => {
     try {

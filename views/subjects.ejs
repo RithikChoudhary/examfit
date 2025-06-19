@@ -2,73 +2,406 @@
 <html lang="en">
 
 <head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Prepare for competitive exams with ExamFit. Practice previous year papers, explore subject-wise questions, and boost your exam readiness.">
-  <meta property="og:title" content="ExamFit – Prepare Smarter" />
-  <meta property="og:description" content="Practice competitive exams with real question papers and smart subject-wise prep." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore <%= examName %> subjects with ExamFit. Access comprehensive study materials and practice questions for all subjects.">
+  <meta property="og:title" content="<%= examName %> Subjects | ExamFit" />
+  <meta property="og:description" content="Choose from comprehensive <%= examName %> subjects and start your exam preparation journey with ExamFit." />
   <meta property="og:image" content="/templates/logo.webp" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://examfit.in" />
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7935640093775501"
-     crossorigin="anonymous"></script>
-    <title>Subjects - <%= examName %>
-    </title>
-    <link rel="stylesheet" href="/css/home.css">
-    <link rel="stylesheet" href="/css/navbar.css">
-    <meta name="google-adsense-account" content="ca-pub-7935640093775501">
-    
+  <meta property="og:url" content="https://examfit.in/<%= examId %>" />
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  
+  <title><%= examName %> Subjects | ExamFit</title>
+  
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link rel="stylesheet" href="/css/home-footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <meta name="google-adsense-account" content="ca-pub-7935640093775501">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7935640093775501"
+    crossorigin="anonymous"></script>
+  
+  <style>
+    /* Additional styles for subjects page */
+    .subjects-hero {
+      background: linear-gradient(135deg, var(--blue-600), var(--purple-600));
+      color: var(--white);
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .subjects-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      z-index: 0;
+    }
+
+    .subjects-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .subjects-hero .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .subjects-hero .hero-title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .subjects-hero .hero-subtitle {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
+    }
+
+    .subjects-main {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .subject-card-enhanced {
+      background: var(--white);
+      border: 2px solid var(--gray-100);
+      border-radius: 20px;
+      padding: 2rem;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .subject-card-enhanced::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--blue-500), var(--purple-500));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .subject-card-enhanced:hover::before {
+      transform: scaleX(1);
+    }
+
+    .subject-card-enhanced:hover {
+      transform: translateY(-8px);
+      border-color: var(--blue-200);
+      box-shadow: 0 20px 40px var(--shadow-lg);
+    }
+
+    .subject-icon-enhanced {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, var(--blue-500), var(--purple-500));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--white);
+      transition: all 0.3s ease;
+    }
+
+    .subject-card-enhanced:hover .subject-icon-enhanced {
+      transform: scale(1.1);
+    }
+
+    .subject-content {
+      text-align: center;
+    }
+
+    .subject-name-enhanced {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 0.5rem;
+    }
+
+    .subject-description {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .subject-action {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--blue-600);
+      font-weight: 500;
+      font-size: 0.875rem;
+    }
+
+    .subject-action i {
+      transition: transform 0.3s ease;
+    }
+
+    .subject-card-enhanced:hover .subject-action i {
+      transform: translateX(4px);
+    }
+
+    .breadcrumb-nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-100);
+      padding: 1rem 0;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      list-style: none;
+      font-size: 0.875rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .breadcrumb li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .breadcrumb li:not(:last-child)::after {
+      content: '/';
+      color: var(--gray-300);
+      margin-left: 0.5rem;
+    }
+
+    .breadcrumb a {
+      color: var(--blue-600);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: color 0.3s ease;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--blue-700);
+    }
+
+    .breadcrumb .active {
+      color: var(--gray-600);
+      font-weight: 500;
+    }
+
+    /* Subject-specific icon colors */
+    .subject-icon-math { background: linear-gradient(135deg, #FF6B6B, #FF8E8E); }
+    .subject-icon-physics { background: linear-gradient(135deg, #4ECDC4, #6ED5D0); }
+    .subject-icon-chemistry { background: linear-gradient(135deg, #45B7D1, #67C3D7); }
+    .subject-icon-biology { background: linear-gradient(135deg, #96CEB4, #A8D4C0); }
+    .subject-icon-general { background: linear-gradient(135deg, #fbbf24, #fcd34d); }
+    .subject-icon-computer { background: linear-gradient(135deg, #6C5CE7, #8B7CF6); }
+    .subject-icon-english { background: linear-gradient(135deg, #FF8B94, #FFA3AB); }
+    .subject-icon-history { background: linear-gradient(135deg, #A8E6CF, #B8EBD6); }
+    .subject-icon-geography { background: linear-gradient(135deg, #DDD6F3, #E4DDF6); }
+
+    @media (max-width: 768px) {
+      .subjects-hero {
+        padding: 3rem 1rem;
+      }
+
+      .subjects-hero .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .subjects-main {
+        padding: 3rem 1rem;
+      }
+
+      .subjects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .subject-card-enhanced {
+        padding: 1.5rem;
+      }
+
+      .breadcrumb {
+        padding: 0 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .subjects-hero .hero-title {
+        font-size: 2rem;
+      }
+
+      .subject-icon-enhanced {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+      }
+
+      .subject-card-enhanced {
+        padding: 1.25rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <%- include('partials/navbar') %>
+  <%- include('partials/navbar') %>
+  
+  <div class="content-wrapper">
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav">
+      <ol class="breadcrumb">
+        <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+        <li class="active"><%= examName %></li>
+      </ol>
+    </nav>
 
-        <div class="hero-section">
-            <h1 class="hero-title">
-                <%= examName %> Subjects
-            </h1>
-            <p class="hero-subtitle">Select a subject to continue</p>
-
-            <div class="subjects-container show-subjects">
-                <% subjects.forEach(subject=> { %>
-                    <a href="/<%= examId %>/<%= subject.subjectId %>/questionPapers" class="subject-card">
-                        <i class="fas fa-book-open subject-icon"></i>
-                        <span class="subject-name">
-                            <%= subject.subjectName %>
-                        </span>
-                    </a>
-                    <% }); %>
-            </div>
+    <!-- Hero Section -->
+    <section class="subjects-hero">
+      <div class="subjects-hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-graduation-cap"></i>
+          <span>Choose Your Subject</span>
         </div>
+        <h1 class="hero-title"><%= examName %> Subjects</h1>
+        <p class="hero-subtitle">Select a subject to start your preparation journey</p>
+      </div>
+    </section>
 
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-          
-            if ('requestIdleCallback' in window) {
-              requestIdleCallback(() => {
-                const gtagScript = document.createElement('script');
-                gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
-                gtagScript.async = true;
-                document.head.appendChild(gtagScript);
-          
-                gtag('js', new Date());
-                gtag('config', 'G-5HNLDBJ7EL');
-              });
-            } else {
-              // Fallback if browser doesn't support requestIdleCallback
-              setTimeout(() => {
-                const gtagScript = document.createElement('script');
-                gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
-                gtagScript.async = true;
-                document.head.appendChild(gtagScript);
-          
-                gtag('js', new Date());
-                gtag('config', 'G-5HNLDBJ7EL');
-              }, 2000);
-            }
-          </script>
+    <!-- Main Content -->
+    <main class="subjects-main">
+      <div class="subjects-grid">
+        <% subjects.forEach(subject => { %>
+          <a href="/<%= examId %>/<%= subject.subjectId %>/questionPapers" class="subject-card-enhanced">
+            <div class="subject-icon-enhanced subject-icon-<%= subject.subjectName.toLowerCase().includes('math') ? 'math' : subject.subjectName.toLowerCase().includes('physics') ? 'physics' : subject.subjectName.toLowerCase().includes('chemistry') ? 'chemistry' : subject.subjectName.toLowerCase().includes('biology') ? 'biology' : subject.subjectName.toLowerCase().includes('general') ? 'general' : subject.subjectName.toLowerCase().includes('computer') || subject.subjectName.toLowerCase().includes('science') ? 'computer' : subject.subjectName.toLowerCase().includes('english') || subject.subjectName.toLowerCase().includes('language') ? 'english' : subject.subjectName.toLowerCase().includes('history') ? 'history' : subject.subjectName.toLowerCase().includes('geography') ? 'geography' : 'general' %>">
+              <i class="fas <%= subject.subjectName.toLowerCase().includes('math') ? 'fa-square-root-variable' : subject.subjectName.toLowerCase().includes('physics') ? 'fa-atom' : subject.subjectName.toLowerCase().includes('chemistry') ? 'fa-flask' : subject.subjectName.toLowerCase().includes('biology') ? 'fa-dna' : subject.subjectName.toLowerCase().includes('computer') || subject.subjectName.toLowerCase().includes('science') ? 'fa-laptop-code' : subject.subjectName.toLowerCase().includes('english') || subject.subjectName.toLowerCase().includes('language') ? 'fa-language' : subject.subjectName.toLowerCase().includes('history') ? 'fa-landmark' : subject.subjectName.toLowerCase().includes('geography') ? 'fa-earth-americas' : 'fa-book-open' %>"></i>
+            </div>
+            <div class="subject-content">
+              <h3 class="subject-name-enhanced"><%= subject.subjectName %></h3>
+              <p class="subject-description">Comprehensive study materials and practice questions</p>
+              <div class="subject-action">
+                <span>Start Learning</span>
+                <i class="fas fa-arrow-right"></i>
+              </div>
+            </div>
+          </a>
+        <% }); %>
+      </div>
+    </main>
+  </div>
+
+  <%- include('./partials/footer') %>
+
+  <script>
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Set initial state and observe subject cards
+    document.querySelectorAll('.subject-card-enhanced').forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+      observer.observe(card);
+    });
+
+    // Add smooth scrolling for breadcrumb links
+    document.querySelectorAll('.breadcrumb a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.getAttribute('href').startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+  </script>
+
+  <!-- Google Analytics -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        const gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        gtag('js', new Date());
+        gtag('config', 'G-5HNLDBJ7EL');
+      });
+    } else {
+      setTimeout(() => {
+        const gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        gtag('js', new Date());
+        gtag('config', 'G-5HNLDBJ7EL');
+      }, 2000);
+    }
+  </script>
 </body>
 
 </html>

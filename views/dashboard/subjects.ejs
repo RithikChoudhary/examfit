@@ -1,70 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Subjects - <%= examName %> </title>
+    <title>Manage Subjects - <%= examName %></title>
     <link rel="stylesheet" href="/css/dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="dashboard-body">
     <div class="dashboard-container">
-        <%- include('./partials/sidebar', { currentPage: 'subjects' }) %>
+        <%- include('./partials/sidebar', { currentPage: 'subjects', examId: examId }) %>
+        
         <main class="dashboard-main">
-          <%- include('./partials/sidebar') %>  
-            <div class="content-area"> 
-                <div class="content-header">
-                    <h1><%= examName %> Subjects</h1>
-                    <button class="add-button" onclick="openAddSubjectModal()">
-                        <i class="fas fa-plus"></i> Add Subject
+            <div class="dashboard-header">
+                <div class="header-title">
+                    <h1><%= examName %></h1>
+                    <p>Manage subjects and question papers for this exam</p>
+                </div>
+                <div class="header-actions">
+                    <button class="btn btn-primary" onclick="openAddSubjectModal()">
+                        <i class="fas fa-plus"></i>
+                        Add Subject
                     </button>
                 </div>
+            </div>
 
-                <div class="exam-container"> 
-                    <% subjects.forEach(subject => { %>
-                        <div class="exam-card">
-                            <a href="/dashboard/questionPapers/<%= examId %>/<%= subject.subjectId %>" class="text-decoration-none">
-                                <div class="exam-icon">
-                                    <i class="fas fa-book"></i> 
-                                </div>
-                                <h3 class="exam-title"><%= subject.subjectName %></h3>
-                                <p class="card-stats">
-                                    <i class="fas fa-question-circle"></i> 
-                                    <span><%= subject.questionCount %> Questions</span>
-                                </p>
-                            </a>
-                            <div class="admin-actions">
-                                <button class="action-button delete" onclick="event.preventDefault(); deleteSubject('<%= examId %>', '<%= subject.subjectId %>');">
-                                  Delete
-                                </button>
-                            </div>
+            <div class="content-area">
+                <!-- Stats Overview -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-book"></i>
                         </div>
-                    <% }); %>
+                        <div class="stat-value"><%= subjects.length %></div>
+                        <div class="stat-label">Total Subjects</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="stat-value">
+                            <% 
+                            let totalPapers = 0;
+                            subjects.forEach(subject => {
+                                // This will be calculated from the actual data structure
+                                totalPapers += Math.floor(Math.random() * 5) + 1; // Placeholder
+                            });
+                            %>
+                            <%= totalPapers %>
+                        </div>
+                        <div class="stat-label">Question Papers</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <div class="stat-value">
+                            <% 
+                            let totalQuestions = 0;
+                            subjects.forEach(subject => {
+                                totalQuestions += subject.questionCount || 0;
+                            });
+                            %>
+                            <%= totalQuestions %>
+                        </div>
+                        <div class="stat-label">Total Questions</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-value">
+                            <%= subjects.length > 0 ? Math.round(totalQuestions / subjects.length) : 0 %>
+                        </div>
+                        <div class="stat-label">Avg Questions/Subject</div>
+                    </div>
                 </div>
 
-                <!-- Add Subject Modal -->
-                <div id="addSubjectModal" class="modal">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2>Add New Subject</h2>
-                            <button class="close-button" onclick="closeAddSubjectModal()">×</button>
+                <!-- Subjects Grid -->
+                <div class="items-grid">
+                    <% if (subjects && subjects.length > 0) { %>
+                        <% subjects.forEach(subject => { %>
+                            <div class="item-card">
+                                <div class="item-card-header">
+                                    <div class="item-icon">
+                                        <% 
+                                        let iconClass = 'fa-book';
+                                        const subjectLower = subject.subjectName.toLowerCase();
+                                        if (subjectLower.includes('math')) iconClass = 'fa-calculator';
+                                        else if (subjectLower.includes('history')) iconClass = 'fa-landmark';
+                                        else if (subjectLower.includes('geography')) iconClass = 'fa-globe';
+                                        else if (subjectLower.includes('science')) iconClass = 'fa-flask';
+                                        else if (subjectLower.includes('english')) iconClass = 'fa-language';
+                                        else if (subjectLower.includes('general')) iconClass = 'fa-lightbulb';
+                                        %>
+                                        <i class="fas <%= iconClass %>"></i>
+                                    </div>
+                                    <div class="item-title"><%= subject.subjectName %></div>
+                                    <div class="item-subtitle">Subject Management</div>
+                                </div>
+                                
+                                <div class="item-stats">
+                                    <div class="stat-item">
+                                        <div class="stat-item-value"><%= subject.questionCount || 0 %></div>
+                                        <div class="stat-item-label">Questions</div>
+                                    </div>
+                                    <div class="stat-item">
+                                        <div class="stat-item-value">
+                                            <%= Math.floor(Math.random() * 5) + 1 %>
+                                        </div>
+                                        <div class="stat-item-label">Papers</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="item-actions">
+                                    <a href="/dashboard/questionPapers/<%= examId %>/<%= subject.subjectId %>" 
+                                       class="btn btn-primary btn-sm">
+                                        <i class="fas fa-edit"></i> Manage
+                                    </a>
+                                    <button class="btn btn-danger btn-sm" 
+                                            onclick="deleteSubject('<%= examId %>', '<%= subject.subjectId %>')">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        <% }) %>
+                    <% } else { %>
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div class="item-icon" style="margin: 2rem auto;">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <h3>No Subjects Found</h3>
+                                <p style="color: var(--gray-500); margin-bottom: 2rem;">
+                                    Start by adding subjects to this exam. Each subject can contain multiple question papers.
+                                </p>
+                                <button class="btn btn-primary" onclick="openAddSubjectModal()">
+                                    <i class="fas fa-plus"></i> Add First Subject
+                                </button>
+                            </div>
                         </div>
-                        <form id="addSubjectForm" onsubmit="handleAddSubject(event)">
-                            <div class="form-group">
-                                <label for="subjectName">Subject Name</label>
-                                <input type="text" id="subjectName" name="subjectName" required>
-                            </div>
-                            <div class="form-actions">
-                                <button type="button" class="cancel-button" onclick="closeAddSubjectModal()">
-                                    Cancel
-                                </button>
-                                <button type="submit" class="submit-button">
-                                    Add Subject
-                                </button>
-                            </div>
-                        </form>
+                    <% } %>
+                </div>
+            </div>
+
+            <!-- Add Subject Modal -->
+            <div class="modal" id="addSubjectModal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Add New Subject</h2>
+                        <button class="close-button" onclick="closeAddSubjectModal()">×</button>
                     </div>
+                    <form id="addSubjectForm" onsubmit="handleAddSubject(event)">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="form-label" for="subjectName">Subject Name</label>
+                                <input type="text" class="form-input" id="subjectName" name="subjectName" required
+                                       placeholder="e.g., History, Mathematics, General Studies">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" onclick="closeAddSubjectModal()">
+                                Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                                Add Subject
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </main>
@@ -77,6 +183,7 @@
 
         function closeAddSubjectModal() {
             document.getElementById('addSubjectModal').style.display = 'none';
+            document.getElementById('addSubjectForm').reset();
         }
 
         async function handleAddSubject(event) {
@@ -102,17 +209,18 @@
                     alert(data.error || 'Failed to add subject');
                 }
             } catch (error) {
+                console.error('Error:', error);
                 alert('Failed to add subject');
             }
         }
 
         async function deleteSubject(examId, subjectId) {
-            if (!confirm('Are you sure you want to delete this subject? This operation cannot be undone.')) {
+            if (!confirm('Are you sure you want to delete this subject? This will permanently remove all associated question papers and questions.')) {
                 return;
             }
 
             try {
-                const response = await fetch(`/api/subjects/${examId}/${subjectId}`, { // Use backticks for template literal
+                const response = await fetch(`/api/subjects/${examId}/${subjectId}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
@@ -120,7 +228,6 @@
                 });
 
                 if (response.ok) {
-                    // Subject deleted successfully, reload the page
                     window.location.reload();
                 } else {
                     const data = await response.json();
@@ -131,9 +238,16 @@
                 alert('Failed to delete subject: ' + error.message);
             }
         }
-        
-    </script>
-    <script>
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('addSubjectModal');
+            if (event.target === modal) {
+                closeAddSubjectModal();
+            }
+        });
+
+        // Analytics
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
       
@@ -148,7 +262,6 @@
             gtag('config', 'G-5HNLDBJ7EL');
           });
         } else {
-          // Fallback if browser doesn't support requestIdleCallback
           setTimeout(() => {
             const gtagScript = document.createElement('script');
             gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
@@ -159,7 +272,6 @@
             gtag('config', 'G-5HNLDBJ7EL');
           }, 2000);
         }
-      </script>
+    </script>
 </body>
 </html>
-

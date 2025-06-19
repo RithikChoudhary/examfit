@@ -2,145 +2,259 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Prepare for competitive exams with ExamFit. Practice previous year papers, explore subject-wise questions, and boost your exam readiness.">
-  <meta property="og:title" content="ExamFit – Prepare Smarter" />
+    content="Practice <%= subjectName %> questions for <%= examName %>. Access comprehensive question papers and boost your exam preparation with ExamFit.">
+  <meta property="og:title" content="<%= subjectName %> Question Papers - <%= examName %> | ExamFit" />
   <meta property="og:description"
-    content="Practice competitive exams with real question papers and smart subject-wise prep." />
+    content="Practice <%= subjectName %> questions for <%= examName %> with comprehensive question papers and smart preparation tools." />
   <meta property="og:image" content="/templates/logo.webp" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://examfit.in" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7935640093775501"
-    crossorigin="anonymous"></script>
-  <title>Question Papers - <%= subjectName %> - <%= examName %>
-  </title>
+  <meta property="og:url" content="https://examfit.in/<%= exam %>/<%= subject %>/questionPapers" />
+  
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  
+  <title><%= subjectName %> Question Papers - <%= examName %> | ExamFit</title>
+  
   <link rel="stylesheet" href="/css/questionPaper.css">
   <link rel="stylesheet" href="/css/navbar.css">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
-
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style"
-    onload="this.onload=null;this.rel='stylesheet'">
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  </noscript>
-
-  <meta name="google-adsense-account" content="ca-pub-7935640093775501">
   <link rel="stylesheet" href="/css/home-footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <meta name="google-adsense-account" content="ca-pub-7935640093775501">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7935640093775501"
+    crossorigin="anonymous"></script>
 </head>
 
 <body>
+  <%- include('./partials/navbar') %>
+  
+  <div class="content-wrapper">
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb-nav">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="/<%= exam %>"><%= examName %></a></li>
+          <li class="active"><%= subjectName %></li>
+        </ol>
+      </div>
+    </nav>
 
-  <%- include('./partials/navbar', { subjects: subjects, exam: exam }) %>
- <div class="content-wrapper">
-    <main class="subject-page">
-      <header class="exam-header">
-        <h1>
-          <%= subjectName %> Question Papers for <%= examName %>
-        </h1>
-        <p>Select a Question Paper to start practicing.</p>
-      </header>
-
-      <div class="content-area">
-        <div class="question-paper-sections">
-          <% if (questionPapers.length===0) { %>
-            <div class="no-papers-message">
-              <p>No question papers available for this subject yet.</p>
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-book-open"></i>
+            <span>Question Papers</span>
+          </div>
+          <h1 class="hero-title">
+            <span class="subject-name"><%= subjectName %></span>
+            <span class="exam-name">for <%= examName %></span>
+          </h1>
+          <p class="hero-subtitle">
+            Practice with comprehensive question papers designed to help you excel in your <%= examName %> examination
+          </p>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number"><%= questionPapers.length %></div>
+              <div class="stat-label">Question Papers</div>
             </div>
-            <% } else { %>
-              <% const sections=[...new Set(questionPapers.map(paper=> paper.section))].sort(); %>
-                <% sections.forEach(sectionName=> { %>
-                  <% const papersInSection=questionPapers.filter(p=> p.section === sectionName); %>
-                    <% if (papersInSection.length> 0) { %>
-                      <div class="section-block">
-                        <h3 class="section-title">
-                          <%= sectionName %>
-                        </h3>
-                        <div class="carousel-wrapper">
-                          <button class="scroll-btn left"
-                            onclick="scrollSectionCarousel('<%= sectionName %>', -1)">&#10094;</button>
-                          <div class="carousel" id="carousel-<%= sectionName.replace(/\s+/g, '-') %>">
-                            <% papersInSection.forEach(paper=> { %>
-                              <div class="paper-card-wrapper">
-                                <div class="paper-card">
-                                  
-                                  <a href="/<%= exam %>/<%= subject %>/<%= paper.questionPaperId %>/questions">
-                                    <i class="fas fa-file-alt" style="margin-right: 5px;"></i>
-                                    <%= paper.questionPaperName %>
-                                  </a>
-                                </div>
-                              </div>
-                              <% }); %>
-                          </div>
-                          <button class="scroll-btn right"
-                            onclick="scrollSectionCarousel('<%= sectionName %>', 1)">&#10095;</button>
-                        </div>
-                      </div>
-                      <% } %>
-                        <% }); %>
-                          <% } %>
+            <div class="stat-item">
+              <div class="stat-number"><%= [...new Set(questionPapers.map(paper => paper.section))].length %></div>
+              <div class="stat-label">Sections</div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <% if (questionPapers.length === 0) { %>
+          <div class="empty-state">
+            <div class="empty-icon">
+              <i class="fas fa-file-alt"></i>
+            </div>
+            <h2>No Question Papers Available</h2>
+            <p>Question papers for this subject are being prepared. Please check back soon!</p>
+            <a href="/" class="btn btn-primary">
+              <i class="fas fa-arrow-left"></i>
+              Back to Home
+            </a>
+          </div>
+        <% } else { %>
+          <% const sections = [...new Set(questionPapers.map(paper => paper.section))].sort(); %>
+          <% sections.forEach((sectionName, sectionIndex) => { %>
+            <% const papersInSection = questionPapers.filter(p => p.section === sectionName); %>
+            <% if (papersInSection.length > 0) { %>
+              <section class="section-block" data-section="<%= sectionIndex %>">
+                <div class="section-header">
+                  <h2 class="section-title">
+                    <i class="fas fa-folder-open"></i>
+                    <%= sectionName %>
+                  </h2>
+                  <p class="section-description">
+                    <%= papersInSection.length %> question paper<%= papersInSection.length !== 1 ? 's' : '' %> available
+                  </p>
+                </div>
+                
+                <div class="papers-grid">
+                  <% papersInSection.forEach((paper, paperIndex) => { %>
+                    <div class="paper-card" data-paper="<%= paperIndex %>">
+                      <div class="paper-icon">
+                        <i class="fas fa-file-alt"></i>
+                      </div>
+                      <div class="paper-content">
+                        <h3 class="paper-title"><%= paper.questionPaperName %></h3>
+                        <p class="paper-meta">
+                          <span class="paper-section"><%= paper.section %></span>
+                        </p>
+                      </div>
+                      <div class="paper-actions">
+                        <a href="/<%= exam %>/<%= subject %>/<%= paper.questionPaperId %>/questions" class="btn btn-primary">
+                          <i class="fas fa-play"></i>
+                          Start Practice
+                        </a>
+                      </div>
+                    </div>
+                  <% }); %>
+                </div>
+              </section>
+            <% } %>
+          <% }); %>
+        <% } %>
+      </div>
     </main>
-    </div>
-    
-    <%- include('./partials/footer') %>
-    <script src="https://kit.fontawesome.com/YOUR-KIT-ID.js" crossorigin="anonymous"></script>
-    <script>
-      function scrollSectionCarousel(sectionName, direction) {
-        const carouselId = 'carousel-' + sectionName.replace(/\s+/g, '-');
-        const carousel = document.getElementById(carouselId);
-        const card = carousel.querySelector('.paper-card');
-        if (!card) return;
-    
-        const style = window.getComputedStyle(card);
-        const cardWidth = card.offsetWidth +
-                          parseFloat(style.marginLeft || 0) +
-                          parseFloat(style.marginRight || 0);
-    
-        const scrollAmount = direction * cardWidth;
-        const nextScrollPos = carousel.scrollLeft + scrollAmount;
-    
-        carousel.scrollTo({
-          left: nextScrollPos,
-          behavior: 'smooth'
-        });
-      }
-    </script>
-    
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
 
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => {
-          const gtagScript = document.createElement('script');
-          gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
-          gtagScript.async = true;
-          document.head.appendChild(gtagScript);
+    <!-- Tips Section -->
+    <section class="tips-section">
+      <div class="container">
+        <div class="tips-header">
+          <h2>Study Tips</h2>
+          <p>Make the most of your practice sessions</p>
+        </div>
+        <div class="tips-grid">
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Time Management</h3>
+            <p>Practice under timed conditions to improve your speed and accuracy</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Track Progress</h3>
+            <p>Monitor your performance and identify areas that need improvement</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-repeat"></i>
+            </div>
+            <h3>Regular Practice</h3>
+            <p>Consistent practice is key to mastering any subject</p>
+          </div>
+          <div class="tip-card">
+            <div class="tip-icon">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>Learn from Mistakes</h3>
+            <p>Review incorrect answers to understand concepts better</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
-          gtag('js', new Date());
-          gtag('config', 'G-5HNLDBJ7EL');
-        });
-      } else {
-        // Fallback if browser doesn't support requestIdleCallback
-        setTimeout(() => {
-          const gtagScript = document.createElement('script');
-          gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
-          gtagScript.async = true;
-          document.head.appendChild(gtagScript);
+  <%- include('./partials/footer') %>
 
-          gtag('js', new Date());
-          gtag('config', 'G-5HNLDBJ7EL');
-        }, 2000);
-      }
-    </script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>AOS.init();</script>
-  
+  <script>
+    // Intersection Observer for animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('.paper-card, .tip-card, .section-block').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Add smooth scrolling for breadcrumb links
+    document.querySelectorAll('.breadcrumb a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (this.getAttribute('href').startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+
+    // Add loading state to practice buttons
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        if (!this.classList.contains('loading')) {
+          this.classList.add('loading');
+          const originalText = this.innerHTML;
+          this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+          
+          // Reset after navigation (in case of back button)
+          setTimeout(() => {
+            this.classList.remove('loading');
+            this.innerHTML = originalText;
+          }, 3000);
+        }
+      });
+    });
+  </script>
+
+  <!-- Google Analytics -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        const gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        gtag('js', new Date());
+        gtag('config', 'G-5HNLDBJ7EL');
+      });
+    } else {
+      setTimeout(() => {
+        const gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-5HNLDBJ7EL";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        gtag('js', new Date());
+        gtag('config', 'G-5HNLDBJ7EL');
+      }, 2000);
+    }
+  </script>
 </body>
 
 </html>
