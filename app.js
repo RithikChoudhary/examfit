@@ -8,6 +8,8 @@ require("xtend");
 const indexRouter = require('./routes/index');
 const dashboardRouter = require('./routes/dashboard');
 const apiRouter = require('./routes/api');
+const practiceRouter = require('./routes/practice');
+const currentAffairsRouter = require('./routes/current-affairs');
 const examHierarchyRoutes = require('./routes/examHierarchy');
 const xlsxTemplateRoutes = require('./routes/xlsxTemplate');
 const directExamRoutes = require('./routes/directExamRoutes');
@@ -99,14 +101,16 @@ app.get('/sitemap.xml', async (req, res) => {
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Important: Route order matters
+// Important: Route order matters - specific routes before wildcard routes
 // app.use('/dashboard', dashboardRouter); // Dashboard route enabled
+app.use('/practice', practiceRouter); // Practice routes
+app.use('/current-affairs', currentAffairsRouter); // Current affairs routes
 app.use('/api', apiRouter);
-app.use('/', indexRouter);       // move this UP
-app.use('/', examHierarchyRoutes); 
+app.use('/', indexRouter);       // handles / and /contact
 app.use('/', xlsxTemplateRoutes);
-app.use('/', examRouter);       // move this DOWN
+app.use('/', examRouter);       
 app.use('/', directExamRoutes);
+app.use('/', examHierarchyRoutes); // move this LAST because it has /:exam wildcard
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -117,8 +121,6 @@ app.use((err, req, res, next) => {
     
   });
 });
-
-
 
 
 // 404 handling for routes not found
@@ -135,4 +137,3 @@ app.use((req, res) => {
 // });
 
 module.exports = app;
-
