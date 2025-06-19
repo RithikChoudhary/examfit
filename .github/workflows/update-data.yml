@@ -15,6 +15,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
+        persist-credentials: true
     
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -125,8 +126,14 @@ jobs:
           commit_msg="🤖 Auto-update: Data refreshed on $(date '+%Y-%m-%d %H:%M:%S UTC') [skip ci]"
           
           git commit -m "$commit_msg"
-          git push
-          echo "✅ Changes committed and pushed"
+          
+          # Try to push, but don't fail if permissions are insufficient
+          if git push; then
+            echo "✅ Changes committed and pushed successfully"
+          else
+            echo "⚠️ Changes committed locally but could not push due to permissions"
+            echo "💡 Repository owner needs to enable 'Allow GitHub Actions to create and approve pull requests' in repository settings"
+          fi
         fi
     
     - name: Create summary
