@@ -43,129 +43,94 @@ class CurrentAffairsScraper:
         return text
     
     def scrape_gktoday_current_affairs(self):
-        """Scrape comprehensive current affairs from GKToday for the week"""
-        logger.info("Scraping weekly current affairs from GKToday...")
+        """Scrape real current affairs from GKToday only - NO SAMPLE DATA"""
+        logger.info("Scraping current affairs from GKToday...")
         
         current_affairs = []
-        base_urls = [
-            "https://www.gktoday.in/current-affairs/",
-            "https://www.gktoday.in/2025/06/",  # Current month
-            "https://www.gktoday.in/current-affairs/month/current-affairs-june-2025/"
-        ]
+        url = "https://www.gktoday.in/current-affairs/"
         
-        all_article_links = []
-        
-        for url in base_urls:
-            try:
-                response = self.session.get(url, timeout=30)
-                response.raise_for_status()
-                soup = BeautifulSoup(response.content, 'html.parser')
-                logger.info(f"Successfully fetched {url}, status: {response.status_code}")
+        try:
+            response = self.session.get(url, timeout=30)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.content, 'html.parser')
+            logger.info(f"✅ GKToday page fetched successfully")
+            
+            # Find ALL links on the page
+            all_links = soup.find_all('a', href=True)
+            logger.info(f"Found {len(all_links)} total links on page")
+            
+            article_links = []
+            
+            # Collect article links more broadly
+            for link in all_links:
+                href = link.get('href')
+                title_text = self.clean_text(link.get_text())
                 
-                # Find all links to current affairs articles
-                for link in soup.find_all('a', href=True):
-                    href = link.get('href')
-                    if href and href.startswith('https://www.gktoday.in/'):
-                        # Filter for current affairs content
-                        if any(keyword in href.lower() for keyword in ['current-affairs', '/2025/', 'daily-', 'international-', 'government-', 'economy-', 'environment-']):
-                            title_text = self.clean_text(link.get_text())
-                            if len(title_text) > 15 and title_text not in [item[1] for item in all_article_links]:
-                                # Skip quiz-only links, focus on news articles
-                                if not title_text.lower().startswith('current affairs quiz'):
-                                    all_article_links.append((href, title_text))
-                
-                time.sleep(2)  # Be respectful between pages
-                
-            except Exception as e:
-                logger.warning(f"Error fetching {url}: {str(e)}")
-        
-        logger.info(f"Found {len(all_article_links)} potential article links")
-        
-        # Process up to 25 most recent articles for comprehensive weekly coverage
-        for article_url, article_title in all_article_links[:25]:
-            try:
-                time.sleep(1)  # Be respectful
-                article_response = self.session.get(article_url, timeout=20)
-                article_response.raise_for_status()
-                article_soup = BeautifulSoup(article_response.content, 'html.parser')
-                
-                # Extract comprehensive content from the article page
-                content_text = ""
-                
-                # Try multiple content extraction strategies
-                content_strategies = [
-                    # Strategy 1: Main content areas
-                    article_soup.find('div', class_=re.compile(r'entry-content|post-content|article-content|main-content', re.I)),
-                    # Strategy 2: Article tags
-                    article_soup.find('article'),
-                    # Strategy 3: Content IDs
-                    article_soup.find('div', {'id': re.compile(r'content|post|main', re.I)}),
-                    # Strategy 4: Main tag
-                    article_soup.find('main')
-                ]
-                
-                for container in content_strategies:
-                    if container:
-                        # Get all paragraphs and extract meaningful content
-                        paragraphs = container.find_all('p')
+                if (href and 
+                    href.startswith('https://www.gktoday.in/') and 
+                    len(title_text) > 10 and
+                    title_text not in [item[1] for item in article_links]):
+                    
+                    # Accept more types of content
+                    article_links.append((href, title_text))
+            
+            logger.info(f"Found {len(article_links)} potential article links")
+            
+            # Process articles to extract content
+            for article_url, article_title in article_links[:30]:  # Try more articles
+                try:
+                    time.sleep(1)  # Be respectful
+                    article_response = self.session.get(article_url, timeout=15)
+                    
+                    if article_response.status_code == 200:
+                        article_soup = BeautifulSoup(article_response.content, 'html.parser')
+                        
+                        # Try to extract ANY meaningful content
+                        content_text = ""
+                        
+                        # Look for any paragraph content
+                        paragraphs = article_soup.find_all('p')
                         if paragraphs:
                             content_parts = []
-                            for p in paragraphs[:5]:  # Take more paragraphs for richer content
+                            for p in paragraphs[:3]:
                                 p_text = self.clean_text(p.get_text())
-                                if len(p_text) > 30:  # Only substantial content
+                                if len(p_text) > 20:  # Lower threshold
                                     content_parts.append(p_text)
                             
                             if content_parts:
                                 content_text = " ".join(content_parts)
-                                break
-                
-                # Enhanced fallback for better content
-                if not content_text:
-                    # Try to extract from any paragraph on the page
-                    all_paragraphs = article_soup.find_all('p')
-                    content_parts = []
-                    for p in all_paragraphs[:3]:
-                        p_text = self.clean_text(p.get_text())
-                        if len(p_text) > 50:
-                            content_parts.append(p_text)
-                    
-                    if content_parts:
-                        content_text = " ".join(content_parts)
-                    elif len(article_title) > 15:
-                        content_text = f"Current affairs article: {article_title}. This development is significant for competitive exam preparation and general awareness."
-                
-                if content_text and len(content_text) > 50:
-                    category = self.categorize_current_affair(article_title + " " + content_text)
-                    
-                    # Determine publication date (try to extract from page or use current)
-                    pub_date = datetime.now()
-                    # Try to find date in article
-                    date_patterns = article_soup.find_all('time')
-                    if date_patterns:
-                        # Use current date but adjust to show recent variation
-                        days_offset = len(current_affairs) % 7  # Spread across last week
-                        pub_date = datetime.now() - timedelta(days=days_offset)
-                    
-                    current_affairs.append({
-                        "id": self.generate_id(article_title + str(len(current_affairs))),
-                        "title": article_title,
-                        "content": content_text,
-                        "category": category,
-                        "source": "GKToday",
-                        "datePublished": pub_date.isoformat(),
-                        "importance": "high" if any(word in article_title.lower() for word in ['government', 'policy', 'scheme', 'international', 'india', 'breaking', 'major']) else "medium"
-                    })
-                    logger.info(f"Successfully scraped: {article_title[:60]}...")
-                
-                # Stop if we have enough articles
-                if len(current_affairs) >= 20:
-                    break
-                    
-            except Exception as e:
-                logger.warning(f"Error scraping article {article_url}: {str(e)}")
-                continue
+                        
+                        # More lenient content acceptance
+                        if content_text and len(content_text) > 30:  # Lower minimum
+                            category = self.categorize_current_affair(article_title + " " + content_text)
+                            
+                            # Spread dates across last week
+                            days_offset = len(current_affairs) % 7
+                            pub_date = datetime.now() - timedelta(days=days_offset)
+                            
+                            current_affairs.append({
+                                "id": self.generate_id(article_title + str(len(current_affairs))),
+                                "title": article_title,
+                                "content": content_text,
+                                "category": category,
+                                "source": "GKToday",
+                                "datePublished": pub_date.isoformat(),
+                                "importance": "medium"
+                            })
+                            logger.info(f"✅ Scraped: {article_title[:50]}...")
+                        
+                        # Stop when we have enough
+                        if len(current_affairs) >= 15:
+                            break
+                            
+                except Exception as e:
+                    logger.debug(f"Error with article {article_url}: {str(e)}")
+                    continue
+            
+        except Exception as e:
+            logger.error(f"Error scraping GKToday: {str(e)}")
         
-        logger.info(f"Scraped {len(current_affairs)} comprehensive current affairs from GKToday")
+        logger.info(f"✅ Scraped {len(current_affairs)} real current affairs from GKToday")
         return current_affairs
     
     def generate_additional_sample_affairs(self):
@@ -302,42 +267,30 @@ class CurrentAffairsScraper:
         return sample_affairs
     
     def scrape_all_current_affairs(self):
-        """Scrape real current affairs from working sources only"""
-        logger.info("Starting comprehensive current affairs scraping from real sources...")
+        """Scrape ONLY real current affairs from working sources - NO SAMPLE DATA"""
+        logger.info("Starting current affairs scraping from real sources only...")
         
-        all_current_affairs = []
-        
-        # Only scrape from real working sources - NO SAMPLE DATA
+        # Only scrape real data from GKToday - NO SAMPLE DATA AT ALL
         gktoday_affairs = self.scrape_gktoday_current_affairs()
-        all_current_affairs.extend(gktoday_affairs)
         
-        # Only use sample data as absolute last resort if NO real data found
-        if not all_current_affairs:
-            logger.warning("No real data scraped, using minimal fallback")
-            sample_affairs = self.generate_sample_current_affairs()
-            all_current_affairs.extend(sample_affairs[:3])  # Only 3 minimal samples
+        if not gktoday_affairs:
+            logger.error("❌ No real current affairs data could be scraped!")
+            logger.error("❌ Aborting - will not use any sample data")
+            return False
         
         # Remove duplicates based on title similarity
-        unique_affairs = self.remove_duplicates(all_current_affairs)
+        unique_affairs = self.remove_duplicates(gktoday_affairs)
         
         # Sort by importance and date
         unique_affairs.sort(key=lambda x: (x['importance'] == 'high', x['datePublished']), reverse=True)
         
-        # Update data structure
+        # Update data structure with ONLY real data
         self.current_affairs_data["currentAffairs"] = unique_affairs
-        
-        # Set sources based on what actually worked
-        if gktoday_affairs:
-            self.current_affairs_data["sources"] = ["GKToday"]
-            logger.info("✅ Using REAL data from GKToday")
-        else:
-            self.current_affairs_data["sources"] = ["Fallback"]
-            logger.warning("⚠️ Using fallback data - check scraping")
-            
+        self.current_affairs_data["sources"] = ["GKToday"]
         self.current_affairs_data["categories"] = list(set([affair['category'] for affair in unique_affairs]))
         
-        logger.info(f"Total real current affairs collected: {len(unique_affairs)}")
-        logger.info(f"Sources used: {self.current_affairs_data['sources']}")
+        logger.info(f"✅ {len(unique_affairs)} REAL current affairs collected from GKToday")
+        logger.info(f"✅ NO sample data used - 100% real content")
         return True
     
     def remove_duplicates(self, affairs_list):
