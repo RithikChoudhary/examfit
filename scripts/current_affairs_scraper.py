@@ -189,7 +189,6 @@ class CurrentAffairsScraper:
         # Try multiple GKToday sections for better coverage
         base_urls = [
             "https://www.gktoday.in/current-affairs/",
-            "https://www.gktoday.in/current-affairs-2025/",
             "https://www.gktoday.in/2025/06/"  # Current month
         ]
         
