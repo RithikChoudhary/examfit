@@ -340,15 +340,98 @@ class CurrentAffairsScraper:
         
         return len(intersection) / len(union)
     
-    def save_current_affairs(self, output_file='../data/current_affairs.json'):
-        """Save current affairs data to file"""
+    def load_existing_current_affairs(self, output_file='../data/current_affairs.json'):
+        """Load existing current affairs data from file"""
         output_path = os.path.join(os.path.dirname(__file__), output_file)
         
         try:
+            if os.path.exists(output_path):
+                with open(output_path, 'r', encoding='utf-8') as f:
+                    existing_data = json.load(f)
+                logger.info(f"Loaded {len(existing_data.get('currentAffairs', []))} existing current affairs")
+                return existing_data
+            else:
+                logger.info("No existing current affairs file found, starting fresh")
+                return None
+        except Exception as e:
+            logger.error(f"Error loading existing current affairs data: {str(e)}")
+            return None
+    
+    def merge_with_existing_data(self, new_affairs, existing_data):
+        """Merge new current affairs with existing data, keeping last 6 weeks"""
+        if not existing_data:
+            return new_affairs
+        
+        existing_affairs = existing_data.get('currentAffairs', [])
+        logger.info(f"Merging {len(new_affairs)} new affairs with {len(existing_affairs)} existing affairs")
+        
+        # Combine all affairs
+        all_affairs = new_affairs + existing_affairs
+        
+        # Remove duplicates based on title similarity
+        unique_affairs = self.remove_duplicates(all_affairs)
+        
+        # Sort by date (newest first)
+        unique_affairs.sort(key=lambda x: x.get('datePublished', ''), reverse=True)
+        
+        # Keep only last 6 weeks of data (approximately 100-150 items)
+        cutoff_date = datetime.now() - timedelta(weeks=6)
+        cutoff_str = cutoff_date.isoformat()
+        
+        filtered_affairs = []
+        for affair in unique_affairs:
+            affair_date = affair.get('datePublished', '')
+            if affair_date >= cutoff_str or len(filtered_affairs) < 50:  # Always keep at least 50 items
+                filtered_affairs.append(affair)
+            if len(filtered_affairs) >= 200:  # Max 200 items total
+                break
+        
+        logger.info(f"After merging and filtering: {len(filtered_affairs)} total affairs (last 6 weeks)")
+        return filtered_affairs
+    
+    def save_current_affairs(self, output_file='../data/current_affairs.json'):
+        """Save current affairs data to file, merging with existing data"""
+        output_path = os.path.join(os.path.dirname(__file__), output_file)
+        
+        try:
+            # Load existing data
+            existing_data = self.load_existing_current_affairs(output_file)
+            
+            # Merge new data with existing
+            new_affairs = self.current_affairs_data["currentAffairs"]
+            merged_affairs = self.merge_with_existing_data(new_affairs, existing_data)
+            
+            # Update the data structure with merged content
+            self.current_affairs_data["currentAffairs"] = merged_affairs
+            
+            # Update metadata
+            if existing_data:
+                # Combine sources
+                existing_sources = existing_data.get('sources', [])
+                all_sources = list(set(self.current_affairs_data['sources'] + existing_sources))
+                self.current_affairs_data['sources'] = all_sources
+                
+                # Combine categories
+                existing_categories = existing_data.get('categories', [])
+                all_categories = list(set(self.current_affairs_data['categories'] + existing_categories))
+                self.current_affairs_data['categories'] = all_categories
+            
+            # Add weekly update metadata
+            self.current_affairs_data['weeklyUpdate'] = {
+                'lastWeeklyUpdate': datetime.now().isoformat(),
+                'totalAffairs': len(merged_affairs),
+                'weeksOfData': 6,
+                'updateFrequency': 'Weekly - Every Sunday'
+            }
+            
+            # Save merged data
             with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump(self.current_affairs_data, f, indent=2, ensure_ascii=False)
+            
             logger.info(f"Current affairs data saved to {output_path}")
+            logger.info(f"Total affairs after merge: {len(merged_affairs)}")
             return True
+            
         except Exception as e:
             logger.error(f"Error saving current affairs data: {str(e)}")
             return False

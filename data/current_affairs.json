@@ -1,187 +1,193 @@
 {
   "currentAffairs": [
     {
-      "id": "ca1750323691-8850d3d0",
-      "title": "Ayushman Bharat Scheme Covers 5 Crore Families",
-      "content": "The Ayushman Bharat scheme has successfully provided healthcare coverage to over 5 crore families across India. The scheme continues to expand its reach to ensure universal health coverage for economically vulnerable populations.",
-      "category": "Government & Policy",
-      "source": "Sample News",
-      "datePublished": "2025-06-19T14:31:31.538692",
-      "importance": "high"
-    },
-    {
-      "id": "ca1750323691-67d9b2e4",
-      "title": "India Achieves 175 GW Renewable Energy Target Ahead of Schedule",
-      "content": "India has successfully achieved its 175 GW renewable energy target six months ahead of the planned deadline. The achievement includes significant contributions from solar and wind energy projects across various states.",
-      "category": "Environment",
-      "source": "Sample News",
-      "datePublished": "2025-06-19T14:31:31.538682",
-      "importance": "high"
-    },
-    {
-      "id": "ca1750323691-3354687a",
-      "title": "ISRO Successfully Launches Advanced Earth Observation Satellite",
-      "content": "The Indian Space Research Organisation (ISRO) has successfully launched an advanced earth observation satellite that will enhance weather forecasting and disaster management capabilities.",
-      "category": "Science & Technology",
-      "source": "Sample News",
-      "datePublished": "2025-06-19T14:31:31.538663",
-      "importance": "high"
-    },
-    {
-      "id": "ca1750323691-61d8fa8e",
-      "title": "India Hosts International Climate Action Summit",
-      "content": "India is hosting a major international climate action summit focusing on renewable energy and sustainable development. Leaders from over 50 countries are participating to discuss climate change mitigation strategies.",
-      "category": "International Affairs",
-      "source": "Sample News",
-      "datePublished": "2025-06-19T14:31:31.538651",
-      "importance": "high"
-    },
-    {
-      "id": "ca1750323691-cc41bbfc",
-      "title": "Government Launches Next Phase of Digital India Mission",
-      "content": "The Government of India has announced the launch of the next phase of Digital India Mission with a focus on AI integration and digital literacy. The initiative aims to bridge the digital divide and enhance citizen services through technology.",
-      "category": "Government & Policy",
-      "source": "Sample News",
-      "datePublished": "2025-06-19T14:31:31.538633",
-      "importance": "high"
-    },
-    {
-      "id": "ca1750323691-60f1f2a5",
+      "id": "ca1750324396-60f1f2a5",
       "title": "Golden Quadrilateral Highway Project Sees Major Upgrades",
       "content": "The Golden Quadrilateral highway network has received significant infrastructure upgrades, improving connectivity between major metropolitan cities. The enhancements include smart traffic management systems and enhanced safety features.",
       "category": "Government & Policy",
       "source": "Sample News",
-      "datePublished": "2025-06-19T14:31:31.538697",
+      "datePublished": "2025-06-19T14:43:16.953843",
       "importance": "medium"
     },
     {
-      "id": "ca1750323691-5aa021de",
+      "id": "ca1750324396-8850d3d0",
+      "title": "Ayushman Bharat Scheme Covers 5 Crore Families",
+      "content": "The Ayushman Bharat scheme has successfully provided healthcare coverage to over 5 crore families across India. The scheme continues to expand its reach to ensure universal health coverage for economically vulnerable populations.",
+      "category": "Government & Policy",
+      "source": "Sample News",
+      "datePublished": "2025-06-19T14:43:16.953840",
+      "importance": "high"
+    },
+    {
+      "id": "ca1750324396-5aa021de",
       "title": "UPI Transactions Cross 10 Billion Monthly Milestone",
       "content": "Unified Payments Interface (UPI) transactions have crossed the 10 billion monthly transaction mark, reflecting the rapid digitization of India's payment ecosystem. The growth demonstrates increasing adoption of digital payment methods.",
       "category": "Economy & Finance",
       "source": "Sample News",
-      "datePublished": "2025-06-19T14:31:31.538687",
+      "datePublished": "2025-06-19T14:43:16.953837",
       "importance": "medium"
     },
     {
-      "id": "ca1750323691-f501d593",
+      "id": "ca1750324396-67d9b2e4",
+      "title": "India Achieves 175 GW Renewable Energy Target Ahead of Schedule",
+      "content": "India has successfully achieved its 175 GW renewable energy target six months ahead of the planned deadline. The achievement includes significant contributions from solar and wind energy projects across various states.",
+      "category": "Environment",
+      "source": "Sample News",
+      "datePublished": "2025-06-19T14:43:16.953833",
+      "importance": "high"
+    },
+    {
+      "id": "ca1750324396-f501d593",
       "title": "Central Vista Project Phase 2 Inaugurated in New Delhi",
       "content": "The second phase of the Central Vista redevelopment project has been inaugurated, featuring new government buildings and improved infrastructure. The project aims to create a modern administrative complex while preserving the heritage value of the area.",
       "category": "Government & Policy",
       "source": "Sample News",
-      "datePublished": "2025-06-19T14:31:31.538677",
+      "datePublished": "2025-06-19T14:43:16.953821",
       "importance": "medium"
     },
     {
-      "id": "ca1750323691-8e78a900",
+      "id": "ca1750324396-8e78a900",
       "title": "New Education Policy Implementation Shows Positive Results",
       "content": "The implementation of the New Education Policy (NEP) 2020 is showing positive results with increased enrollment in vocational courses and improved learning outcomes in government schools.",
       "category": "Government & Policy",
       "source": "Sample News",
-      "datePublished": "2025-06-19T14:31:31.538668",
+      "datePublished": "2025-06-19T14:43:16.953791",
       "importance": "medium"
     },
     {
-      "id": "ca1750323691-fa875114",
+      "id": "ca1750324396-3354687a",
+      "title": "ISRO Successfully Launches Advanced Earth Observation Satellite",
+      "content": "The Indian Space Research Organisation (ISRO) has successfully launched an advanced earth observation satellite that will enhance weather forecasting and disaster management capabilities.",
+      "category": "Science & Technology",
+      "source": "Sample News",
+      "datePublished": "2025-06-19T14:43:16.953789",
+      "importance": "high"
+    },
+    {
+      "id": "ca1750324396-fa875114",
       "title": "India's GDP Growth Exceeds Expectations in Q4",
       "content": "India's Gross Domestic Product (GDP) has shown robust growth in the fourth quarter, exceeding economists' expectations. The growth is attributed to strong performance in manufacturing and services sectors.",
       "category": "Economy & Finance",
       "source": "Sample News",
-      "datePublished": "2025-06-19T14:31:31.538657",
+      "datePublished": "2025-06-19T14:43:16.953785",
       "importance": "medium"
     },
     {
-      "id": "ca1750323691-378e3158",
+      "id": "ca1750324396-61d8fa8e",
+      "title": "India Hosts International Climate Action Summit",
+      "content": "India is hosting a major international climate action summit focusing on renewable energy and sustainable development. Leaders from over 50 countries are participating to discuss climate change mitigation strategies.",
+      "category": "International Affairs",
+      "source": "Sample News",
+      "datePublished": "2025-06-19T14:43:16.953782",
+      "importance": "high"
+    },
+    {
+      "id": "ca1750324396-cc41bbfc",
+      "title": "Government Launches Next Phase of Digital India Mission",
+      "content": "The Government of India has announced the launch of the next phase of Digital India Mission with a focus on AI integration and digital literacy. The initiative aims to bridge the digital divide and enhance citizen services through technology.",
+      "category": "Government & Policy",
+      "source": "Sample News",
+      "datePublished": "2025-06-19T14:43:16.953775",
+      "importance": "high"
+    },
+    {
+      "id": "ca1750324396-378e3158",
       "title": "Current Affairs Quiz  January, 2025",
       "content": "Important current affair: Current Affairs Quiz  January, 2025. This news is significant for competitive exam preparation.",
       "category": "Science & Technology",
       "source": "GKToday",
-      "datePublished": "2025-06-19T14:31:31.537119",
+      "datePublished": "2025-06-19T14:43:16.953369",
       "importance": "medium"
     },
     {
-      "id": "ca1750323690-56f42c58",
+      "id": "ca1750324395-56f42c58",
       "title": "Current Affairs Quiz  February 2025",
       "content": "Important current affair: Current Affairs Quiz  February 2025. This news is significant for competitive exam preparation.",
       "category": "Science & Technology",
       "source": "GKToday",
-      "datePublished": "2025-06-19T14:31:30.335631",
+      "datePublished": "2025-06-19T14:43:15.790771",
       "importance": "medium"
     },
     {
-      "id": "ca1750323689-aef9a7e3",
+      "id": "ca1750324394-aef9a7e3",
       "title": "Current Affairs Quiz  March 2025",
       "content": "Important current affair: Current Affairs Quiz  March 2025. This news is significant for competitive exam preparation.",
       "category": "Science & Technology",
       "source": "GKToday",
-      "datePublished": "2025-06-19T14:31:29.191967",
+      "datePublished": "2025-06-19T14:43:14.633317",
       "importance": "medium"
     },
     {
-      "id": "ca1750323687-7621ff34",
+      "id": "ca1750324393-7621ff34",
       "title": "Current Affairs Quiz  April 2025",
       "content": "Important current affair: Current Affairs Quiz  April 2025. This news is significant for competitive exam preparation.",
       "category": "Science & Technology",
       "source": "GKToday",
-      "datePublished": "2025-06-19T14:31:27.731131",
+      "datePublished": "2025-06-19T14:43:13.499744",
       "importance": "medium"
     },
     {
-      "id": "ca1750323686-0b676480",
+      "id": "ca1750324392-0b676480",
       "title": "Current Affairs Quiz  May 2025",
       "content": "Important current affair: Current Affairs Quiz  May 2025. This news is significant for competitive exam preparation.",
       "category": "Science & Technology",
       "source": "GKToday",
-      "datePublished": "2025-06-19T14:31:26.496267",
+      "datePublished": "2025-06-19T14:43:12.353833",
       "importance": "medium"
     },
     {
-      "id": "ca1750323685-a17a3a25",
+      "id": "ca1750324391-a17a3a25",
       "title": "Current Affairs Quiz  June 2025",
       "content": "Important current affair: Current Affairs Quiz  June 2025. This news is significant for competitive exam preparation.",
       "category": "Science & Technology",
       "source": "GKToday",
-      "datePublished": "2025-06-19T14:31:25.101071",
+      "datePublished": "2025-06-19T14:43:11.214106",
       "importance": "medium"
     },
     {
-      "id": "ca1750323683-3be624ef",
+      "id": "ca1750324390-3be624ef",
       "title": " Daily Current Affairs Quiz UPSC",
       "content": "Important current affair:  Daily Current Affairs Quiz UPSC. This news is significant for competitive exam preparation.",
       "category": "Science & Technology",
       "source": "GKToday",
-      "datePublished": "2025-06-19T14:31:23.926847",
+      "datePublished": "2025-06-19T14:43:10.069892",
       "importance": "medium"
     },
     {
-      "id": "ca1750323682-1d559fe6",
+      "id": "ca1750324388-1d559fe6",
       "title": " Daily Current Affairs Quiz",
       "content": "Important current affair:  Daily Current Affairs Quiz. This news is significant for competitive exam preparation.",
       "category": "Science & Technology",
       "source": "GKToday",
-      "datePublished": "2025-06-19T14:31:22.797682",
+      "datePublished": "2025-06-19T14:43:08.972735",
       "importance": "medium"
     },
     {
-      "id": "ca1750323681-d2e7d87c",
+      "id": "ca1750324387-d2e7d87c",
       "title": "Current Affairs Quiz",
       "content": "Important current affair: Current Affairs Quiz. This news is significant for competitive exam preparation.",
       "category": "Science & Technology",
       "source": "GKToday",
-      "datePublished": "2025-06-19T14:31:21.677456",
+      "datePublished": "2025-06-19T14:43:07.880201",
       "importance": "medium"
     }
   ],
-  "lastUpdated": "2025-06-19T14:31:19.275686",
+  "lastUpdated": "2025-06-19T14:43:05.421835",
   "sources": [
-    "GKToday",
-    "Sample News"
+    "Sample News",
+    "GKToday"
   ],
   "categories": [
-    "Science & Technology",
-    "Economy & Finance",
-    "Environment",
     "Government & Policy",
-    "International Affairs"
-  ]
+    "Environment",
+    "International Affairs",
+    "Economy & Finance",
+    "Science & Technology"
+  ],
+  "weeklyUpdate": {
+    "lastWeeklyUpdate": "2025-06-19T14:43:16.955979",
+    "totalAffairs": 19,
+    "weeksOfData": 6,
+    "updateFrequency": "Weekly - Every Sunday"
+  }
 }
