@@ -254,6 +254,91 @@ class ExamDataScraper:
             logger.error(f"Error scraping AffairsCloud: {str(e)}")
             return []
     
+    def scrape_sample_questions(self, url):
+        """Generate sample questions when external sources fail"""
+        logger.info("Generating sample questions as fallback")
+        
+        sample_questions = [
+            {
+                "questionId": self.generate_question_id("Constitution of India"),
+                "question": "The Constitution of India was adopted by the Constituent Assembly on:",
+                "options": [
+                    {"optionId": "a", "text": "26th November 1949"},
+                    {"optionId": "b", "text": "26th January 1950"},
+                    {"optionId": "c", "text": "15th August 1947"},
+                    {"optionId": "d", "text": "2nd October 1950"}
+                ],
+                "correctOption": "a",
+                "explanation": "The Constitution of India was adopted on 26th November 1949 and came into effect on 26th January 1950.",
+                "source": "Sample Questions",
+                "difficulty": "medium",
+                "tags": ["history", "constitution"]
+            },
+            {
+                "questionId": self.generate_question_id("Capital of India"),
+                "question": "Which of the following is the capital of India?",
+                "options": [
+                    {"optionId": "a", "text": "Mumbai"},
+                    {"optionId": "b", "text": "New Delhi"},
+                    {"optionId": "c", "text": "Kolkata"},
+                    {"optionId": "d", "text": "Chennai"}
+                ],
+                "correctOption": "b",
+                "explanation": "New Delhi is the capital of India.",
+                "source": "Sample Questions",
+                "difficulty": "easy",
+                "tags": ["geography", "general-knowledge"]
+            },
+            {
+                "questionId": self.generate_question_id("President of India"),
+                "question": "The President of India is elected by:",
+                "options": [
+                    {"optionId": "a", "text": "Direct election by people"},
+                    {"optionId": "b", "text": "Electoral College"},
+                    {"optionId": "c", "text": "Parliament only"},
+                    {"optionId": "d", "text": "Supreme Court"}
+                ],
+                "correctOption": "b",
+                "explanation": "The President of India is elected by an Electoral College consisting of elected members of both Houses of Parliament and Legislative Assemblies.",
+                "source": "Sample Questions",
+                "difficulty": "medium",
+                "tags": ["polity", "constitution"]
+            },
+            {
+                "questionId": self.generate_question_id("River Ganga"),
+                "question": "River Ganga originates from:",
+                "options": [
+                    {"optionId": "a", "text": "Gangotri Glacier"},
+                    {"optionId": "b", "text": "Yamunotri"},
+                    {"optionId": "c", "text": "Kedarnath"},
+                    {"optionId": "d", "text": "Badrinath"}
+                ],
+                "correctOption": "a",
+                "explanation": "River Ganga originates from Gangotri Glacier in Uttarakhand.",
+                "source": "Sample Questions",
+                "difficulty": "easy",
+                "tags": ["geography", "rivers"]
+            },
+            {
+                "questionId": self.generate_question_id("Independence Day"),
+                "question": "India gained independence from British rule on:",
+                "options": [
+                    {"optionId": "a", "text": "15th August 1947"},
+                    {"optionId": "b", "text": "26th January 1950"},
+                    {"optionId": "c", "text": "2nd October 1869"},
+                    {"optionId": "d", "text": "15th August 1950"}
+                ],
+                "correctOption": "a",
+                "explanation": "India gained independence on 15th August 1947.",
+                "source": "Sample Questions",
+                "difficulty": "easy",
+                "tags": ["history", "independence"]
+            }
+        ]
+        
+        logger.info(f"Generated {len(sample_questions)} sample questions")
+        return sample_questions
+    
     def scrape_all_sources(self):
         """Scrape all configured sources"""
         all_questions = []

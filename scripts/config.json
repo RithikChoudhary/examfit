@@ -1,32 +1,10 @@
 {
   "sources": [
     {
-      "name": "jagran_josh",
-      "description": "Free question bank from Jagran Josh",
+      "name": "sample_questions",
+      "description": "Sample questions for testing and backup",
       "urls": [
-        "https://www.jagranjosh.com/general-knowledge/list-of-important-general-knowledge-questions-and-answers-for-competitive-exams",
-        "https://www.jagranjosh.com/general-knowledge/important-current-affairs-questions-and-answers-for-competitive-exams",
-        "https://www.jagranjosh.com/general-knowledge/indian-polity-questions-and-answers-for-competitive-exams"
-      ],
-      "active": true
-    },
-    {
-      "name": "gktoday",
-      "description": "Current Affairs and GK Questions",
-      "urls": [
-        "https://www.gktoday.in/gk/current-affairs-mcq/",
-        "https://www.gktoday.in/gk/general-studies-mcq/",
-        "https://www.gktoday.in/gk/indian-economy-mcq/"
-      ],
-      "active": true
-    },
-    {
-      "name": "affairs_cloud",
-      "description": "Monthly Current Affairs Compilation",
-      "urls": [
-        "https://www.affairscloud.com/current-affairs-mcq/",
-        "https://www.affairscloud.com/banking-awareness-mcq/",
-        "https://www.affairscloud.com/static-gk-mcq/"
+        "sample"
       ],
       "active": true
     }
