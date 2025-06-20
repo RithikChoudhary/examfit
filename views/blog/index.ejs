@@ -23,6 +23,13 @@
     <meta name="twitter:title" content="<%= title %>">
     <meta name="twitter:description" content="Latest exam preparation tips and strategies">
     
+    <!-- Canonical URL -->
+    <% if (typeof canonicalUrl !== 'undefined') { %>
+    <link rel="canonical" href="<%= canonicalUrl %>">
+    <% } else { %>
+    <link rel="canonical" href="https://examfit.in/blog">
+    <% } %>
+    
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/navbar.css">

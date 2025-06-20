@@ -280,7 +280,8 @@ router.get('/category/:category', (req, res) => {
     posts: filteredPosts,
     categories: ['All', 'UPSC', 'SSC', 'Banking', 'Current Affairs', 'Study Tips'],
     activeCategory: category,
-    featuredPost: filteredPosts[0]
+    featuredPost: filteredPosts[0],
+    canonicalUrl: `https://examfit.in/blog/category/${category.toLowerCase()}`
   });
 });
 
