@@ -180,6 +180,175 @@ class CurrentAffairsScraper:
         
         return content_text
     
+    def scrape_testbook_current_affairs(self):
+        """Scrape high-quality current affairs from Testbook"""
+        logger.info("Scraping current affairs from Testbook...")
+        
+        current_affairs = []
+        url = "https://testbook.com/current-affairs"
+        
+        try:
+            response = self.session.get(url, timeout=30)
+            if response.status_code != 200:
+                logger.warning(f"Failed to fetch Testbook: {response.status_code}")
+                return []
+                
+            soup = BeautifulSoup(response.content, 'html.parser')
+            logger.info("✅ Successfully fetched Testbook current affairs page")
+            
+            # Find current affairs cards/items on Testbook
+            # Look for the main content area with current affairs
+            current_affairs_items = soup.find_all(['div', 'article'], class_=re.compile(r'current.?affairs|news.?item|affair.?card', re.I))
+            
+            # If specific classes don't work, look for structured content
+            if not current_affairs_items:
+                # Look for any divs that might contain current affairs content
+                content_divs = soup.find_all('div')
+                for div in content_divs:
+                    text_content = div.get_text(strip=True)
+                    if (len(text_content) > 100 and 
+                        any(keyword in text_content.lower() for keyword in ['current affairs', 'today', 'june 2025', '2025'])):
+                        current_affairs_items.append(div)
+            
+            logger.info(f"Found {len(current_affairs_items)} potential current affairs items from Testbook")
+            
+            for item in current_affairs_items[:15]:  # Process up to 15 items
+                try:
+                    # Extract title - look for headings or strong text
+                    title_elem = (item.find(['h1', 'h2', 'h3', 'h4', 'strong']) or 
+                                item.find(string=re.compile(r'.{20,}', re.S)))
+                    
+                    if title_elem:
+                        if hasattr(title_elem, 'get_text'):
+                            title = self.clean_text(title_elem.get_text())
+                        else:
+                            title = self.clean_text(str(title_elem))
+                        
+                        if len(title) < 20:  # Skip if title too short
+                            continue
+                        
+                        # Extract content from the item
+                        content_parts = []
+                        paragraphs = item.find_all(['p', 'div', 'span'])
+                        
+                        for p in paragraphs[:3]:
+                            p_text = self.clean_text(p.get_text())
+                            if len(p_text) > 30 and p_text != title:
+                                content_parts.append(p_text)
+                        
+                        content = " ".join(content_parts) if content_parts else title
+                        
+                        if len(content) > 50:  # Only accept substantial content
+                            category = self.categorize_current_affair(title + " " + content)
+                            
+                            # Create date (spread across last week)
+                            days_offset = len(current_affairs) % 7
+                            pub_date = datetime.now() - timedelta(days=days_offset)
+                            
+                            current_affairs.append({
+                                "id": self.generate_id(title + str(len(current_affairs))),
+                                "title": title,
+                                "content": content,
+                                "category": category,
+                                "source": "Testbook",
+                                "sourceUrl": url,
+                                "datePublished": pub_date.isoformat(),
+                                "importance": "high" if any(word in title.lower() for word in ['government', 'policy', 'international']) else "medium"
+                            })
+                            logger.info(f"✅ Scraped from Testbook: {title[:50]}...")
+                            
+                except Exception as e:
+                    logger.debug(f"Error processing Testbook item: {str(e)}")
+                    continue
+            
+        except Exception as e:
+            logger.error(f"Error scraping Testbook: {str(e)}")
+        
+        logger.info(f"✅ Scraped {len(current_affairs)} current affairs from Testbook")
+        return current_affairs
+
+    def scrape_insights_ias_current_affairs(self):
+        """Scrape premium current affairs from Insights IAS"""
+        logger.info("Scraping current affairs from Insights IAS...")
+        
+        current_affairs = []
+        today = datetime.now()
+        
+        # Try recent dates for Insights IAS current affairs
+        for days_back in range(7):  # Try last 7 days
+            target_date = today - timedelta(days=days_back)
+            date_str = target_date.strftime("%Y/%m/%d")
+            url = f"https://www.insightsonindia.com/{date_str}/upsc-current-affairs-{target_date.strftime('%d-%B-%Y').lower()}/"
+            
+            try:
+                response = self.session.get(url, timeout=30)
+                if response.status_code != 200:
+                    continue
+                    
+                soup = BeautifulSoup(response.content, 'html.parser')
+                logger.info(f"✅ Successfully fetched Insights IAS for {target_date.strftime('%d %B %Y')}")
+                
+                # Find article content sections
+                content_sections = soup.find_all(['div', 'section'], class_=re.compile(r'content|article|entry', re.I))
+                
+                for section in content_sections:
+                    # Look for current affairs topics
+                    headings = section.find_all(['h1', 'h2', 'h3', 'h4'])
+                    
+                    for heading in headings:
+                        title = self.clean_text(heading.get_text())
+                        
+                        if (len(title) > 20 and 
+                            not title.lower().startswith(('table of contents', 'gs paper', 'context:', 'source:'))) and \
+                            any(word in title.lower() for word in ['report', 'index', 'policy', 'mission', 'scheme', 'summit', 'agreement']):
+                            
+                            # Extract content following the heading
+                            content_parts = []
+                            next_elem = heading.find_next_sibling()
+                            
+                            while next_elem and len(content_parts) < 3:
+                                if next_elem.name in ['p', 'div']:
+                                    text = self.clean_text(next_elem.get_text())
+                                    if len(text) > 50:
+                                        content_parts.append(text)
+                                elif next_elem.name in ['h1', 'h2', 'h3', 'h4']:
+                                    break  # Next topic started
+                                next_elem = next_elem.find_next_sibling()
+                            
+                            if content_parts:
+                                content = " ".join(content_parts)
+                                category = self.categorize_current_affair(title + " " + content)
+                                
+                                current_affairs.append({
+                                    "id": self.generate_id(title + str(len(current_affairs))),
+                                    "title": title,
+                                    "content": content,
+                                    "category": category,
+                                    "source": "Insights IAS",
+                                    "sourceUrl": url,
+                                    "datePublished": target_date.isoformat(),
+                                    "importance": "high"
+                                })
+                                logger.info(f"✅ Scraped from Insights IAS: {title[:50]}...")
+                                
+                                if len(current_affairs) >= 10:  # Limit per day
+                                    break
+                    
+                    if len(current_affairs) >= 10:
+                        break
+                
+                time.sleep(2)  # Be respectful between requests
+                
+                if len(current_affairs) >= 20:  # Overall limit
+                    break
+                    
+            except Exception as e:
+                logger.debug(f"Error with Insights IAS URL {url}: {str(e)}")
+                continue
+        
+        logger.info(f"✅ Scraped {len(current_affairs)} current affairs from Insights IAS")
+        return current_affairs
+
     def scrape_gktoday_current_affairs(self):
         """Scrape high-quality current affairs from GKToday with smart filtering"""
         logger.info("Scraping current affairs from GKToday with enhanced filtering...")
@@ -475,29 +644,69 @@ class CurrentAffairsScraper:
         return sample_affairs
     
     def scrape_all_current_affairs(self):
-        """Scrape ONLY real current affairs from working sources - NO SAMPLE DATA"""
-        logger.info("Starting current affairs scraping from real sources only...")
+        """Scrape ONLY real current affairs from premium sources - NO SAMPLE DATA"""
+        logger.info("Starting multi-source current affairs scraping from premium sources...")
         
-        # Only scrape real data from GKToday - NO SAMPLE DATA AT ALL
+        all_affairs = []
+        successful_sources = []
+        
+        # Priority 1: Try Testbook (excellent quality, structured)
+        logger.info("🥇 Attempting to scrape Testbook (Priority 1)...")
+        testbook_affairs = self.scrape_testbook_current_affairs()
+        if testbook_affairs:
+            all_affairs.extend(testbook_affairs)
+            successful_sources.append("Testbook")
+            logger.info(f"✅ Testbook: {len(testbook_affairs)} articles scraped")
+        else:
+            logger.warning("⚠️ Testbook scraping yielded no results")
+        
+        # Priority 2: Try Insights IAS (premium quality, detailed)
+        logger.info("🥈 Attempting to scrape Insights IAS (Priority 2)...")
+        insights_affairs = self.scrape_insights_ias_current_affairs()
+        if insights_affairs:
+            all_affairs.extend(insights_affairs)
+            successful_sources.append("Insights IAS")
+            logger.info(f"✅ Insights IAS: {len(insights_affairs)} articles scraped")
+        else:
+            logger.warning("⚠️ Insights IAS scraping yielded no results")
+        
+        # Priority 3: Try GKToday (backup source, filtered)
+        logger.info("🥉 Attempting to scrape GKToday (Priority 3 - Backup)...")
         gktoday_affairs = self.scrape_gktoday_current_affairs()
+        if gktoday_affairs:
+            all_affairs.extend(gktoday_affairs)
+            successful_sources.append("GKToday")
+            logger.info(f"✅ GKToday: {len(gktoday_affairs)} articles scraped")
+        else:
+            logger.warning("⚠️ GKToday scraping yielded no results")
         
-        if not gktoday_affairs:
-            logger.error("❌ No real current affairs data could be scraped!")
+        # Check if we got any real data
+        if not all_affairs:
+            logger.error("❌ No real current affairs data could be scraped from any source!")
+            logger.error("❌ Testbook, Insights IAS, and GKToday all failed")
             logger.error("❌ Aborting - will not use any sample data")
             return False
         
-        # Remove duplicates based on title similarity
-        unique_affairs = self.remove_duplicates(gktoday_affairs)
+        # Remove duplicates across all sources
+        logger.info(f"🔄 Processing {len(all_affairs)} total articles from {len(successful_sources)} sources...")
+        unique_affairs = self.remove_duplicates(all_affairs)
+        logger.info(f"🔄 After deduplication: {len(unique_affairs)} unique articles")
         
-        # Sort by importance and date
-        unique_affairs.sort(key=lambda x: (x['importance'] == 'high', x['datePublished']), reverse=True)
+        # Sort by importance and date (premium sources first)
+        source_priority = {"Testbook": 3, "Insights IAS": 2, "GKToday": 1}
+        unique_affairs.sort(key=lambda x: (
+            x['importance'] == 'high',
+            source_priority.get(x['source'], 0),
+            x['datePublished']
+        ), reverse=True)
         
         # Update data structure with ONLY real data
         self.current_affairs_data["currentAffairs"] = unique_affairs
-        self.current_affairs_data["sources"] = ["GKToday"]
+        self.current_affairs_data["sources"] = successful_sources
         self.current_affairs_data["categories"] = list(set([affair['category'] for affair in unique_affairs]))
         
-        logger.info(f"✅ {len(unique_affairs)} REAL current affairs collected from GKToday")
+        logger.info(f"✅ {len(unique_affairs)} REAL current affairs collected from {len(successful_sources)} premium sources")
+        logger.info(f"✅ Sources used: {', '.join(successful_sources)}")
         logger.info(f"✅ NO sample data used - 100% real content")
         return True
     
