@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post.title %> | ExamFit Blog</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="<%= post.excerpt %>">
+    <meta name="keywords" content="<%= post.tags.join(', ') %>">
+    <meta name="author" content="<%= post.author %>">
+    <meta name="robots" content="index, follow">
+    <meta name="article:published_time" content="<%= post.publishDate %>">
+    <meta name="article:author" content="<%= post.author %>">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="<%= post.title %>">
+    <meta property="og:description" content="<%= post.excerpt %>">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://examfit.in/blog/<%= post.id %>">
+    <meta property="og:image" content="https://examfit.in<%= post.image %>">
+    <meta property="article:published_time" content="<%= post.publishDate %>">
+    <meta property="article:author" content="<%= post.author %>">
+    <meta property="article:section" content="<%= post.category %>">
+    <% post.tags.forEach(tag => { %>
+    <meta property="article:tag" content="<%= tag %>">
+    <% }) %>
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= post.title %>">
+    <meta name="twitter:description" content="<%= post.excerpt %>">
+    <meta name="twitter:image" content="https://examfit.in<%= post.image %>">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://examfit.in/blog/<%= post.id %>">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/home-footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .post-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .post-header {
+            margin-bottom: 3rem;
+        }
+        
+        .post-breadcrumb {
+            margin-bottom: 1rem;
+        }
+        
+        .breadcrumb-link {
+            color: #6b7280;
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+        
+        .breadcrumb-link:hover {
+            color: #3b82f6;
+        }
+        
+        .post-title {
+            font-size: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
+            color: #6b7280;
+            flex-wrap: wrap;
+        }
+        
+        .post-meta i {
+            margin-right: 0.5rem;
+        }
+        
+        .post-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .post-content {
+            line-height: 1.8;
+            font-size: 1.125rem;
+            color: #374151;
+            margin-bottom: 3rem;
+        }
+        
+        .post-content h2 {
+            font-size: 1.875rem;
+            color: #1f2937;
+            margin: 2rem 0 1rem 0;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+        }
+        
+        .post-content h3 {
+            font-size: 1.5rem;
+            color: #1f2937;
+            margin: 1.5rem 0 1rem 0;
+        }
+        
+        .post-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .post-content ul, .post-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+        
+        .post-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .post-content strong {
+            color: #1f2937;
+            font-weight: 600;
+        }
+        
+        .post-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .post-tag {
+            background: #f3f4f6;
+            color: #6b7280;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            text-decoration: none;
+        }
+        
+        .post-tag:hover {
+            background: #e5e7eb;
+        }
+        
+        .post-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            gap: 1rem;
+        }
+        
+        .nav-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #2563eb;
+        }
+        
+        .related-posts {
+            margin-bottom: 3rem;
+        }
+        
+        .related-posts h3 {
+            font-size: 1.5rem;
+            color: #1f2937;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .related-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .related-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .related-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .related-card-content {
+            padding: 1rem;
+        }
+        
+        .related-card h4 {
+            font-size: 1rem;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .related-card p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        
+        .related-card a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        
+        @media (max-width: 768px) {
+            .post-title {
+                font-size: 2rem;
+            }
+            
+            .post-image {
+                height: 250px;
+            }
+            
+            .post-navigation {
+                flex-direction: column;
+            }
+            
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    
+    <article class="post-container">
+        <header class="post-header">
+            <nav class="post-breadcrumb">
+                <a href="/" class="breadcrumb-link">Home</a> > 
+                <a href="/blog" class="breadcrumb-link">Blog</a> > 
+                <a href="/blog/category/<%= post.category.toLowerCase() %>" class="breadcrumb-link"><%= post.category %></a> > 
+                <span class="breadcrumb-link"><%= post.title %></span>
+            </nav>
+            
+            <h1 class="post-title"><%= post.title %></h1>
+            
+            <div class="post-meta">
+                <span><i class="fas fa-user"></i><%= post.author %></span>
+                <span><i class="fas fa-calendar"></i><%= new Date(post.publishDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+                <span><i class="fas fa-clock"></i><%= post.readTime %></span>
+                <span><i class="fas fa-folder"></i><%= post.category %></span>
+            </div>
+            
+            <img src="<%= post.image %>" alt="<%= post.title %>" class="post-image" loading="lazy">
+        </header>
+        
+        <div class="post-content">
+            <%- post.content %>
+        </div>
+        
+        <div class="post-tags">
+            <% post.tags.forEach(tag => { %>
+            <a href="/blog/category/<%= tag.toLowerCase() %>" class="post-tag">
+                <i class="fas fa-tag"></i> <%= tag %>
+            </a>
+            <% }) %>
+        </div>
+        
+        <nav class="post-navigation">
+            <a href="/blog" class="nav-btn">
+                <i class="fas fa-arrow-left"></i> Back to Blog
+            </a>
+            <a href="/blog/category/<%= post.category.toLowerCase() %>" class="nav-btn">
+                More in <%= post.category %> <i class="fas fa-arrow-right"></i>
+            </a>
+        </nav>
+        
+        <% if (relatedPosts && relatedPosts.length > 0) { %>
+        <section class="related-posts">
+            <h3>Related Articles</h3>
+            <div class="related-grid">
+                <% relatedPosts.forEach(related => { %>
+                <div class="related-card">
+                    <img src="<%= related.image %>" alt="<%= related.title %>" loading="lazy">
+                    <div class="related-card-content">
+                        <h4><%= related.title %></h4>
+                        <p><%= related.excerpt.substring(0, 100) %>...</p>
+                        <a href="/blog/<%= related.id %>">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </section>
+        <% } %>
+    </article>
+    
+    <%- include('../partials/footer') %>
+    
+    <!-- Schema.org structured data for Article -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "<%= post.title %>",
+        "description": "<%= post.excerpt %>",
+        "image": "https://examfit.in<%= post.image %>",
+        "author": {
+            "@type": "Person",
+            "name": "<%= post.author %>"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "ExamFit",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://examfit.in/templates/logo.webp"
+            },
+            "sameAs": [
+                "https://www.instagram.com/examfit.in/"
+            ]
+        },
+        "datePublished": "<%= post.publishDate %>",
+        "dateModified": "<%= post.publishDate %>",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://examfit.in/blog/<%= post.id %>"
+        },
+        "keywords": "<%= post.tags.join(', ') %>",
+        "articleSection": "<%= post.category %>"
+    }
+    </script>
+</body>
+</html>

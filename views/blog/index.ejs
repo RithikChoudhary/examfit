@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Stay updated with the latest exam preparation tips, study strategies, and current affairs. Expert guidance for UPSC, SSC, Banking, and other competitive exams.">
+    <meta name="keywords" content="exam preparation, competitive exams, UPSC tips, SSC preparation, banking exams, current affairs, study tips">
+    <meta name="author" content="ExamFit">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="<%= title %>">
+    <meta property="og:description" content="Latest exam preparation tips and strategies for competitive exams">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://examfit.in/blog">
+    <meta property="og:image" content="https://examfit.in/templates/logo.webp">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= title %>">
+    <meta name="twitter:description" content="Latest exam preparation tips and strategies">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/home-footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .blog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .blog-header h1 {
+            font-size: 2.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-header p {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .blog-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .category-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            border-color: #3b82f6;
+            color: #3b82f6;
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .featured-post {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            color: white;
+        }
+        
+        .featured-post h2 {
+            font-size: 1.875rem;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-post p {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .featured-post .btn {
+            background: white;
+            color: #667eea;
+            padding: 0.75rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        
+        .featured-post .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .blog-card-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-card h3 {
+            font-size: 1.25rem;
+            color: #1f2937;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+        
+        .blog-card p {
+            color: #6b7280;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        
+        .blog-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #9ca3af;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-card-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-tag {
+            background: #f3f4f6;
+            color: #6b7280;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+        }
+        
+        .read-more-btn {
+            background: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+        
+        .read-more-btn:hover {
+            background: #2563eb;
+        }
+        
+        .no-posts {
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.125rem;
+            margin: 3rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-post {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    
+    <div class="blog-container">
+        <div class="blog-header">
+            <h1><i class="fas fa-blog"></i> ExamFit Blog</h1>
+            <p>Stay updated with the latest exam preparation tips, study strategies, and current affairs</p>
+        </div>
+        
+        <div class="blog-categories">
+            <% categories.forEach(category => { %>
+                <a href="/blog/category/<%= category.toLowerCase() %>" 
+                   class="category-btn <%= (activeCategory === category) ? 'active' : '' %>">
+                    <%= category %>
+                </a>
+            <% }) %>
+        </div>
+        
+        <% if (featuredPost) { %>
+        <div class="featured-post">
+            <h2><i class="fas fa-star"></i> Featured: <%= featuredPost.title %></h2>
+            <p><%= featuredPost.excerpt %></p>
+            <a href="/blog/<%= featuredPost.id %>" class="btn">Read Full Article</a>
+        </div>
+        <% } %>
+        
+        <% if (posts && posts.length > 0) { %>
+        <div class="blog-grid">
+            <% posts.forEach(post => { %>
+            <article class="blog-card">
+                <img src="<%= post.image %>" alt="<%= post.title %>" loading="lazy">
+                <div class="blog-card-content">
+                    <h3><%= post.title %></h3>
+                    <div class="blog-card-meta">
+                        <span><i class="fas fa-calendar"></i> <%= new Date(post.publishDate).toLocaleDateString() %></span>
+                        <span><i class="fas fa-clock"></i> <%= post.readTime %></span>
+                    </div>
+                    <p><%= post.excerpt %></p>
+                    <div class="blog-card-tags">
+                        <% post.tags.forEach(tag => { %>
+                        <span class="blog-tag"><%= tag %></span>
+                        <% }) %>
+                    </div>
+                    <a href="/blog/<%= post.id %>" class="read-more-btn">
+                        Read More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </article>
+            <% }) %>
+        </div>
+        <% } else { %>
+        <div class="no-posts">
+            <i class="fas fa-search"></i>
+            <h3>No posts found</h3>
+            <p>Check back later for new content!</p>
+        </div>
+        <% } %>
+    </div>
+    
+    <%- include('../partials/footer') %>
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "ExamFit Blog",
+        "url": "https://examfit.in/blog",
+        "description": "Latest exam preparation tips and strategies for competitive exams",
+        "publisher": {
+            "@type": "Organization",
+            "name": "ExamFit",
+            "url": "https://examfit.in",
+            "sameAs": [
+                "https://www.instagram.com/examfit.in/"
+            ]
+        }
+    }
+    </script>
+</body>
+</html>

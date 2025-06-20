@@ -4,6 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Practice Sessions - ExamFit</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Start your exam practice sessions with ExamFit. Choose from various competitive exams, configure duration, and practice with real previous year questions.">
+    <meta name="keywords" content="practice sessions, mock tests, competitive exam practice, UPSC practice, SSC practice, banking exam practice, previous year questions, online test">
+    <meta name="author" content="ExamFit">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Practice Sessions - ExamFit">
+    <meta property="og:description" content="Start practicing for competitive exams with configurable mock tests and previous year questions">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://examfit.in/practice">
+    <meta property="og:image" content="https://examfit.in/templates/logo.webp">
+    <meta property="og:site_name" content="ExamFit">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Practice Sessions - ExamFit">
+    <meta name="twitter:description" content="Start practicing for competitive exams">
+    <meta name="twitter:image" content="https://examfit.in/templates/logo.webp">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://examfit.in/practice">
+    
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -96,6 +122,13 @@
             transition: all 0.2s ease;
             text-align: center;
             position: relative;
+            display: block;
+            visibility: visible;
+            opacity: 1;
+            min-height: 120px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 0.75rem;
         }
         
         .exam-card:hover {
@@ -362,7 +395,7 @@
                     <% if (exams && exams.length > 0) { %>
                         <!-- Show actual exams -->
                         <% exams.forEach((exam, index) => { %>
-                            <div class="exam-card" onclick="selectExam('<%= exam.examId %>', '<%= exam.examName %>')" style="visibility: visible !important; display: block !important;">
+                            <div class="exam-card" onclick="selectExam('<%= exam.examId %>', '<%= exam.examName %>')">
                                 <div class="exam-icon">
                                     <i class="fas fa-graduation-cap"></i>
                                 </div>

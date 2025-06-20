@@ -1,4 +1,22 @@
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /api/
+Disallow: /data/
+
+# Sitemap location
+Sitemap: https://examfit.in/sitemap.xml
+
+# Crawl-delay for better server performance
+Crawl-delay: 1
+
+# Allow Google AdSense crawler
+User-agent: Mediapartners-Google
+Allow: /
+
+# Allow Google Analytics
+User-agent: Googlebot
+Allow: /
 
 Sitemap: https://examfit.in/sitemap.xml

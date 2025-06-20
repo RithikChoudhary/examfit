@@ -11,6 +11,7 @@ const apiRouter = require('./routes/api');
 const apiV1Router = require('./routes/api/v1');
 const practiceRouter = require('./routes/practice');
 const currentAffairsRouter = require('./routes/current-affairs');
+const blogRouter = require('./routes/blog');
 const examHierarchyRoutes = require('./routes/examHierarchy');
 const xlsxTemplateRoutes = require('./routes/xlsxTemplate');
 const directExamRoutes = require('./routes/directExamRoutes');
@@ -67,6 +68,10 @@ app.get('/sitemap.xml', async (req, res) => {
       { url: '/', changefreq: 'daily', priority: 1.0 },
       { url: '/practice', changefreq: 'daily', priority: 0.9 },
       { url: '/current-affairs', changefreq: 'daily', priority: 0.8 },
+      { url: '/blog', changefreq: 'daily', priority: 0.8 },
+      { url: '/blog/upsc-preparation-strategy-2025', changefreq: 'weekly', priority: 0.7 },
+      { url: '/blog/ssc-cgl-preparation-tips', changefreq: 'weekly', priority: 0.7 },
+      { url: '/blog/current-affairs-june-2025', changefreq: 'weekly', priority: 0.7 },
       { url: '/contact', changefreq: 'monthly', priority: 0.6 }
     ];
 
@@ -150,6 +155,7 @@ app.use('/api/v1', apiV1Router);
 // Legacy routes (maintained for backward compatibility)
 app.use('/practice', practiceRouter); // Practice routes
 app.use('/current-affairs', currentAffairsRouter); // Current affairs routes
+app.use('/blog', blogRouter); // Blog routes
 app.use('/api', apiRouter); // Legacy API routes
 // app.use('/dashboard', dashboardRouter); // Dashboard route disabled
 
@@ -164,7 +170,7 @@ app.use('/', examHierarchyRoutes); // move this LAST because it has /:exam wildc
 app.use(notFound); // Handle 404s
 app.use(errorHandler); // Handle all errors
 
-// const PORT = process.env.PORT || 16;
+// const PORT = process.env.PORT || 24;
 // app.listen(PORT, () => {
 //   console.log(`Server running on http://localhost:${PORT}`);
 // });
