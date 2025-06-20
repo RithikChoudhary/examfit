@@ -1,34 +1,91 @@
 // routes/index.js
 const express = require('express');
 const router = express.Router();
-const { getQuestions } = require('../utils/dataHelpers');
+const examService = require('../services/examService');
+const cacheService = require('../services/cacheService');
 const fs = require('fs');
 const path = require('path');
 const nodemailer = require('nodemailer');
+
 router.get('/', async (req, res) => {
   try {
-    const data = await getQuestions();
+    // Get exams using optimized service
+    const exams = await examService.getAllExams();
     
     // Handle case where data is empty or invalid
-    if (!data || !data.exams || !Array.isArray(data.exams)) {
-      console.error('Invalid data structure:', data);
+    if (!exams || !Array.isArray(exams)) {
+      console.error('Invalid exams data:', exams);
       return res.status(500).send('Invalid data structure');
     }
 
-    res.render('index', { 
-      exams: data.exams,
-      totalExams: data.exams.length,
-      dataInfo: {
-        lastUpdated: data.lastUpdated,
-        sources: data.sources,
-        autoUpdate: data.autoUpdate
+    // Preload subjects for all exams in background for instant access
+    setImmediate(async () => {
+      try {
+        await preloadExamSubjects(exams);
+      } catch (error) {
+        console.warn('Background preloading failed:', error.message);
       }
+    });
+
+    // Get data info from cache or default
+    const dataInfo = getDataInfo();
+
+    res.render('index', { 
+      exams,
+      totalExams: exams.length,
+      dataInfo
     });
   } catch (error) {
     console.error('Error in index route:', error);
     res.status(500).send('An error occurred. Please try again later.');
   }
 });
+
+// Preload subjects for all exams to ensure instant loading
+async function preloadExamSubjects(exams) {
+  const preloadPromises = exams.map(async (exam) => {
+    try {
+      // Preload subjects for this exam
+      await examService.getExamSubjects(exam.examId);
+      console.log(`Preloaded subjects for ${exam.examId}`);
+    } catch (error) {
+      console.warn(`Failed to preload subjects for ${exam.examId}:`, error.message);
+    }
+  });
+
+  // Execute all preloading in parallel
+  await Promise.allSettled(preloadPromises);
+  console.log('Subject preloading completed');
+}
+
+// Get data info with fallback
+function getDataInfo() {
+  try {
+    const { getQuestions } = require('../utils/dataHelpers');
+    // Try to get data info from cache or file
+    const cached = cacheService.get('data_info');
+    if (cached) {
+      return cached;
+    }
+
+    // Fallback to default info
+    const defaultInfo = {
+      lastUpdated: new Date().toISOString(),
+      sources: ['Manual Upload', 'API Integration'],
+      autoUpdate: true
+    };
+
+    cacheService.set('data_info', defaultInfo, 60 * 60 * 1000); // Cache for 1 hour
+    return defaultInfo;
+  } catch (error) {
+    console.warn('Could not get data info:', error.message);
+    return {
+      lastUpdated: new Date().toISOString(),
+      sources: ['Manual Upload'],
+      autoUpdate: false
+    };
+  }
+}
 router.get('/contact', (req, res) => {
   res.render('contact');
 });

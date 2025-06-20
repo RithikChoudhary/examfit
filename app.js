@@ -8,17 +8,27 @@ require("xtend");
 const indexRouter = require('./routes/index');
 const dashboardRouter = require('./routes/dashboard');
 const apiRouter = require('./routes/api');
+const apiV1Router = require('./routes/api/v1');
 const practiceRouter = require('./routes/practice');
 const currentAffairsRouter = require('./routes/current-affairs');
 const examHierarchyRoutes = require('./routes/examHierarchy');
 const xlsxTemplateRoutes = require('./routes/xlsxTemplate');
 const directExamRoutes = require('./routes/directExamRoutes');
 const examRouter = require('./routes/exam');
-const data = require('./data/data.json');
+
+// Import middleware
+const { errorHandler, notFound, requestLogger, rateLimit } = require('./middleware/errorHandler');
+const examService = require('./services/examService');
+const cacheService = require('./services/cacheService');
 
 const app = express();
 
+// Trust proxy for rate limiting and IP detection
+app.set('trust proxy', 1);
+
 // Set up middleware
+app.use(requestLogger); // Request logging
+app.use(rateLimit()); // Rate limiting - default 100 requests per 15 minutes
 app.use(express.json()); // For parsing JSON payloads
 app.use(express.urlencoded({ extended: true })); // For parsing URL-encoded bodies
 
@@ -43,56 +53,88 @@ const { Readable } = require('stream');
 
 app.get('/sitemap.xml', async (req, res) => {
   try {
-    console.log('Generating sitemap...');
+    console.log('Generating optimized sitemap...');
+    
+    // Check for cached sitemap first (cache for 24 hours)
+    const cachedSitemap = cacheService.get('sitemap_xml');
+    if (cachedSitemap) {
+      console.log('Serving cached sitemap');
+      res.writeHead(200, { 'Content-Type': 'application/xml' });
+      return res.end(cachedSitemap);
+    }
+
     const links = [
       { url: '/', changefreq: 'daily', priority: 1.0 },
-      { url: '/dashboard', changefreq: 'weekly', priority: 0.8 }
+      { url: '/practice', changefreq: 'daily', priority: 0.9 },
+      { url: '/current-affairs', changefreq: 'daily', priority: 0.8 },
+      { url: '/contact', changefreq: 'monthly', priority: 0.6 }
     ];
 
-    data.exams.forEach(exam => {
-      // Exam page
-      links.push({
-        url: `/${exam.examId}`,
-        changefreq: 'weekly',
-        priority: 0.9
-      });
-
-      exam.subjects?.forEach(subject => {
-        // Subject's question paper list
-        links.push({
-          url: `/${exam.examId}/${subject.subjectId}/questionPapers`,
-          changefreq: 'weekly',
-          priority: 0.8
-        });
-
-        subject.questionPapers?.forEach(paper => {
-          // Specific paper page
+    // Get exam data using cached service (faster)
+    const exams = await examService.getAllExams(true); // Use cache for better performance
+    
+    // Process exams in batches to prevent timeout
+    const batchSize = 10;
+    for (let i = 0; i < exams.length; i += batchSize) {
+      const examBatch = exams.slice(i, i + batchSize);
+      
+      await Promise.allSettled(examBatch.map(async (examSummary) => {
+        try {
+          const exam = await examService.getExamById(examSummary.examId);
+          
+          // Exam page
           links.push({
-            url: `/${exam.examId}/${subject.subjectId}/questionPapers/${paper.questionPaperId}`,
-            changefreq: 'monthly',
-            priority: 0.7
+            url: `/${exam.examId}`,
+            changefreq: 'weekly',
+            priority: 0.9
           });
 
-          paper.questions?.forEach(question => {
-            // Individual question URL
+          // Add subject and paper URLs (limit to most important ones)
+          exam.subjects?.slice(0, 20)?.forEach(subject => { // Limit to 20 subjects per exam
+            // Subject's question paper list
             links.push({
-              url: `/${exam.examId}/${subject.subjectId}/questionPapers/${paper.questionPaperId}/${question.questionId}`,
-              changefreq: 'yearly',
-              priority: 0.5
+              url: `/${exam.examId}/${subject.subjectId}/questionPapers`,
+              changefreq: 'weekly',
+              priority: 0.8
+            });
+
+            // Add only first 10 papers per subject to keep sitemap manageable
+            subject.questionPapers?.slice(0, 10)?.forEach(paper => {
+              links.push({
+                url: `/${exam.examId}/${subject.subjectId}/questionPapers/${paper.questionPaperId}`,
+                changefreq: 'monthly',
+                priority: 0.7
+              });
+
+              // Skip individual questions in sitemap to keep it lightweight
+              // Individual questions can be discovered through paper pages
             });
           });
-        });
-      });
-    });
+        } catch (error) {
+          console.warn(`Failed to process exam ${examSummary.examId} for sitemap:`, error.message);
+        }
+      }));
+    }
+
+    // Limit total URLs to prevent sitemap from becoming too large
+    const maxUrls = 50000; // Google's limit is 50,000 URLs per sitemap
+    if (links.length > maxUrls) {
+      console.warn(`Sitemap has ${links.length} URLs, truncating to ${maxUrls}`);
+      links.splice(maxUrls);
+    }
 
     const stream = new SitemapStream({ hostname: 'https://examfit.in' });
-    res.writeHead(200, { 'Content-Type': 'application/xml' });
-
     const xml = await streamToPromise(Readable.from(links).pipe(stream)).then(data => data.toString());
+    
+    // Cache the generated sitemap for 24 hours
+    cacheService.set('sitemap_xml', xml, 24 * 60 * 60 * 1000);
+    
+    console.log(`Sitemap generated with ${links.length} URLs`);
+    res.writeHead(200, { 'Content-Type': 'application/xml' });
     res.end(xml);
   } catch (err) {
     console.error('Sitemap generation error:', err);
-    res.status(500).end();
+    res.status(500).send('<?xml version="1.0" encoding="UTF-8"?><error>Sitemap generation failed</error>');
   }
 });
 
@@ -102,10 +144,16 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Important: Route order matters - specific routes before wildcard routes
-// app.use('/dashboard', dashboardRouter); // Dashboard route enabled
+// New API v1 routes with improved structure
+app.use('/api/v1', apiV1Router);
+
+// Legacy routes (maintained for backward compatibility)
 app.use('/practice', practiceRouter); // Practice routes
 app.use('/current-affairs', currentAffairsRouter); // Current affairs routes
-app.use('/api', apiRouter);
+app.use('/api', apiRouter); // Legacy API routes
+// app.use('/dashboard', dashboardRouter); // Dashboard route disabled
+
+// View routes
 app.use('/', indexRouter);       // handles / and /contact
 app.use('/', xlsxTemplateRoutes);
 app.use('/', examRouter);       
@@ -113,23 +161,8 @@ app.use('/', directExamRoutes);
 app.use('/', examHierarchyRoutes); // move this LAST because it has /:exam wildcard
 
 // Error handling middleware
-app.use((err, req, res, next) => {
-  console.error('Unhandled error:', err);
-  res.status(500).json({
-    error: 'Internal Server Error',
-    message: 'Something went wrong. Please try again later.'
-    
-  });
-});
-
-
-// 404 handling for routes not found
-app.use((req, res) => {
-  res.status(404).json({
-    error: 'Not Found',
-    message: 'The requested resource could not be found.'
-  });
-});
+app.use(notFound); // Handle 404s
+app.use(errorHandler); // Handle all errors
 
 // const PORT = process.env.PORT || 16;
 // app.listen(PORT, () => {

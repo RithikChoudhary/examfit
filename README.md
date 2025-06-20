@@ -18,3 +18,27 @@ I dont have much time to update the questions or data , so how to do it automati
 
 so find something to do it.
 this website is only hosted on vercel
+
+graph TB
+    A[Client Requests] --> B[API Router /api/v1]
+    B --> C[Validation Middleware]
+    C --> D[Controller Layer]
+    D --> E[Service Layer]
+    E --> F[Cache Layer]
+    F --> G[Data Access Layer]
+    G --> H[JSON File Storage]
+    
+    E --> I[Business Logic]
+    I --> J[Exam Service]
+    I --> K[Question Service]
+    I --> L[Progress Service]
+    
+    subgraph "New Components"
+        M[Error Handler]
+        N[Request Logger]
+        O[Response Formatter]
+    end
+    
+    D --> M
+    D --> N
+    D --> O
