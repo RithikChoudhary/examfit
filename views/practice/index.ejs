@@ -357,9 +357,12 @@
                     <i class="fas fa-list"></i> Choose Exam
                 </div>
                 <div class="exam-list">
+                    <!-- Debug Info (moved to bottom of page) -->
+                    
                     <% if (exams && exams.length > 0) { %>
+                        <!-- Show actual exams -->
                         <% exams.forEach((exam, index) => { %>
-                            <div class="exam-card" onclick="selectExam('<%= exam.examId %>', '<%= exam.examName %>')">
+                            <div class="exam-card" onclick="selectExam('<%= exam.examId %>', '<%= exam.examName %>')" style="visibility: visible !important; display: block !important;">
                                 <div class="exam-icon">
                                     <i class="fas fa-graduation-cap"></i>
                                 </div>
@@ -367,7 +370,13 @@
                                 <p><%= exam.subjectCount || (exam.subjects ? exam.subjects.length : 0) %> subjects</p>
                             </div>
                         <% }) %>
+                        
+                        <!-- Debug: Show raw exam count -->
+                        <div style="background: #f0f9ff; border: 1px solid #0ea5e9; border-radius: 6px; padding: 0.5rem; margin-top: 1rem; font-size: 0.75rem; color: #0c4a6e;">
+                            📊 Debug: Found <%= exams.length %> exams
+                        </div>
                     <% } else { %>
+                        <!-- No exams state -->
                         <div style="text-align: center; padding: 2rem; color: #6b7280; border: 2px dashed #d1d5db; border-radius: 8px; background: #f9fafb;">
                             <i class="fas fa-database" style="font-size: 2.5rem; margin-bottom: 1rem; color: #d1d5db;"></i>
                             <h3 style="color: #374151; margin-bottom: 1rem; font-size: 1.125rem;">No Exams Available</h3>
@@ -385,6 +394,14 @@
                             <a href="/dashboard" style="display: inline-block; background: #3b82f6; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 500; margin-top: 0.5rem;">
                                 <i class="fas fa-plus"></i> Go to Dashboard
                             </a>
+                            
+                            <!-- Debug info for no exams -->
+                            <div style="background: #fef2f2; border: 1px solid #f87171; border-radius: 6px; padding: 1rem; margin-top: 1rem; font-size: 0.75rem; color: #991b1b; text-align: left;">
+                                <strong>🔍 Debug Info:</strong><br>
+                                Exams variable: <%= typeof exams %><br>
+                                Exams length: <%= exams ? exams.length : 'undefined' %><br>
+                                Check browser console for more details
+                            </div>
                         </div>
                     <% } %>
                 </div>
@@ -455,6 +472,9 @@
     </div>
     
     <script>
+        // Debug logging
+        console.log('Practice page loaded');
+        
         let selectedExam = null;
         let subjects = [];
         let questionPapers = [];

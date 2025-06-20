@@ -198,41 +198,8 @@ router.get('/results/:sessionId', asyncHandler(async (req, res) => {
 router.get('/progress', asyncHandler(async (req, res) => {
     try {
         console.log('Loading progress page...');
-        const analytics = await progressService.getPerformanceAnalytics();
         
-        // Provide default values if analytics is empty
-        const defaultOverview = {
-            totalSessions: 0,
-            totalQuestions: 0,
-            totalCorrect: 0,
-            averageScore: 0,
-            totalTimeSpent: 0,
-            averageTimePerSession: 0
-        };
-        
-        const safeAnalytics = {
-            overview: analytics.overview || defaultOverview,
-            recentSessions: analytics.recentSessions || [],
-            subjectPerformance: analytics.subjectPerformance || [],
-            dailyTrend: analytics.dailyTrend || [],
-            scoreDistribution: analytics.scoreDistribution || {}
-        };
-        
-        console.log('Progress data loaded:', {
-            sessionsCount: safeAnalytics.recentSessions.length,
-            totalSessions: safeAnalytics.overview.totalSessions,
-            subjectCount: safeAnalytics.subjectPerformance.length
-        });
-        
-        res.render('practice/progress', {
-            recentSessions: safeAnalytics.recentSessions,
-            overallStats: safeAnalytics.overview,
-            subjectPerformance: safeAnalytics.subjectPerformance
-        });
-    } catch (error) {
-        console.error('Error loading progress page:', error);
-        
-        // Fallback to empty data
+        // Always start with empty data - no fake/mock data
         const emptyData = {
             recentSessions: [],
             overallStats: {
@@ -241,7 +208,62 @@ router.get('/progress', asyncHandler(async (req, res) => {
                 totalCorrect: 0,
                 averageScore: 0
             },
-            subjectPerformance: []
+            subjectPerformance: {}
+        };
+        
+        // Try to get real analytics, but if it fails or returns fake data, use empty
+        try {
+            const analytics = await progressService.getPerformanceAnalytics();
+            
+            // Check if we have real session data (not test/fake data)
+            const realSessions = analytics.recentSessions?.filter(session => {
+                // Filter out any test/fake sessions
+                return session.examName && session.subjectName && 
+                       !session.examName.includes('Test') && 
+                       !session.examName.includes('Sample') &&
+                       new Date(session.date).getFullYear() >= 2024; // Only recent sessions
+            }) || [];
+            
+            console.log('Real sessions found:', realSessions.length);
+            
+            if (realSessions.length > 0) {
+                // Recalculate stats based on real sessions only
+                const totalQuestions = realSessions.reduce((sum, s) => sum + s.total, 0);
+                const totalCorrect = realSessions.reduce((sum, s) => sum + s.correct, 0);
+                const averageScore = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
+                
+                res.render('practice/progress', {
+                    recentSessions: realSessions,
+                    overallStats: {
+                        totalSessions: realSessions.length,
+                        totalQuestions,
+                        totalCorrect,
+                        averageScore
+                    },
+                    subjectPerformance: {} // Empty for now
+                });
+            } else {
+                console.log('No real sessions found, showing empty state');
+                res.render('practice/progress', emptyData);
+            }
+        } catch (analyticsError) {
+            console.log('Analytics service failed, showing empty state:', analyticsError.message);
+            res.render('practice/progress', emptyData);
+        }
+        
+    } catch (error) {
+        console.error('Error loading progress page:', error);
+        
+        // Always fallback to empty data - never show fake data
+        const emptyData = {
+            recentSessions: [],
+            overallStats: {
+                totalSessions: 0,
+                totalQuestions: 0,
+                totalCorrect: 0,
+                averageScore: 0
+            },
+            subjectPerformance: {}
         };
         
         res.render('practice/progress', emptyData);
