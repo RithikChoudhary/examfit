@@ -11,9 +11,34 @@ const { asyncHandler } = require('../middleware/errorHandler');
 
 // Practice session selection page
 router.get('/', asyncHandler(async (req, res) => {
-    const exams = await examService.getAllExams();
+    // Get exam summaries first
+    const examSummaries = await examService.getAllExams();
+    
+    // Get full exam data with subject counts for each exam
+    const examsWithSubjects = await Promise.all(
+        examSummaries.map(async (examSummary) => {
+            try {
+                const fullExam = await examService.getExamById(examSummary.examId);
+                return {
+                    examId: fullExam.examId,
+                    examName: fullExam.examName,
+                    subjects: fullExam.subjects || [],
+                    subjectCount: fullExam.subjects ? fullExam.subjects.length : 0
+                };
+            } catch (error) {
+                console.warn(`Failed to load exam ${examSummary.examId}:`, error.message);
+                return {
+                    examId: examSummary.examId,
+                    examName: examSummary.examName,
+                    subjects: [],
+                    subjectCount: 0
+                };
+            }
+        })
+    );
+    
     res.render('practice/index', { 
-        exams,
+        exams: examsWithSubjects,
         title: 'Practice Sessions'
     });
 }));
