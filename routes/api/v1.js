@@ -476,4 +476,43 @@ router.get('/health', (req, res) => {
     }));
 });
 
+// GET /api/v1/debug/data - Debug data structure
+router.get('/debug/data', asyncHandler(async (req, res) => {
+    try {
+        const { getQuestions } = require('../../utils/dataHelpers');
+        const rawData = await getQuestions();
+        
+        const debugInfo = {
+            dataStructure: {
+                hasExams: !!rawData.exams,
+                examCount: rawData.exams ? rawData.exams.length : 0,
+                exams: rawData.exams ? rawData.exams.map(exam => ({
+                    examId: exam.examId,
+                    examName: exam.examName,
+                    subjectCount: exam.subjects ? exam.subjects.length : 0,
+                    hasSubjects: !!exam.subjects,
+                    firstSubject: exam.subjects && exam.subjects.length > 0 ? exam.subjects[0].subjectName : 'none'
+                })) : []
+            },
+            serviceResults: {
+                examServiceCount: 0,
+                examServiceError: null
+            }
+        };
+        
+        // Test examService
+        try {
+            const examService = require('../../services/examService');
+            const exams = await examService.getAllExams(false); // Don't use cache
+            debugInfo.serviceResults.examServiceCount = exams.length;
+        } catch (error) {
+            debugInfo.serviceResults.examServiceError = error.message;
+        }
+        
+        res.json(formatResponse(true, debugInfo));
+    } catch (error) {
+        res.json(formatResponse(false, null, { message: error.message }));
+    }
+}));
+
 module.exports = router;

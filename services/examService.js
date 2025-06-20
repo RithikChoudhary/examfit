@@ -97,7 +97,8 @@ class ExamService {
             questionPaperId: paper.questionPaperId,
             questionPaperName: paper.questionPaperName,
             section: paper.section,
-            questionCount: paper.questions ? paper.questions.length : 0
+            questionCount: paper.questions ? paper.questions.length : 0,
+            questions: paper.questions || [] // Include questions for frontend
         })) : [];
     }
 
