@@ -2,8 +2,8 @@ name: Update Exam Data
 
 on:
   schedule:
-    # Run every Sunday at 2:00 AM UTC (7:30 AM IST)
-    - cron: '0 2 * * 0'
+    # Run daily at 2:00 AM UTC (7:30 AM IST)
+    - cron: '0 2 * * *'
   workflow_dispatch: # Allow manual triggering
 
 jobs:
@@ -157,8 +157,8 @@ jobs:
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "### ⏰ Update Details:" >> $GITHUB_STEP_SUMMARY
         echo "- 🕒 **Updated**: $(date '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
-        echo "- 🔄 **Sources**: Sample generators and external scrapers" >> $GITHUB_STEP_SUMMARY
-        echo "- 🛡️ **Reliability**: Fallback systems ensure content is always available" >> $GITHUB_STEP_SUMMARY
+        echo "- 🔄 **Sources**: Multi-source premium current affairs (Insights IAS, GKToday)" >> $GITHUB_STEP_SUMMARY
+        echo "- 🛡️ **Reliability**: Daily updates with fallback systems" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "🚀 **Live Site**: Your Vercel deployment will automatically update with the new data!" >> $GITHUB_STEP_SUMMARY
     
@@ -167,7 +167,7 @@ jobs:
       run: |
         echo "## ❌ Data Update Failed" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
-        echo "The weekly data update encountered an issue. Check the logs above for details." >> $GITHUB_STEP_SUMMARY
+        echo "The daily data update encountered an issue. Check the logs above for details." >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "### 🔍 Possible Causes:" >> $GITHUB_STEP_SUMMARY
         echo "- Network connectivity issues" >> $GITHUB_STEP_SUMMARY
