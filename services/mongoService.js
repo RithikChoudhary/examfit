@@ -41,15 +41,16 @@ class MongoService {
         }
     }
 
-    // Get all exams
+    // Get all exams - lightweight version (no subjects loaded by default)
     async getExams() {
         try {
             const db = await this.connect();
             const exams = await db.collection('exams').find({ isActive: true }).toArray();
             
-            // For each exam, get its subjects
+            // Don't load subjects by default - they'll be loaded on demand
+            // This prevents the 10+ second delay when loading all exams
             for (let exam of exams) {
-                exam.subjects = await this.getSubjectsByExam(exam.examId);
+                exam.subjects = []; // Empty array, load on demand
             }
             
             return exams;
@@ -76,20 +77,71 @@ class MongoService {
         }
     }
 
-    // Get subjects by exam ID
+    // Get subjects by exam ID - Optimized for performance
     async getSubjectsByExam(examId) {
         try {
             const db = await this.connect();
-            const subjects = await db.collection('subjects').find({ examId }).toArray();
+            console.log(`🔍 MongoDB: Querying subjects for examId: ${examId}`);
             
-            // For each subject, get its question papers
-            for (let subject of subjects) {
-                subject.questionPapers = await this.getQuestionPapersBySubject(examId, subject.subjectId);
+            const subjects = await db.collection('subjects').find({ examId }).toArray();
+            console.log(`📊 Found ${subjects.length} subjects in MongoDB for ${examId}`);
+            
+            if (!subjects || subjects.length === 0) {
+                console.log(`⚠️ No subjects found in MongoDB for exam: ${examId}`);
+                return [];
             }
             
+            // Get all question papers for this exam in one query
+            const allPapers = await db.collection('questionPapers').find({ examId }).toArray();
+            console.log(`📄 Found ${allPapers.length} total papers for ${examId}`);
+            
+            // Get question counts for all papers in one aggregation query
+            const questionCounts = await db.collection('questions').aggregate([
+                { $match: { examId } },
+                { 
+                    $group: {
+                        _id: { subjectId: "$subjectId", paperId: "$paperId" },
+                        count: { $sum: 1 }
+                    }
+                }
+            ]).toArray();
+            
+            // Create a lookup map for question counts
+            const countMap = {};
+            questionCounts.forEach(item => {
+                const key = `${item._id.subjectId}:${item._id.paperId}`;
+                countMap[key] = item.count;
+            });
+            
+            // Process each subject
+            for (let subject of subjects) {
+                // Get papers for this subject
+                const subjectPapers = allPapers.filter(paper => paper.subjectId === subject.subjectId);
+                
+                // Transform papers with question counts
+                const transformedPapers = subjectPapers.map(paper => {
+                    const countKey = `${subject.subjectId}:${paper.paperId}`;
+                    const questionCount = countMap[countKey] || 0;
+                    
+                    return {
+                        questionPaperId: paper.paperId,
+                        questionPaperName: paper.paperName,
+                        section: paper.section || '',
+                        questionCount: questionCount,
+                        questions: []
+                    };
+                });
+                
+                subject.questionPapers = transformedPapers;
+                subject.questionPaperCount = transformedPapers.length;
+                subject.totalQuestions = transformedPapers.reduce((total, paper) => total + paper.questionCount, 0);
+            }
+            
+            console.log(`✅ MongoDB: Successfully loaded ${subjects.length} subjects for ${examId} in optimized query`);
             return subjects;
+            
         } catch (error) {
-            console.error('Error fetching subjects:', error);
+            console.error(`❌ MongoDB subjects query failed for ${examId}:`, error.message);
             throw error;
         }
     }
@@ -100,8 +152,12 @@ class MongoService {
             const db = await this.connect();
             const papers = await db.collection('questionPapers').find({ examId, subjectId }).toArray();
             
-            // For each paper, get question count and sample questions
+            // Transform to match expected structure and get question count
             for (let paper of papers) {
+                // Fix field names to match what the app expects
+                paper.questionPaperId = paper.paperId;
+                paper.questionPaperName = paper.paperName;
+                
                 paper.questions = await this.getQuestionsByPaper(examId, subjectId, paper.paperId);
             }
             

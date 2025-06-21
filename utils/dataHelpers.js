@@ -1,21 +1,19 @@
 const mongoService = require('../services/mongoService');
 
-// Main data access function - now uses MongoDB with JSON fallback
+// Main data access function - MongoDB only
 async function getQuestions() {
     try {
         console.log('📂 Loading data from MongoDB...');
-        const data = await mongoService.getDataWithFallback();
-        console.log(`✅ Data loaded from ${data.source}`);
-        return data;
-    } catch (error) {
-        console.error('❌ Error loading data:', error);
-        // Return minimal structure if everything fails
-        return { 
-            exams: [],
-            source: 'fallback_empty',
-            lastUpdated: new Date().toISOString(),
-            error: error.message
+        const exams = await mongoService.getExams();
+        console.log(`✅ Data loaded from MongoDB: ${exams.length} exams`);
+        return {
+            exams,
+            source: 'mongodb',
+            lastUpdated: new Date().toISOString()
         };
+    } catch (error) {
+        console.error('❌ Error loading data from MongoDB:', error);
+        throw error;
     }
 }
 
@@ -82,15 +80,12 @@ async function getExamById(examId) {
     }
 }
 
-// Get subjects for an exam
+// Get subjects for an exam - MongoDB only
 async function getSubjectsByExam(examId) {
-    try {
-        return await mongoService.getSubjectsByExam(examId);
-    } catch (error) {
-        console.error(`Error getting subjects for ${examId}:`, error);
-        const exam = await getExamById(examId);
-        return exam?.subjects || [];
-    }
+    console.log(`🔍 Getting subjects for exam: ${examId} from MongoDB`);
+    const subjects = await mongoService.getSubjectsByExam(examId);
+    console.log(`✅ Found ${subjects.length} subjects from MongoDB`);
+    return subjects;
 }
 
 // Get questions for a specific paper

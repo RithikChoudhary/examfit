@@ -121,15 +121,54 @@ class ExamService {
         }
     }
 
-    // Get subjects for an exam
+    // Get subjects for an exam - optimized for MongoDB
     async getExamSubjects(examId) {
+        const cacheKey = `subjects_${examId}`;
+        
+        // Check cache first
+        const cached = cacheService.get(cacheKey);
+        if (cached) {
+            console.log(`📋 Returning cached subjects for ${examId}`);
+            return cached;
+        }
+
+        try {
+            console.log(`📚 Loading subjects for exam: ${examId} from MongoDB...`);
+            
+            // Try MongoDB-optimized approach first
+            const subjects = await getSubjectsByExam(examId);
+            
+            if (subjects && subjects.length > 0) {
+                // Transform for consistent API
+                const transformedSubjects = subjects.map(subject => ({
+                    subjectId: subject.subjectId,
+                    subjectName: subject.subjectName,
+                    questionPaperCount: subject.questionPapers ? subject.questionPapers.length : 0,
+                    totalQuestions: subject.questionPapers ? 
+                        subject.questionPapers.reduce((total, paper) => 
+                            total + (paper.questions ? paper.questions.length : 0), 0) : 0
+                }));
+
+                // Cache the results for 30 minutes
+                cacheService.set(cacheKey, transformedSubjects, 30 * 60 * 1000);
+                console.log(`✅ Loaded ${transformedSubjects.length} subjects for ${examId}`);
+                return transformedSubjects;
+            }
+        } catch (error) {
+            console.warn(`⚠️ MongoDB failed for subjects ${examId}:`, error.message);
+        }
+
+        // Fallback to full exam load
+        console.log(`📄 Falling back to full exam load for ${examId}...`);
         const exam = await this.getExamById(examId);
         
         if (exam.subExams) {
-            return exam.subExams;
+            const result = exam.subExams;
+            cacheService.set(cacheKey, result, 5 * 60 * 1000); // Shorter cache for fallback
+            return result;
         }
 
-        return exam.subjects ? exam.subjects.map(subject => ({
+        const result = exam.subjects ? exam.subjects.map(subject => ({
             subjectId: subject.subjectId,
             subjectName: subject.subjectName,
             questionPaperCount: subject.questionPapers ? subject.questionPapers.length : 0,
@@ -137,6 +176,9 @@ class ExamService {
                 subject.questionPapers.reduce((total, paper) => 
                     total + (paper.questions ? paper.questions.length : 0), 0) : 0
         })) : [];
+
+        cacheService.set(cacheKey, result, 5 * 60 * 1000); // Shorter cache for fallback
+        return result;
     }
 
     // Get question papers for a subject

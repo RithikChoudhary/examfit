@@ -30,33 +30,11 @@ router.get('/', asyncHandler(async (req, res) => {
             });
         }
         
-        // Get full exam data with subject counts for each exam
-        const examsWithSubjects = await Promise.all(
-            examSummaries.map(async (examSummary) => {
-                try {
-                    const fullExam = await examService.getExamById(examSummary.examId);
-                    return {
-                        examId: fullExam.examId,
-                        examName: fullExam.examName,
-                        subjects: fullExam.subjects || [],
-                        subjectCount: fullExam.subjects ? fullExam.subjects.length : 0
-                    };
-                } catch (error) {
-                    console.warn(`Failed to load exam ${examSummary.examId}:`, error.message);
-                    return {
-                        examId: examSummary.examId,
-                        examName: examSummary.examName,
-                        subjects: [],
-                        subjectCount: 0
-                    };
-                }
-            })
-        );
-        
-        console.log('Final exams with subjects:', examsWithSubjects.length);
+        // Only send exam summaries - load subjects via AJAX when needed
+        console.log(`✅ Sending ${examSummaries.length} exam summaries (lightweight)`);
         
         res.render('practice/index', { 
-            exams: examsWithSubjects,
+            exams: examSummaries, // Just the summaries, not full data
             title: 'Practice Sessions'
         });
     } catch (error) {
@@ -69,10 +47,29 @@ router.get('/', asyncHandler(async (req, res) => {
     }
 }));
 
-// Get subjects for an exam (API endpoint)
+// Get subjects for an exam (API endpoint) - direct MongoDB query
 router.get('/api/subjects/:examId', asyncHandler(async (req, res) => {
-    const subjects = await examService.getExamSubjects(req.params.examId);
-    res.json({ subjects });
+    const { examId } = req.params;
+    
+    console.log(`🔍 Direct API request for subjects: ${examId}`);
+    
+    try {
+        // Skip the examService layer and go directly to MongoDB for better performance
+        const mongoService = require('../services/mongoService');
+        const subjects = await mongoService.getSubjectsByExam(examId);
+        
+        console.log(`✅ Direct subjects loaded for ${examId}: ${subjects.length} subjects`);
+        res.json({ subjects });
+        
+    } catch (error) {
+        console.error(`❌ Error loading subjects for ${examId}:`, error.message);
+        
+        res.status(500).json({ 
+            error: 'Failed to load subjects',
+            message: error.message,
+            examId 
+        });
+    }
 }));
 
 // Get question papers for a subject (API endpoint)
