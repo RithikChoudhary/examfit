@@ -212,13 +212,32 @@ class MongoService {
             const db = await this.connect();
             let query = { examId, subjectId, paperId };
             
+            console.log(`🔍 DEBUG: MongoDB Query for questions:`, query);
+            
+            // First, let's see if there are ANY questions for this exam/subject combo
+            const anyQuestions = await db.collection('questions').findOne({ examId, subjectId });
+            console.log(`🔍 DEBUG: Sample question for ${examId}/${subjectId}:`, anyQuestions ? {
+                questionId: anyQuestions.questionId,
+                paperId: anyQuestions.paperId,
+                question: anyQuestions.question?.substring(0, 50) + '...'
+            } : 'No questions found');
+            
+            // Check what paperIds exist for this exam/subject
+            const distinctPaperIds = await db.collection('questions').distinct('paperId', { examId, subjectId });
+            console.log(`🔍 DEBUG: Available paperIds for ${examId}/${subjectId}:`, distinctPaperIds);
+            console.log(`🔍 DEBUG: Looking for paperId: ${paperId}`);
+            console.log(`🔍 DEBUG: PaperId exists in DB: ${distinctPaperIds.includes(paperId)}`);
+            
             let cursor = db.collection('questions').find(query);
             
             if (limit) {
                 cursor = cursor.limit(limit);
             }
             
-            return await cursor.toArray();
+            const questions = await cursor.toArray();
+            console.log(`🔍 DEBUG: Found ${questions.length} questions for query:`, query);
+            
+            return questions;
         } catch (error) {
             console.error('Error fetching questions:', error);
             throw error;
