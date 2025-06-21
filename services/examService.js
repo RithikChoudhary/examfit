@@ -76,7 +76,7 @@ class ExamService {
         }
     }
 
-    // Get specific exam by ID - now uses MongoDB
+    // Get specific exam by ID - now uses MongoDB with better error handling
     async getExamById(examId) {
         const cacheKey = `exam_${examId}`;
         
@@ -87,12 +87,15 @@ class ExamService {
         }
 
         try {
-            console.log(`📚 Loading exam from database: ${examId}`);
+            console.log(`📚 DEBUG: Loading exam from database: ${examId}`);
             // Use the new MongoDB-aware function
             const exam = await getExamById(examId);
             
+            console.log(`📚 DEBUG: MongoDB result for exam ${examId}:`, exam ? 'Found' : 'Not found');
+            
             if (!exam) {
-                throw new Error('Exam not found');
+                console.log(`📚 DEBUG: Exam ${examId} not found in MongoDB, trying fallback...`);
+                throw new Error('Exam not found in MongoDB');
             }
 
             cacheService.set(cacheKey, exam, 30 * 60 * 1000); // Cache for 30 minutes
@@ -100,24 +103,40 @@ class ExamService {
             // Update search indexes
             cacheService.updateIndex('examsByName', exam.examName.toLowerCase(), exam);
 
-            console.log(`✅ Loaded exam: ${exam.examName}`);
+            console.log(`✅ DEBUG: Loaded exam from MongoDB: ${exam.examName}`);
             return exam;
         } catch (error) {
-            console.error(`❌ Error loading exam ${examId}:`, error);
-            // Fallback to old method
-            const data = await getQuestions();
-            const exam = data.exams.find(e => e.examId === examId);
+            console.error(`❌ DEBUG: MongoDB error for exam ${examId}:`, error.message);
             
-            if (!exam) {
-                throw new Error('Exam not found');
+            try {
+                console.log(`📚 DEBUG: Trying fallback method for exam ${examId}...`);
+                // Fallback to old method
+                const data = await getQuestions();
+                console.log(`📚 DEBUG: Fallback data loaded, ${data.exams?.length || 0} exams available`);
+                
+                if (data.exams?.length > 0) {
+                    console.log(`📚 DEBUG: Available exam IDs:`, data.exams.map(e => e.examId));
+                }
+                
+                const exam = data.exams.find(e => e.examId === examId);
+                
+                if (!exam) {
+                    console.log(`❌ DEBUG: Exam ${examId} not found in fallback data either`);
+                    console.log(`📚 DEBUG: All available exams:`, data.exams?.map(e => ({id: e.examId, name: e.examName})) || []);
+                    throw new Error(`Exam not found: ${examId}. Available exams: ${data.exams?.map(e => e.examId).join(', ') || 'none'}`);
+                }
+
+                cacheService.set(cacheKey, exam, 5 * 60 * 1000); // Shorter cache for fallback
+                
+                // Update search indexes
+                cacheService.updateIndex('examsByName', exam.examName.toLowerCase(), exam);
+
+                console.log(`✅ DEBUG: Loaded exam from fallback: ${exam.examName}`);
+                return exam;
+            } catch (fallbackError) {
+                console.error(`❌ DEBUG: Fallback also failed for exam ${examId}:`, fallbackError.message);
+                throw new Error(`Exam not found: ${examId}. Both MongoDB and fallback failed.`);
             }
-
-            cacheService.set(cacheKey, exam, 5 * 60 * 1000); // Shorter cache for fallback
-            
-            // Update search indexes
-            cacheService.updateIndex('examsByName', exam.examName.toLowerCase(), exam);
-
-            return exam;
         }
     }
 

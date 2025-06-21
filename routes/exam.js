@@ -137,14 +137,30 @@ router.get('/:exam', debounceRequest(async (req, res, options = {}) => {
 router.get('/:exam/:subject/questionPapers', debounceRequest(async (req, res, options = {}) => { 
   try {
     const { exam: examId, subject: subjectId } = req.params;
+    console.log(`📄 DEBUG: Loading question papers for ${examId}/${subjectId}`);
+    
     const cacheKey = `exam-${examId}-subject-${subjectId}-questionPapers`;
 
+    console.log(`📄 DEBUG: Step 1 - Getting exam data for ${examId}`);
     const examData = await examService.getExamById(examId);
-    if (!examData) return res.status(404).send('Exam not found');
+    if (!examData) {
+      console.log(`❌ DEBUG: Exam not found: ${examId}`);
+      return res.status(404).send(`Exam not found: ${examId}`);
+    }
+    console.log(`✅ DEBUG: Exam found: ${examData.examName}`);
 
+    console.log(`📄 DEBUG: Step 2 - Getting question papers for ${examId}/${subjectId}`);
     const questionPapers = await examService.getQuestionPapers(examId, subjectId);
+    console.log(`✅ DEBUG: Question papers retrieved: ${questionPapers?.length || 0}`);
+    
+    console.log(`📄 DEBUG: Step 3 - Finding subject data for ${subjectId}`);
     const subjectData = examData.subjects?.find(s => s.subjectId === subjectId);
-    if (!subjectData) return res.status(404).send('Subject not found');
+    if (!subjectData) {
+      console.log(`❌ DEBUG: Subject not found: ${subjectId}`);
+      console.log(`📄 DEBUG: Available subjects:`, examData.subjects?.map(s => s.subjectId) || []);
+      return res.status(404).send(`Subject not found: ${subjectId}. Available: ${examData.subjects?.map(s => s.subjectId).join(', ') || 'none'}`);
+    }
+    console.log(`✅ DEBUG: Subject found: ${subjectData.subjectName}`);
 
     const templateData = { 
       exam: examId,
@@ -156,10 +172,12 @@ router.get('/:exam/:subject/questionPapers', debounceRequest(async (req, res, op
       animationSpeed: '0.3s'  // Added animation speed control
     };
 
+    console.log(`✅ DEBUG: Rendering question papers with ${questionPapers?.length || 0} papers`);
     renderWithCache(res, 'questionPapers', templateData, cacheKey);
   } catch (error) {
-    console.error('Error:', error);
-    res.status(500).send('Error loading question papers');
+    console.error(`❌ DEBUG: Error in questionPapers route for ${req.params.exam}/${req.params.subject}:`, error);
+    console.error(`❌ DEBUG: Error stack:`, error.stack);
+    res.status(500).send(`Error loading question papers: ${error.message}`);
   }
 }));
 router.get('/:exam/:subject', asyncHandler(async (req, res) => {
