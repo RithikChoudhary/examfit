@@ -133,10 +133,47 @@ router.get('/:exam', debounceRequest(async (req, res, options = {}) => {
   }
 }));
 
+// Validation function to check if request is for static files or invalid exams
+function isValidExamRequest(examId, subjectId) {
+  // Block obvious static file patterns
+  const staticPatterns = [
+    'templates', 'public', 'css', 'js', 'images', 'icons', 'fonts',
+    'assets', 'static', 'uploads', 'files', 'media'
+  ];
+  
+  // Block file extensions
+  const fileExtensions = ['.webp', '.png', '.jpg', '.jpeg', '.gif', '.ico', '.svg', 
+                         '.css', '.js', '.json', '.xml', '.txt', '.pdf', '.zip'];
+  
+  // Check if examId or subjectId looks like a static file request
+  if (staticPatterns.includes(examId) || staticPatterns.includes(subjectId)) {
+    return false;
+  }
+  
+  // Check for file extensions
+  if (fileExtensions.some(ext => examId.endsWith(ext) || subjectId?.endsWith(ext))) {
+    return false;
+  }
+  
+  // Check for paths that contain dots (likely files)
+  if (examId.includes('.') || subjectId?.includes('.')) {
+    return false;
+  }
+  
+  return true;
+}
+
 // Route for displaying question papers for a subject within an exam
 router.get('/:exam/:subject/questionPapers', debounceRequest(async (req, res, options = {}) => { 
   try {
     const { exam: examId, subject: subjectId } = req.params;
+    
+    // Validate that this is not a static file request
+    if (!isValidExamRequest(examId, subjectId)) {
+      console.log(`🚫 DEBUG: Rejecting static file request: ${examId}/${subjectId}/questionPapers`);
+      return res.status(404).send('Static file not found');
+    }
+    
     console.log(`📄 DEBUG: Loading question papers for ${examId}/${subjectId}`);
     
     const cacheKey = `exam-${examId}-subject-${subjectId}-questionPapers`;

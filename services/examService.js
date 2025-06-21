@@ -200,7 +200,78 @@ class ExamService {
         return result;
     }
 
-    // Get question papers for a subject - PERFORMANCE OPTIMIZED
+    // Subject ID mapping for common variations
+    mapSubjectId(subjectId, examId, availableSubjects) {
+        // Common subject name mappings
+        const subjectMappings = {
+            // Geography variations
+            'geography': ['geography', 'indian-geography', 'world-geography', 'physical-geography', 'human-geography'],
+            'indian-geography': ['geography', 'indian-geography'],
+            'world-geography': ['geography', 'world-geography'],
+            
+            // History variations  
+            'history': ['history', 'indian-history', 'world-history', 'ancient-history', 'modern-history'],
+            'indian-history': ['history', 'indian-history'],
+            'ancient-history': ['history', 'ancient-history'],
+            'modern-history': ['history', 'modern-history'],
+            
+            // Economy variations
+            'economy': ['economy', 'economics', 'indian-economy', 'economic-survey'],
+            'economics': ['economy', 'economics'],
+            'indian-economy': ['economy', 'indian-economy'],
+            
+            // Polity variations
+            'polity': ['polity', 'indian-polity', 'constitution', 'governance'],
+            'indian-polity': ['polity', 'indian-polity'],
+            'constitution': ['polity', 'constitution'],
+            
+            // Science variations
+            'science': ['science', 'general-science', 'science-technology'],
+            'general-science': ['science', 'general-science'],
+            'science-technology': ['science', 'science-technology'],
+            
+            // Environment variations
+            'environment': ['environment', 'environment-ecology', 'ecology'],
+            'environment-ecology': ['environment', 'environment-ecology'],
+            'ecology': ['environment', 'ecology']
+        };
+        
+        // First try exact match
+        let foundSubject = availableSubjects.find(s => s.subjectId === subjectId);
+        if (foundSubject) {
+            console.log(`✅ DEBUG: Exact match found for subject ${subjectId}`);
+            return foundSubject;
+        }
+        
+        // Try mapping variations
+        const possibleIds = subjectMappings[subjectId] || [subjectId];
+        console.log(`🔍 DEBUG: Trying subject variations for ${subjectId}:`, possibleIds);
+        
+        for (const possibleId of possibleIds) {
+            foundSubject = availableSubjects.find(s => s.subjectId === possibleId);
+            if (foundSubject) {
+                console.log(`✅ DEBUG: Found subject via mapping: ${subjectId} → ${possibleId}`);
+                return foundSubject;
+            }
+        }
+        
+        // Try partial matching
+        foundSubject = availableSubjects.find(s => 
+            s.subjectId.includes(subjectId) || 
+            subjectId.includes(s.subjectId) ||
+            s.subjectName.toLowerCase().includes(subjectId.toLowerCase())
+        );
+        
+        if (foundSubject) {
+            console.log(`✅ DEBUG: Found subject via partial match: ${subjectId} → ${foundSubject.subjectId}`);
+            return foundSubject;
+        }
+        
+        console.log(`❌ DEBUG: No mapping found for subject ${subjectId}`);
+        return null;
+    }
+
+    // Get question papers for a subject - PERFORMANCE OPTIMIZED with subject mapping
     async getQuestionPapers(examId, subjectId) {
         console.log(`🔍 DEBUG: ExamService.getQuestionPapers called for ${examId}/${subjectId}`);
         
@@ -215,15 +286,19 @@ class ExamService {
         const exam = await this.getExamById(examId);
         console.log(`🔍 DEBUG: Exam loaded: ${exam.examName}, subjects: ${exam.subjects?.length || 0}`);
         
-        const subject = exam.subjects?.find(s => s.subjectId === subjectId);
+        // Try to find subject with mapping
+        const subject = this.mapSubjectId(subjectId, examId, exam.subjects || []);
         
         if (!subject) {
-            console.log(`❌ DEBUG: Subject ${subjectId} not found in exam ${examId}`);
-            console.log(`🔍 DEBUG: Available subjects:`, exam.subjects?.map(s => s.subjectId) || []);
-            throw new Error('Subject not found');
+            console.log(`❌ DEBUG: Subject ${subjectId} not found in exam ${examId} even with mappings`);
+            console.log(`🔍 DEBUG: Available subjects:`, exam.subjects?.map(s => ({
+                id: s.subjectId, 
+                name: s.subjectName
+            })) || []);
+            throw new Error(`Subject not found: ${subjectId}. Available subjects: ${exam.subjects?.map(s => s.subjectId).join(', ') || 'none'}`);
         }
         
-        console.log(`✅ DEBUG: Subject found: ${subject.subjectName}`);
+        console.log(`✅ DEBUG: Subject found: ${subject.subjectName} (ID: ${subject.subjectId})`);
         console.log(`🔍 DEBUG: Subject has ${subject.questionPapers?.length || 0} question papers`);
         
         // PERFORMANCE FIX: Don't load all questions at this stage

@@ -204,16 +204,35 @@ app.use('/dashboard', dashboardRouter); // Dashboard route enabled with MongoDB 
 app.use('/', indexRouter);       // handles / and /contact
 app.use('/', xlsxTemplateRoutes);
 
-// Static file exclusions - prevent these from being caught by exam routes
+// Enhanced static file serving - BEFORE exclusions
+app.use('/templates', express.static(path.join(__dirname, 'public/templates')));
+
+// Static file exclusions - prevent these from being caught by exam routes  
 app.use('/templates/*', (req, res, next) => {
-  if (req.path.match(/\.(webp|png|jpg|jpeg|gif|ico|svg)$/)) {
-    return res.status(404).send('File not found');
-  }
-  next();
+  // Stop ALL /templates/* requests here - don't let any pass to exam routes
+  return res.status(404).send('Template file not found');
 });
 
 app.use('/public/*', (req, res, next) => {
-  return res.status(404).send('File not found');
+  // Stop ALL /public/* requests here - don't let any pass to exam routes
+  return res.status(404).send('Public file not found');
+});
+
+// Additional protection for common static file patterns
+app.use('*.webp', (req, res, next) => {
+  return res.status(404).send('Image file not found');
+});
+
+app.use('*.png', (req, res, next) => {
+  return res.status(404).send('Image file not found');
+});
+
+app.use('*.jpg', (req, res, next) => {
+  return res.status(404).send('Image file not found');
+});
+
+app.use('*.ico', (req, res, next) => {
+  return res.status(404).send('Icon file not found');
 });
 
 // Dynamic exam routes - these must come after static exclusions
