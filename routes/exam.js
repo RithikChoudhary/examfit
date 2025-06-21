@@ -162,36 +162,44 @@ router.get('/:exam/:subject/questionPapers', debounceRequest(async (req, res, op
     res.status(500).send('Error loading question papers');
   }
 }));
-router.get('/:exam/:subject', debounceRequest(async (req, res, options = {}) => {
-  try {
-    const examId = req.params.exam.toLowerCase();
-    const subjectId = req.params.subject.toLowerCase();
-    const cacheKey = `exam-${examId}-subject-${subjectId}-questions`;
+router.get('/:exam/:subject', asyncHandler(async (req, res) => {
+  const examId = req.params.exam.toLowerCase();
+  const subjectId = req.params.subject.toLowerCase();
+  console.log(`📖 Loading subject questions: ${examId}/${subjectId}`);
 
-    // Get data in parallel
-    const data = await getQuestions();
-    const examData = data.exams.find(e => e.examId === examId);
+  try {
+    const examData = await examService.getExamById(examId);
     if (!examData) {
       return res.status(404).send('Exam not found');
     }
 
-    const subjectData = examData.subjects.find(s => s.subjectId === subjectId);
+    const subjectData = examData.subjects?.find(s => s.subjectId === subjectId);
     if (!subjectData) {
       return res.status(404).send('Subject not found');
+    }
+
+    // Get all questions for this subject across all papers
+    let allQuestions = [];
+    if (subjectData.questionPapers) {
+      for (const paper of subjectData.questionPapers) {
+        if (paper.questions) {
+          allQuestions = allQuestions.concat(paper.questions);
+        }
+      }
     }
 
     const templateData = { 
       exam: examId,
       subject: subjectId,
-      questions: subjectData.questions,
+      questions: allQuestions,
       examName: examData.examName,
       subjectName: subjectData.subjectName,
-      animationSpeed: '0.3s'  // Added animation speed control
+      animationSpeed: '0.3s'
     };
 
-    renderWithCache(res, 'subject-questions', templateData, cacheKey);
+    res.render('subject-questions', templateData);
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error loading subject questions:', error);
     res.status(500).send('Error loading questions');
   }
 }));
@@ -224,25 +232,21 @@ router.get('/:exam/:subject/questionPapers/:paperId/:questionId', asyncHandler(a
 }));
 
 // Route for displaying questions for a specific question paper
-router.get('/:exam/:subject/:questionPaper/questions', debounceRequest(async (req, res, options = {}) => {
-  try {
-    const { exam: examId, subject: subjectId, questionPaper: questionPaperId } = req.params;
-    const cacheKey = `exam-${examId}-subject-${subjectId}-questionPaper-${questionPaperId}`;
+router.get('/:exam/:subject/:questionPaper/questions', asyncHandler(async (req, res) => {
+  const { exam: examId, subject: subjectId, questionPaper: questionPaperId } = req.params;
+  console.log(`❓ Loading questions for paper: ${examId}/${subjectId}/${questionPaperId}`);
 
-    const data = await getQuestions();
-    const examData = data.exams.find(e => e.examId === examId);
+  try {
+    const examData = await examService.getExamById(examId);
     if (!examData) {
       return res.status(404).send('Exam not found');
     }
 
-    const subjectData = examData.subjects.find(s => s.subjectId === subjectId);
+    const questions = await examService.getQuestionsByPaper(examId, subjectId, questionPaperId);
+    
+    const subjectData = examData.subjects?.find(s => s.subjectId === subjectId);
     if (!subjectData) {
       return res.status(404).send('Subject not found');
-    }
-
-    const questionPaper = subjectData.questionPapers.find(qp => qp.questionPaperId === questionPaperId);
-    if (!questionPaper) {
-      return res.status(404).send('Question Paper not found');
     }
     
     const templateData = {
@@ -251,15 +255,15 @@ router.get('/:exam/:subject/:questionPaper/questions', debounceRequest(async (re
       subject: subjectId, 
       subjectName: subjectData.subjectName,
       questionPaper: questionPaperId, 
-      questionPaperName: questionPaper.questionPaperName,
-      questions: questionPaper.questions,
+      questionPaperName: `Question Paper ${questionPaperId}`,
+      questions: questions,
       subjects: examData.subjects,
-      animationSpeed: '0.3s'  // Added animation speed control
+      animationSpeed: '0.3s'
     };
 
-    renderWithCache(res, 'questions', templateData, cacheKey);
+    res.render('questions', templateData);
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error loading questions:', error);
     res.status(500).send('Error loading questions');
   }
 }));
