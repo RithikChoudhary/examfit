@@ -237,25 +237,54 @@ router.get('/:exam/:subject/questionPapers/:paperId/:questionId', asyncHandler(a
 // Route for displaying questions for a specific question paper
 router.get('/:exam/:subject/:questionPaper/questions', asyncHandler(async (req, res) => {
   const { exam: examId, subject: subjectId, questionPaper: questionPaperId } = req.params;
-  console.log(`❓ Loading questions for paper: ${examId}/${subjectId}/${questionPaperId}`);
+  console.log(`❓ DEBUG: Loading questions for paper: ${examId}/${subjectId}/${questionPaperId}`);
 
   try {
+    console.log(`❓ DEBUG: Step 1 - Getting exam data for ${examId}`);
     const examData = await examService.getExamById(examId);
     if (!examData) {
+      console.log(`❌ DEBUG: Exam not found: ${examId}`);
       return res.status(404).send('Exam not found');
     }
+    console.log(`✅ DEBUG: Exam found: ${examData.examName}`);
 
+    console.log(`❓ DEBUG: Step 2 - Getting question papers for ${examId}/${subjectId}`);
     const questionPapers = await examService.getQuestionPapers(examId, subjectId);
+    console.log(`✅ DEBUG: Question papers retrieved: ${questionPapers?.length || 0} papers`);
+    
+    if (questionPapers?.length > 0) {
+      console.log(`❓ DEBUG: Available paper IDs:`, questionPapers.map(p => p.questionPaperId));
+    }
+    
+    console.log(`❓ DEBUG: Step 3 - Looking for paper with ID: ${questionPaperId}`);
     const paper = questionPapers.find(p => p.questionPaperId === questionPaperId);
     if (!paper) {
+      console.log(`❌ DEBUG: Question paper not found: ${questionPaperId}`);
+      console.log(`❓ DEBUG: Available papers:`, questionPapers?.map(p => ({id: p.questionPaperId, name: p.questionPaperName})) || []);
       return res.status(404).send('Question paper not found');
     }
+    console.log(`✅ DEBUG: Paper found: ${paper.questionPaperName}`);
+    
     const questions = paper.questions || [];
+    console.log(`❓ DEBUG: Step 4 - Questions in paper: ${questions.length}`);
+    
+    if (questions.length > 0) {
+      console.log(`✅ DEBUG: First question preview:`, {
+        id: questions[0].questionId,
+        text: questions[0].question?.substring(0, 50) + '...',
+        optionsCount: questions[0].options?.length || 0
+      });
+    } else {
+      console.log(`❌ DEBUG: No questions found in paper ${questionPaperId}`);
+      console.log(`❓ DEBUG: Paper structure:`, Object.keys(paper));
+    }
     
     const subjectData = examData.subjects?.find(s => s.subjectId === subjectId);
     if (!subjectData) {
+      console.log(`❌ DEBUG: Subject not found: ${subjectId}`);
       return res.status(404).send('Subject not found');
     }
+    console.log(`✅ DEBUG: Subject found: ${subjectData.subjectName}`);
     
     const templateData = {
       exam: examId,
@@ -263,16 +292,18 @@ router.get('/:exam/:subject/:questionPaper/questions', asyncHandler(async (req, 
       subject: subjectId, 
       subjectName: subjectData.subjectName,
       questionPaper: questionPaperId, 
-      questionPaperName: `Question Paper ${questionPaperId}`,
+      questionPaperName: paper.questionPaperName || `Question Paper ${questionPaperId}`,
       questions: questions,
       subjects: examData.subjects,
       animationSpeed: '0.3s'
     };
 
+    console.log(`✅ DEBUG: Rendering questions template with ${questions.length} questions`);
     res.render('questions', templateData);
   } catch (error) {
-    console.error('Error loading questions:', error);
-    res.status(500).send('Error loading questions');
+    console.error(`❌ DEBUG: Error loading questions:`, error);
+    console.error(`❌ DEBUG: Stack trace:`, error.stack);
+    res.status(500).send(`Error loading questions: ${error.message}`);
   }
 }));
 

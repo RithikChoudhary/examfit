@@ -183,20 +183,65 @@ class ExamService {
 
     // Get question papers for a subject
     async getQuestionPapers(examId, subjectId) {
+        console.log(`🔍 DEBUG: ExamService.getQuestionPapers called for ${examId}/${subjectId}`);
+        
         const exam = await this.getExamById(examId);
+        console.log(`🔍 DEBUG: Exam loaded: ${exam.examName}, subjects: ${exam.subjects?.length || 0}`);
+        
         const subject = exam.subjects?.find(s => s.subjectId === subjectId);
         
         if (!subject) {
+            console.log(`❌ DEBUG: Subject ${subjectId} not found in exam ${examId}`);
+            console.log(`🔍 DEBUG: Available subjects:`, exam.subjects?.map(s => s.subjectId) || []);
             throw new Error('Subject not found');
         }
+        
+        console.log(`✅ DEBUG: Subject found: ${subject.subjectName}`);
+        console.log(`🔍 DEBUG: Subject has ${subject.questionPapers?.length || 0} question papers`);
+        
+        if (subject.questionPapers?.length > 0) {
+            const firstPaper = subject.questionPapers[0];
+            console.log(`🔍 DEBUG: First paper detailed structure:`, {
+                id: firstPaper.questionPaperId,
+                name: firstPaper.questionPaperName,
+                hasQuestions: !!firstPaper.questions,
+                questionCount: firstPaper.questions?.length || 0,
+                questionsType: typeof firstPaper.questions,
+                questionsIsArray: Array.isArray(firstPaper.questions),
+                allKeys: Object.keys(firstPaper),
+                questionsPreview: firstPaper.questions?.slice(0, 2) || 'No questions'
+            });
+            
+            // Check if questions are nested deeper
+            if (firstPaper.questions && firstPaper.questions.length === 0) {
+                console.log(`🔍 DEBUG: Questions array is empty, checking paper structure:`, firstPaper);
+            }
+        }
 
-        return subject.questionPapers ? subject.questionPapers.map(paper => ({
-            questionPaperId: paper.questionPaperId,
-            questionPaperName: paper.questionPaperName,
-            section: paper.section,
-            questionCount: paper.questions ? paper.questions.length : 0,
-            questions: paper.questions || [] // Include questions for frontend
+        const result = subject.questionPapers ? await Promise.all(subject.questionPapers.map(async (paper) => {
+            // Load actual questions from MongoDB for this paper
+            const questions = await require('../services/mongoService').getQuestionsByPaper(examId, subjectId, paper.questionPaperId);
+            
+            return {
+                questionPaperId: paper.questionPaperId,
+                questionPaperName: paper.questionPaperName,
+                section: paper.section,
+                questionCount: questions.length,
+                questions: questions
+            };
         })) : [];
+        
+        console.log(`✅ DEBUG: Returning ${result.length} question papers`);
+        if (result.length > 0) {
+            console.log(`🔍 DEBUG: First result paper:`, {
+                id: result[0].questionPaperId,
+                name: result[0].questionPaperName,
+                questionCount: result[0].questionCount,
+                hasQuestions: result[0].questions?.length > 0
+            });
+        }
+        
+        return result;
     }
 
     // Add new subject to exam

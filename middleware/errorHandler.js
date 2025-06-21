@@ -83,6 +83,13 @@ const rateLimitMap = new Map();
 
 const rateLimit = (windowMs = 15 * 60 * 1000, max = 100) => {
     return (req, res, next) => {
+        // Disable rate limiting for localhost/development
+        if (req.ip === '::1' || req.ip === '127.0.0.1' || req.ip === '::ffff:127.0.0.1' || 
+            req.hostname === 'localhost' || process.env.NODE_ENV === 'development') {
+            console.log('🚀 Rate limiting disabled for localhost/development');
+            return next();
+        }
+        
         const key = req.ip || req.connection.remoteAddress;
         const now = Date.now();
         
@@ -99,7 +106,11 @@ const rateLimit = (windowMs = 15 * 60 * 1000, max = 100) => {
             return next();
         }
         
-        if (limitData.count >= max) {
+        // Increase limits for production (was too restrictive)
+        const actualMax = process.env.NODE_ENV === 'production' ? max : 10000;
+        
+        if (limitData.count >= actualMax) {
+            console.log(`⚠️ Rate limit exceeded for ${key}: ${limitData.count}/${actualMax}`);
             return res.status(429).json(formatResponse(false, null, {
                 message: 'Too many requests. Please try again later.'
             }));

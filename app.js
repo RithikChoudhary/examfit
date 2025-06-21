@@ -200,11 +200,25 @@ app.use('/blog', blogRouter); // Blog routes
 app.use('/api', apiRouter); // Legacy API routes
 app.use('/dashboard', dashboardRouter); // Dashboard route enabled with MongoDB support
 
-// View routes
+// View routes - ORDER MATTERS! Static and specific routes first
 app.use('/', indexRouter);       // handles / and /contact
 app.use('/', xlsxTemplateRoutes);
-app.use('/', examRouter);       
+
+// Static file exclusions - prevent these from being caught by exam routes
+app.use('/templates/*', (req, res, next) => {
+  if (req.path.match(/\.(webp|png|jpg|jpeg|gif|ico|svg)$/)) {
+    return res.status(404).send('File not found');
+  }
+  next();
+});
+
+app.use('/public/*', (req, res, next) => {
+  return res.status(404).send('File not found');
+});
+
+// Dynamic exam routes - these must come after static exclusions
 app.use('/', directExamRoutes);
+app.use('/', examRouter);       
 app.use('/', examHierarchyRoutes); // move this LAST because it has /:exam wildcard
 
 // Error handling middleware
