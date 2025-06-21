@@ -1,8 +1,7 @@
-// routes/exam.js
-require("xtend");
 const express = require('express');
 const router = express.Router();
-const { getQuestions } = require('../utils/dataHelpers');
+const examService = require('../services/examService');
+const { asyncHandler } = require('../middleware/errorHandler');
 
 // Optimized debounce function with request cancellation, URL tracking, and memory management
 function debounceRequest(callback, delay = 300) {
@@ -114,8 +113,7 @@ router.get('/:exam', debounceRequest(async (req, res, options = {}) => {
     const cacheKey = `exam-${examId}-subjects`;
     
     // Get data in parallel
-    const data = await getQuestions();
-    const examData = data.exams.find(e => e.examId === examId);
+    const examData = await examService.getExamById(examId);
 
     if (!examData) {
       return res.status(404).send('Exam not found');
@@ -141,11 +139,11 @@ router.get('/:exam/:subject/questionPapers', debounceRequest(async (req, res, op
     const { exam: examId, subject: subjectId } = req.params;
     const cacheKey = `exam-${examId}-subject-${subjectId}-questionPapers`;
 
-    const data = await getQuestions();
-    const examData = data.exams.find(e => e.examId === examId);
+    const examData = await examService.getExamById(examId);
     if (!examData) return res.status(404).send('Exam not found');
 
-    const subjectData = examData.subjects.find(s => s.subjectId === subjectId);
+    const questionPapers = await examService.getQuestionPapers(examId, subjectId);
+    const subjectData = examData.subjects?.find(s => s.subjectId === subjectId);
     if (!subjectData) return res.status(404).send('Subject not found');
 
     const templateData = { 
@@ -153,7 +151,7 @@ router.get('/:exam/:subject/questionPapers', debounceRequest(async (req, res, op
       examName: examData.examName,
       subject: subjectId,
       subjectName: subjectData.subjectName,
-      questionPapers: subjectData.questionPapers || [],
+      questionPapers: questionPapers || [],
       subjects: examData.subjects,
       animationSpeed: '0.3s'  // Added animation speed control
     };
@@ -195,6 +193,33 @@ router.get('/:exam/:subject', debounceRequest(async (req, res, options = {}) => 
   } catch (error) {
     console.error('Error:', error);
     res.status(500).send('Error loading questions');
+  }
+}));
+
+// Route for individual question (e.g., /general/gk/questionPapers/auto-2025-06/q1750325224-101cac6e)
+router.get('/:exam/:subject/questionPapers/:paperId/:questionId', asyncHandler(async (req, res) => {
+  const { exam: examId, subject: subjectId, paperId, questionId } = req.params;
+  console.log(`❓ Loading individual question: ${examId}/${subjectId}/${paperId}/${questionId}`);
+  
+  try {
+    const examData = await examService.getExamById(examId);
+    if (!examData) return res.status(404).send('Exam not found');
+
+    const questions = await examService.getQuestionsByPaper(examId, subjectId, paperId);
+    const question = questions.find(q => q.questionId === questionId);
+    
+    if (!question) return res.status(404).send('Question not found');
+
+    res.render('single-question', {
+      exam: examId,
+      subject: subjectId,
+      paperId,
+      question,
+      examName: examData.examName
+    });
+  } catch (error) {
+    console.error('Error loading question:', error);
+    res.status(500).send('Error loading question');
   }
 }));
 
