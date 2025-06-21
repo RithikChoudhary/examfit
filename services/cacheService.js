@@ -112,16 +112,25 @@ class CacheService {
         try {
             console.log('Warming up cache...');
             
-            // Pre-load frequently accessed data
-            const popularExams = ['upsc', 'ssc', 'banking', 'railway'];
-            
-            for (const examId of popularExams) {
-                try {
-                    const examData = await dataLoader.getExamById(examId);
-                    this.set(`exam_${examId}`, examData);
-                } catch (error) {
-                    // Ignore errors for non-existent exams
+            // Get actual exams from database instead of hardcoded list
+            try {
+                const allExams = await dataLoader.getAllExams(false); // Skip cache
+                console.log(`Found ${allExams.length} exams for cache warm-up`);
+                
+                // Pre-load first few exams (most important ones)
+                const examsToPreload = allExams.slice(0, 5); // Only preload first 5 to avoid delays
+                
+                for (const exam of examsToPreload) {
+                    try {
+                        const examData = await dataLoader.getExamById(exam.examId);
+                        this.set(`exam_${exam.examId}`, examData);
+                        console.log(`✓ Cached exam: ${exam.examId}`);
+                    } catch (error) {
+                        console.warn(`⚠️ Failed to cache exam ${exam.examId}:`, error.message);
+                    }
                 }
+            } catch (error) {
+                console.warn('⚠️ Could not get exams list for warm-up:', error.message);
             }
             
             console.log('Cache warm-up completed');
