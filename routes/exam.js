@@ -213,8 +213,11 @@ router.get('/:exam/:subject/questionPapers/:paperId/:questionId', asyncHandler(a
     const examData = await examService.getExamById(examId);
     if (!examData) return res.status(404).send('Exam not found');
 
-    const questions = await examService.getQuestionsByPaper(examId, subjectId, paperId);
-    const question = questions.find(q => q.questionId === questionId);
+    const questionPapers = await examService.getQuestionPapers(examId, subjectId);
+    const paper = questionPapers.find(p => p.questionPaperId === paperId);
+    if (!paper) return res.status(404).send('Question paper not found');
+    
+    const question = paper.questions.find(q => q.questionId === questionId);
     
     if (!question) return res.status(404).send('Question not found');
 
@@ -242,7 +245,12 @@ router.get('/:exam/:subject/:questionPaper/questions', asyncHandler(async (req, 
       return res.status(404).send('Exam not found');
     }
 
-    const questions = await examService.getQuestionsByPaper(examId, subjectId, questionPaperId);
+    const questionPapers = await examService.getQuestionPapers(examId, subjectId);
+    const paper = questionPapers.find(p => p.questionPaperId === questionPaperId);
+    if (!paper) {
+      return res.status(404).send('Question paper not found');
+    }
+    const questions = paper.questions || [];
     
     const subjectData = examData.subjects?.find(s => s.subjectId === subjectId);
     if (!subjectData) {
