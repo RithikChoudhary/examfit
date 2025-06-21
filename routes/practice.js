@@ -39,10 +39,11 @@ router.get('/', asyncHandler(async (req, res) => {
         });
     } catch (error) {
         console.error('Error in practice route:', error);
+        console.log('🚨 Rendering emergency fallback for practice due to MongoDB failure');
         res.render('practice/index', { 
             exams: [],
             title: 'Practice Sessions',
-            error: 'Failed to load exams. Please try again later.'
+            error: 'Database temporarily unavailable. Please try again later.'
         });
     }
 }));

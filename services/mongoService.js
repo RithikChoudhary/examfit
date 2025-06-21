@@ -43,45 +43,20 @@ class MongoService {
                 options.tls = true;
             }
             
-            // Retry connection logic
-            let lastError;
-            for (let attempt = 1; attempt <= 3; attempt++) {
-                try {
-                    console.log(`📡 Connection attempt ${attempt}/3...`);
-                    
-                    this.client = new MongoClient(this.connectionString, options);
-                    await this.client.connect();
-                    
-                    // Test the connection
-                    await this.client.db('admin').admin().ping();
-                    
-                    this.db = this.client.db(this.dbName);
-                    this.isConnected = true;
-                    
-                    console.log('✅ MongoDB connected successfully');
-                    return this.db;
-                    
-                } catch (attemptError) {
-                    lastError = attemptError;
-                    console.warn(`⚠️ Connection attempt ${attempt} failed:`, attemptError.message);
-                    
-                    if (this.client) {
-                        try {
-                            await this.client.close();
-                        } catch (closeError) {
-                            // Ignore close errors
-                        }
-                        this.client = null;
-                    }
-                    
-                    // Wait before retry (except last attempt)
-                    if (attempt < 3) {
-                        await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
-                    }
-                }
-            }
+            // Simplified connection - no complex retry to avoid topology issues
+            console.log('📡 Attempting MongoDB connection...');
             
-            throw lastError;
+            this.client = new MongoClient(this.connectionString, options);
+            await this.client.connect();
+            
+            // Test the connection
+            await this.client.db('admin').admin().ping();
+            
+            this.db = this.client.db(this.dbName);
+            this.isConnected = true;
+            
+            console.log('✅ MongoDB connected successfully');
+            return this.db;
             
         } catch (error) {
             console.error('❌ MongoDB connection failed after all retries:', error.message);

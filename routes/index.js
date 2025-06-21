@@ -37,7 +37,19 @@ router.get('/', async (req, res) => {
     });
   } catch (error) {
     console.error('Error in index route:', error);
-    res.status(500).send('An error occurred. Please try again later.');
+    
+    // Emergency fallback - render page with empty data to prevent site crash
+    console.log('🚨 Rendering emergency fallback due to MongoDB failure');
+    res.render('index', { 
+      exams: [],
+      totalExams: 0,
+      dataInfo: {
+        lastUpdated: new Date().toISOString(),
+        sources: ['System Error'],
+        autoUpdate: false
+      },
+      error: 'Database temporarily unavailable. Please try again later.'
+    });
   }
 });
 
