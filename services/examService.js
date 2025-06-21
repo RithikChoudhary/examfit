@@ -318,14 +318,30 @@ class ExamService {
         return result;
     }
 
-    // NEW METHOD: Get questions for a specific paper only when needed
+    // PERFORMANCE OPTIMIZED: Get questions for a specific paper with aggressive caching
     async getQuestionsForPaper(examId, subjectId, paperId) {
-        console.log(`🔍 DEBUG: Loading questions for specific paper: ${examId}/${subjectId}/${paperId}`);
+        const startTime = Date.now();
+        console.log(`🚀 OPTIMIZED: Loading questions for paper: ${examId}/${subjectId}/${paperId}`);
+        
+        // PERFORMANCE FIX: Add aggressive caching for questions
+        const cacheKey = `questions_${examId}_${subjectId}_${paperId}`;
+        const cached = cacheService.get(cacheKey);
+        if (cached) {
+            const cacheTime = Date.now() - startTime;
+            console.log(`⚡ CACHE HIT: Questions loaded from cache in ${cacheTime}ms`);
+            return cached;
+        }
         
         const mongoService = require('../services/mongoService');
         const questions = await mongoService.getQuestionsByPaper(examId, subjectId, paperId);
         
-        console.log(`✅ DEBUG: Loaded ${questions.length} questions for paper ${paperId}`);
+        // Cache questions for 1 hour (longer than exam/subject data)
+        if (questions.length > 0) {
+            cacheService.set(cacheKey, questions, 60 * 60 * 1000); // 1 hour cache
+        }
+        
+        const totalTime = Date.now() - startTime;
+        console.log(`⚡ PERFORMANCE: Loaded ${questions.length} questions in ${totalTime}ms (cached for future requests)`);
         return questions;
     }
 

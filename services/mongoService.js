@@ -20,30 +20,29 @@ class MongoService {
             // Detect if running on Vercel
             const isVercel = process.env.VERCEL || process.env.NOW_REGION;
             
-            // Clean connection options - only valid MongoDB options
+            // PERFORMANCE OPTIMIZED: Better connection pooling
             const options = {
-                maxPoolSize: isVercel ? 1 : 10,
-                minPoolSize: 0,
-                serverSelectionTimeoutMS: isVercel ? 2000 : 5000,
-                socketTimeoutMS: 30000,
+                maxPoolSize: isVercel ? 3 : 15,    // Increased pool size for better concurrency
+                minPoolSize: isVercel ? 1 : 2,     // Keep some connections alive
+                serverSelectionTimeoutMS: isVercel ? 3000 : 8000,
+                socketTimeoutMS: 45000,            // Longer timeout for large queries
                 connectTimeoutMS: 10000,
                 retryWrites: true,
                 w: 'majority',
-                maxIdleTimeMS: 30000
+                maxIdleTimeMS: 60000,              // Keep connections alive longer
+                compressors: ['zlib'],             // Enable compression for better performance
+                readPreference: 'secondaryPreferred' // Use secondary for reads when possible
             };
             
             // Add environment-specific TLS options
             if (isVercel) {
                 console.log('🔧 Applying Vercel-specific MongoDB options...');
-                // For Vercel - relaxed SSL validation
                 options.tls = true;
                 options.tlsAllowInvalidCertificates = true;
             } else {
-                // For local/production - standard TLS
                 options.tls = true;
             }
             
-            // Simplified connection - no complex retry to avoid topology issues
             console.log('📡 Attempting MongoDB connection...');
             
             this.client = new MongoClient(this.connectionString, options);
@@ -55,7 +54,10 @@ class MongoService {
             this.db = this.client.db(this.dbName);
             this.isConnected = true;
             
-            console.log('✅ MongoDB connected successfully');
+            // PERFORMANCE BOOST: Ensure critical indexes exist
+            await this.ensureIndexes();
+            
+            console.log('✅ MongoDB connected successfully with performance optimizations');
             return this.db;
             
         } catch (error) {
@@ -64,6 +66,41 @@ class MongoService {
             this.client = null;
             this.db = null;
             throw error;
+        }
+    }
+
+    // PERFORMANCE BOOST: Ensure critical indexes exist for fast queries
+    async ensureIndexes() {
+        try {
+            const db = this.db;
+            
+            // Critical compound index for question queries
+            await db.collection('questions').createIndex(
+                { examId: 1, subjectId: 1, paperId: 1 },
+                { background: true, name: 'questions_lookup_idx' }
+            );
+            
+            // Index for exam queries
+            await db.collection('exams').createIndex(
+                { examId: 1, isActive: 1 },
+                { background: true, name: 'exams_lookup_idx' }
+            );
+            
+            // Index for subject queries
+            await db.collection('subjects').createIndex(
+                { examId: 1 },
+                { background: true, name: 'subjects_lookup_idx' }
+            );
+            
+            // Index for question papers
+            await db.collection('questionPapers').createIndex(
+                { examId: 1, subjectId: 1 },
+                { background: true, name: 'papers_lookup_idx' }
+            );
+            
+            console.log('⚡ Performance indexes ensured');
+        } catch (error) {
+            console.warn('⚠️ Index creation warning (may already exist):', error.message);
         }
     }
 
@@ -206,63 +243,59 @@ class MongoService {
         }
     }
 
-    // Get questions by paper - Optimized with better debugging
+    // PERFORMANCE OPTIMIZED: Get questions by paper - Single query with caching
     async getQuestionsByPaper(examId, subjectId, paperId, limit = null) {
         try {
             const db = await this.connect();
             
-            console.log(`🔍 DEBUG: MongoDB Query for questions:`, { examId, subjectId, paperId });
+            // PERFORMANCE FIX: Use single optimized query instead of multiple attempts
+            console.log(`🚀 OPTIMIZED: Single query for questions: ${examId}/${subjectId}/${paperId}`);
             
-            // First, let's check what fields actually exist in the database
-            const sampleQuestion = await db.collection('questions').findOne({});
-            console.log(`🔍 DEBUG: Sample question structure from DB:`, sampleQuestion ? {
-                _id: sampleQuestion._id,
-                questionId: sampleQuestion.questionId,
-                examId: sampleQuestion.examId,
-                subjectId: sampleQuestion.subjectId,
-                paperId: sampleQuestion.paperId,
-                allFields: Object.keys(sampleQuestion)
-            } : 'No questions in collection');
+            // Build optimized query with projection for better performance
+            const query = { examId, subjectId, paperId };
+            const projection = {
+                questionId: 1,
+                question: 1,
+                options: 1,
+                correctOption: 1,
+                explanation: 1,
+                difficulty: 1,
+                tags: 1
+            };
             
-            // Try multiple query variations to find the right field names
-            const queries = [
-                { examId, subjectId, paperId },           // Original
-                { examId, subjectId, questionPaperId: paperId }, // Alternative field name
-                { examId, subject: subjectId, paperId },   // Alternative subject field
-                { exam: examId, subjectId, paperId }       // Alternative exam field
-            ];
+            // Single optimized query with proper indexing hints
+            const startTime = Date.now();
+            let cursor = db.collection('questions')
+                .find(query, { projection })
+                .hint({ examId: 1, subjectId: 1, paperId: 1 }); // Use index hint for better performance
             
-            let questions = [];
-            let successfulQuery = null;
+            if (limit) {
+                cursor = cursor.limit(limit);
+            }
             
-            for (const query of queries) {
-                console.log(`🔍 DEBUG: Trying query:`, query);
-                const results = await db.collection('questions').find(query).limit(limit || 50).toArray();
-                console.log(`🔍 DEBUG: Query result: ${results.length} questions found`);
+            const questions = await cursor.toArray();
+            const queryTime = Date.now() - startTime;
+            
+            console.log(`⚡ PERFORMANCE: Loaded ${questions.length} questions in ${queryTime}ms`);
+            
+            // If no questions found, try fallback without extensive debugging
+            if (questions.length === 0) {
+                console.log(`⚠️ No questions found for paper ${paperId}, trying without subject constraint...`);
+                const fallbackQuestions = await db.collection('questions')
+                    .find({ examId, paperId }, { projection })
+                    .limit(limit || 50)
+                    .toArray();
                 
-                if (results.length > 0) {
-                    questions = results;
-                    successfulQuery = query;
-                    break;
+                if (fallbackQuestions.length > 0) {
+                    console.log(`✅ Found ${fallbackQuestions.length} questions via fallback query`);
+                    return fallbackQuestions;
                 }
             }
             
-            if (questions.length === 0) {
-                // Final fallback - get any questions for this exam to see the structure
-                console.log(`🔍 DEBUG: No questions found with any query. Checking exam data...`);
-                const examQuestions = await db.collection('questions').find({ examId }).limit(5).toArray();
-                console.log(`🔍 DEBUG: Sample questions for exam ${examId}:`, examQuestions.map(q => ({
-                    subjectId: q.subjectId,
-                    paperId: q.paperId,
-                    questionPaperId: q.questionPaperId
-                })));
-            }
-            
-            console.log(`✅ DEBUG: Final result: ${questions.length} questions using query:`, successfulQuery);
             return questions;
             
         } catch (error) {
-            console.error('❌ DEBUG: Error fetching questions:', error);
+            console.error('❌ Error fetching questions:', error.message);
             throw error;
         }
     }
