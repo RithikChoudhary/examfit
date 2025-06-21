@@ -16,15 +16,78 @@ class MongoService {
             }
 
             console.log('📡 Connecting to MongoDB...');
-            this.client = new MongoClient(this.connectionString);
-            await this.client.connect();
-            this.db = this.client.db(this.dbName);
-            this.isConnected = true;
             
-            console.log('✅ MongoDB connected successfully');
-            return this.db;
+            // Detect if running on Vercel
+            const isVercel = process.env.VERCEL || process.env.NOW_REGION;
+            
+            // Clean connection options - only valid MongoDB options
+            const options = {
+                maxPoolSize: isVercel ? 1 : 10,
+                minPoolSize: 0,
+                serverSelectionTimeoutMS: isVercel ? 2000 : 5000,
+                socketTimeoutMS: 30000,
+                connectTimeoutMS: 10000,
+                retryWrites: true,
+                w: 'majority',
+                maxIdleTimeMS: 30000
+            };
+            
+            // Add environment-specific TLS options
+            if (isVercel) {
+                console.log('🔧 Applying Vercel-specific MongoDB options...');
+                // For Vercel - relaxed SSL validation
+                options.tls = true;
+                options.tlsAllowInvalidCertificates = true;
+            } else {
+                // For local/production - standard TLS
+                options.tls = true;
+            }
+            
+            // Retry connection logic
+            let lastError;
+            for (let attempt = 1; attempt <= 3; attempt++) {
+                try {
+                    console.log(`📡 Connection attempt ${attempt}/3...`);
+                    
+                    this.client = new MongoClient(this.connectionString, options);
+                    await this.client.connect();
+                    
+                    // Test the connection
+                    await this.client.db('admin').admin().ping();
+                    
+                    this.db = this.client.db(this.dbName);
+                    this.isConnected = true;
+                    
+                    console.log('✅ MongoDB connected successfully');
+                    return this.db;
+                    
+                } catch (attemptError) {
+                    lastError = attemptError;
+                    console.warn(`⚠️ Connection attempt ${attempt} failed:`, attemptError.message);
+                    
+                    if (this.client) {
+                        try {
+                            await this.client.close();
+                        } catch (closeError) {
+                            // Ignore close errors
+                        }
+                        this.client = null;
+                    }
+                    
+                    // Wait before retry (except last attempt)
+                    if (attempt < 3) {
+                        await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
+                    }
+                }
+            }
+            
+            throw lastError;
+            
         } catch (error) {
-            console.error('❌ MongoDB connection failed:', error);
+            console.error('❌ MongoDB connection failed after all retries:', error.message);
+            this.isConnected = false;
+            this.client = null;
+            this.db = null;
             throw error;
         }
     }
@@ -330,36 +393,6 @@ class MongoService {
         }
     }
 
-    // Fallback to JSON (for gradual migration)
-    async getDataWithFallback() {
-        try {
-            // Try MongoDB first
-            const exams = await this.getExams();
-            return {
-                exams,
-                source: 'mongodb',
-                lastUpdated: new Date().toISOString()
-            };
-        } catch (error) {
-            console.warn('MongoDB failed, falling back to JSON:', error.message);
-            
-            // Fallback to JSON file
-            const fs = require('fs').promises;
-            const path = require('path');
-            const dataPath = path.join(__dirname, '../data/data.json');
-            
-            try {
-                const jsonData = await fs.readFile(dataPath, 'utf8');
-                const data = JSON.parse(jsonData);
-                return {
-                    ...data,
-                    source: 'json_fallback'
-                };
-            } catch (jsonError) {
-                throw new Error(`Both MongoDB and JSON fallback failed: ${error.message}, ${jsonError.message}`);
-            }
-        }
-    }
 }
 
 // Singleton instance

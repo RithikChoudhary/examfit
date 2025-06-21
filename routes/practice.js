@@ -47,29 +47,18 @@ router.get('/', asyncHandler(async (req, res) => {
     }
 }));
 
-// Get subjects for an exam (API endpoint) - direct MongoDB query
+// Get subjects for an exam (API endpoint) - MongoDB only
 router.get('/api/subjects/:examId', asyncHandler(async (req, res) => {
     const { examId } = req.params;
     
-    console.log(`🔍 Direct API request for subjects: ${examId}`);
+    console.log(`🔍 MongoDB-only API request for subjects: ${examId}`);
     
-    try {
-        // Skip the examService layer and go directly to MongoDB for better performance
-        const mongoService = require('../services/mongoService');
-        const subjects = await mongoService.getSubjectsByExam(examId);
-        
-        console.log(`✅ Direct subjects loaded for ${examId}: ${subjects.length} subjects`);
-        res.json({ subjects });
-        
-    } catch (error) {
-        console.error(`❌ Error loading subjects for ${examId}:`, error.message);
-        
-        res.status(500).json({ 
-            error: 'Failed to load subjects',
-            message: error.message,
-            examId 
-        });
-    }
+    // Direct MongoDB query for optimal performance
+    const mongoService = require('../services/mongoService');
+    const subjects = await mongoService.getSubjectsByExam(examId);
+    
+    console.log(`✅ MongoDB subjects loaded for ${examId}: ${subjects.length} subjects`);
+    res.json({ subjects });
 }));
 
 // Get question papers for a subject (API endpoint)
