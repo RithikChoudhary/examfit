@@ -206,40 +206,63 @@ class MongoService {
         }
     }
 
-    // Get questions by paper
+    // Get questions by paper - Optimized with better debugging
     async getQuestionsByPaper(examId, subjectId, paperId, limit = null) {
         try {
             const db = await this.connect();
-            let query = { examId, subjectId, paperId };
             
-            console.log(`🔍 DEBUG: MongoDB Query for questions:`, query);
+            console.log(`🔍 DEBUG: MongoDB Query for questions:`, { examId, subjectId, paperId });
             
-            // First, let's see if there are ANY questions for this exam/subject combo
-            const anyQuestions = await db.collection('questions').findOne({ examId, subjectId });
-            console.log(`🔍 DEBUG: Sample question for ${examId}/${subjectId}:`, anyQuestions ? {
-                questionId: anyQuestions.questionId,
-                paperId: anyQuestions.paperId,
-                question: anyQuestions.question?.substring(0, 50) + '...'
-            } : 'No questions found');
+            // First, let's check what fields actually exist in the database
+            const sampleQuestion = await db.collection('questions').findOne({});
+            console.log(`🔍 DEBUG: Sample question structure from DB:`, sampleQuestion ? {
+                _id: sampleQuestion._id,
+                questionId: sampleQuestion.questionId,
+                examId: sampleQuestion.examId,
+                subjectId: sampleQuestion.subjectId,
+                paperId: sampleQuestion.paperId,
+                allFields: Object.keys(sampleQuestion)
+            } : 'No questions in collection');
             
-            // Check what paperIds exist for this exam/subject
-            const distinctPaperIds = await db.collection('questions').distinct('paperId', { examId, subjectId });
-            console.log(`🔍 DEBUG: Available paperIds for ${examId}/${subjectId}:`, distinctPaperIds);
-            console.log(`🔍 DEBUG: Looking for paperId: ${paperId}`);
-            console.log(`🔍 DEBUG: PaperId exists in DB: ${distinctPaperIds.includes(paperId)}`);
+            // Try multiple query variations to find the right field names
+            const queries = [
+                { examId, subjectId, paperId },           // Original
+                { examId, subjectId, questionPaperId: paperId }, // Alternative field name
+                { examId, subject: subjectId, paperId },   // Alternative subject field
+                { exam: examId, subjectId, paperId }       // Alternative exam field
+            ];
             
-            let cursor = db.collection('questions').find(query);
+            let questions = [];
+            let successfulQuery = null;
             
-            if (limit) {
-                cursor = cursor.limit(limit);
+            for (const query of queries) {
+                console.log(`🔍 DEBUG: Trying query:`, query);
+                const results = await db.collection('questions').find(query).limit(limit || 50).toArray();
+                console.log(`🔍 DEBUG: Query result: ${results.length} questions found`);
+                
+                if (results.length > 0) {
+                    questions = results;
+                    successfulQuery = query;
+                    break;
+                }
             }
             
-            const questions = await cursor.toArray();
-            console.log(`🔍 DEBUG: Found ${questions.length} questions for query:`, query);
+            if (questions.length === 0) {
+                // Final fallback - get any questions for this exam to see the structure
+                console.log(`🔍 DEBUG: No questions found with any query. Checking exam data...`);
+                const examQuestions = await db.collection('questions').find({ examId }).limit(5).toArray();
+                console.log(`🔍 DEBUG: Sample questions for exam ${examId}:`, examQuestions.map(q => ({
+                    subjectId: q.subjectId,
+                    paperId: q.paperId,
+                    questionPaperId: q.questionPaperId
+                })));
+            }
             
+            console.log(`✅ DEBUG: Final result: ${questions.length} questions using query:`, successfulQuery);
             return questions;
+            
         } catch (error) {
-            console.error('Error fetching questions:', error);
+            console.error('❌ DEBUG: Error fetching questions:', error);
             throw error;
         }
     }

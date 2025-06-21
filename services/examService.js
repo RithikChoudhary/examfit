@@ -181,9 +181,17 @@ class ExamService {
         return result;
     }
 
-    // Get question papers for a subject
+    // Get question papers for a subject - PERFORMANCE OPTIMIZED
     async getQuestionPapers(examId, subjectId) {
         console.log(`🔍 DEBUG: ExamService.getQuestionPapers called for ${examId}/${subjectId}`);
+        
+        // Check cache first for better performance
+        const cacheKey = `question_papers_${examId}_${subjectId}`;
+        const cached = cacheService.get(cacheKey);
+        if (cached) {
+            console.log(`⚡ DEBUG: Returning cached question papers for ${examId}/${subjectId}`);
+            return cached;
+        }
         
         const exam = await this.getExamById(examId);
         console.log(`🔍 DEBUG: Exam loaded: ${exam.examName}, subjects: ${exam.subjects?.length || 0}`);
@@ -199,49 +207,32 @@ class ExamService {
         console.log(`✅ DEBUG: Subject found: ${subject.subjectName}`);
         console.log(`🔍 DEBUG: Subject has ${subject.questionPapers?.length || 0} question papers`);
         
-        if (subject.questionPapers?.length > 0) {
-            const firstPaper = subject.questionPapers[0];
-            console.log(`🔍 DEBUG: First paper detailed structure:`, {
-                id: firstPaper.questionPaperId,
-                name: firstPaper.questionPaperName,
-                hasQuestions: !!firstPaper.questions,
-                questionCount: firstPaper.questions?.length || 0,
-                questionsType: typeof firstPaper.questions,
-                questionsIsArray: Array.isArray(firstPaper.questions),
-                allKeys: Object.keys(firstPaper),
-                questionsPreview: firstPaper.questions?.slice(0, 2) || 'No questions'
-            });
-            
-            // Check if questions are nested deeper
-            if (firstPaper.questions && firstPaper.questions.length === 0) {
-                console.log(`🔍 DEBUG: Questions array is empty, checking paper structure:`, firstPaper);
-            }
-        }
-
-        const result = subject.questionPapers ? await Promise.all(subject.questionPapers.map(async (paper) => {
-            // Load actual questions from MongoDB for this paper
-            const questions = await require('../services/mongoService').getQuestionsByPaper(examId, subjectId, paper.questionPaperId);
-            
-            return {
-                questionPaperId: paper.questionPaperId,
-                questionPaperName: paper.questionPaperName,
-                section: paper.section,
-                questionCount: questions.length,
-                questions: questions
-            };
+        // PERFORMANCE FIX: Don't load all questions at this stage
+        // Only load questions when specifically requested for individual papers
+        const result = subject.questionPapers ? subject.questionPapers.map(paper => ({
+            questionPaperId: paper.questionPaperId,
+            questionPaperName: paper.questionPaperName,
+            section: paper.section,
+            questionCount: paper.questionCount || 0, // Use pre-calculated count
+            questions: [] // Don't load questions here - load on demand
         })) : [];
         
-        console.log(`✅ DEBUG: Returning ${result.length} question papers`);
-        if (result.length > 0) {
-            console.log(`🔍 DEBUG: First result paper:`, {
-                id: result[0].questionPaperId,
-                name: result[0].questionPaperName,
-                questionCount: result[0].questionCount,
-                hasQuestions: result[0].questions?.length > 0
-            });
-        }
+        // Cache the result for 15 minutes
+        cacheService.set(cacheKey, result, 15 * 60 * 1000);
         
+        console.log(`✅ DEBUG: Returning ${result.length} question papers (optimized - no questions loaded)`);
         return result;
+    }
+
+    // NEW METHOD: Get questions for a specific paper only when needed
+    async getQuestionsForPaper(examId, subjectId, paperId) {
+        console.log(`🔍 DEBUG: Loading questions for specific paper: ${examId}/${subjectId}/${paperId}`);
+        
+        const mongoService = require('../services/mongoService');
+        const questions = await mongoService.getQuestionsByPaper(examId, subjectId, paperId);
+        
+        console.log(`✅ DEBUG: Loaded ${questions.length} questions for paper ${paperId}`);
+        return questions;
     }
 
     // Add new subject to exam

@@ -265,8 +265,10 @@ router.get('/:exam/:subject/:questionPaper/questions', asyncHandler(async (req, 
     }
     console.log(`✅ DEBUG: Paper found: ${paper.questionPaperName}`);
     
-    const questions = paper.questions || [];
-    console.log(`❓ DEBUG: Step 4 - Questions in paper: ${questions.length}`);
+    // PERFORMANCE FIX: Load questions directly from MongoDB for this specific paper
+    console.log(`❓ DEBUG: Step 4 - Loading questions directly from MongoDB for paper ${questionPaperId}`);
+    const questions = await examService.getQuestionsForPaper(examId, subjectId, questionPaperId);
+    console.log(`❓ DEBUG: Step 4 - Questions loaded from MongoDB: ${questions.length}`);
     
     if (questions.length > 0) {
       console.log(`✅ DEBUG: First question preview:`, {
@@ -275,8 +277,8 @@ router.get('/:exam/:subject/:questionPaper/questions', asyncHandler(async (req, 
         optionsCount: questions[0].options?.length || 0
       });
     } else {
-      console.log(`❌ DEBUG: No questions found in paper ${questionPaperId}`);
-      console.log(`❓ DEBUG: Paper structure:`, Object.keys(paper));
+      console.log(`❌ DEBUG: No questions found in MongoDB for paper ${questionPaperId}`);
+      console.log(`❓ DEBUG: This suggests a field name mismatch in the database query`);
     }
     
     const subjectData = examData.subjects?.find(s => s.subjectId === subjectId);
