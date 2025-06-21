@@ -1,24 +1,45 @@
 const express = require('express');
 const router = express.Router();
-const { getQuestions, saveQuestions } = require('../utils/dataHelpers');
+const { 
+    getQuestions, 
+    saveQuestions, 
+    getExamById, 
+    getSubjectsByExam, 
+    getQuestionsByPaper,
+    healthCheck 
+} = require('../utils/dataHelpers');
 const multer = require('multer');
 const XLSX = require('xlsx');
 const upload = multer({ storage: multer.memoryStorage() });
 
 async function findExamAndSubject(examId, subjectId) {
-  const data = await getQuestions();
-  const examData = data.exams.find(e => e.examId === examId);
-  if (!examData) {
-    throw new Error('Exam not found');
-  }
-  if (subjectId) {
-    const subject = examData.subjects.find(s => s.subjectId === subjectId);
-    if (!subject) {
-      throw new Error('Subject not found');
+  try {
+    console.log(`🔍 Finding exam: ${examId}, subject: ${subjectId || 'none'}`);
+    
+    // Try MongoDB-optimized approach first
+    const examData = await getExamById(examId);
+    if (!examData) {
+      throw new Error('Exam not found');
     }
-    return { data, examData, subject };
+    
+    if (subjectId) {
+      const subject = examData.subjects?.find(s => s.subjectId === subjectId);
+      if (!subject) {
+        throw new Error('Subject not found');
+      }
+      // For compatibility, also get full data structure for writing operations
+      const data = await getQuestions();
+      return { data, examData, subject };
+    }
+    
+    // For compatibility, also get full data structure
+    const data = await getQuestions();
+    console.log(`✅ Found exam: ${examData.examName} from ${data.source || 'unknown source'}`);
+    return { data, examData };
+  } catch (error) {
+    console.error(`❌ Error finding exam/subject:`, error);
+    throw error;
   }
-  return { data, examData };
 }
 
 router.post('/subjects', express.json(), async (req, res) => {

@@ -1,4 +1,11 @@
-const { getQuestions, saveQuestions } = require('../utils/dataHelpers');
+const { 
+    getQuestions, 
+    saveQuestions, 
+    getAllExams, 
+    getExamById, 
+    getSubjectsByExam,
+    healthCheck 
+} = require('../utils/dataHelpers');
 const cacheService = require('./cacheService');
 
 class ExamService {
@@ -9,61 +16,109 @@ class ExamService {
 
     async initializeCache() {
         try {
+            console.log('🔥 Warming up ExamService cache...');
             await cacheService.warmUp(this);
             await cacheService.preloadExamData(this);
+            console.log('✅ ExamService cache warmed up');
         } catch (error) {
-            console.warn('Cache initialization failed:', error.message);
+            console.warn('⚠️ Cache initialization failed:', error.message);
         }
     }
 
-    // Get all exams with optional caching
+    // Get all exams with optional caching - now uses MongoDB
     async getAllExams(useCache = true) {
         const cacheKey = 'all_exams';
         
         if (useCache) {
             const cached = cacheService.get(cacheKey);
             if (cached) {
+                console.log('📋 Returning cached exams');
                 return cached;
             }
         }
 
-        const data = await getQuestions();
-        const exams = data.exams.map(exam => ({
-            examId: exam.examId,
-            examName: exam.examName,
-            subjectCount: exam.subjects ? exam.subjects.length : 0,
-            hasSubExams: !!exam.subExams
-        }));
+        try {
+            console.log('📚 Loading exams from database...');
+            // Use the new MongoDB-aware function from dataHelpers
+            const mongoExams = await getAllExams();
+            
+            // Transform for consistency with existing API
+            const transformedExams = mongoExams.map(exam => ({
+                examId: exam.examId,
+                examName: exam.examName,
+                subjectCount: exam.subjects ? exam.subjects.length : 0,
+                hasSubExams: !!exam.subExams,
+                totalSubjects: exam.totalSubjects || (exam.subjects ? exam.subjects.length : 0)
+            }));
 
-        if (useCache) {
-            cacheService.set(cacheKey, exams);
+            if (useCache) {
+                cacheService.set(cacheKey, transformedExams, 30 * 60 * 1000); // Cache for 30 minutes
+            }
+
+            console.log(`✅ Loaded ${transformedExams.length} exams`);
+            return transformedExams;
+        } catch (error) {
+            console.error('❌ Error loading exams:', error);
+            // Fallback to old method
+            const data = await getQuestions();
+            const exams = data.exams.map(exam => ({
+                examId: exam.examId,
+                examName: exam.examName,
+                subjectCount: exam.subjects ? exam.subjects.length : 0,
+                hasSubExams: !!exam.subExams
+            }));
+
+            if (useCache) {
+                cacheService.set(cacheKey, exams, 5 * 60 * 1000); // Shorter cache for fallback
+            }
+
+            return exams;
         }
-
-        return exams;
     }
 
-    // Get specific exam by ID
+    // Get specific exam by ID - now uses MongoDB
     async getExamById(examId) {
         const cacheKey = `exam_${examId}`;
         
         const cached = cacheService.get(cacheKey);
         if (cached) {
+            console.log(`📋 Returning cached exam: ${examId}`);
             return cached;
         }
 
-        const data = await getQuestions();
-        const exam = data.exams.find(e => e.examId === examId);
-        
-        if (!exam) {
-            throw new Error('Exam not found');
+        try {
+            console.log(`📚 Loading exam from database: ${examId}`);
+            // Use the new MongoDB-aware function
+            const exam = await getExamById(examId);
+            
+            if (!exam) {
+                throw new Error('Exam not found');
+            }
+
+            cacheService.set(cacheKey, exam, 30 * 60 * 1000); // Cache for 30 minutes
+            
+            // Update search indexes
+            cacheService.updateIndex('examsByName', exam.examName.toLowerCase(), exam);
+
+            console.log(`✅ Loaded exam: ${exam.examName}`);
+            return exam;
+        } catch (error) {
+            console.error(`❌ Error loading exam ${examId}:`, error);
+            // Fallback to old method
+            const data = await getQuestions();
+            const exam = data.exams.find(e => e.examId === examId);
+            
+            if (!exam) {
+                throw new Error('Exam not found');
+            }
+
+            cacheService.set(cacheKey, exam, 5 * 60 * 1000); // Shorter cache for fallback
+            
+            // Update search indexes
+            cacheService.updateIndex('examsByName', exam.examName.toLowerCase(), exam);
+
+            return exam;
         }
-
-        cacheService.set(cacheKey, exam);
-        
-        // Update search indexes
-        cacheService.updateIndex('examsByName', exam.examName.toLowerCase(), exam);
-
-        return exam;
     }
 
     // Get subjects for an exam

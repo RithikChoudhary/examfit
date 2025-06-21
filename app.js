@@ -148,6 +148,47 @@ app.get('/sitemap.xml', async (req, res) => {
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// MongoDB health check route
+const { healthCheck } = require('./utils/dataHelpers');
+app.get('/api/health/mongodb', async (req, res) => {
+    try {
+        const health = await healthCheck();
+        res.json({
+            timestamp: new Date().toISOString(),
+            status: 'success',
+            ...health
+        });
+    } catch (error) {
+        res.status(500).json({
+            timestamp: new Date().toISOString(),
+            status: 'error',
+            error: error.message
+        });
+    }
+});
+
+// Data source info route
+app.get('/api/health/data', async (req, res) => {
+    try {
+        const { getQuestions } = require('./utils/dataHelpers');
+        const data = await getQuestions();
+        
+        res.json({
+            timestamp: new Date().toISOString(),
+            dataSource: data.source || 'unknown',
+            examCount: data.exams?.length || 0,
+            lastUpdated: data.lastUpdated || null,
+            status: 'healthy'
+        });
+    } catch (error) {
+        res.status(500).json({
+            timestamp: new Date().toISOString(),
+            status: 'error',
+            error: error.message
+        });
+    }
+});
+
 // Important: Route order matters - specific routes before wildcard routes
 // New API v1 routes with improved structure
 app.use('/api/v1', apiV1Router);
@@ -157,7 +198,7 @@ app.use('/practice', practiceRouter); // Practice routes
 app.use('/current-affairs', currentAffairsRouter); // Current affairs routes
 app.use('/blog', blogRouter); // Blog routes
 app.use('/api', apiRouter); // Legacy API routes
-// app.use('/dashboard', dashboardRouter); // Dashboard route disabled
+app.use('/dashboard', dashboardRouter); // Dashboard route enabled with MongoDB support
 
 // View routes
 app.use('/', indexRouter);       // handles / and /contact

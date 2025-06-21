@@ -1,7 +1,15 @@
 // /Volumes/Macintosh HD/Users/burnt/Documents/workspace/DevOps/Terraform/eatpl/routes/dashboard.js
 const express = require('express');
 const router = express.Router();
-const { getQuestions, saveQuestions } = require('../utils/dataHelpers');
+const { 
+    getQuestions, 
+    saveQuestions, 
+    getAllExams, 
+    getExamById, 
+    getSubjectsByExam, 
+    getQuestionsByPaper,
+    healthCheck 
+} = require('../utils/dataHelpers');
 const path = require('path');
 
 // Authentication middleware
@@ -21,41 +29,47 @@ router.use(authenticateDashboard);
 
 router.get('/', async (req, res) => {
   try {
-    const data = await getQuestions();
+    console.log('🏠 Loading dashboard - fetching exams from MongoDB...');
+    
+    // Use MongoDB-aware function for better performance
+    const exams = await getAllExams();
+    
+    // Get health check info
+    const health = await healthCheck();
     
     // Handle case where data is empty or invalid
-    if (!data || !data.exams || !Array.isArray(data.exams)) {
-      console.error('Invalid data structure:', data);
-      return res.status(500).send('Invalid data structure');
+    if (!exams || !Array.isArray(exams)) {
+      console.error('Invalid exams data:', exams);
+      return res.status(500).send('Invalid exams data structure');
     }
+
+    console.log(`✅ Dashboard loaded ${exams.length} exams from ${health.dataSource || 'unknown source'}`);
 
     res.render('dashboard/index', {
       title: 'Dashboard',
       message: 'Welcome to the Exam Management Dashboard',
-      data,
+      data: { exams, source: health.dataSource }, // Include source info
       currentPage: 'overview',
-      exams: data.exams,
-      totalExams: data.exams.length
+      exams: exams,
+      totalExams: exams.length,
+      dataSource: health.dataSource || 'unknown',
+      health: health
     });
   } catch (error) {
-    console.error('Dashboard error:', error);
-    res.status(500).send('Error loading dashboard');
+    console.error('❌ Dashboard error:', error);
+    res.status(500).send('Error loading dashboard: ' + error.message);
   }
 });
 
 // Route for subjects under a specific exam 
 router.get('/subjects/:examId', async (req, res) => {
   try {
-    const data = await getQuestions();
-    
-    // Validate data structure
-    if (!data || !data.exams || !Array.isArray(data.exams)) {
-      console.error('Invalid data structure:', data);
-      return res.status(500).send('Invalid data structure');
-    }
-    
     const { examId } = req.params;
-    const examData = data.exams.find(e => e.examId === examId);
+    
+    console.log(`📚 Loading subjects for exam: ${examId} from MongoDB...`);
+    
+    // Use MongoDB-aware function for better performance
+    const examData = await getExamById(examId);
     
     if (!examData) {
       console.error(`Exam not found with ID: ${examId}`);
@@ -81,6 +95,8 @@ router.get('/subjects/:examId', async (req, res) => {
       };
     });
 
+    console.log(`✅ Loaded ${subjectsWithCount.length} subjects for ${examData.examName}`);
+
     res.render('dashboard/subjects', {
       examData,
       subjects: subjectsWithCount,
@@ -89,7 +105,7 @@ router.get('/subjects/:examId', async (req, res) => {
       examId: examId
     });
   } catch (error) {
-    console.error('Error loading subjects:', error);
+    console.error('❌ Error loading subjects:', error);
     res.status(500).send('Error loading subjects: ' + error.message);
   }
 });

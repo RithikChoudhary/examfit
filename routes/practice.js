@@ -19,14 +19,14 @@ router.get('/', asyncHandler(async (req, res) => {
         console.log('Exam summaries loaded:', examSummaries.length, 'exams');
         
         if (examSummaries.length === 0) {
-            console.warn('No exams found in data');
-            // Try to load from data directly to debug
-            const { getQuestions } = require('../utils/dataHelpers');
-            const rawData = await getQuestions();
-            console.log('Raw data structure:', {
-                hasExams: !!rawData.exams,
-                examCount: rawData.exams ? rawData.exams.length : 0,
-                firstExam: rawData.exams && rawData.exams.length > 0 ? rawData.exams[0] : 'none'
+            console.warn('⚠️ No exams found in database');
+            // Check data source health
+            const { healthCheck } = require('../utils/dataHelpers');
+            const health = await healthCheck();
+            console.log('📊 Data source health:', {
+                dataSource: health.dataSource,
+                examCount: health.examCount || 0,
+                status: health.status
             });
         }
         
