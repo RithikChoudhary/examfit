@@ -48,15 +48,28 @@ router.get('/', asyncHandler(async (req, res) => {
     }
 }));
 
-// Get subjects for an exam (API endpoint) - MongoDB only
+// Get subjects for an exam (API endpoint) - MongoDB only with caching
 router.get('/api/subjects/:examId', asyncHandler(async (req, res) => {
     const { examId } = req.params;
     
     console.log(`🔍 MongoDB-only API request for subjects: ${examId}`);
     
+    // Check cache first
+    const cacheService = require('../services/cacheService');
+    const cacheKey = `api_subjects_${examId}`;
+    const cached = cacheService.get(cacheKey);
+    
+    if (cached) {
+        console.log(`⚡ Returning cached subjects for ${examId}: ${cached.length} subjects`);
+        return res.json({ subjects: cached });
+    }
+    
     // Direct MongoDB query for optimal performance
     const mongoService = require('../services/mongoService');
     const subjects = await mongoService.getSubjectsByExam(examId);
+    
+    // Cache for 10 minutes
+    cacheService.set(cacheKey, subjects, 10 * 60 * 1000);
     
     console.log(`✅ MongoDB subjects loaded for ${examId}: ${subjects.length} subjects`);
     res.json({ subjects });
