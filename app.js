@@ -27,6 +27,27 @@ const app = express();
 // Trust proxy for rate limiting and IP detection
 app.set('trust proxy', 1);
 
+// Force HTTPS and non-www redirects in production
+app.use((req, res, next) => {
+  // Skip redirects for localhost/development
+  if (req.hostname === 'localhost' || req.hostname === '127.0.0.1' || process.env.NODE_ENV !== 'production') {
+    return next();
+  }
+
+  // Force HTTPS redirect
+  if (req.header('x-forwarded-proto') !== 'https') {
+    return res.redirect(301, `https://${req.hostname}${req.url}`);
+  }
+
+  // Force non-www redirect (www.examfit.in -> examfit.in)
+  if (req.hostname.startsWith('www.')) {
+    const nonWwwHost = req.hostname.slice(4); // Remove 'www.'
+    return res.redirect(301, `https://${nonWwwHost}${req.url}`);
+  }
+
+  next();
+});
+
 // Set up middleware
 app.use(requestLogger); // Request logging
 app.use(rateLimit()); // Rate limiting - default 100 requests per 15 minutes
