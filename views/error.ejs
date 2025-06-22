@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title || 'Error' %> - ExamFit</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .error-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .error-icon {
+            font-size: 4rem;
+            color: #dc3545;
+            margin-bottom: 20px;
+        }
+        .error-title {
+            color: #dc3545;
+            margin-bottom: 15px;
+        }
+        .error-message {
+            color: #6c757d;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .error-details {
+            color: #6c757d;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            background: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #ffc107;
+        }
+        .error-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background: #545b62;
+        }
+        @media (max-width: 768px) {
+            .error-container {
+                margin: 20px;
+                padding: 15px;
+            }
+            .error-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- include('partials/navbar') %>
+    
+    <div class="error-container">
+        <div class="error-icon">⚠️</div>
+        <h1 class="error-title"><%= title || 'Error' %></h1>
+        <p class="error-message"><%= message || 'An unexpected error occurred.' %></p>
+        
+        <% if (details) { %>
+        <div class="error-details">
+            <strong>Details:</strong> <%= details %>
+        </div>
+        <% } %>
+        
+        <div class="error-actions">
+            <% if (backUrl) { %>
+            <a href="<%= backUrl %>" class="btn btn-primary">Go Back</a>
+            <% } %>
+            <a href="/" class="btn btn-secondary">Home</a>
+            <a href="javascript:history.back()" class="btn btn-secondary">Previous Page</a>
+        </div>
+    </div>
+    
+    <%- include('partials/footer') %>
+</body>
+</html>

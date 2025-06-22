@@ -107,31 +107,51 @@ function renderWithCache(res, template, data, cacheKey, cacheDuration = 3600000)
 renderWithCache.cache = {};
 
 // Route for displaying subjects for a specific exam (e.g., /upsc or /cgl)
-router.get('/:exam', debounceRequest(async (req, res, options = {}) => {
+router.get('/:exam', async (req, res) => {
   try {
     const examId = req.params.exam.toLowerCase();
+    console.log(`📚 EXAM ROUTE: Loading exam subjects for ${examId}`);
+    
     const cacheKey = `exam-${examId}-subjects`;
     
-    // Get data in parallel
+    // Get exam data with detailed logging
+    console.log(`📚 DEBUG: Step 1 - Getting exam data for ${examId}`);
     const examData = await examService.getExamById(examId);
-
+    
     if (!examData) {
-      return res.status(404).send('Exam not found');
+      console.log(`❌ DEBUG: Exam not found: ${examId}`);
+      console.log(`📚 DEBUG: This means the exam doesn't exist in the database`);
+      return res.status(404).send(`Exam not found: ${examId}. Please check if this exam exists in the database.`);
+    }
+    
+    console.log(`✅ DEBUG: Exam found: ${examData.examName}`);
+    console.log(`📚 DEBUG: Exam has ${examData.subjects?.length || 0} subjects`);
+    
+    if (examData.subjects?.length > 0) {
+      console.log(`📚 DEBUG: First 3 subjects:`, examData.subjects.slice(0, 3).map(s => ({
+        id: s.subjectId,
+        name: s.subjectName
+      })));
     }
 
     const templateData = { 
       exam: examId,
       examName: examData.examName,
-      subjects: examData.subjects,
-      animationSpeed: '0.3s'  // Added animation speed control
+      subjects: examData.subjects || [],
+      animationSpeed: '0.3s'
     };
 
-    renderWithCache(res, 'subjects', templateData, cacheKey);
+    console.log(`✅ DEBUG: Rendering subjects template for ${examId}`);
+    
+    // Use simple render instead of complex caching
+    res.render('subjects', templateData);
+    
   } catch (error) {
-    console.error('Error:', error);
-    res.status(500).send('Error loading exam data');
+    console.error(`❌ DEBUG: Error in exam route for ${req.params.exam}:`, error);
+    console.error(`❌ DEBUG: Error stack:`, error.stack);
+    res.status(500).send(`Error loading exam data: ${error.message}`);
   }
-}));
+});
 
 // Validation function to check if request is for static files or invalid exams
 function isValidExamRequest(examId, subjectId) {

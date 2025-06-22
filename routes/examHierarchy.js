@@ -4,45 +4,15 @@ const examService = require('../services/examService');
 const { asyncHandler } = require('../middleware/errorHandler');
 
 
-// Route for sub-exams (e.g., IPS, IRS under UPSC) - MongoDB optimized
-router.get('/:exam', asyncHandler(async (req, res) => {
-    const exam = req.params.exam.toLowerCase();
-    console.log(`📚 Loading exam: ${exam}`);
-    
-    // Get exam data using MongoDB service
-    const examData = await examService.getExamById(exam);
-    
-    if (!examData) {
-        return res.status(404).send('Exam not found');
-    }
-
-    if (examData.subExams) {
-        res.render('subexams', { 
-            exam: examData.examId,
-            examName: examData.examName,
-            subExams: examData.subExams
-        });
-    } else {
-        // Get subjects using optimized MongoDB service
-        const subjects = await examService.getExamSubjects(exam);
-        
-        res.render('subjects', { 
-            examId: exam, 
-            examName: examData.examName,
-            subjects: subjects.map(s => ({
-                subjectId: s.subjectId,
-                subjectName: s.subjectName
-            })),
-            isSubExamView: false
-        });
-    }
-}));
+// NOTE: Removed duplicate /:exam route to prevent conflicts with examRouter.js
+// examRouter.js now handles all main exam routes like /upsc, /ssc, etc.
+// This file only handles sub-exam specific routes
 
 
 // Route for subjects under sub-exams - MongoDB optimized
 router.get('/:exam/:subExam/subjects', asyncHandler(async (req, res) => {
     const { exam, subExam } = req.params;
-    console.log(`📖 Loading sub-exam subjects: ${exam}/${subExam}`);
+    console.log(`� Loading sub-exam subjects: ${exam}/${subExam}`);
     
     // Get exam data using MongoDB service
     const examData = await examService.getExamById(exam);

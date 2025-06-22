@@ -59,20 +59,26 @@ class ExamService {
             return transformedExams;
         } catch (error) {
             console.error('❌ Error loading exams:', error);
-            // Fallback to old method
-            const data = await getQuestions();
-            const exams = data.exams.map(exam => ({
-                examId: exam.examId,
-                examName: exam.examName,
-                subjectCount: exam.subjects ? exam.subjects.length : 0,
-                hasSubExams: !!exam.subExams
-            }));
+            
+            try {
+                // Fallback to old method
+                const data = await getQuestions();
+                const exams = data.exams.map(exam => ({
+                    examId: exam.examId,
+                    examName: exam.examName,
+                    subjectCount: exam.subjects ? exam.subjects.length : 0,
+                    hasSubExams: !!exam.subExams
+                }));
 
-            if (useCache) {
-                cacheService.set(cacheKey, exams, 5 * 60 * 1000); // Shorter cache for fallback
+                if (useCache) {
+                    cacheService.set(cacheKey, exams, 5 * 60 * 1000); // Shorter cache for fallback
+                }
+
+                return exams;
+            } catch (fallbackError) {
+                console.error('❌ Fallback method also failed:', fallbackError.message);
+                throw fallbackError;
             }
-
-            return exams;
         }
     }
 
@@ -135,7 +141,7 @@ class ExamService {
                 return exam;
             } catch (fallbackError) {
                 console.error(`❌ DEBUG: Fallback also failed for exam ${examId}:`, fallbackError.message);
-                throw new Error(`Exam not found: ${examId}. Both MongoDB and fallback failed.`);
+                throw new Error(`Exam not found: ${examId}. All fallback methods failed.`);
             }
         }
     }

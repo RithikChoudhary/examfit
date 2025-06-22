@@ -46,10 +46,54 @@ const errorHandler = (err, req, res, next) => {
         message = 'Something went wrong. Please try again later.';
     }
 
-    res.status(statusCode).json(formatResponse(false, null, {
-        message,
-        ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
-    }));
+    // Check if this is an API request or a web page request
+    const isApiRequest = req.originalUrl.startsWith('/api') || 
+                        req.headers.accept?.includes('application/json') ||
+                        req.headers['content-type']?.includes('application/json');
+
+    if (isApiRequest) {
+        // Return JSON for API requests
+        res.status(statusCode).json(formatResponse(false, null, {
+            message,
+            ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
+        }));
+    } else {
+        // Return HTML error page for web requests
+        try {
+            res.status(statusCode).render('error', {
+                title: getErrorTitle(statusCode),
+                message: message,
+                details: process.env.NODE_ENV === 'development' ? err.stack : null,
+                backUrl: req.headers.referer || '/'
+            });
+        } catch (renderError) {
+            // Fallback to simple HTML if template rendering fails
+            res.status(statusCode).send(`
+                <!DOCTYPE html>
+                <html>
+                <head><title>Error ${statusCode}</title></head>
+                <body>
+                    <h1>Error ${statusCode}</h1>
+                    <p>${message}</p>
+                    <a href="/">Go Home</a>
+                </body>
+                </html>
+            `);
+        }
+    }
+};
+
+// Helper function to get appropriate error titles
+const getErrorTitle = (statusCode) => {
+    switch (statusCode) {
+        case 400: return 'Bad Request';
+        case 401: return 'Unauthorized';
+        case 403: return 'Forbidden';
+        case 404: return 'Page Not Found';
+        case 429: return 'Too Many Requests';
+        case 500: return 'Server Error';
+        default: return 'Error';
+    }
 };
 
 // Async error wrapper
