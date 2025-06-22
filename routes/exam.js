@@ -136,6 +136,7 @@ router.get('/:exam', async (req, res) => {
 
     const templateData = { 
       exam: examId,
+      examId: examId,
       examName: examData.examName,
       subjects: examData.subjects || [],
       animationSpeed: '0.3s'
