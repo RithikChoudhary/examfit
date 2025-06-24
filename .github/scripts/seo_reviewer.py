@@ -1,5 +1,5 @@
 # .github/scripts/seo_reviewer.py
-import anthropic, os, subprocess, json
+import anthropic, os, subprocess, json, re
 from datetime import datetime
 
 # STEP 1: Gather HTML/JS/TS/MD content
@@ -45,6 +45,15 @@ print(response.content)
 
 # STEP 3: Parse and apply fixes
 raw_content = response.content[0].text if isinstance(response.content, list) else response.content
+
+# 🔧 Extract JSON block using regex if wrapped in markdown
+match = re.search(r"```json\s*(\{.*?\})\s*```", raw_content, re.DOTALL)
+if match:
+    raw_content = match.group(1).strip()
+else:
+    print("⚠️ No valid JSON block found in Claude's response.")
+    raw_content = "{}"
+
 try:
     data = json.loads(raw_content)
     for item in data.get("edits", []):
