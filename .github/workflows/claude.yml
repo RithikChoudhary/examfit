@@ -1,35 +1,28 @@
 # .github/workflows/claude.yml
-name: Claude PR Summarizer
+name: Claude SEO & Content Bot
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+  schedule:
+    - cron: '0 3 * * *'  # every day at 3 AM UTC (~8:30 AM IST)
 
 jobs:
-  summarize-pr:
+  claude-seo-bot:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Get PR content
-        id: pr
-        uses: actions/github-script@v6
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const pr = await github.rest.pulls.get({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              pull_number: context.payload.pull_request.number,
-            });
-            return pr.data;
+          python-version: '3.11'
 
-      - name: Summarize PR using Claude
-        run: |
-          echo "${{ steps.pr.outputs.result }}" > pr.json
-          python3 .github/scripts/summarize_pr.py pr.json
+      - name: Install dependencies
+        run: pip install anthropic PyGithub
+
+      - name: Run Claude SEO Reviewer
+        run: python3 .github/scripts/seo_reviewer.py
         env:
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
