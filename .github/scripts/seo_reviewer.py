@@ -44,14 +44,16 @@ print("\n🔍 Claude SEO Fix Plan:\n")
 print(response.content)
 
 # STEP 3: Parse and apply fixes
+raw_content = response.content[0].text if isinstance(response.content, list) else response.content
 try:
-    data = json.loads(response.content if isinstance(response.content, str) else response.content[0].text)
+    data = json.loads(raw_content)
     for item in data.get("edits", []):
         with open(item["file"], "w") as f:
             f.write(item["content"])
         print(f"✅ Updated {item['file']}")
 except Exception as e:
     print("❌ Failed to apply changes:", e)
+    data = {"edits": []}  # fallback so PR prompt still works
 
 # STEP 4: Git config, commit, and push
 subprocess.run(["git", "config", "--global", "user.email", "bot@examfit.in"])
@@ -61,7 +63,9 @@ branch_name = f"claude-seo-fix-{datetime.now().strftime('%Y%m%d')}"
 subprocess.run(["git", "checkout", "-b", branch_name])
 subprocess.run(["git", "add", "."])
 subprocess.run(["git", "commit", "-m", "chore: SEO & question content updates by Claude AI"])
-subprocess.run(["git", "push", "origin", branch_name])
+
+# Use --force-with-lease to push even if remote is ahead
+subprocess.run(["git", "push", "--force-with-lease", "origin", branch_name])
 
 # STEP 5: Create PR summary from Claude
 pr_prompt = f"""
