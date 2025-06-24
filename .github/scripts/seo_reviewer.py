@@ -45,7 +45,7 @@ print(response.content)
 
 # STEP 3: Parse and apply fixes
 try:
-    data = json.loads(response.content)
+    data = json.loads(response.content if isinstance(response.content, str) else response.content[0].text)
     for item in data.get("edits", []):
         with open(item["file"], "w") as f:
             f.write(item["content"])
@@ -53,20 +53,23 @@ try:
 except Exception as e:
     print("❌ Failed to apply changes:", e)
 
-# STEP 4: Git commit and PR
+# STEP 4: Git config, commit, and push
+subprocess.run(["git", "config", "--global", "user.email", "bot@examfit.in"])
+subprocess.run(["git", "config", "--global", "user.name", "Claude AI Bot"])
+
 branch_name = f"claude-seo-fix-{datetime.now().strftime('%Y%m%d')}"
 subprocess.run(["git", "checkout", "-b", branch_name])
 subprocess.run(["git", "add", "."])
 subprocess.run(["git", "commit", "-m", "chore: SEO & question content updates by Claude AI"])
 subprocess.run(["git", "push", "origin", branch_name])
 
-# Create PR message for Claude to write
+# STEP 5: Create PR summary from Claude
 pr_prompt = f"""
-Summarize this PR which includes:
-- SEO tag improvements
-- Keyword enhancements
-- Outdated content fixes
-Write it as a clean PR description.
+You are a GitHub pull request assistant. Here's a list of SEO and content changes made by Claude AI:
+
+{json.dumps(data.get('edits', []), indent=2)}
+
+Write a detailed PR summary with bullet points.
 """
 pr_summary = client.messages.create(
     model="claude-sonnet-4-20250514",
@@ -77,5 +80,3 @@ pr_summary = client.messages.create(
 
 print("\n📦 Claude PR Summary:\n")
 print(pr_summary.content)
-
-# NOTE: You can auto-create PR via GitHub CLI or API here
