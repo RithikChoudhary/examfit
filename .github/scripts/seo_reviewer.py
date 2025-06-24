@@ -55,32 +55,33 @@ except Exception as e:
     print("❌ Failed to apply changes:", e)
     data = {"edits": []}  # fallback so PR prompt still works
 
-# STEP 4: Git config, commit, and push
-subprocess.run(["git", "config", "--global", "user.email", "bot@examfit.in"])
-subprocess.run(["git", "config", "--global", "user.name", "Claude AI Bot"])
+# STEP 4: Git config, commit, and push — only if changes exist
+if data.get("edits"):
+    subprocess.run(["git", "config", "--global", "user.email", "bot@examfit.in"])
+    subprocess.run(["git", "config", "--global", "user.name", "Claude AI Bot"])
 
-branch_name = f"claude-seo-fix-{datetime.now().strftime('%Y%m%d')}"
-subprocess.run(["git", "checkout", "-b", branch_name])
-subprocess.run(["git", "add", "."])
-subprocess.run(["git", "commit", "-m", "chore: SEO & question content updates by Claude AI"])
+    branch_name = f"claude-seo-fix-{datetime.now().strftime('%Y%m%d')}"
+    subprocess.run(["git", "checkout", "-b", branch_name])
+    subprocess.run(["git", "add", "."])
+    subprocess.run(["git", "commit", "-m", "chore: SEO & question content updates by Claude AI"])
+    subprocess.run(["git", "push", "--force-with-lease", "origin", branch_name])
 
-# Use --force-with-lease to push even if remote is ahead
-subprocess.run(["git", "push", "--force-with-lease", "origin", branch_name])
+    # STEP 5: Create PR summary from Claude
+    pr_prompt = f"""
+    You are a GitHub pull request assistant. Here's a list of SEO and content changes made by Claude AI:
 
-# STEP 5: Create PR summary from Claude
-pr_prompt = f"""
-You are a GitHub pull request assistant. Here's a list of SEO and content changes made by Claude AI:
+    {json.dumps(data.get('edits', []), indent=2)}
 
-{json.dumps(data.get('edits', []), indent=2)}
+    Write a detailed PR summary with bullet points.
+    """
+    pr_summary = client.messages.create(
+        model="claude-sonnet-4-20250514",
+        max_tokens=400,
+        temperature=0.3,
+        messages=[{"role": "user", "content": pr_prompt}]
+    )
 
-Write a detailed PR summary with bullet points.
-"""
-pr_summary = client.messages.create(
-    model="claude-sonnet-4-20250514",
-    max_tokens=400,
-    temperature=0.3,
-    messages=[{"role": "user", "content": pr_prompt}]
-)
-
-print("\n📦 Claude PR Summary:\n")
-print(pr_summary.content)
+    print("\n📦 Claude PR Summary:\n")
+    print(pr_summary.content)
+else:
+    print("🟡 No edits returned by Claude — skipping git commit and PR generation.")
