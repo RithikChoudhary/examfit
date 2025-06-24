@@ -3,7 +3,6 @@ import anthropic, os, subprocess, json, re
 from datetime import datetime
 
 # STEP 1: Gather HTML/JS/TS/MD content
-
 def get_site_files():
     allowed = [".md", ".js", ".ts", ".html"]
     file_texts = []
@@ -46,8 +45,11 @@ print(response.content)
 # STEP 3: Parse and apply fixes
 raw_content = response.content[0].text if isinstance(response.content, list) else response.content
 
-# 🔧 Extract JSON block using regex if wrapped in markdown
+# 🔧 Try to extract JSON block from markdown or inline response
 match = re.search(r"```json\s*(\{.*?\})\s*```", raw_content, re.DOTALL)
+if not match:
+    match = re.search(r"(\{\s*\"edits\"\s*:\s*\[.*?\]\s*\})", raw_content, re.DOTALL)
+
 if match:
     raw_content = match.group(1).strip()
 else:
