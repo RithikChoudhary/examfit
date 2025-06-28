@@ -275,10 +275,10 @@ app.use('/', examHierarchyRoutes); // move this LAST because it has /:exam wildc
 app.use(notFound); // Handle 404s
 app.use(errorHandler); // Handle all errors
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
-  console.log(`📊 Dashboard available at http://localhost:${PORT}/dashboard`);
-});
+// const PORT = process.env.PORT || 3000;
+// app.listen(PORT, () => {
+//   console.log(`🚀 Server running on http://localhost:${PORT}`);
+//   console.log(`📊 Dashboard available at http://localhost:${PORT}/dashboard`);
+// });
 
 module.exports = app;
