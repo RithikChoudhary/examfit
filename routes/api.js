@@ -97,10 +97,29 @@ router.post('/subjects', express.json(), async (req, res) => {
 
 router.get('/subjects/:examId', async (req, res) => {
   try {
-    const { examData } = await findExamAndSubject(req.params.examId);
-    res.json({ subjects: examData.subjects });
+    const { examId } = req.params;
+    
+    console.log(`📚 API: Getting subjects for exam: ${examId}`);
+    
+    // Use MongoDB directly to check if exam exists
+    const mongoService = require('../services/mongoService');
+    const db = await mongoService.connect();
+    
+    // Check if exam exists and is active
+    const exam = await db.collection('exams').findOne({ examId, isActive: true });
+    if (!exam) {
+      console.log(`❌ API: Exam not found or inactive: ${examId}`);
+      return res.status(404).json({ error: 'Exam not found' });
+    }
+    
+    // Get subjects for this exam
+    const subjects = await db.collection('subjects').find({ examId }).toArray();
+    
+    console.log(`✅ API: Found ${subjects.length} subjects for exam: ${examId}`);
+    
+    res.json({ subjects: subjects || [] });
   } catch (error) {
-    console.error('Error fetching subjects:', error);
+    console.error('❌ API: Error fetching subjects:', error);
     res.status(500).json({ error: 'Failed to fetch subjects' });
   }
 });

@@ -363,7 +363,7 @@ router.get('/questions/:examId/:subjectId/:questionPaperId', async (req, res) =>
 });
 
 // Route for creating a new exam
-router.post('/exams', express.json(), async (req, res) => {
+router.post('/exams', async (req, res) => {
   try {
     const { examName, examType } = req.body;
     if (!examName) {
@@ -410,7 +410,7 @@ router.post('/exams', express.json(), async (req, res) => {
 });
 
 // Route for deleting an exam
-router.post('/exams/delete', express.json(), async (req, res) => {
+router.post('/exams/delete', async (req, res) => {
   try {
     const { examId } = req.body;
     
@@ -437,6 +437,11 @@ router.post('/exams/delete', express.json(), async (req, res) => {
     await db.collection('questions').deleteMany({ examId });
     
     console.log(`✅ Deleted exam: ${examId} and all related data`);
+    
+    // Clear cache to ensure deleted exam doesn't appear anywhere
+    const examService = require('../services/examService');
+    examService.clearCache();
+    console.log(`🧹 Cache cleared after deleting exam: ${examId}`);
     
     res.json({ success: true, message: 'Exam deleted successfully' });
   } catch (error) {
