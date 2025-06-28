@@ -16,7 +16,7 @@ async function findExamAndSubject(examId, subjectId) {
   try {
     console.log(`🔍 Finding exam: ${examId}, subject: ${subjectId || 'none'}`);
     
-    // Try MongoDB-optimized approach first
+    // Use MongoDB directly
     const examData = await getExamById(examId);
     if (!examData) {
       throw new Error('Exam not found');
@@ -27,15 +27,11 @@ async function findExamAndSubject(examId, subjectId) {
       if (!subject) {
         throw new Error('Subject not found');
       }
-      // For compatibility, also get full data structure for writing operations
-      const data = await getQuestions();
-      return { data, examData, subject };
+      return { examData, subject };
     }
     
-    // For compatibility, also get full data structure
-    const data = await getQuestions();
-    console.log(`✅ Found exam: ${examData.examName} from ${data.source || 'unknown source'}`);
-    return { data, examData };
+    console.log(`✅ Found exam: ${examData.examName} from MongoDB`);
+    return { examData };
   } catch (error) {
     console.error(`❌ Error finding exam/subject:`, error);
     throw error;
@@ -45,26 +41,63 @@ async function findExamAndSubject(examId, subjectId) {
 router.post('/subjects', express.json(), async (req, res) => {
   try {
     const { examId, subjectName } = req.body;
-    const subjectId = subjectName.toLowerCase().replace(/\s+/g, '-');
-    const { data, examData } = await findExamAndSubject(examId);
     
-    if (examData.subjects.some(s => s.subjectId === subjectId)) {
+    console.log(`📚 Creating subject: ${subjectName} for exam: ${examId}`);
+    
+    if (!examId || !subjectName) {
+      return res.status(400).json({ error: 'Missing required fields: examId, subjectName' });
+    }
+    
+    const subjectId = subjectName.toLowerCase().replace(/\s+/g, '-');
+    
+    // Use MongoDB directly
+    const mongoService = require('../services/mongoService');
+    const db = await mongoService.connect();
+    
+    // Verify exam exists
+    const exam = await db.collection('exams').findOne({ examId, isActive: true });
+    if (!exam) {
+      return res.status(404).json({ error: 'Exam not found' });
+    }
+    
+    // Check if subject already exists
+    const existingSubject = await db.collection('subjects').findOne({ examId, subjectId });
+    if (existingSubject) {
       return res.status(400).json({ error: 'Subject already exists' });
     }
 
-    const newSubject = { subjectId, subjectName, questionPapers: [], questions: [] };
-    examData.subjects.push(newSubject);
-    await saveQuestions(data);
-    res.json({ success: true, subject: newSubject });
+    const newSubject = {
+      examId,
+      subjectId,
+      subjectName,
+      totalPapers: 0,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
+
+    // Insert into MongoDB
+    await db.collection('subjects').insertOne(newSubject);
+    
+    console.log(`✅ Created subject: ${subjectId}`);
+    
+    res.json({ 
+      success: true, 
+      subject: {
+        subjectId,
+        subjectName,
+        questionPapers: [],
+        questionCount: 0
+      }
+    });
   } catch (error) {
-    console.error('Error adding subject:', error);
+    console.error('❌ Error adding subject:', error);
     res.status(500).json({ error: 'Failed to add subject: ' + error.message });
   }
 });
 
 router.get('/subjects/:examId', async (req, res) => {
   try {
-    const { data, examData } = await findExamAndSubject(req.params.examId);
+    const { examData } = await findExamAndSubject(req.params.examId);
     res.json({ subjects: examData.subjects });
   } catch (error) {
     console.error('Error fetching subjects:', error);
@@ -74,30 +107,38 @@ router.get('/subjects/:examId', async (req, res) => {
 router.get('/questions/:examId/:subjectId', async (req, res) => {
   try {
     const { examId, subjectId } = req.params;
-    const data = await getQuestions();
-    const examData = data.exams.find(e => e.examId === examId);
-    if (!examData) {
+    
+    console.log(`📋 Getting questions for: ${examId}/${subjectId}`);
+    
+    // Use MongoDB directly
+    const mongoService = require('../services/mongoService');
+    const db = await mongoService.connect();
+    
+    // Verify exam exists
+    const exam = await db.collection('exams').findOne({ examId, isActive: true });
+    if (!exam) {
       return res.status(404).json({ error: 'Exam not found' });
     }
 
-    const subjectData = examData.subjects.find(s => s.subjectId === subjectId);
-    if (!subjectData) {
+    // Verify subject exists
+    const subject = await db.collection('subjects').findOne({ examId, subjectId });
+    if (!subject) {
       return res.status(404).json({ error: 'Subject not found' });
     }
 
-    // Flatten all questions from all papers
-    const questions = subjectData.questionPapers.reduce((allQuestions, paper) => {
-      return allQuestions.concat(paper.questions || []);
-    }, []);
+    // Get all questions for this subject
+    const questions = await db.collection('questions').find({ examId, subjectId }).toArray();
+    
+    console.log(`✅ Found ${questions.length} questions for ${examId}/${subjectId}`);
 
-    res.render('dashboard/questions', {
-      examData,
-      subjectData,
+    res.json({
+      examData: exam,
+      subjectData: subject,
       questions: questions || []
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).send('Error loading questions');
+    console.error('❌ Error loading questions:', error);
+    res.status(500).json({ error: 'Error loading questions: ' + error.message });
   }
 });
 // Add this route to your api.js file (uncomment and update it)
@@ -106,54 +147,96 @@ router.put('/questions/:examId/:subjectId/:questionId', express.json(), async (r
   try {
       const { examId, subjectId, questionId } = req.params;
       const { question, options, correctOption, explanation } = req.body;
-
-      const data = await getQuestions();
-      const exam = data.exams.find(e => e.examId === examId);
-      if (!exam) return res.status(404).json({ error: 'Exam not found' });
-
-      const subject = exam.subjects.find(s => s.subjectId === subjectId);
-      if (!subject) return res.status(404).json({ error: 'Subject not found' });
-
-      let questionFound = false;
-      for (const paper of subject.questionPapers) {
-          const questionIndex = paper.questions.findIndex(q => q.questionId === questionId);
-          if (questionIndex !== -1) {
-              paper.questions[questionIndex] = {
-                  questionId,
-                  question,
-                  options,
-                  correctOption,
-                  explanation
-              };
-              questionFound = true;
-              break;
-          }
+      
+      console.log(`✏️ Updating question: ${questionId} in ${examId}/${subjectId}`);
+      
+      if (!question || !options || !correctOption) {
+        return res.status(400).json({ error: 'Missing required fields: question, options, correctOption' });
       }
 
-      if (!questionFound) return res.status(404).json({ error: 'Question not found' });
+      // Use MongoDB directly
+      const mongoService = require('../services/mongoService');
+      const db = await mongoService.connect();
+      
+      // Verify exam exists
+      const exam = await db.collection('exams').findOne({ examId, isActive: true });
+      if (!exam) return res.status(404).json({ error: 'Exam not found' });
 
-      await saveQuestions(data);
-      res.json({ success: true });
+      // Verify subject exists
+      const subject = await db.collection('subjects').findOne({ examId, subjectId });
+      if (!subject) return res.status(404).json({ error: 'Subject not found' });
+
+      // Update the question
+      const updateResult = await db.collection('questions').updateOne(
+        { examId, subjectId, questionId },
+        { 
+          $set: {
+            question,
+            options,
+            correctOption,
+            explanation: explanation || '',
+            updatedAt: new Date()
+          }
+        }
+      );
+
+      if (updateResult.matchedCount === 1) {
+        console.log(`✅ Updated question: ${questionId}`);
+        res.json({ success: true, message: 'Question updated successfully' });
+      } else {
+        console.log(`❌ Question not found: ${questionId}`);
+        res.status(404).json({ error: 'Question not found' });
+      }
   } catch (error) {
-      console.error('Error updating question:', error);
-      res.status(500).json({ error: 'Failed to update question' });
+      console.error('❌ Error updating question:', error);
+      res.status(500).json({ error: 'Failed to update question: ' + error.message });
   }
 });
 router.delete('/subjects/:examId/:subjectId', async (req, res) => {
   try {
     const { examId, subjectId } = req.params;
-    const { data, examData } = await findExamAndSubject(examId);
     
-    const subjectIndex = examData.subjects.findIndex(s => s.subjectId === subjectId);
-    if (subjectIndex === -1) {
-      return res.status(404).json({ error: 'Subject not found' });
+    console.log(`🗑️ Deleting subject: ${subjectId} from exam: ${examId}`);
+    
+    if (!examId || !subjectId) {
+      return res.status(400).json({ error: 'Missing required parameters' });
+    }
+
+    // Use MongoDB directly
+    const mongoService = require('../services/mongoService');
+    const db = await mongoService.connect();
+    
+    // Verify exam exists
+    const exam = await db.collection('exams').findOne({ examId, isActive: true });
+    if (!exam) {
+      return res.status(404).json({ error: 'Exam not found' });
     }
     
-    examData.subjects.splice(subjectIndex, 1);
-    await saveQuestions(data);
-    res.json({ success: true, message: 'Subject deleted successfully' });
+    // Verify subject exists
+    const subject = await db.collection('subjects').findOne({ examId, subjectId });
+    if (!subject) {
+      return res.status(404).json({ error: 'Subject not found' });
+    }
+
+    // Delete all related data in order: questions -> question papers -> subject
+    const questionsDeleteResult = await db.collection('questions').deleteMany({ examId, subjectId });
+    const papersDeleteResult = await db.collection('questionPapers').deleteMany({ examId, subjectId });
+    const subjectDeleteResult = await db.collection('subjects').deleteOne({ examId, subjectId });
+
+    if (subjectDeleteResult.deletedCount === 1) {
+      console.log(`✅ Deleted subject: ${subjectId}, ${papersDeleteResult.deletedCount} papers, ${questionsDeleteResult.deletedCount} questions`);
+      res.json({ 
+        success: true, 
+        message: 'Subject deleted successfully',
+        deletedQuestions: questionsDeleteResult.deletedCount,
+        deletedPapers: papersDeleteResult.deletedCount
+      });
+    } else {
+      console.log(`❌ Failed to delete subject: ${subjectId}`);
+      res.status(500).json({ error: 'Failed to delete subject' });
+    }
   } catch (error) {
-    console.error('Error deleting subject:', error);
+    console.error('❌ Error deleting subject:', error);
     res.status(500).json({ error: 'Failed to delete subject: ' + error.message });
   }
 });
@@ -161,32 +244,67 @@ router.delete('/subjects/:examId/:subjectId', async (req, res) => {
 router.post('/questions/:examId/:subjectId/:paperId', express.json(), async (req, res) => {
   try {
       const { examId, subjectId, paperId } = req.params;
-      console.log('Adding question to:', { examId, subjectId, paperId }); // Debug log
+      const { question, options, correctOption, explanation } = req.body;
+      
+      console.log(`❓ Adding question to: ${examId}/${subjectId}/${paperId}`);
+      
+      if (!question || !options || !correctOption) {
+        return res.status(400).json({ error: 'Missing required fields: question, options, correctOption' });
+      }
 
-      const data = await getQuestions();
-      const exam = data.exams.find(e => e.examId === examId);
+      // Use MongoDB directly
+      const mongoService = require('../services/mongoService');
+      const db = await mongoService.connect();
+      
+      // Verify exam exists
+      const exam = await db.collection('exams').findOne({ examId, isActive: true });
       if (!exam) return res.status(404).json({ error: 'Exam not found' });
 
-      const subject = exam.subjects.find(s => s.subjectId === subjectId);
+      // Verify subject exists
+      const subject = await db.collection('subjects').findOne({ examId, subjectId });
       if (!subject) return res.status(404).json({ error: 'Subject not found' });
 
-      const questionPaper = subject.questionPapers.find(qp => qp.questionPaperId === paperId);
+      // Verify question paper exists
+      const questionPaper = await db.collection('questionPapers').findOne({ 
+        examId, 
+        subjectId, 
+        $or: [{ paperId: paperId }, { questionPaperId: paperId }]
+      });
       if (!questionPaper) return res.status(404).json({ error: 'Question paper not found' });
 
-      // Create and add question
+      // Create new question
+      const questionId = `q${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
       const newQuestion = {
-          questionId: `q${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-          question: req.body.question,
-          options: req.body.options,
-          correctOption: req.body.correctOption,
-          explanation: req.body.explanation
+          questionId,
+          question,
+          options,
+          correctOption,
+          explanation: explanation || '',
+          examId,
+          subjectId,
+          paperId: questionPaper.paperId || questionPaper.questionPaperId,
+          createdAt: new Date(),
+          updatedAt: new Date()
       };
 
-      questionPaper.questions.push(newQuestion);
-      await saveQuestions(data);
-      res.status(201).json({ message: 'Question added successfully', question: newQuestion });
+      // Insert into MongoDB
+      await db.collection('questions').insertOne(newQuestion);
+      
+      console.log(`✅ Created question: ${questionId}`);
+      
+      res.status(201).json({ 
+        success: true,
+        message: 'Question added successfully', 
+        question: {
+          questionId,
+          question,
+          options,
+          correctOption,
+          explanation: explanation || ''
+        }
+      });
   } catch (error) {
-      console.error('Error adding question:', error);
+      console.error('❌ Error adding question:', error);
       res.status(500).json({ error: error.message });
   }
 });
@@ -213,34 +331,60 @@ router.post('/questions/:examId/:subjectId/:paperId', express.json(), async (req
 
 router.post('/questionPapers', express.json(), async (req, res) => {
   try {
-    const { examId, subjectId, paperName, paperSection } = req.body; 
-    const data = await getQuestions();
-
-    const examIndex = data.exams.findIndex(e => e.examId === examId);
-    if (examIndex === -1) {
-      return res.status(404).json({ error: 'Exam not found' });
+    const { examId, subjectId, paperName, paperSection } = req.body;
+    
+    console.log(`📝 Creating question paper: ${paperName} for ${examId}/${subjectId}`);
+    
+    if (!examId || !subjectId || !paperName) {
+      return res.status(400).json({ error: 'Missing required fields: examId, subjectId, paperName' });
     }
 
-    const subjectIndex = data.exams[examIndex].subjects.findIndex(s => s.subjectId === subjectId);
-    if (subjectIndex === -1) {
+    // Use MongoDB directly for better performance
+    const mongoService = require('../services/mongoService');
+    const db = await mongoService.connect();
+    
+    // Verify exam exists
+    const exam = await db.collection('exams').findOne({ examId, isActive: true });
+    if (!exam) {
+      return res.status(404).json({ error: 'Exam not found' });
+    }
+    
+    // Verify subject exists
+    const subject = await db.collection('subjects').findOne({ examId, subjectId });
+    if (!subject) {
       return res.status(404).json({ error: 'Subject not found' });
     }
 
-    // Construct the question paper name
-    const fullPaperName = `${paperSection} - ${paperName}`; 
-
+    const paperId = `qp-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    
     const newQuestionPaper = {
-      questionPaperId: `qp-${Date.now()}`,
-      questionPaperName: paperName, 
-      section: paperSection, 
-      questions: []
+      paperId,
+      questionPaperId: paperId, // For compatibility
+      paperName,
+      questionPaperName: paperName, // For compatibility
+      section: paperSection || '',
+      examId,
+      subjectId,
+      createdAt: new Date(),
+      updatedAt: new Date()
     };
 
-    data.exams[examIndex].subjects[subjectIndex].questionPapers.push(newQuestionPaper);
-    await saveQuestions(data);
-    res.json({ success: true, questionPaper: newQuestionPaper });
+    // Insert into MongoDB
+    await db.collection('questionPapers').insertOne(newQuestionPaper);
+    
+    console.log(`✅ Created question paper: ${paperId}`);
+    
+    res.json({ 
+      success: true, 
+      questionPaper: {
+        questionPaperId: paperId,
+        questionPaperName: paperName,
+        section: paperSection || '',
+        questions: []
+      }
+    });
   } catch (error) {
-    console.error('Error adding question paper:', error);
+    console.error('❌ Error adding question paper:', error);
     res.status(500).json({ error: 'Failed to add question paper: ' + error.message });
   }
 });
@@ -248,51 +392,97 @@ router.post('/questionPapers', express.json(), async (req, res) => {
 router.delete('/questions/:examId/:subjectId/:questionId', express.json(), async (req, res) => {
   try {
     const { examId, subjectId, questionId } = req.params;
-    const data = await getQuestions();
-    const exam = data.exams.find(e => e.examId === examId);
+    
+    console.log(`🗑️ Deleting question: ${questionId} from ${examId}/${subjectId}`);
+    
+    if (!examId || !subjectId || !questionId) {
+      return res.status(400).json({ error: 'Missing required parameters' });
+    }
+
+    // Use MongoDB directly
+    const mongoService = require('../services/mongoService');
+    const db = await mongoService.connect();
+    
+    // Verify exam exists
+    const exam = await db.collection('exams').findOne({ examId, isActive: true });
     if (!exam) return res.status(404).json({ error: 'Exam not found' });
  
-    const subject = exam.subjects.find(s => s.subjectId === subjectId);
+    // Verify subject exists
+    const subject = await db.collection('subjects').findOne({ examId, subjectId });
     if (!subject) return res.status(404).json({ error: 'Subject not found' });
  
-    let questionDeleted = false;
-    for (const paper of subject.questionPapers) {
-      const questionIndex = paper.questions.findIndex(q => q.questionId === questionId);
-      if (questionIndex !== -1) {
-        paper.questions.splice(questionIndex, 1);
-        questionDeleted = true;
-        break;
-      }
+    // Find and delete the question
+    const deleteResult = await db.collection('questions').deleteOne({ 
+      examId, 
+      subjectId, 
+      questionId 
+    });
+ 
+    if (deleteResult.deletedCount === 1) {
+      console.log(`✅ Deleted question: ${questionId}`);
+      res.json({ success: true, message: 'Question deleted successfully' });
+    } else {
+      console.log(`❌ Question not found: ${questionId}`);
+      res.status(404).json({ error: 'Question not found' });
     }
- 
-    if (!questionDeleted) return res.status(404).json({ error: 'Question not found' });
- 
-    await saveQuestions(data);
-    res.json({ success: true });
   } catch (error) {
-    console.error('Error deleting question:', error);
-    res.status(500).json({ error: 'Failed to delete question' });
+    console.error('❌ Error deleting question:', error);
+    res.status(500).json({ error: 'Failed to delete question: ' + error.message });
   }
  });
  
 router.get('/questions/:examId/:subjectId/:paperId', async (req, res) => {
   try {
     const { examId, subjectId, paperId } = req.params;
-    const data = await getQuestions();
-    const examData = data.exams.find(e => e.examId === examId);
-    const subjectData = examData.subjects.find(s => s.subjectId === subjectId);
-    const questionPaper = subjectData.questionPapers.find(qp => qp.questionPaperId === paperId);
+    
+    console.log(`📋 Getting questions for paper: ${paperId} in ${examId}/${subjectId}`);
+    
+    // Use MongoDB directly
+    const mongoService = require('../services/mongoService');
+    const db = await mongoService.connect();
+    
+    // Verify exam exists
+    const exam = await db.collection('exams').findOne({ examId, isActive: true });
+    if (!exam) {
+      return res.status(404).json({ error: 'Exam not found' });
+    }
 
-    res.render('dashboard/questions', {
-      examData,
-      subjectData,
-      questions: questionPaper.questions || [],
+    // Verify subject exists
+    const subject = await db.collection('subjects').findOne({ examId, subjectId });
+    if (!subject) {
+      return res.status(404).json({ error: 'Subject not found' });
+    }
+
+    // Verify question paper exists
+    const questionPaper = await db.collection('questionPapers').findOne({ 
+      examId, 
+      subjectId, 
+      $or: [{ paperId: paperId }, { questionPaperId: paperId }]
+    });
+    if (!questionPaper) {
+      return res.status(404).json({ error: 'Question paper not found' });
+    }
+
+    // Get questions for this paper
+    const questions = await db.collection('questions').find({ 
+      examId, 
+      subjectId, 
+      paperId: questionPaper.paperId || questionPaper.questionPaperId 
+    }).toArray();
+    
+    console.log(`✅ Found ${questions.length} questions for paper ${paperId}`);
+
+    res.json({
+      examData: exam,
+      subjectData: subject,
+      questionPaper: questionPaper,
+      questions: questions || [],
       paperId,
       currentPage: 'questions'
     });
   } catch (error) {
-    console.error(error);
-    res.status(500).send('Error loading questions');
+    console.error('❌ Error loading questions for paper:', error);
+    res.status(500).json({ error: 'Error loading questions: ' + error.message });
   }
 });
 
@@ -301,6 +491,9 @@ router.post('/questions/:examId/:subjectId/:paperId/upload', upload.single('file
     if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
 
     const { examId, subjectId, paperId } = req.params;
+    
+    console.log(`📤 Uploading questions to: ${examId}/${subjectId}/${paperId}`);
+    
     const workbook = XLSX.read(req.file.buffer, { type: 'buffer' });
     const worksheet = workbook.Sheets[workbook.SheetNames[0]];
     const rawQuestions = XLSX.utils.sheet_to_json(worksheet, { raw: true, defval: '' });
@@ -317,15 +510,25 @@ router.post('/questions/:examId/:subjectId/:paperId/upload', upload.single('file
       return res.status(400).json({ error: `Missing headers: ${missingHeaders.join(', ')}` });
     }
 
-    const data = await getQuestions();
-    const exam = data.exams.find(e => e.examId === examId);
+    // Use MongoDB directly
+    const mongoService = require('../services/mongoService');
+    const db = await mongoService.connect();
+    
+    // Verify exam exists
+    const exam = await db.collection('exams').findOne({ examId, isActive: true });
     if (!exam) return res.status(404).json({ error: 'Exam not found' });
 
-    const subject = exam.subjects.find(s => s.subjectId === subjectId);
+    // Verify subject exists
+    const subject = await db.collection('subjects').findOne({ examId, subjectId });
     if (!subject) return res.status(404).json({ error: 'Subject not found' });
 
-    const paper = subject.questionPapers.find(p => p.questionPaperId === paperId);
-    if (!paper) return res.status(404).json({ error: 'Paper not found' });
+    // Verify question paper exists
+    const questionPaper = await db.collection('questionPapers').findOne({ 
+      examId, 
+      subjectId, 
+      $or: [{ paperId: paperId }, { questionPaperId: paperId }]
+    });
+    if (!questionPaper) return res.status(404).json({ error: 'Question paper not found' });
 
     const processedQuestions = rawQuestions.map((q, index) => {
       if (!q.Question || !q['Option A'] || !q['Option B'] || !q['Option C'] || !q['Option D'] || !q['Correct Option']) {
@@ -341,21 +544,33 @@ router.post('/questions/:examId/:subjectId/:paperId/upload', upload.single('file
         question: q.Question,
         options: [
           { optionId: 'a', text: q['Option A'] },
-            { optionId: 'b', text: q['Option B'] },
-            { optionId: 'c', text: q['Option C'] },
-            { optionId: 'd', text: q['Option D'] }
+          { optionId: 'b', text: q['Option B'] },
+          { optionId: 'c', text: q['Option C'] },
+          { optionId: 'd', text: q['Option D'] }
         ],
         correctOption: String(q['Correct Option']).toLowerCase(),
-        explanation: (q.Explanation || '')
+        explanation: (q.Explanation || ''),
+        examId,
+        subjectId,
+        paperId: questionPaper.paperId || questionPaper.questionPaperId,
+        createdAt: new Date(),
+        updatedAt: new Date()
       };
     });
 
-    paper.questions.push(...processedQuestions);
-    await saveQuestions(data);
-    res.json({ success: true, count: processedQuestions.length });
+    // Insert all questions into MongoDB
+    const insertResult = await db.collection('questions').insertMany(processedQuestions);
+    
+    console.log(`✅ Uploaded ${insertResult.insertedCount} questions to MongoDB`);
+    
+    res.json({ 
+      success: true, 
+      count: insertResult.insertedCount,
+      message: `Successfully uploaded ${insertResult.insertedCount} questions`
+    });
 
   } catch (error) {
-    console.error('Upload error:', error);
+    console.error('❌ Upload error:', error);
     res.status(400).json({ error: error.message });
   }
 });
@@ -366,33 +581,71 @@ router.post('/questions/:examId/:subjectId/:paperId/upload', upload.single('file
 router.delete('/questionPapers/:examId/:subjectId/:questionPaperId', express.json(), async (req, res) => {
   try {
     const { examId, subjectId, questionPaperId } = req.params;
-    const data = await getQuestions();
-
-    const examIndex = data.exams.findIndex(e => e.examId === examId);
-    if (examIndex === -1) {
-      return res.status(404).json({ error: 'Exam not found' });
+    
+    console.log(`🗑️ Deleting question paper: ${questionPaperId} from ${examId}/${subjectId}`);
+    
+    if (!examId || !subjectId || !questionPaperId) {
+      return res.status(400).json({ error: 'Missing required parameters' });
     }
 
-    const subjectIndex = data.exams[examIndex].subjects.findIndex(s => s.subjectId === subjectId);
-    if (subjectIndex === -1) {
+    // Use MongoDB directly
+    const mongoService = require('../services/mongoService');
+    const db = await mongoService.connect();
+    
+    // Verify exam exists
+    const exam = await db.collection('exams').findOne({ examId, isActive: true });
+    if (!exam) {
+      return res.status(404).json({ error: 'Exam not found' });
+    }
+    
+    // Verify subject exists
+    const subject = await db.collection('subjects').findOne({ examId, subjectId });
+    if (!subject) {
       return res.status(404).json({ error: 'Subject not found' });
     }
 
-    const paperIndex = data.exams[examIndex].subjects[subjectIndex].questionPapers.findIndex(
-      qp => qp.questionPaperId === questionPaperId
-    );
+    // Find and delete the question paper
+    const questionPaper = await db.collection('questionPapers').findOne({ 
+      examId, 
+      subjectId, 
+      $or: [{ paperId: questionPaperId }, { questionPaperId: questionPaperId }]
+    });
 
-    if (paperIndex === -1) {
+    if (!questionPaper) {
+      console.log(`❌ Question paper not found: ${questionPaperId}`);
       return res.status(404).json({ error: 'Question paper not found' });
     }
 
-    data.exams[examIndex].subjects[subjectIndex].questionPapers.splice(paperIndex, 1);
-    await saveQuestions(data);
-    res.json({ success: true }); 
+    // Delete the question paper and all its questions
+    const paperIdToDelete = questionPaper.paperId || questionPaper.questionPaperId;
+    
+    // Delete questions first
+    const questionsDeleteResult = await db.collection('questions').deleteMany({ 
+      examId, 
+      subjectId, 
+      paperId: paperIdToDelete 
+    });
+    
+    // Delete the question paper
+    const paperDeleteResult = await db.collection('questionPapers').deleteOne({ 
+      _id: questionPaper._id 
+    });
+
+    if (paperDeleteResult.deletedCount === 1) {
+      console.log(`✅ Deleted question paper: ${questionPaperId} and ${questionsDeleteResult.deletedCount} questions`);
+      res.json({ 
+        success: true, 
+        message: 'Question paper deleted successfully',
+        deletedQuestions: questionsDeleteResult.deletedCount
+      });
+    } else {
+      console.log(`❌ Failed to delete question paper: ${questionPaperId}`);
+      res.status(500).json({ error: 'Failed to delete question paper' });
+    }
 
   } catch (error) {
-    console.error('Error deleting question paper:', error);
-    res.status(500).json({ error: 'Failed to delete question paper' });
+    console.error('❌ Error deleting question paper:', error);
+    res.status(500).json({ error: 'Failed to delete question paper: ' + error.message });
   }
 });
 

@@ -1,7 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
-const fs = require('fs').promises;
 
 // Blog posts data (in production, this would come from a database)
 const blogPosts = [

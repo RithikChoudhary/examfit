@@ -1,24 +1,37 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
-const path = require('path');
 
-// Get current affairs data
-function getCurrentAffairs() {
+// Get current affairs data from MongoDB
+async function getCurrentAffairs() {
   try {
-    const dataPath = path.join(__dirname, '../data/current_affairs.json');
-    if (fs.existsSync(dataPath)) {
-      const rawData = fs.readFileSync(dataPath, 'utf8');
-      return JSON.parse(rawData);
-    }
+    console.log('📰 Loading current affairs from MongoDB...');
+    
+    // Use MongoDB instead of file system
+    const mongoService = require('../services/mongoService');
+    const db = await mongoService.connect();
+    
+    // Get current affairs from MongoDB
+    const currentAffairs = await db.collection('currentAffairs').find({}).sort({ publishedDate: -1 }).toArray();
+    
+    // Get metadata
+    const metadata = await db.collection('currentAffairsMetadata').findOne({}) || {};
+    
+    // Extract unique categories and sources
+    const categories = [...new Set(currentAffairs.map(affair => affair.category).filter(Boolean))];
+    const sources = [...new Set(currentAffairs.map(affair => affair.source).filter(Boolean))];
+    
+    console.log(`✅ Loaded ${currentAffairs.length} current affairs from MongoDB`);
+    
     return {
-      currentAffairs: [],
-      lastUpdated: null,
-      sources: [],
-      categories: []
+      currentAffairs,
+      lastUpdated: metadata.lastUpdated || new Date().toISOString(),
+      sources,
+      categories
     };
   } catch (error) {
-    console.error('Error loading current affairs:', error);
+    console.error('❌ Error loading current affairs from MongoDB:', error);
+    
+    // Fallback to empty data with proper structure
     return {
       currentAffairs: [],
       lastUpdated: null,
@@ -29,9 +42,9 @@ function getCurrentAffairs() {
 }
 
 // Main current affairs page
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   try {
-    const data = getCurrentAffairs();
+    const data = await getCurrentAffairs();
     const { category, importance } = req.query;
     
     let filteredAffairs = data.currentAffairs || [];
@@ -81,9 +94,9 @@ router.get('/', (req, res) => {
 });
 
 // API endpoint for current affairs
-router.get('/api/current-affairs', (req, res) => {
+router.get('/api/current-affairs', async (req, res) => {
   try {
-    const data = getCurrentAffairs();
+    const data = await getCurrentAffairs();
     const { category, importance, limit } = req.query;
     
     let filteredAffairs = data.currentAffairs || [];
@@ -126,9 +139,9 @@ router.get('/api/current-affairs', (req, res) => {
 });
 
 // Widget for homepage
-router.get('/widget', (req, res) => {
+router.get('/widget', async (req, res) => {
   try {
-    const data = getCurrentAffairs();
+    const data = await getCurrentAffairs();
     const recentAffairs = data.currentAffairs?.slice(0, 5) || [];
     
     res.json({

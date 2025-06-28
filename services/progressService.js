@@ -1,13 +1,11 @@
-const fs = require('fs').promises;
-const path = require('path');
 const cacheService = require('./cacheService');
 
 class ProgressService {
     constructor() {
-        this.progressPath = path.join(__dirname, '..', 'data', 'progress.json');
+        // No longer need file path - using MongoDB
     }
 
-    // Get or create progress data
+    // Get or create progress data from MongoDB
     async getProgressData() {
         const cacheKey = 'progress_data';
         
@@ -17,42 +15,134 @@ class ProgressService {
         }
 
         try {
-            const data = await fs.readFile(this.progressPath, 'utf8');
-            const progressData = JSON.parse(data);
+            console.log('📊 Loading progress data from MongoDB...');
+            
+            // Use MongoDB instead of file system
+            const mongoService = require('./mongoService');
+            const db = await mongoService.connect();
+            
+            // Get sessions from MongoDB
+            const sessions = await db.collection('progressSessions').find({}).sort({ date: -1 }).toArray();
+            
+            // Get user stats from MongoDB
+            const userStats = await db.collection('userStats').find({}).toArray();
+            const userStatsObj = {};
+            userStats.forEach(stat => {
+                if (!userStatsObj[stat.examId]) {
+                    userStatsObj[stat.examId] = {};
+                }
+                userStatsObj[stat.examId][stat.subjectId] = stat.stats;
+            });
+            
+            // Get global stats from MongoDB
+            const globalStats = await db.collection('globalStats').findOne({}) || {
+                totalSessions: 0,
+                totalQuestions: 0,
+                totalCorrect: 0,
+                averageScore: 0,
+                createdAt: new Date().toISOString()
+            };
+            
+            const progressData = {
+                sessions,
+                userStats: userStatsObj,
+                globalStats
+            };
+            
+            console.log(`✅ Loaded ${sessions.length} progress sessions from MongoDB`);
             
             cacheService.set(cacheKey, progressData);
             
             return progressData;
         } catch (error) {
-            if (error.code === 'ENOENT') {
-                const defaultData = { 
-                    sessions: [], 
-                    userStats: {},
-                    globalStats: {
-                        totalSessions: 0,
-                        totalQuestions: 0,
-                        totalCorrect: 0,
-                        averageScore: 0,
-                        createdAt: new Date().toISOString()
-                    }
-                };
-                await this.saveProgressData(defaultData);
-                return defaultData;
-            }
-            throw error;
+            console.error('❌ Error loading progress data from MongoDB:', error);
+            
+            // Return default data structure
+            const defaultData = { 
+                sessions: [], 
+                userStats: {},
+                globalStats: {
+                    totalSessions: 0,
+                    totalQuestions: 0,
+                    totalCorrect: 0,
+                    averageScore: 0,
+                    createdAt: new Date().toISOString()
+                }
+            };
+            
+            return defaultData;
         }
     }
 
-    // Save progress data
+    // Save progress data to MongoDB
     async saveProgressData(data) {
         if (!data || typeof data !== 'object') {
             throw new Error('Invalid progress data structure');
         }
         
-        await fs.writeFile(this.progressPath, JSON.stringify(data, null, 2));
-        
-        // Update cache
-        cacheService.set('progress_data', data);
+        try {
+            console.log('💾 Saving progress data to MongoDB...');
+            
+            // Use MongoDB instead of file system
+            const mongoService = require('./mongoService');
+            const db = await mongoService.connect();
+            
+            // Save sessions (only new ones)
+            if (data.sessions && data.sessions.length > 0) {
+                // Get existing session IDs to avoid duplicates
+                const existingSessions = await db.collection('progressSessions').find({}, { projection: { id: 1 } }).toArray();
+                const existingIds = new Set(existingSessions.map(s => s.id));
+                
+                const newSessions = data.sessions.filter(session => !existingIds.has(session.id));
+                
+                if (newSessions.length > 0) {
+                    await db.collection('progressSessions').insertMany(newSessions);
+                    console.log(`✅ Saved ${newSessions.length} new progress sessions`);
+                }
+            }
+            
+            // Save user stats
+            if (data.userStats) {
+                for (const examId in data.userStats) {
+                    for (const subjectId in data.userStats[examId]) {
+                        await db.collection('userStats').updateOne(
+                            { examId, subjectId },
+                            { 
+                                $set: { 
+                                    examId, 
+                                    subjectId, 
+                                    stats: data.userStats[examId][subjectId],
+                                    updatedAt: new Date()
+                                }
+                            },
+                            { upsert: true }
+                        );
+                    }
+                }
+            }
+            
+            // Save global stats
+            if (data.globalStats) {
+                await db.collection('globalStats').updateOne(
+                    {},
+                    { 
+                        $set: { 
+                            ...data.globalStats,
+                            updatedAt: new Date()
+                        }
+                    },
+                    { upsert: true }
+                );
+            }
+            
+            console.log('✅ Progress data saved to MongoDB');
+            
+            // Update cache
+            cacheService.set('progress_data', data);
+        } catch (error) {
+            console.error('❌ Error saving progress data to MongoDB:', error);
+            throw error;
+        }
     }
 
     // Save practice session

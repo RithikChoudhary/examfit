@@ -12,27 +12,68 @@ async function getQuestions() {
     };
 }
 
-// Save questions - MongoDB only
+// Save questions - MongoDB only (deprecated - use direct MongoDB operations instead)
 async function saveQuestions(data) {
-    if (!data || !data.exams) {
-        throw new Error('Invalid data structure - missing exams array');
+    console.warn('⚠️ saveQuestions() is deprecated. Use direct MongoDB operations instead.');
+    
+    // For backward compatibility, handle both old and new data structures
+    if (!data) {
+        throw new Error('Invalid data structure - no data provided');
     }
 
     console.log('💾 Saving data to MongoDB...');
     
     const db = await mongoService.connect();
     
-    // Add any new questions from the data
     let totalAdded = 0;
-    for (const exam of data.exams) {
-        for (const subject of exam.subjects || []) {
-            for (const paper of subject.questionPapers || []) {
-                if (paper.questions && paper.questions.length > 0) {
-                    const result = await mongoService.addQuestions(paper.questions);
-                    totalAdded += result.insertedCount || 0;
+    
+    // Handle old structure (data.exams)
+    if (data.exams && Array.isArray(data.exams)) {
+        for (const exam of data.exams) {
+            for (const subject of exam.subjects || []) {
+                for (const paper of subject.questionPapers || []) {
+                    if (paper.questions && paper.questions.length > 0) {
+                        // Add exam/subject/paper context to each question
+                        const questionsWithContext = paper.questions.map(q => ({
+                            ...q,
+                            examId: exam.examId,
+                            subjectId: subject.subjectId,
+                            paperId: paper.questionPaperId || paper.paperId,
+                            createdAt: new Date(),
+                            updatedAt: new Date()
+                        }));
+                        
+                        try {
+                            const result = await db.collection('questions').insertMany(questionsWithContext, { ordered: false });
+                            totalAdded += result.insertedCount || 0;
+                        } catch (error) {
+                            if (error.code === 11000) {
+                                // Duplicate key error - some questions already exist
+                                console.log('Some questions already exist, skipping duplicates');
+                            } else {
+                                throw error;
+                            }
+                        }
+                    }
                 }
             }
         }
+    }
+    // Handle new structure (direct questions array)
+    else if (Array.isArray(data)) {
+        try {
+            const result = await db.collection('questions').insertMany(data, { ordered: false });
+            totalAdded += result.insertedCount || 0;
+        } catch (error) {
+            if (error.code === 11000) {
+                console.log('Some questions already exist, skipping duplicates');
+            } else {
+                throw error;
+            }
+        }
+    }
+    else {
+        console.log('No questions to save or unrecognized data structure');
     }
     
     console.log(`✅ Saved ${totalAdded} new questions to MongoDB`);

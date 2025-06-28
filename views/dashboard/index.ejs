@@ -26,13 +26,31 @@
             </div>
 
             <div class="content-area">
+                <% if (hasError) { %>
+                <!-- Error Alert -->
+                <div class="alert alert-error" style="background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; padding: 1rem; border-radius: var(--border-radius); margin-bottom: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Database Connection Issue</strong>
+                    </div>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.875rem;">
+                        <%= errorMessage || 'Unable to connect to the database. Some features may not work properly.' %>
+                    </p>
+                    <div style="margin-top: 1rem;">
+                        <button onclick="window.location.reload()" class="btn btn-sm" style="background: #dc2626; color: white;">
+                            <i class="fas fa-refresh"></i> Retry Connection
+                        </button>
+                    </div>
+                </div>
+                <% } %>
+
                 <!-- Stats Overview -->
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <div class="stat-value"><%= data.exams.length %></div>
+                        <div class="stat-value"><%= totalExams || 0 %></div>
                         <div class="stat-label">Total Exams</div>
                     </div>
                     
@@ -40,17 +58,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-book"></i>
                         </div>
-                        <div class="stat-value">
-                            <% 
-                            let totalSubjects = 0;
-                            data.exams.forEach(exam => {
-                                if (exam.subjects) {
-                                    totalSubjects += exam.subjects.length;
-                                }
-                            });
-                            %>
-                            <%= totalSubjects %>
-                        </div>
+                        <div class="stat-value"><%= totalSubjects || 0 %></div>
                         <div class="stat-label">Total Subjects</div>
                     </div>
                     
@@ -58,21 +66,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-file-alt"></i>
                         </div>
-                        <div class="stat-value">
-                            <% 
-                            let totalPapers = 0;
-                            data.exams.forEach(exam => {
-                                if (exam.subjects) {
-                                    exam.subjects.forEach(subject => {
-                                        if (subject.questionPapers) {
-                                            totalPapers += subject.questionPapers.length;
-                                        }
-                                    });
-                                }
-                            });
-                            %>
-                            <%= totalPapers %>
-                        </div>
+                        <div class="stat-value"><%= totalPapers || 0 %></div>
                         <div class="stat-label">Question Papers</div>
                     </div>
                     
@@ -80,25 +74,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-question-circle"></i>
                         </div>
-                        <div class="stat-value">
-                            <% 
-                            let totalQuestions = 0;
-                            data.exams.forEach(exam => {
-                                if (exam.subjects) {
-                                    exam.subjects.forEach(subject => {
-                                        if (subject.questionPapers) {
-                                            subject.questionPapers.forEach(paper => {
-                                                if (paper.questions) {
-                                                    totalQuestions += paper.questions.length;
-                                                }
-                                            });
-                                        }
-                                    });
-                                }
-                            });
-                            %>
-                            <%= totalQuestions %>
-                        </div>
+                        <div class="stat-value"><%= totalQuestions || 0 %></div>
                         <div class="stat-label">Total Questions</div>
                     </div>
                 </div>

@@ -310,8 +310,8 @@ class ExamService {
         // PERFORMANCE FIX: Don't load all questions at this stage
         // Only load questions when specifically requested for individual papers
         const result = subject.questionPapers ? subject.questionPapers.map(paper => ({
-            questionPaperId: paper.questionPaperId,
-            questionPaperName: paper.questionPaperName,
+            questionPaperId: paper.questionPaperId || paper.paperId, // Handle both field names
+            questionPaperName: paper.questionPaperName || paper.paperName, // Handle both field names
             section: paper.section,
             questionCount: paper.questionCount || 0, // Use pre-calculated count
             questions: [] // Don't load questions here - load on demand
@@ -353,61 +353,85 @@ class ExamService {
 
     // Add new subject to exam
     async addSubject(examId, subjectData) {
-        const data = await getQuestions();
-        const examIndex = data.exams.findIndex(e => e.examId === examId);
+        console.log(`📚 Adding subject: ${subjectData.subjectName} to exam: ${examId}`);
         
-        if (examIndex === -1) {
+        // Use MongoDB directly
+        const mongoService = require('./mongoService');
+        const db = await mongoService.connect();
+        
+        // Verify exam exists
+        const exam = await db.collection('exams').findOne({ examId, isActive: true });
+        if (!exam) {
             throw new Error('Exam not found');
         }
 
         const subjectId = subjectData.subjectName.toLowerCase().replace(/\s+/g, '-');
         
         // Check if subject already exists
-        if (data.exams[examIndex].subjects?.some(s => s.subjectId === subjectId)) {
+        const existingSubject = await db.collection('subjects').findOne({ examId, subjectId });
+        if (existingSubject) {
             throw new Error('Subject already exists');
         }
 
         const newSubject = {
+            examId,
+            subjectId,
+            subjectName: subjectData.subjectName,
+            totalPapers: 0,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        };
+
+        // Insert into MongoDB
+        await db.collection('subjects').insertOne(newSubject);
+        
+        console.log(`✅ Created subject: ${subjectId}`);
+        
+        // Invalidate cache
+        this.invalidateCache(examId);
+        
+        return {
             subjectId,
             subjectName: subjectData.subjectName,
             questionPapers: []
         };
-
-        if (!data.exams[examIndex].subjects) {
-            data.exams[examIndex].subjects = [];
-        }
-
-        data.exams[examIndex].subjects.push(newSubject);
-        await saveQuestions(data);
-        
-        // Invalidate cache
-        this.invalidateCache(examId);
-        
-        return newSubject;
     }
 
     // Delete subject
     async deleteSubject(examId, subjectId) {
-        const data = await getQuestions();
-        const examIndex = data.exams.findIndex(e => e.examId === examId);
+        console.log(`🗑️ Deleting subject: ${subjectId} from exam: ${examId}`);
         
-        if (examIndex === -1) {
+        // Use MongoDB directly
+        const mongoService = require('./mongoService');
+        const db = await mongoService.connect();
+        
+        // Verify exam exists
+        const exam = await db.collection('exams').findOne({ examId, isActive: true });
+        if (!exam) {
             throw new Error('Exam not found');
         }
-
-        const subjectIndex = data.exams[examIndex].subjects?.findIndex(s => s.subjectId === subjectId);
         
-        if (subjectIndex === -1) {
+        // Verify subject exists
+        const subject = await db.collection('subjects').findOne({ examId, subjectId });
+        if (!subject) {
             throw new Error('Subject not found');
         }
 
-        data.exams[examIndex].subjects.splice(subjectIndex, 1);
-        await saveQuestions(data);
-        
-        // Invalidate cache
-        this.invalidateCache(examId);
-        
-        return true;
+        // Delete all related data in order: questions -> question papers -> subject
+        const questionsDeleteResult = await db.collection('questions').deleteMany({ examId, subjectId });
+        const papersDeleteResult = await db.collection('questionPapers').deleteMany({ examId, subjectId });
+        const subjectDeleteResult = await db.collection('subjects').deleteOne({ examId, subjectId });
+
+        if (subjectDeleteResult.deletedCount === 1) {
+            console.log(`✅ Deleted subject: ${subjectId}, ${papersDeleteResult.deletedCount} papers, ${questionsDeleteResult.deletedCount} questions`);
+            
+            // Invalidate cache
+            this.invalidateCache(examId);
+            
+            return true;
+        } else {
+            throw new Error('Failed to delete subject');
+        }
     }
 
     // Search exams by name or ID

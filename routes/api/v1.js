@@ -479,32 +479,51 @@ router.get('/health', (req, res) => {
 // GET /api/v1/debug/data - Debug data structure
 router.get('/debug/data', asyncHandler(async (req, res) => {
     try {
-        const { getQuestions } = require('../../utils/dataHelpers');
-        const rawData = await getQuestions();
+        // Use MongoDB directly instead of getQuestions()
+        const mongoService = require('../../services/mongoService');
+        const db = await mongoService.connect();
+        
+        // Get data directly from MongoDB
+        const exams = await db.collection('exams').find({ isActive: true }).toArray();
+        const subjects = await db.collection('subjects').find({}).toArray();
+        const papers = await db.collection('questionPapers').find({}).toArray();
+        const questions = await db.collection('questions').find({}).toArray();
         
         const debugInfo = {
             dataStructure: {
-                hasExams: !!rawData.exams,
-                examCount: rawData.exams ? rawData.exams.length : 0,
-                exams: rawData.exams ? rawData.exams.map(exam => ({
-                    examId: exam.examId,
-                    examName: exam.examName,
-                    subjectCount: exam.subjects ? exam.subjects.length : 0,
-                    hasSubjects: !!exam.subjects,
-                    firstSubject: exam.subjects && exam.subjects.length > 0 ? exam.subjects[0].subjectName : 'none'
-                })) : []
+                hasExams: exams.length > 0,
+                examCount: exams.length,
+                subjectCount: subjects.length,
+                paperCount: papers.length,
+                questionCount: questions.length,
+                exams: exams.map(exam => {
+                    const examSubjects = subjects.filter(s => s.examId === exam.examId);
+                    return {
+                        examId: exam.examId,
+                        examName: exam.examName,
+                        subjectCount: examSubjects.length,
+                        hasSubjects: examSubjects.length > 0,
+                        firstSubject: examSubjects.length > 0 ? examSubjects[0].subjectName : 'none'
+                    };
+                })
             },
             serviceResults: {
                 examServiceCount: 0,
                 examServiceError: null
+            },
+            mongoCollections: {
+                exams: exams.length,
+                subjects: subjects.length,
+                questionPapers: papers.length,
+                questions: questions.length
             }
         };
         
         // Test examService
         try {
             const examService = require('../../services/examService');
-            const exams = await examService.getAllExams(false); // Don't use cache
-            debugInfo.serviceResults.examServiceCount = exams.length;
+            const serviceExams = await examService.getAllExams(false); // Don't use cache
+            debugInfo.serviceResults.examServiceCount = serviceExams.length;
         } catch (error) {
             debugInfo.serviceResults.examServiceError = error.message;
         }

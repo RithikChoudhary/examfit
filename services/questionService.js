@@ -69,229 +69,303 @@ class QuestionService {
 
     // Add question paper
     async addQuestionPaper(examId, subjectId, paperData) {
-        const data = await getQuestions();
-        const examIndex = data.exams.findIndex(e => e.examId === examId);
+        console.log(`📝 Adding question paper: ${paperData.paperName} to ${examId}/${subjectId}`);
         
-        if (examIndex === -1) {
-            throw new Error('Exam not found');
-        }
-
-        const subjectIndex = data.exams[examIndex].subjects?.findIndex(s => s.subjectId === subjectId);
+        // Use MongoDB directly
+        const mongoService = require('./mongoService');
+        const db = await mongoService.connect();
         
-        if (subjectIndex === -1) {
-            throw new Error('Subject not found');
-        }
-
-        const newPaper = {
-            questionPaperId: `qp-${Date.now()}`,
-            questionPaperName: paperData.paperName,
-            section: paperData.paperSection || 'General',
-            questions: []
-        };
-
-        if (!data.exams[examIndex].subjects[subjectIndex].questionPapers) {
-            data.exams[examIndex].subjects[subjectIndex].questionPapers = [];
-        }
-
-        data.exams[examIndex].subjects[subjectIndex].questionPapers.push(newPaper);
-        await saveQuestions(data);
-        
-        // Invalidate cache
-        this.invalidateCache(examId, subjectId);
-        examService.invalidateCache(examId);
-        
-        return newPaper;
-    }
-
-    // Delete question paper
-    async deleteQuestionPaper(examId, subjectId, paperId) {
-        const data = await getQuestions();
-        const examIndex = data.exams.findIndex(e => e.examId === examId);
-        
-        if (examIndex === -1) {
-            throw new Error('Exam not found');
-        }
-
-        const subjectIndex = data.exams[examIndex].subjects?.findIndex(s => s.subjectId === subjectId);
-        
-        if (subjectIndex === -1) {
-            throw new Error('Subject not found');
-        }
-
-        const paperIndex = data.exams[examIndex].subjects[subjectIndex].questionPapers?.findIndex(p => p.questionPaperId === paperId);
-        
-        if (paperIndex === -1) {
-            throw new Error('Question paper not found');
-        }
-
-        data.exams[examIndex].subjects[subjectIndex].questionPapers.splice(paperIndex, 1);
-        await saveQuestions(data);
-        
-        // Invalidate cache
-        this.invalidateCache(examId, subjectId);
-        examService.invalidateCache(examId);
-        
-        return true;
-    }
-
-    // Add question to paper
-    async addQuestion(examId, subjectId, paperId, questionData) {
-        const data = await getQuestions();
-        const exam = data.exams.find(e => e.examId === examId);
-        
+        // Verify exam exists
+        const exam = await db.collection('exams').findOne({ examId, isActive: true });
         if (!exam) {
             throw new Error('Exam not found');
         }
-
-        const subject = exam.subjects?.find(s => s.subjectId === subjectId);
         
+        // Verify subject exists
+        const subject = await db.collection('subjects').findOne({ examId, subjectId });
         if (!subject) {
             throw new Error('Subject not found');
         }
 
-        const paper = subject.questionPapers?.find(p => p.questionPaperId === paperId);
+        const paperId = `qp-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
         
-        if (!paper) {
+        const newPaper = {
+            paperId,
+            questionPaperId: paperId, // For compatibility
+            paperName: paperData.paperName,
+            questionPaperName: paperData.paperName, // For compatibility
+            section: paperData.paperSection || 'General',
+            examId,
+            subjectId,
+            createdAt: new Date(),
+            updatedAt: new Date()
+        };
+
+        // Insert into MongoDB
+        await db.collection('questionPapers').insertOne(newPaper);
+        
+        console.log(`✅ Created question paper: ${paperId}`);
+        
+        // Invalidate cache
+        this.invalidateCache(examId, subjectId);
+        examService.invalidateCache(examId);
+        
+        return {
+            questionPaperId: paperId,
+            questionPaperName: paperData.paperName,
+            section: paperData.paperSection || 'General',
+            questions: []
+        };
+    }
+
+    // Delete question paper
+    async deleteQuestionPaper(examId, subjectId, paperId) {
+        console.log(`🗑️ Deleting question paper: ${paperId} from ${examId}/${subjectId}`);
+        
+        // Use MongoDB directly
+        const mongoService = require('./mongoService');
+        const db = await mongoService.connect();
+        
+        // Verify exam exists
+        const exam = await db.collection('exams').findOne({ examId, isActive: true });
+        if (!exam) {
+            throw new Error('Exam not found');
+        }
+        
+        // Verify subject exists
+        const subject = await db.collection('subjects').findOne({ examId, subjectId });
+        if (!subject) {
+            throw new Error('Subject not found');
+        }
+
+        // Find and delete the question paper
+        const questionPaper = await db.collection('questionPapers').findOne({ 
+            examId, 
+            subjectId, 
+            $or: [{ paperId: paperId }, { questionPaperId: paperId }]
+        });
+
+        if (!questionPaper) {
             throw new Error('Question paper not found');
         }
 
-        // Validate question data
+        // Delete the question paper and all its questions
+        const paperIdToDelete = questionPaper.paperId || questionPaper.questionPaperId;
+        
+        // Delete questions first
+        const questionsDeleteResult = await db.collection('questions').deleteMany({ 
+            examId, 
+            subjectId, 
+            paperId: paperIdToDelete 
+        });
+        
+        // Delete the question paper
+        const paperDeleteResult = await db.collection('questionPapers').deleteOne({ 
+            _id: questionPaper._id 
+        });
+
+        if (paperDeleteResult.deletedCount === 1) {
+            console.log(`✅ Deleted question paper: ${paperId} and ${questionsDeleteResult.deletedCount} questions`);
+            
+            // Invalidate cache
+            this.invalidateCache(examId, subjectId);
+            examService.invalidateCache(examId);
+            
+            return true;
+        } else {
+            throw new Error('Failed to delete question paper');
+        }
+    }
+
+    // Add question to paper
+    async addQuestion(examId, subjectId, paperId, questionData) {
+        console.log(`❓ Adding question to: ${examId}/${subjectId}/${paperId}`);
+        
+        // Validate question data first
         this.validateQuestionData(questionData);
 
+        // Use MongoDB directly
+        const mongoService = require('./mongoService');
+        const db = await mongoService.connect();
+        
+        // Verify exam exists
+        const exam = await db.collection('exams').findOne({ examId, isActive: true });
+        if (!exam) {
+            throw new Error('Exam not found');
+        }
+
+        // Verify subject exists
+        const subject = await db.collection('subjects').findOne({ examId, subjectId });
+        if (!subject) {
+            throw new Error('Subject not found');
+        }
+
+        // Verify question paper exists
+        const questionPaper = await db.collection('questionPapers').findOne({ 
+            examId, 
+            subjectId, 
+            $or: [{ paperId: paperId }, { questionPaperId: paperId }]
+        });
+        if (!questionPaper) {
+            throw new Error('Question paper not found');
+        }
+
+        // Create new question
+        const questionId = `q${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
         const newQuestion = {
-            questionId: `q${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+            questionId,
             question: questionData.question,
             options: questionData.options,
             correctOption: questionData.correctOption,
-            explanation: questionData.explanation || ''
+            explanation: questionData.explanation || '',
+            examId,
+            subjectId,
+            paperId: questionPaper.paperId || questionPaper.questionPaperId,
+            createdAt: new Date(),
+            updatedAt: new Date()
         };
 
-        if (!paper.questions) {
-            paper.questions = [];
-        }
-
-        paper.questions.push(newQuestion);
-        await saveQuestions(data);
+        // Insert into MongoDB
+        await db.collection('questions').insertOne(newQuestion);
+        
+        console.log(`✅ Created question: ${questionId}`);
         
         // Invalidate cache
         this.invalidateCache(examId, subjectId, paperId);
         examService.invalidateCache(examId);
         
-        return newQuestion;
+        return {
+            questionId,
+            question: questionData.question,
+            options: questionData.options,
+            correctOption: questionData.correctOption,
+            explanation: questionData.explanation || ''
+        };
     }
 
     // Update question
     async updateQuestion(examId, subjectId, questionId, questionData) {
-        const data = await getQuestions();
-        const exam = data.exams.find(e => e.examId === examId);
+        console.log(`✏️ Updating question: ${questionId} in ${examId}/${subjectId}`);
         
+        // Validate question data first
+        this.validateQuestionData(questionData);
+
+        // Use MongoDB directly
+        const mongoService = require('./mongoService');
+        const db = await mongoService.connect();
+        
+        // Verify exam exists
+        const exam = await db.collection('exams').findOne({ examId, isActive: true });
         if (!exam) {
             throw new Error('Exam not found');
         }
 
-        const subject = exam.subjects?.find(s => s.subjectId === subjectId);
-        
+        // Verify subject exists
+        const subject = await db.collection('subjects').findOne({ examId, subjectId });
         if (!subject) {
             throw new Error('Subject not found');
         }
 
-        let questionFound = false;
-        let updatedQuestion = null;
-
-        if (subject.questionPapers) {
-            for (const paper of subject.questionPapers) {
-                const questionIndex = paper.questions?.findIndex(q => q.questionId === questionId);
-                if (questionIndex !== -1) {
-                    // Validate question data
-                    this.validateQuestionData(questionData);
-
-                    updatedQuestion = {
-                        questionId,
-                        question: questionData.question,
-                        options: questionData.options,
-                        correctOption: questionData.correctOption,
-                        explanation: questionData.explanation || ''
-                    };
-
-                    paper.questions[questionIndex] = updatedQuestion;
-                    questionFound = true;
-                    break;
+        // Update the question
+        const updateResult = await db.collection('questions').updateOne(
+            { examId, subjectId, questionId },
+            { 
+                $set: {
+                    question: questionData.question,
+                    options: questionData.options,
+                    correctOption: questionData.correctOption,
+                    explanation: questionData.explanation || '',
+                    updatedAt: new Date()
                 }
             }
-        }
+        );
 
-        if (!questionFound) {
+        if (updateResult.matchedCount === 1) {
+            console.log(`✅ Updated question: ${questionId}`);
+            
+            // Invalidate cache
+            this.invalidateCache(examId, subjectId);
+            examService.invalidateCache(examId);
+            
+            return {
+                questionId,
+                question: questionData.question,
+                options: questionData.options,
+                correctOption: questionData.correctOption,
+                explanation: questionData.explanation || ''
+            };
+        } else {
             throw new Error('Question not found');
         }
-
-        await saveQuestions(data);
-        
-        // Invalidate cache
-        this.invalidateCache(examId, subjectId);
-        examService.invalidateCache(examId);
-        
-        return updatedQuestion;
     }
 
     // Delete question
     async deleteQuestion(examId, subjectId, questionId) {
-        const data = await getQuestions();
-        const exam = data.exams.find(e => e.examId === examId);
+        console.log(`🗑️ Deleting question: ${questionId} from ${examId}/${subjectId}`);
         
+        // Use MongoDB directly
+        const mongoService = require('./mongoService');
+        const db = await mongoService.connect();
+        
+        // Verify exam exists
+        const exam = await db.collection('exams').findOne({ examId, isActive: true });
         if (!exam) {
             throw new Error('Exam not found');
         }
 
-        const subject = exam.subjects?.find(s => s.subjectId === subjectId);
-        
+        // Verify subject exists
+        const subject = await db.collection('subjects').findOne({ examId, subjectId });
         if (!subject) {
             throw new Error('Subject not found');
         }
 
-        let questionDeleted = false;
+        // Find and delete the question
+        const deleteResult = await db.collection('questions').deleteOne({ 
+            examId, 
+            subjectId, 
+            questionId 
+        });
 
-        if (subject.questionPapers) {
-            for (const paper of subject.questionPapers) {
-                const questionIndex = paper.questions?.findIndex(q => q.questionId === questionId);
-                if (questionIndex !== -1) {
-                    paper.questions.splice(questionIndex, 1);
-                    questionDeleted = true;
-                    break;
-                }
-            }
-        }
-
-        if (!questionDeleted) {
+        if (deleteResult.deletedCount === 1) {
+            console.log(`✅ Deleted question: ${questionId}`);
+            
+            // Invalidate cache
+            this.invalidateCache(examId, subjectId);
+            examService.invalidateCache(examId);
+            
+            return true;
+        } else {
             throw new Error('Question not found');
         }
-
-        await saveQuestions(data);
-        
-        // Invalidate cache
-        this.invalidateCache(examId, subjectId);
-        examService.invalidateCache(examId);
-        
-        return true;
     }
 
     // Bulk add questions from array
     async bulkAddQuestions(examId, subjectId, paperId, questionsArray) {
-        const data = await getQuestions();
-        const exam = data.exams.find(e => e.examId === examId);
+        console.log(`📤 Bulk adding ${questionsArray.length} questions to: ${examId}/${subjectId}/${paperId}`);
         
+        // Use MongoDB directly
+        const mongoService = require('./mongoService');
+        const db = await mongoService.connect();
+        
+        // Verify exam exists
+        const exam = await db.collection('exams').findOne({ examId, isActive: true });
         if (!exam) {
             throw new Error('Exam not found');
         }
 
-        const subject = exam.subjects?.find(s => s.subjectId === subjectId);
-        
+        // Verify subject exists
+        const subject = await db.collection('subjects').findOne({ examId, subjectId });
         if (!subject) {
             throw new Error('Subject not found');
         }
 
-        const paper = subject.questionPapers?.find(p => p.questionPaperId === paperId);
-        
-        if (!paper) {
+        // Verify question paper exists
+        const questionPaper = await db.collection('questionPapers').findOne({ 
+            examId, 
+            subjectId, 
+            $or: [{ paperId: paperId }, { questionPaperId: paperId }]
+        });
+        if (!questionPaper) {
             throw new Error('Question paper not found');
         }
 
@@ -306,7 +380,12 @@ class QuestionService {
                     question: questionsArray[i].question,
                     options: questionsArray[i].options,
                     correctOption: questionsArray[i].correctOption,
-                    explanation: questionsArray[i].explanation || ''
+                    explanation: questionsArray[i].explanation || '',
+                    examId,
+                    subjectId,
+                    paperId: questionPaper.paperId || questionPaper.questionPaperId,
+                    createdAt: new Date(),
+                    updatedAt: new Date()
                 };
 
                 processedQuestions.push(newQuestion);
@@ -315,18 +394,22 @@ class QuestionService {
             }
         }
 
-        if (!paper.questions) {
-            paper.questions = [];
-        }
-
-        paper.questions.push(...processedQuestions);
-        await saveQuestions(data);
+        // Insert all questions into MongoDB
+        const insertResult = await db.collection('questions').insertMany(processedQuestions);
+        
+        console.log(`✅ Bulk added ${insertResult.insertedCount} questions to MongoDB`);
         
         // Invalidate cache
         this.invalidateCache(examId, subjectId, paperId);
         examService.invalidateCache(examId);
         
-        return processedQuestions;
+        return processedQuestions.map(q => ({
+            questionId: q.questionId,
+            question: q.question,
+            options: q.options,
+            correctOption: q.correctOption,
+            explanation: q.explanation
+        }));
     }
 
     // Search questions

@@ -191,14 +191,24 @@ app.get('/api/health/mongodb', async (req, res) => {
 // Data source info route
 app.get('/api/health/data', async (req, res) => {
     try {
-        const { getQuestions } = require('./utils/dataHelpers');
-        const data = await getQuestions();
+        // Use MongoDB directly instead of getQuestions()
+        const mongoService = require('./services/mongoService');
+        const db = await mongoService.connect();
+        
+        // Get data directly from MongoDB
+        const exams = await db.collection('exams').find({ isActive: true }).toArray();
+        const subjects = await db.collection('subjects').find({}).toArray();
+        const papers = await db.collection('questionPapers').find({}).toArray();
+        const questions = await db.collection('questions').find({}).toArray();
         
         res.json({
             timestamp: new Date().toISOString(),
-            dataSource: data.source || 'unknown',
-            examCount: data.exams?.length || 0,
-            lastUpdated: data.lastUpdated || null,
+            dataSource: 'mongodb',
+            examCount: exams.length,
+            subjectCount: subjects.length,
+            paperCount: papers.length,
+            questionCount: questions.length,
+            lastUpdated: new Date().toISOString(),
             status: 'healthy'
         });
     } catch (error) {
@@ -265,9 +275,10 @@ app.use('/', examHierarchyRoutes); // move this LAST because it has /:exam wildc
 app.use(notFound); // Handle 404s
 app.use(errorHandler); // Handle all errors
 
-// const PORT = process.env.PORT || 100;
-// app.listen(PORT, () => {
-//   console.log(`Server running on http://localhost:${PORT}`);
-// });
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`📊 Dashboard available at http://localhost:${PORT}/dashboard`);
+});
 
 module.exports = app;

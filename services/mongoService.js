@@ -11,11 +11,16 @@ class MongoService {
 
     async connect() {
         try {
-            if (this.isConnected) {
+            if (this.isConnected && this.db) {
                 return this.db;
             }
 
             console.log('📡 Connecting to MongoDB...');
+            
+            // Check if connection string is available
+            if (!this.connectionString) {
+                throw new Error('MongoDB connection string not found. Please check MONGODB_URI environment variable.');
+            }
             
             // Detect if running on Vercel
             const isVercel = process.env.VERCEL || process.env.NOW_REGION;
@@ -45,27 +50,46 @@ class MongoService {
             
             console.log('📡 Attempting MongoDB connection...');
             
-            this.client = new MongoClient(this.connectionString, options);
-            await this.client.connect();
+            // Retry logic for connection
+            let retries = 3;
+            let lastError;
             
-            // Test the connection
-            await this.client.db('admin').admin().ping();
+            while (retries > 0) {
+                try {
+                    this.client = new MongoClient(this.connectionString, options);
+                    await this.client.connect();
+                    
+                    // Test the connection
+                    await this.client.db('admin').admin().ping();
+                    
+                    this.db = this.client.db(this.dbName);
+                    this.isConnected = true;
+                    
+                    // PERFORMANCE BOOST: Ensure critical indexes exist
+                    await this.ensureIndexes();
+                    
+                    console.log('✅ MongoDB connected successfully with performance optimizations');
+                    return this.db;
+                    
+                } catch (error) {
+                    lastError = error;
+                    retries--;
+                    console.warn(`⚠️ MongoDB connection attempt failed, ${retries} retries left:`, error.message);
+                    
+                    if (retries > 0) {
+                        await new Promise(resolve => setTimeout(resolve, 2000)); // Wait 2 seconds before retry
+                    }
+                }
+            }
             
-            this.db = this.client.db(this.dbName);
-            this.isConnected = true;
-            
-            // PERFORMANCE BOOST: Ensure critical indexes exist
-            await this.ensureIndexes();
-            
-            console.log('✅ MongoDB connected successfully with performance optimizations');
-            return this.db;
+            throw lastError;
             
         } catch (error) {
             console.error('❌ MongoDB connection failed after all retries:', error.message);
             this.isConnected = false;
             this.client = null;
             this.db = null;
-            throw error;
+            throw new Error(`MongoDB connection failed: ${error.message}`);
         }
     }
 

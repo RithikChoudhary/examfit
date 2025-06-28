@@ -377,6 +377,11 @@ router.get('/:exam/:subject/:questionPaper/questions', asyncHandler(async (req, 
     };
 
     console.log(`✅ DEBUG: Rendering questions template with ${questions.length} questions`);
+    console.log(`🔍 DEBUG: Template data keys:`, Object.keys(templateData));
+    console.log(`🔍 DEBUG: Questions array length:`, templateData.questions.length);
+    if (templateData.questions.length > 0) {
+      console.log(`🔍 DEBUG: First question preview:`, templateData.questions[0].question.substring(0, 50) + '...');
+    }
     res.render('questions', templateData);
   } catch (error) {
     console.error(`❌ DEBUG: Error loading questions:`, error);
