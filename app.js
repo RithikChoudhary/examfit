@@ -100,12 +100,12 @@ const { Readable } = require('stream');
 
 app.get('/sitemap.xml', async (req, res) => {
   try {
-    console.log('Generating optimized sitemap...');
+    console.log('🗺️ Generating comprehensive sitemap...');
     
-    // Check for cached sitemap first (cache for 24 hours)
+    // Check for cached sitemap first (cache for 6 hours instead of 24 for more frequent updates)
     const cachedSitemap = cacheService.get('sitemap_xml');
     if (cachedSitemap) {
-      console.log('Serving cached sitemap');
+      console.log('📋 Serving cached sitemap');
       res.writeHead(200, { 'Content-Type': 'application/xml' });
       return res.end(cachedSitemap);
     }
@@ -113,7 +113,7 @@ app.get('/sitemap.xml', async (req, res) => {
     const links = [
       { url: '/', changefreq: 'daily', priority: 1.0 },
       { url: '/practice', changefreq: 'daily', priority: 0.9 },
-      { url: '/practice/progress', changefreq: 'weekly', priority: 0.7 },
+      { url: '/practice/progress', changefreq: 'weekly', priority: 0.8 },
       { url: '/current-affairs', changefreq: 'daily', priority: 0.9 },
       { url: '/blog', changefreq: 'daily', priority: 0.8 },
       { url: '/blog/upsc-preparation-strategy-2025', changefreq: 'weekly', priority: 0.7 },
@@ -139,70 +139,105 @@ app.get('/sitemap.xml', async (req, res) => {
       });
     }
 
-    // Get exam data using cached service (faster)
-    const exams = await examService.getAllExams(true); // Use cache for better performance
+    // FIXED: Get exam data properly from MongoDB
+    console.log('📚 Loading exams for sitemap...');
     
-    // Process exams in batches to prevent timeout
-    const batchSize = 10;
-    for (let i = 0; i < exams.length; i += batchSize) {
-      const examBatch = exams.slice(i, i + batchSize);
+    try {
+      // Get exams directly from MongoDB to ensure we have data
+      const mongoService = require('./services/mongoService');
+      const db = await mongoService.connect();
       
-      await Promise.allSettled(examBatch.map(async (examSummary) => {
+      // Get all active exams
+      const exams = await db.collection('exams').find({ isActive: true }).toArray();
+      console.log(`📊 Found ${exams.length} active exams in database`);
+      
+      if (exams.length === 0) {
+        console.warn('⚠️ No active exams found in database');
+      }
+      
+      // Process each exam
+      for (const exam of exams) {
         try {
-          const exam = await examService.getExamById(examSummary.examId);
+          console.log(`🔍 Processing exam: ${exam.examId} (${exam.examName})`);
           
-          // Exam page
+          // Add main exam page
           links.push({
             url: `/${exam.examId}`,
             changefreq: 'weekly',
             priority: 0.9
           });
-
-          // Add subject and paper URLs (limit to most important ones)
-          exam.subjects?.slice(0, 20)?.forEach(subject => { // Limit to 20 subjects per exam
-            // Subject's question paper list
-            links.push({
-              url: `/${exam.examId}/${subject.subjectId}/questionPapers`,
-              changefreq: 'weekly',
-              priority: 0.8
-            });
-
-            // Add only first 10 papers per subject to keep sitemap manageable
-            subject.questionPapers?.slice(0, 10)?.forEach(paper => {
+          console.log(`✅ Added exam page: /${exam.examId}`);
+          
+          // Get subjects for this exam
+          const subjects = await db.collection('subjects').find({ examId: exam.examId }).toArray();
+          console.log(`📋 Found ${subjects.length} subjects for ${exam.examId}`);
+          
+          // Limit subjects to prevent sitemap from becoming too large
+          const limitedSubjects = subjects.slice(0, 15); // Limit to 15 subjects per exam
+          
+          for (const subject of limitedSubjects) {
+            try {
+              // Add subject's question papers page
               links.push({
-                url: `/${exam.examId}/${subject.subjectId}/questionPapers/${paper.questionPaperId}`,
-                changefreq: 'monthly',
-                priority: 0.7
+                url: `/${exam.examId}/${subject.subjectId}/questionPapers`,
+                changefreq: 'weekly',
+                priority: 0.8
               });
-
-              // Skip individual questions in sitemap to keep it lightweight
-              // Individual questions can be discovered through paper pages
-            });
-          });
-        } catch (error) {
-          console.warn(`Failed to process exam ${examSummary.examId} for sitemap:`, error.message);
+              console.log(`✅ Added subject page: /${exam.examId}/${subject.subjectId}/questionPapers`);
+              
+              // Get question papers for this subject
+              const papers = await db.collection('questionPapers').find({ 
+                examId: exam.examId, 
+                subjectId: subject.subjectId 
+              }).limit(8).toArray(); // Limit to 8 papers per subject
+              
+              console.log(`📄 Found ${papers.length} papers for ${exam.examId}/${subject.subjectId}`);
+              
+              for (const paper of papers) {
+                // Add question paper page
+                links.push({
+                  url: `/${exam.examId}/${subject.subjectId}/${paper.paperId}/questions`,
+                  changefreq: 'monthly',
+                  priority: 0.7
+                });
+                console.log(`✅ Added paper page: /${exam.examId}/${subject.subjectId}/${paper.paperId}/questions`);
+              }
+              
+            } catch (subjectError) {
+              console.warn(`⚠️ Error processing subject ${subject.subjectId}:`, subjectError.message);
+            }
+          }
+          
+        } catch (examError) {
+          console.warn(`⚠️ Error processing exam ${exam.examId}:`, examError.message);
         }
-      }));
+      }
+      
+    } catch (dbError) {
+      console.error('❌ Database error while generating sitemap:', dbError.message);
+      // Continue with basic sitemap if database fails
     }
 
     // Limit total URLs to prevent sitemap from becoming too large
     const maxUrls = 50000; // Google's limit is 50,000 URLs per sitemap
     if (links.length > maxUrls) {
-      console.warn(`Sitemap has ${links.length} URLs, truncating to ${maxUrls}`);
+      console.warn(`⚠️ Sitemap has ${links.length} URLs, truncating to ${maxUrls}`);
       links.splice(maxUrls);
     }
 
+    // Generate sitemap XML
     const stream = new SitemapStream({ hostname: 'https://examfit.in' });
     const xml = await streamToPromise(Readable.from(links).pipe(stream)).then(data => data.toString());
     
-    // Cache the generated sitemap for 24 hours
-    cacheService.set('sitemap_xml', xml, 24 * 60 * 60 * 1000);
+    // Cache the generated sitemap for 6 hours
+    cacheService.set('sitemap_xml', xml, 6 * 60 * 60 * 1000);
     
-    console.log(`Sitemap generated with ${links.length} URLs`);
+    console.log(`✅ Sitemap generated successfully with ${links.length} URLs`);
     res.writeHead(200, { 'Content-Type': 'application/xml' });
     res.end(xml);
+    
   } catch (err) {
-    console.error('Sitemap generation error:', err);
+    console.error('❌ Sitemap generation error:', err);
     res.status(500).send('<?xml version="1.0" encoding="UTF-8"?><error>Sitemap generation failed</error>');
   }
 });
@@ -271,6 +306,11 @@ app.use('/api/v1', apiV1Router);
 app.use('/practice', practiceRouter); // Practice routes
 app.use('/current-affairs', currentAffairsRouter); // Current affairs routes
 app.use('/blog', blogRouter); // Blog routes
+
+// Optimized API routes for better performance
+const apiOptimizedRouter = require('./routes/api-optimized');
+app.use('/api/optimized', apiOptimizedRouter); // New optimized API routes
+
 app.use('/api', apiRouter); // Legacy API routes
 
 // CRITICAL: Dashboard routes MUST come before any wildcard routes to prevent conflicts
