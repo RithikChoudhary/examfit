@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
+Allow: /current-affairs
+Allow: /current-affairs?date=*
 Disallow: /admin/
 Disallow: /dashboard/
 Disallow: /api/

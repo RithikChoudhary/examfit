@@ -4,14 +4,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Practice <%= subjectName %> questions for <%= examName %>. Access comprehensive question papers and boost your exam preparation with ExamFit.">
-  <meta property="og:title" content="<%= subjectName %> Question Papers - <%= examName %> | ExamFit" />
-  <meta property="og:description"
-    content="Practice <%= subjectName %> questions for <%= examName %> with comprehensive question papers and smart preparation tools." />
-  <meta property="og:image" content="/templates/logo.webp" />
+  <!-- Enhanced SEO Meta Tags -->
+  <meta name="description" content="Practice <%= subjectName %> questions for <%= examName %>. Access comprehensive question papers and boost your exam preparation with ExamFit. <%= questionPapers.length %> question papers available.">
+  <meta name="keywords" content="<%= subjectName %> questions, <%= examName %> <%= subjectName %>, <%= subjectName %> question papers, <%= examName %> practice, competitive exam questions, <%= subjectName %> preparation">
+  <meta name="author" content="ExamFit">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  
+  <!-- Enhanced Open Graph Tags -->
+  <meta property="og:title" content="<%= subjectName %> Question Papers - <%= examName %> Practice | ExamFit" />
+  <meta property="og:description" content="Practice <%= subjectName %> questions for <%= examName %> with <%= questionPapers.length %> comprehensive question papers and smart preparation tools." />
+  <meta property="og:image" content="https://examfit.in/templates/<%= exam %>.webp" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://examfit.in/<%= exam %>/<%= subject %>/questionPapers" />
+  <meta property="og:site_name" content="ExamFit" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<%= subjectName %> Question Papers - <%= examName %>">
+  <meta name="twitter:description" content="<%= subjectName %> practice questions for <%= examName %> exam">
+  <meta name="twitter:image" content="https://examfit.in/templates/<%= exam %>.webp">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://examfit.in/<%= exam %>/<%= subject %>/questionPapers">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "<%= subjectName %> Question Papers - <%= examName %>",
+    "description": "Practice <%= subjectName %> questions for <%= examName %> with comprehensive question papers",
+    "url": "https://examfit.in/<%= exam %>/<%= subject %>/questionPapers",
+    "mainEntity": {
+      "@type": "Course",
+      "name": "<%= subjectName %> - <%= examName %>",
+      "description": "<%= subjectName %> question papers and practice materials for <%= examName %> exam preparation",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "ExamFit",
+        "url": "https://examfit.in"
+      },
+      "courseMode": "online",
+      "educationalLevel": "HigherEducation",
+      "numberOfCredits": <%= questionPapers.length %>,
+      "hasCourseInstance": [
+        <% questionPapers.slice(0, 10).forEach((paper, index) => { %>
+        {
+          "@type": "CourseInstance",
+          "name": "<%= paper.questionPaperName %>",
+          "description": "<%= paper.questionPaperName %> for <%= subjectName %> - <%= examName %>",
+          "url": "https://examfit.in/<%= exam %>/<%= subject %>/<%= paper.questionPaperId %>/questions"
+        }<%= index < Math.min(questionPapers.length - 1, 9) ? ',' : '' %>
+        <% }) %>
+      ]
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://examfit.in"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "<%= examName %>",
+          "item": "https://examfit.in/<%= exam %>"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "<%= subjectName %>",
+          "item": "https://examfit.in/<%= exam %>/<%= subject %>/questionPapers"
+        }
+      ]
+    }
+  }
+  </script>
   
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">

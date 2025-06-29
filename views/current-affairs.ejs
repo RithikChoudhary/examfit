@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title><%= title %></title>
     
     <!-- SEO Meta Tags -->
@@ -28,364 +31,596 @@
     <meta name="twitter:image" content="https://examfit.in/templates/logo.webp">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://examfit.in/current-affairs">
+    <link rel="canonical" href="https://examfit.in/current-affairs<%= selectedDate ? '?date=' + selectedDate : '' %>">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Current Affairs - <%= selectedDate ? new Date(selectedDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Latest News' %>",
+      "description": "Daily current affairs and news updates for competitive exam preparation. Stay updated with the latest political, economic, and international developments.",
+      "url": "https://examfit.in/current-affairs<%= selectedDate ? '?date=' + selectedDate : '' %>",
+      "mainEntity": {
+        "@type": "NewsArticle",
+        "headline": "Current Affairs - <%= selectedDate ? new Date(selectedDate).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) : 'Latest News' %>",
+        "datePublished": "<%= selectedDate %>T00:00:00+05:30",
+        "dateModified": "<%= new Date().toISOString() %>",
+        "author": {
+          "@type": "Organization",
+          "name": "ExamFit"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "ExamFit",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://examfit.in/templates/logo.webp"
+          }
+        },
+        "articleSection": "Current Affairs",
+        "keywords": "current affairs, competitive exams, daily news, UPSC, SSC, banking exams"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://examfit.in"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Current Affairs",
+            "item": "https://examfit.in/current-affairs"
+          }
+        ]
+      }
+    }
+    </script>
     
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="/css/home-footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            background-color: #f8fafc;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f5f5;
+            color: #1a1a1a;
+            line-height: 1.6;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
         
-        .current-affairs-container {
+        .main-container {
+            flex: 1;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2rem;
-            background-color: #f8fafc;
-            flex: 1;
+            padding: 20px;
         }
         
-        /* Override any conflicting footer positioning */
-        .modern-footer {
-            position: relative !important;
-            margin-top: auto;
-        }
-        
-        .current-affairs-header {
+        /* Header Section */
+        .page-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
         
-        .current-affairs-header h1 {
+        .page-header h1 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #111827;
-            margin-bottom: 1rem;
+            color: #1a1a1a;
+            margin-bottom: 10px;
         }
         
-        .current-affairs-header p {
-            font-size: 1.125rem;
-            color: #4b5563;
-            margin-bottom: 2rem;
+        .page-header p {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 400;
         }
         
-        .filters-section {
+        /* Date Navigation */
+        .date-navigation {
             background: white;
-            padding: 1.5rem;
+            padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin-bottom: 30px;
         }
         
-        .filters-grid {
+        .date-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .current-date-display {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .date-highlight {
+            color: #2563eb;
+            font-size: 2.2rem;
+        }
+        
+        .date-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .date-btn {
+            padding: 10px 20px;
+            border: 1px solid #e0e0e0;
+            background: white;
+            color: #333;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .date-btn:hover {
+            background: #f8f8f8;
+            border-color: #333;
+        }
+        
+        .date-btn.active {
+            background: #1a1a1a;
+            color: white;
+            border-color: #1a1a1a;
+        }
+        
+        .date-btn.primary {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+        
+        .date-btn.primary:hover {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+        
+        .nav-arrows {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-arrow {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #e0e0e0;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-arrow:hover {
+            background: #f8f8f8;
+            border-color: #333;
+        }
+        
+        .nav-arrow:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Stats Bar */
+        .stats-bar {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        }
+        
+        .stats-info {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .stats-info strong {
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+        
+        /* News Grid */
+        .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            align-items: end;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
         }
         
-        .filter-group {
+        .news-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        
+        .news-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+        
+        .news-placeholder-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 3rem;
+        }
+        
+        .news-content {
+            padding: 20px;
+            flex: 1;
             display: flex;
             flex-direction: column;
         }
         
-        .filter-label {
+        .news-number {
+            display: inline-block;
+            background: #f0f0f0;
+            color: #666;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
             font-weight: 600;
-            color: #374151;
-            margin-bottom: 0.5rem;
+            margin-bottom: 12px;
         }
         
-        .filter-select {
-            padding: 0.75rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        
-        .filter-select:focus {
-            outline: none;
-            border-color: #3b82f6;
-        }
-        
-        .filter-btn {
-            background: #3b82f6;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+        .news-title {
+            font-size: 1.1rem;
             font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        
-        .filter-btn:hover {
-            background: #2563eb;
-        }
-        
-        .stats-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #f9fafb;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-        }
-        
-        .stats-text {
-            color: #4b5563;
-            font-weight: 500;
-        }
-        
-        .last-updated {
-            color: #6b7280;
-            font-size: 0.875rem;
-        }
-        
-        .affairs-grid {
-            display: grid;
-            gap: 1.5rem;
-        }
-        
-        .category-section {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        .category-header {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            color: white;
-            padding: 1rem 1.5rem;
-            font-weight: 600;
-            font-size: 1.125rem;
-        }
-        
-        .affairs-list {
-            padding: 0;
-        }
-        
-        .affair-item {
-            border-bottom: 1px solid #e5e7eb;
-            padding: 1.5rem;
-            transition: background 0.3s ease;
-        }
-        
-        .affair-item:last-child {
-            border-bottom: none;
-        }
-        
-        .affair-item:hover {
-            background: #f9fafb;
-        }
-        
-        .affair-title {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 0.75rem;
+            color: #1a1a1a;
+            margin-bottom: 12px;
             line-height: 1.4;
         }
         
-        .affair-content {
-            color: #374151;
-            line-height: 1.6;
-            margin-bottom: 1rem;
+        .news-description {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.5;
         }
         
-        .affair-meta {
+        .news-text {
+            font-size: 0.9rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        
+        .news-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid #f0f0f0;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 12px;
         }
         
-        .affair-badges {
+        .news-source {
             display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .affair-badge {
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        
-        .importance-high {
-            background: #fee2e2;
-            color: #dc2626;
-        }
-        
-        .importance-medium {
-            background: #fef3c7;
-            color: #d97706;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: #666;
         }
         
         .source-badge {
-            background: #e5e7eb;
-            color: #374151;
+            background: #f8f8f8;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: 500;
         }
         
-        .affair-date {
-            color: #6b7280;
-            font-size: 0.875rem;
+        .read-more-link {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s ease;
         }
         
-        .no-affairs {
+        .read-more-link:hover {
+            color: #1d4ed8;
+        }
+        
+        /* No Content State */
+        .no-content {
             text-align: center;
-            padding: 4rem 2rem;
-            color: #6b7280;
+            padding: 80px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
         
-        .no-affairs i {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #9ca3af;
+        .no-content i {
+            font-size: 4rem;
+            color: #ddd;
+            margin-bottom: 20px;
         }
         
+        .no-content h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .no-content p {
+            color: #666;
+            font-size: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        /* Loading State */
+        .loading-container {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f0f0f0;
+            border-top-color: #2563eb;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Update Button */
+        .update-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .update-btn {
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .update-btn:hover {
+            background: #d97706;
+        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .current-affairs-container {
-                padding: 1rem;
+            .main-container {
+                padding: 10px;
             }
             
-            .current-affairs-header h1 {
+            .page-header h1 {
                 font-size: 2rem;
             }
             
-            .filters-grid {
+            .date-navigation {
+                padding: 15px;
+            }
+            
+            .date-nav-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .date-buttons {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            
+            .date-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .news-grid {
                 grid-template-columns: 1fr;
+                gap: 16px;
             }
             
             .stats-bar {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-            
-            .affair-meta {
-                flex-direction: column;
+                gap: 10px;
                 align-items: flex-start;
             }
+        }
+        
+        /* Footer fix */
+        .modern-footer {
+            position: relative !important;
+            margin-top: auto;
         }
     </style>
 </head>
 <body>
     <%- include('partials/navbar') %>
     
-    <div class="current-affairs-container">
-        <div class="current-affairs-header">
-            <h1><i class="fas fa-newspaper"></i> Current Affairs</h1>
-            <p>Stay updated with the latest news and developments important for competitive exams</p>
+    <div class="main-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Current Affairs</h1>
+            <p>Daily news updates for competitive exam preparation</p>
         </div>
         
-        <!-- Filters Section -->
-        <div class="filters-section">
-            <form method="GET" action="/current-affairs">
-                <div class="filters-grid">
-                    <div class="filter-group">
-                        <label class="filter-label">Category</label>
-                        <select name="category" class="filter-select">
-                            <option value="all" <%= selectedCategory === 'all' ? 'selected' : '' %>>All Categories</option>
-                            <% categories.forEach(category => { %>
-                                <option value="<%= category %>" <%= selectedCategory === category ? 'selected' : '' %>>
-                                    <%= category %>
-                                </option>
-                            <% }) %>
-                        </select>
-                    </div>
-                    
-                    <div class="filter-group">
-                        <label class="filter-label">Importance</label>
-                        <select name="importance" class="filter-select">
-                            <option value="all" <%= selectedImportance === 'all' ? 'selected' : '' %>>All Levels</option>
-                            <option value="high" <%= selectedImportance === 'high' ? 'selected' : '' %>>High Importance</option>
-                            <option value="medium" <%= selectedImportance === 'medium' ? 'selected' : '' %>>Medium Importance</option>
-                        </select>
-                    </div>
-                    
-                    <div class="filter-group">
-                        <button type="submit" class="filter-btn" id="applyFiltersBtn">
-                            <i class="fas fa-filter"></i> Apply Filters
-                        </button>
-                    </div>
+        <!-- Date Navigation -->
+        <div class="date-navigation">
+            <div class="date-nav-header">
+                <div class="current-date-display">
+                    <% 
+                    // Fix timezone issue by parsing date components
+                    const [year, month, day] = selectedDate.split('-').map(Number);
+                    const displayDate = new Date(year, month - 1, day);
+                    %>
+                    <%= day %> <%= displayDate.toLocaleDateString('en-IN', { month: 'long' }) %> <%= year %>
                 </div>
-            </form>
+                
+                <div class="nav-arrows">
+                    <button class="nav-arrow" onclick="navigateDate(-1)" title="Previous Day">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-arrow" onclick="navigateDate(1)" title="Next Day" <%= (() => {
+                        const maxDate = new Date();
+                        maxDate.setDate(maxDate.getDate() - 2);
+                        return new Date(selectedDate) >= maxDate;
+                    })() ? 'disabled' : '' %>>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
         </div>
         
         <!-- Stats Bar -->
-        <div class="stats-bar">
-            <div class="stats-text">
-                Showing <%= filteredCount %> of <%= totalCount %> current affairs
-                <% if (sources.length > 0) { %>
-                    | Sources: <%= sources.join(', ') %>
-                <% } %>
-            </div>
-            <% if (lastUpdated) { %>
-                <div class="last-updated">
-                    Last updated: <%= new Date(lastUpdated).toLocaleDateString('en-IN', { 
-                        year: 'numeric', 
-                        month: 'short', 
-                        day: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit'
-                    }) %>
+        <% if (currentAffairs.length > 0) { %>
+            <div class="stats-bar">
+                <div class="stats-info">
+                    Showing <strong><%= totalCount %></strong> current affairs
                 </div>
-            <% } %>
-        </div>
+            </div>
+        <% } %>
         
-        <!-- Current Affairs Content -->
-        <div class="affairs-grid">
-            <% if (Object.keys(groupedAffairs).length === 0) { %>
-                <div class="no-affairs">
+        <!-- Content Area -->
+        <div id="contentArea">
+            <% if (currentAffairs.length === 0) { %>
+                <div class="no-content">
                     <i class="fas fa-newspaper"></i>
-                    <h3>No Current Affairs Found</h3>
-                    <p>Try adjusting your filters or check back later for new updates.</p>
+                    <h3>No Current Affairs Available</h3>
+                    <p>No current affairs found for this date. Please try selecting a different date.</p>
                 </div>
             <% } else { %>
-                <% Object.keys(groupedAffairs).forEach(category => { %>
-                    <div class="category-section">
-                        <div class="category-header">
-                            <i class="fas fa-folder"></i> <%= category %> (<%= groupedAffairs[category].length %>)
-                        </div>
-                        <div class="affairs-list">
-                            <% groupedAffairs[category].forEach(affair => { %>
-                                <div class="affair-item">
-                                    <h3 class="affair-title"><%= affair.title %></h3>
-                                    <p class="affair-content"><%= affair.content %></p>
-                                    <div class="affair-meta">
-                                        <div class="affair-badges">
-                                            <span class="affair-badge importance-<%= affair.importance %>">
-                                                <i class="fas fa-star"></i> <%= affair.importance %> importance
-                                            </span>
-                                            <span class="affair-badge source-badge">
-                                                <i class="fas fa-link"></i> <%= affair.source %>
-                                            </span>
-                                        </div>
-                                        <div class="affair-date">
-                                            <i class="fas fa-calendar"></i>
-                                            <%= new Date(affair.datePublished).toLocaleDateString('en-IN', { 
-                                                month: 'short', 
-                                                day: 'numeric' 
-                                            }) %>
-                                        </div>
-                                    </div>
+                <div class="news-grid">
+                    <% currentAffairs.forEach((affair, index) => { %>
+                        <div class="news-card">
+                            <% if (affair.urlToImage) { %>
+                                <img src="<%= affair.urlToImage %>" alt="<%= affair.title %>" class="news-image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="news-placeholder-image" style="display: none;">
+                                    <i class="fas fa-image"></i>
                                 </div>
-                            <% }) %>
+                            <% } else { %>
+                                <div class="news-placeholder-image">
+                                    <i class="fas fa-newspaper"></i>
+                                </div>
+                            <% } %>
+                            
+                            <div class="news-content">
+                                <span class="news-number">#<%= index + 1 %></span>
+                                
+                                <h3 class="news-title"><%= affair.title %></h3>
+                                
+                                <% if (affair.description && affair.description !== affair.content) { %>
+                                    <p class="news-description"><%= affair.description %></p>
+                                <% } %>
+                                
+                                <p class="news-text"><%= affair.content %></p>
+                                
+                                <div class="news-footer">
+                                    <div class="news-source">
+                                        <span class="source-badge">
+                                            <i class="fas fa-globe"></i> <%= affair.source %>
+                                        </span>
+                                        <% if (affair.author) { %>
+                                            <span>by <%= affair.author %></span>
+                                        <% } %>
+                                        <% if (affair.publishedAt) { %>
+                                            <span style="color: #999; font-size: 0.8rem;">
+                                                • <%= new Date(affair.publishedAt).toLocaleTimeString('en-IN', { 
+                                                    hour: '2-digit',
+                                                    minute: '2-digit'
+                                                }) %>
+                                            </span>
+                                        <% } %>
+                                    </div>
+                                    
+                                    <% if (affair.url) { %>
+                                        <a href="<%= affair.url %>" target="_blank" rel="noopener" class="read-more-link">
+                                            Read more <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                    <% } %>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                <% }) %>
+                    <% }) %>
+                </div>
             <% } %>
         </div>
     </div>
@@ -393,18 +628,85 @@
     <%- include('partials/footer') %>
     
     <script>
-        // Smooth scrolling for any anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // Navigate to previous/next date
+        function navigateDate(direction) {
+            const currentDate = new Date('<%= selectedDate %>');
+            currentDate.setDate(currentDate.getDate() + direction);
+            
+            // Maximum allowed date is 2 days ago from today
+            const maxDate = new Date();
+            maxDate.setDate(maxDate.getDate() - 2);
+            maxDate.setHours(0, 0, 0, 0);
+            
+            if (currentDate > maxDate) {
+                return; // Don't navigate beyond 2 days ago
+            }
+            
+            const dateStr = currentDate.toISOString().split('T')[0];
+            window.location.href = `/current-affairs?date=${dateStr}`;
+        }
+        
+        // Manual update
+        async function manualUpdate() {
+            if (!confirm('Fetch the latest current affairs for this date?')) {
+                return;
+            }
+            
+            showLoading();
+            
+            try {
+                const selectedDate = '<%= selectedDate %>' || new Date().toISOString().split('T')[0];
+                
+                const response = await fetch('/current-affairs/api/current-affairs/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        date: selectedDate
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert(`Successfully fetched ${data.result.count || 0} current affairs!`);
+                    window.location.reload();
+                } else {
+                    throw new Error(data.error || 'Update failed');
                 }
-            });
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to update current affairs. Please try again later.');
+                window.location.reload();
+            }
+        }
+        
+        // Show loading state
+        function showLoading() {
+            const contentArea = document.getElementById('contentArea');
+            contentArea.innerHTML = `
+                <div class="loading-container">
+                    <div class="loading-spinner"></div>
+                    <h3>Fetching Current Affairs...</h3>
+                    <p>Please wait while we get the latest news</p>
+                </div>
+            `;
+        }
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                navigateDate(-1);
+            } else if (e.key === 'ArrowRight') {
+                // Maximum allowed date is 2 days ago from today
+                const maxDate = new Date();
+                maxDate.setDate(maxDate.getDate() - 2);
+                const selected = new Date('<%= selectedDate %>');
+                if (selected < maxDate) {
+                    navigateDate(1);
+                }
+            }
         });
     </script>
 </body>

@@ -4,12 +4,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore <%= examName %> subjects with ExamFit. Access comprehensive study materials and practice questions for all subjects.">
-  <meta property="og:title" content="<%= examName %> Subjects | ExamFit" />
-  <meta property="og:description" content="Choose from comprehensive <%= examName %> subjects and start your exam preparation journey with ExamFit." />
-  <meta property="og:image" content="/templates/logo.webp" />
+  <!-- Enhanced SEO Meta Tags -->
+  <meta name="description" content="Explore <%= examName %> subjects with ExamFit. Access comprehensive study materials and practice questions for all subjects in <%= examName %> exam preparation.">
+  <meta name="keywords" content="<%= examName %> subjects, <%= examName %> preparation, <%= examName %> study materials, competitive exam subjects, <%= examName %> practice questions, exam preparation">
+  <meta name="author" content="ExamFit">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+  
+  <!-- Enhanced Open Graph Tags -->
+  <meta property="og:title" content="<%= examName %> Subjects - Complete Study Materials | ExamFit" />
+  <meta property="og:description" content="Choose from comprehensive <%= examName %> subjects and start your exam preparation journey with ExamFit. Access practice questions and study materials." />
+  <meta property="og:image" content="https://examfit.in/templates/<%= examId %>.webp" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://examfit.in/<%= examId %>" />
+  <meta property="og:site_name" content="ExamFit" />
+  <meta property="og:locale" content="en_US" />
+  
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="<%= examName %> Subjects | ExamFit">
+  <meta name="twitter:description" content="<%= examName %> exam preparation with comprehensive subjects">
+  <meta name="twitter:image" content="https://examfit.in/templates/<%= examId %>.webp">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://examfit.in/<%= examId %>">
+  
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "<%= examName %> Subjects - ExamFit",
+    "description": "Explore <%= examName %> subjects with comprehensive study materials and practice questions",
+    "url": "https://examfit.in/<%= examId %>",
+    "mainEntity": {
+      "@type": "Course",
+      "name": "<%= examName %> Exam Preparation",
+      "description": "Complete <%= examName %> exam preparation with subject-wise study materials",
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "ExamFit",
+        "url": "https://examfit.in"
+      },
+      "courseMode": "online",
+      "educationalLevel": "HigherEducation",
+      "hasCourseInstance": [
+        <% subjects.forEach((subject, index) => { %>
+        {
+          "@type": "CourseInstance",
+          "name": "<%= subject.subjectName %>",
+          "description": "<%= subject.subjectName %> preparation for <%= examName %>",
+          "url": "https://examfit.in/<%= examId %>/<%= subject.subjectId %>/questionPapers"
+        }<%= index < subjects.length - 1 ? ',' : '' %>
+        <% }) %>
+      ]
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://examfit.in"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "<%= examName %>",
+          "item": "https://examfit.in/<%= examId %>"
+        }
+      ]
+    }
+  }
+  </script>
   
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">

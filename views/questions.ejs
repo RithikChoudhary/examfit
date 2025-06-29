@@ -4,15 +4,81 @@
    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Prepare for competitive exams with ExamFit. Practice previous year papers, explore subject-wise questions, and boost your exam readiness.">
-  <meta property="og:title" content="ExamFit – Prepare Smarter" />
-  <meta property="og:description" content="Practice competitive exams with real question papers and smart subject-wise prep." />
-  <meta property="og:image" content="/templates/logo.webp" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://examfit.in" />
+    
+    <!-- Enhanced SEO Meta Tags -->
+    <meta name="description" content="Practice <%= subject.charAt(0).toUpperCase() + subject.slice(1) %> questions for <%= exam %> exam. <%= questions.length %> practice questions with detailed explanations to boost your exam preparation.">
+    <meta name="keywords" content="<%= subject %> questions, <%= exam %> <%= subject %>, <%= subject %> practice, <%= exam %> preparation, competitive exam questions, <%= subject %> quiz">
+    <meta name="author" content="ExamFit">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Enhanced Open Graph Tags -->
+    <meta property="og:title" content="<%= subject.charAt(0).toUpperCase() + subject.slice(1) %> Questions - <%= exam %> Practice | ExamFit" />
+    <meta property="og:description" content="Practice <%= questions.length %> <%= subject %> questions for <%= exam %> exam with detailed explanations and instant feedback." />
+    <meta property="og:image" content="https://examfit.in/templates/<%= exam %>.webp" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://examfit.in/<%= exam %>/<%= subject %>/questions" />
+    <meta property="og:site_name" content="ExamFit" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= subject.charAt(0).toUpperCase() + subject.slice(1) %> Questions - <%= exam %>">
+    <meta name="twitter:description" content="<%= questions.length %> practice questions for <%= exam %> <%= subject %>">
+    <meta name="twitter:image" content="https://examfit.in/templates/<%= exam %>.webp">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://examfit.in/<%= exam %>/<%= subject %>/questions">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Quiz",
+      "name": "<%= subject.charAt(0).toUpperCase() + subject.slice(1) %> Practice Quiz - <%= exam %>",
+      "description": "Practice <%= subject %> questions for <%= exam %> exam with <%= questions.length %> questions and detailed explanations",
+      "url": "https://examfit.in/<%= exam %>/<%= subject %>/questions",
+      "about": {
+        "@type": "Thing",
+        "name": "<%= subject.charAt(0).toUpperCase() + subject.slice(1) %> - <%= exam %>"
+      },
+      "educationalLevel": "HigherEducation",
+      "assesses": "<%= subject.charAt(0).toUpperCase() + subject.slice(1) %>",
+      "numberOfQuestions": <%= questions.length %>,
+      "provider": {
+        "@type": "EducationalOrganization",
+        "name": "ExamFit",
+        "url": "https://examfit.in"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://examfit.in"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "<%= exam %>",
+            "item": "https://examfit.in/<%= exam %>"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "<%= subject.charAt(0).toUpperCase() + subject.slice(1) %>",
+            "item": "https://examfit.in/<%= exam %>/<%= subject %>/questions"
+          }
+        ]
+      }
+    }
+    </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7935640093775501"
      crossorigin="anonymous"></script>
-    <title><%= subject.charAt(0).toUpperCase() + subject.slice(1) %> Questions</title>
+    <title><%= subject.charAt(0).toUpperCase() + subject.slice(1) %> Questions - <%= exam %> Practice | ExamFit</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/questions.css">
     <script src="/js/quiz.js"></script>

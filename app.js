@@ -27,6 +27,26 @@ const app = express();
 // Trust proxy for rate limiting and IP detection
 app.set('trust proxy', 1);
 
+// Setup daily current affairs automation
+const cron = require('node-cron');
+const dailyCurrentAffairsService = require('./services/dailyCurrentAffairsService');
+
+// Schedule daily current affairs scraping at 8:00 AM IST
+cron.schedule('0 8 * * *', async () => {
+  console.log('🕐 Starting daily current affairs scraping...');
+  
+  try {
+    const result = await dailyCurrentAffairsService.scrapeTodaysAffairs();
+    console.log('✅ Daily current affairs automation completed:', result);
+  } catch (error) {
+    console.error('❌ Error in daily current affairs automation:', error);
+  }
+}, {
+  timezone: "Asia/Kolkata"
+});
+
+console.log('📅 Daily current affairs automation scheduled for 8:00 AM IST');
+
 // Force HTTPS and non-www redirects in production
 app.use((req, res, next) => {
   // Skip redirects for localhost/development
@@ -63,7 +83,12 @@ app.use('/images', express.static(path.join(__dirname, 'public/images')));
 app.use('/icons', express.static(path.join(__dirname, 'public/icons')));
 
 app.use((req, res, next) => {
-  if (req.method === 'GET' && req.accepts('html')) {
+  // Disable caching in development or for current-affairs
+  if (process.env.NODE_ENV !== 'production' || req.path.includes('/current-affairs')) {
+    res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.set('Pragma', 'no-cache');
+    res.set('Expires', '0');
+  } else if (req.method === 'GET' && req.accepts('html')) {
     res.set('Cache-Control', 'public, max-age=3600, s-maxage=86400');
   }
   next();
@@ -88,13 +113,31 @@ app.get('/sitemap.xml', async (req, res) => {
     const links = [
       { url: '/', changefreq: 'daily', priority: 1.0 },
       { url: '/practice', changefreq: 'daily', priority: 0.9 },
-      { url: '/current-affairs', changefreq: 'daily', priority: 0.8 },
+      { url: '/practice/progress', changefreq: 'weekly', priority: 0.7 },
+      { url: '/current-affairs', changefreq: 'daily', priority: 0.9 },
       { url: '/blog', changefreq: 'daily', priority: 0.8 },
       { url: '/blog/upsc-preparation-strategy-2025', changefreq: 'weekly', priority: 0.7 },
       { url: '/blog/ssc-cgl-preparation-tips', changefreq: 'weekly', priority: 0.7 },
       { url: '/blog/current-affairs-june-2025', changefreq: 'weekly', priority: 0.7 },
       { url: '/contact', changefreq: 'monthly', priority: 0.6 }
     ];
+
+    // Add current affairs URLs for the last 30 days
+    const today = new Date();
+    for (let i = 0; i < 30; i++) {
+      const date = new Date(today);
+      date.setDate(today.getDate() - i - 2); // Start from 2 days ago
+      const dateStr = date.toISOString().split('T')[0];
+      
+      const priority = i < 7 ? 0.8 : 0.7; // Higher priority for recent dates
+      const changefreq = i < 7 ? 'daily' : 'weekly';
+      
+      links.push({
+        url: `/current-affairs?date=${dateStr}`,
+        changefreq,
+        priority
+      });
+    }
 
     // Get exam data using cached service (faster)
     const exams = await examService.getAllExams(true); // Use cache for better performance
@@ -229,7 +272,68 @@ app.use('/practice', practiceRouter); // Practice routes
 app.use('/current-affairs', currentAffairsRouter); // Current affairs routes
 app.use('/blog', blogRouter); // Blog routes
 app.use('/api', apiRouter); // Legacy API routes
+
+// CRITICAL: Dashboard routes MUST come before any wildcard routes to prevent conflicts
+// Add debugging middleware to track dashboard route registration
+app.use('/dashboard', (req, res, next) => {
+  console.log(`🔍 Dashboard route accessed: ${req.method} ${req.originalUrl} from ${req.ip}`);
+  next();
+});
+
 app.use('/dashboard', dashboardRouter); // Dashboard route enabled with MongoDB support
+
+// Add specific health check for dashboard delete route
+app.get('/api/health/dashboard', (req, res) => {
+  res.json({
+    timestamp: new Date().toISOString(),
+    status: 'healthy',
+    message: 'Dashboard routes are properly mounted',
+    expectedRoutes: [
+      'GET /dashboard',
+      'POST /dashboard/exams',
+      'POST /dashboard/exams/delete',
+      'GET /dashboard/subjects/:examId',
+      'GET /dashboard/questions/:examId/:subjectId',
+      'GET /dashboard/questionPapers/:examId/:subjectId'
+    ],
+    environment: process.env.NODE_ENV || 'development'
+  });
+});
+
+// Add route debugging endpoint for production troubleshooting
+app.get('/api/debug/routes', (req, res) => {
+  // Only enable in development or with specific auth
+  if (process.env.NODE_ENV === 'production' && !req.query.debug_key) {
+    return res.status(404).send('Not found');
+  }
+  
+  const routes = [];
+  app._router.stack.forEach((middleware) => {
+    if (middleware.route) {
+      routes.push({
+        path: middleware.route.path,
+        methods: Object.keys(middleware.route.methods)
+      });
+    } else if (middleware.name === 'router') {
+      middleware.handle.stack.forEach((handler) => {
+        if (handler.route) {
+          routes.push({
+            path: handler.route.path,
+            methods: Object.keys(handler.route.methods),
+            baseUrl: middleware.regexp.source
+          });
+        }
+      });
+    }
+  });
+  
+  res.json({
+    timestamp: new Date().toISOString(),
+    totalRoutes: routes.length,
+    routes: routes.slice(0, 50), // Limit output
+    dashboardRoutes: routes.filter(r => r.path && r.path.includes('dashboard'))
+  });
+});
 
 // View routes - ORDER MATTERS! Static and specific routes first
 app.use('/', indexRouter);       // handles / and /contact
@@ -264,6 +368,22 @@ app.use('*.jpg', (req, res, next) => {
 
 app.use('*.ico', (req, res, next) => {
   return res.status(404).send('Icon file not found');
+});
+
+// Add protection middleware to prevent wildcard routes from catching dashboard paths
+app.use('/', (req, res, next) => {
+  // If the request is for dashboard, it should have been handled already
+  // If we reach here, it means dashboard routes didn't catch it
+  if (req.path.startsWith('/dashboard')) {
+    console.warn(`⚠️ Dashboard path ${req.path} reached wildcard routes - this should not happen`);
+    return res.status(404).json({ 
+      error: 'Dashboard route not found',
+      path: req.path,
+      method: req.method,
+      timestamp: new Date().toISOString()
+    });
+  }
+  next();
 });
 
 // Dynamic exam routes - these must come after static exclusions
